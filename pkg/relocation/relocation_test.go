@@ -331,3 +331,61 @@ func TestEmbeddedKegVersion(t *testing.T) {
 		})
 	}
 }
+
+func TestIsTextFileShebang(t *testing.T) {
+	t.Parallel()
+
+	dir := t.TempDir()
+
+	write := func(name, content string) string {
+		p := filepath.Join(dir, name)
+		if err := os.WriteFile(p, []byte(content), 0o755); err != nil {
+			t.Fatal(err)
+		}
+		return p
+	}
+
+	// Extensionless Python entry-point — the terminator case.
+	if !isTextFile(write("terminator", "#!/opt/homegrew/Cellar/terminator/2.1.5/libexec/bin/python\npass\n")) {
+		t.Error("extensionless shebang script should be a text file")
+	}
+	// Explicit .py extension.
+	if !isTextFile(write("foo.py", "#!/usr/bin/env python3\npass\n")) {
+		t.Error(".py script should be a text file")
+	}
+	// Non-shebang binary-magic file should not match.
+	if isTextFile(write("notscript", "\x7fELF data")) {
+		t.Error("ELF file should not be a text file")
+	}
+	// Plain text file without shebang or known extension — not a text file.
+	if isTextFile(write("readme", "just some text")) {
+		t.Error("plain text without shebang or known ext should not match")
+	}
+}
+
+func TestRelocateShebangScript(t *testing.T) {
+	t.Parallel()
+
+	dir := t.TempDir()
+	script := filepath.Join(dir, "terminator")
+	shebang := "#!" + PlaceholderCellar + "/terminator/2.1.5/libexec/bin/python\nprint('hello')\n"
+	if err := os.WriteFile(script, []byte(shebang), 0o755); err != nil {
+		t.Fatal(err)
+	}
+
+	replacements := Replacements{
+		PlaceholderCellar: "/opt/homegrew/Cellar",
+	}
+	if err := relocateSingleTextFile(script, replacements); err != nil {
+		t.Fatalf("relocateSingleTextFile: %v", err)
+	}
+
+	got, err := os.ReadFile(script)
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := "#!" + "/opt/homegrew/Cellar/terminator/2.1.5/libexec/bin/python\nprint('hello')\n"
+	if string(got) != want {
+		t.Errorf("got %q, want %q", string(got), want)
+	}
+}

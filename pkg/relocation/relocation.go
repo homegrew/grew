@@ -240,13 +240,30 @@ func RelocateKeg(kegPath, prefix string) error {
 }
 
 // isTextFile checks if the file should be treated as a text file for relocation.
+// Files are matched by extension first (cheap), then by shebang (#!) so that
+// extensionless interpreter scripts (e.g. a Python entry-point installed as
+// "terminator") are relocated even though isBinary does not match them.
 func isTextFile(path string) bool {
 	ext := filepath.Ext(path)
 	switch ext {
-	case ".el", ".elc", ".pc", ".cmake", ".json", ".sh", ".xml", ".cfg", ".conf", ".desktop", ".service", ".plist":
+	case ".el", ".elc", ".pc", ".cmake", ".json", ".sh", ".xml", ".cfg", ".conf", ".desktop", ".service", ".plist",
+		".py", ".rb", ".pl", ".pm", ".lua", ".tcl", ".r", ".R":
 		return true
 	}
-	return false
+	return hasShebang(path)
+}
+
+// hasShebang returns true when the file starts with the "#!" magic that marks
+// an interpreter script. Reading just 2 bytes keeps the walk fast.
+func hasShebang(path string) bool {
+	f, err := os.Open(path)
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+	var buf [2]byte
+	n, err := f.Read(buf[:])
+	return n == 2 && err == nil && buf[0] == '#' && buf[1] == '!'
 }
 
 // relocateTextFiles performs string replacement on all whitelisted text files in a directory.
