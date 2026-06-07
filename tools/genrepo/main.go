@@ -15,9 +15,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	"gopkg.in/yaml.v3"
+
 	"github.com/homegrew/grew/pkg/homebrew"
 	"github.com/homegrew/grew/pkg/logger"
-	"gopkg.in/yaml.v3"
 )
 
 func main() {
@@ -98,7 +99,7 @@ func runFormulaImport(args []string) {
 	for _, f := range formulas {
 		subdir := getSubdir(f.Name)
 		targetDir := filepath.Join(outDir, subdir)
-		
+
 		if err := os.MkdirAll(targetDir, 0755); err != nil {
 			slog.Error("Failed to create subdirectory", "dir", targetDir, "error", err)
 			continue
@@ -109,10 +110,10 @@ func runFormulaImport(args []string) {
 			slog.Warn("Skipping formula due to invalid output path", "name", f.Name, "error", err)
 			continue
 		}
-		
+
 		// Remove "(remote)" suffix from the tap since we are generating a local repo
 		f.Tap = ""
-		
+
 		saveYAML(outPath, f)
 		imported++
 	}
@@ -142,7 +143,7 @@ func runCaskImport(args []string) {
 	for _, c := range casks {
 		subdir := getSubdir(c.Name)
 		targetDir := filepath.Join(outDir, subdir)
-		
+
 		if err := os.MkdirAll(targetDir, 0755); err != nil {
 			slog.Error("Failed to create subdirectory", "dir", targetDir, "error", err)
 			continue
@@ -153,10 +154,10 @@ func runCaskImport(args []string) {
 			slog.Warn("Skipping cask due to invalid output path", "name", c.Name, "error", err)
 			continue
 		}
-		
+
 		// Remove "(remote)" suffix from the tap since we are generating a local repo
 		c.Tap = ""
-		
+
 		saveYAML(outPath, c)
 		imported++
 	}

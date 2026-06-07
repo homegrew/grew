@@ -26,26 +26,6 @@ func main() {
 	cli.SetupTestEnvironment()
 
 	switch os.Args[1] {
-	case "run":
-		exePath, err := os.Executable()
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-			os.Exit(1)
-		}
-		if err := cmd.ExportSelfUpdateFromRelease(exePath); err != nil {
-			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-			os.Exit(1)
-		}
-	case "from-release":
-		exePath, err := os.Executable()
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-			os.Exit(1)
-		}
-		if err := cmd.ExportSelfUpdateFromRelease(exePath); err != nil {
-			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-			os.Exit(1)
-		}
 	default:
 		// Delegate everything else (like "install", "_extract") to the real command router
 		testCmd := &cobra.Command{Use: "grew"}
