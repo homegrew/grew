@@ -100,7 +100,7 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	if !info.Mode().IsRegular() {
 		return fmt.Errorf("binary is not a regular file")
 	}
-	cmd := exec.Command(binPath, "version")
+	cmd := exec.Command(binPath, "--", "version")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("failed to execute binary check: %w\noutput: %s", err, string(out))
