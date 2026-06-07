@@ -27,13 +27,5 @@ func CheckOSVForVersion(pkgName, targetVer string) (*OSVResult, error) {
 	return &OSVResult{Vulnerable: false}, nil
 }
 func FileHashes(path string) (string, string, error) {
-	sha256Hash, err := release.FileSHA256(path)
-	if err != nil {
-		return "", "", err
-	}
-	sha512Hash, err := release.FileSHA512(path)
-	if err != nil {
-		return "", "", err
-	}
-	return sha256Hash, sha512Hash, nil
+	return fileHashes(path)
 }
