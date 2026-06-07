@@ -189,6 +189,9 @@ func destIsDir(root, destPath string) bool {
 		return false
 	}
 	absRoot = filepath.Clean(absRoot)
+	if err := safepath.SafeAbsolutePath(absRoot); err != nil {
+		return false
+	}
 
 	absDest, err := filepath.Abs(destPath)
 	if err != nil {
