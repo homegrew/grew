@@ -6,7 +6,6 @@ import (
 	"log/slog"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"sort"
 	"strings"
 
@@ -83,8 +82,11 @@ func aliasFile() (string, error) {
 	} else {
 		root = ctx.Paths.Root
 	}
-	p := filepath.Join(root, "aliases.json")
-	if err := safepath.SafeAbsolutePath(p); err != nil {
+	if err := safepath.SafeAbsolutePath(root); err != nil {
+		return "", fmt.Errorf("alias root path invalid: %w", err)
+	}
+	p, err := safepath.SafeJoin(root, "aliases.json")
+	if err != nil {
 		return "", fmt.Errorf("alias file path invalid: %w", err)
 	}
 	return p, nil
