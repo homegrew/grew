@@ -15,11 +15,11 @@ import (
 var missingHide string
 
 var Command = &cobra.Command{
-	Use:   "missing [--hide=<hidden>] [formula|cask ...]",
-	Short: "Check kegs and casks for missing dependencies",
-	Long: `Check the given formula kegs and cask installations for missing
-dependencies. If no formula or cask are provided, check all kegs and casks.
-Will exit with a non-zero status if any kegs or casks are found to be missing
+	Use:   "missing [--hide=<hidden>] [formula ...]",
+	Short: "Check kegs for missing dependencies",
+	Long: `Check the given formula kegs for missing runtime dependencies.
+If no formulas are provided, check all installed kegs.
+Will exit with a non-zero status if any kegs are found to be missing
 dependencies.`,
 	// A non-zero exit is this command's normal "found missing deps" signal, not
 	// a usage error — suppress cobra's usage dump and duplicate error print so
@@ -32,7 +32,7 @@ dependencies.`,
 }
 
 func init() {
-	Command.Flags().StringVar(&missingHide, "hide", "", "Act as if none of the specified hidden are installed. hidden should be a comma-separated list of formulae or casks.")
+	Command.Flags().StringVar(&missingHide, "hide", "", "Act as if none of the specified formulae are installed. hidden should be a comma-separated list of formula names.")
 }
 
 func runMissing(args []string) error {
@@ -54,8 +54,18 @@ func runMissing(args []string) error {
 		}
 	}
 
+	// Pre-compute all installed packages for efficient O(1) lookups.
+	pkgs, err := ctx.Cellar.List()
+	if err != nil {
+		return err
+	}
+	installed := make(map[string]bool, len(pkgs))
+	for _, p := range pkgs {
+		installed[p.Name] = true
+	}
+
 	isInstalled := func(name string) bool {
-		return ctx.Cellar.IsInstalled(name) && !hidden[name]
+		return installed[name] && !hidden[name]
 	}
 
 	var targets []string
@@ -63,10 +73,6 @@ func runMissing(args []string) error {
 	if userProvidedTargets {
 		targets = args
 	} else {
-		pkgs, err := ctx.Cellar.List()
-		if err != nil {
-			return err
-		}
 		for _, p := range pkgs {
 			targets = append(targets, p.Name)
 		}
