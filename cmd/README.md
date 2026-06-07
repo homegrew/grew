@@ -60,6 +60,7 @@ When adding a new subcommand:
 | [untap](./untap) | Remove a tapped repository |
 | [update](./update) | Refresh tap definitions |
 | [upgrade](./upgrade) | Get the new hotness |
+| [uses](./uses) | Show which installed formulae depend on a formula |
 | [verify](./verify) | Check installed packages against their snapshot manifests |
 | [version](./version) | Print version and exit |
 | [vulnscan](./vulnscan) | Scan installed packages for security vulnerabilities |
