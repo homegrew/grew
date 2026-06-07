@@ -77,16 +77,33 @@ func (v VersionHealthChecker) Check(ctx context.Context, binPath string) error {
 var errUpdateAlreadyInProgress = errors.New("update already in progress")
 
 func acquireUpdateLock(logDir string) (*os.File, func(), error) {
-	if err := os.MkdirAll(logDir, 0o755); err != nil {
+	trustedBase := filepath.Clean(config.Default().Log)
+	trustedBaseAbs, err := filepath.Abs(trustedBase)
+	if err != nil {
+		return nil, nil, fmt.Errorf("resolve trusted log directory: %w", err)
+	}
+
+	logDirAbs, err := filepath.Abs(filepath.Clean(logDir))
+	if err != nil {
+		return nil, nil, fmt.Errorf("resolve lock directory: %w", err)
+	}
+	rel, err := filepath.Rel(trustedBaseAbs, logDirAbs)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
+		return nil, nil, fmt.Errorf("invalid lock directory %q: must be within %q", logDir, trustedBaseAbs)
+	}
+
+	if err := os.MkdirAll(logDirAbs, 0o755); err != nil {
 		return nil, nil, fmt.Errorf("create lock directory: %w", err)
 	}
-	lockPath := filepath.Join(logDir, "update.lock")
+	lockPath := filepath.Join(logDirAbs, "update.lock")
 	f, err := os.OpenFile(lockPath, os.O_CREATE|os.O_RDWR, 0o600)
 	if err != nil {
 		return nil, nil, fmt.Errorf("open update lock: %w", err)
 	}
 	if err := syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB); err != nil {
-		f.Close()
+		if closeErr := f.Close(); closeErr != nil {
+			err = errors.Join(err, fmt.Errorf("close update lock file: %w", closeErr))
+		}
 		if errors.Is(err, syscall.EWOULDBLOCK) || errors.Is(err, syscall.EAGAIN) {
 			return nil, nil, errUpdateAlreadyInProgress
 		}
@@ -99,7 +116,9 @@ func acquireUpdateLock(logDir string) (*os.File, func(), error) {
 		}
 		released = true
 		_ = syscall.Flock(int(f.Fd()), syscall.LOCK_UN)
-		_ = f.Close()
+		if err := f.Close(); err != nil {
+			slog.Warn("close update lock file", "error", err)
+		}
 	}
 	return f, release, nil
 }
@@ -107,8 +126,34 @@ func acquireUpdateLock(logDir string) (*os.File, func(), error) {
 // UpdateStateFilePath returns the canonical path for the update state file.
 // Using config.Default().Log keeps it inside the managed prefix,
 // consistent with the audit log location.
+// Returns empty string when the configured log directory is invalid/unsafe.
 func UpdateStateFilePath() string {
-	return filepath.Join(config.Default().Log, "update-state.json")
+	logDir := config.Default().Log
+	if abs, err := filepath.Abs(logDir); err == nil {
+		logDir = filepath.Clean(abs)
+	} else {
+		logDir = filepath.Clean(logDir)
+	}
+	if err := safepath.SafeAbsolutePath(logDir); err != nil {
+		slog.Warn("invalid log directory for update state file", "logDir", logDir, "err", err)
+		return ""
+	}
+
+	stateFile := filepath.Join(logDir, "update-state.json")
+	if abs, err := filepath.Abs(stateFile); err == nil {
+		stateFile = filepath.Clean(abs)
+	} else {
+		stateFile = filepath.Clean(stateFile)
+	}
+	if err := safepath.SafeAbsolutePath(stateFile); err != nil {
+		slog.Warn("invalid update state file path", "stateFile", stateFile, "err", err)
+		return ""
+	}
+	if rel, err := filepath.Rel(logDir, stateFile); err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		slog.Warn("update state file escapes log directory", "logDir", logDir, "stateFile", stateFile)
+		return ""
+	}
+	return stateFile
 }
 
 // TransactionalInstall performs a crash-safe, rollback-capable binary swap.
@@ -157,6 +202,12 @@ func TransactionalInstall(
 		}
 		if filepath.Base(stateFile) != "update-state.json" {
 			return fmt.Errorf("state file %q must use canonical name update-state.json", stateFile)
+		}
+
+		canonicalStateFile := filepath.Clean(UpdateStateFilePath())
+		resolvedStateFile := filepath.Clean(stateFile)
+		if canonicalStateFile != resolvedStateFile {
+			return fmt.Errorf("state file %q must match canonical path %q", stateFile, canonicalStateFile)
 		}
 	}
 
@@ -351,9 +402,36 @@ func logDirFor(stateFile string) string {
 // It removes currentPath first to handle the case where a partial binary
 // was left in place after a failed write.
 func restoreBackup(currentPath, backupPath string) error {
-	_ = os.Remove(currentPath)
-	if err := os.Rename(backupPath, currentPath); err != nil {
-		return fmt.Errorf("rename backup %q to current %q: %w", backupPath, currentPath, err)
+	currentPath = filepath.Clean(currentPath)
+	backupPath = filepath.Clean(backupPath)
+
+	if currentPath == "." || currentPath == "" || backupPath == "." || backupPath == "" {
+		return fmt.Errorf("invalid rollback paths: current=%q backup=%q", currentPath, backupPath)
+	}
+	if !filepath.IsAbs(currentPath) || !filepath.IsAbs(backupPath) {
+		return fmt.Errorf("rollback paths must be absolute: current=%q backup=%q", currentPath, backupPath)
+	}
+	if filepath.Dir(currentPath) != filepath.Dir(backupPath) {
+		return fmt.Errorf("rollback paths must share directory: current=%q backup=%q", currentPath, backupPath)
+	}
+	if backupPath != currentPath+".bak" {
+		return fmt.Errorf("rollback backup path mismatch: current=%q backup=%q", currentPath, backupPath)
+	}
+
+	baseDir := filepath.Dir(currentPath)
+
+	safeCurrent, err := safepath.ResolveWithin(baseDir, currentPath)
+	if err != nil {
+		return fmt.Errorf("validate current path %q within %q: %w", currentPath, baseDir, err)
+	}
+	safeBackup, err := safepath.ResolveWithin(baseDir, backupPath)
+	if err != nil {
+		return fmt.Errorf("validate backup path %q within %q: %w", backupPath, baseDir, err)
+	}
+
+	_ = os.Remove(safeCurrent)
+	if err := os.Rename(safeBackup, safeCurrent); err != nil {
+		return fmt.Errorf("rename backup %q to current %q: %w", safeBackup, safeCurrent, err)
 	}
 	return nil
 }
