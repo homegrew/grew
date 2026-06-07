@@ -175,7 +175,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 |---|---|
 | `install, i` | Install formulas or casks (`-f` to force, `-s` to build from source, `--force-bottle` to force a bottle) |
 | `uninstall, rm` | Send formulas or casks to the void (`-f` to ignore missing or errors, delete all versions) |
-| `autoremove` | Uninstall formulae that were only installed as a dependency and are no longer needed (`--dry-run` supported) |
+| `autoremove` | Transitively uninstall formulae that were only installed as a dependency and are no longer needed — removes the full orphan chain in one run (`--dry-run` supported) |
 | `list, ls` | See what you've collected |
 | `leaves [-r] [-p]` | List installed formulas that are not dependencies of another installed formula |
 | `info` | Stalk packages |

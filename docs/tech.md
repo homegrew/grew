@@ -178,7 +178,7 @@ This metadata enables precise identification of "orphaned" dependencies—packag
 - **`grew leaves`**: Lists all packages that are not dependencies of any other installed package.
     - `-r`, `--installed-on-request`: Filters to show only top-level packages you explicitly wanted.
     - `-p`, `--installed-as-dependency`: Filters to show orphaned dependencies that are likely safe to remove.
-- **`grew autoremove`**: Automatically uninstalls orphaned dependencies. It performs a calculation to find packages that are both "leaves" and have `InstalledOnRequest: false`.
+- **`grew autoremove`**: Automatically uninstalls orphaned dependencies in a single invocation. It iterates: each pass recomputes the dependency graph excluding packages already marked for removal, then looks for newly exposed orphans (packages that are now leaves with `InstalledOnRequest: false`). The loop repeats until no new candidates are found, so a full transitive chain (e.g. `root → mid → leaf`, all auto-installed) is removed in one run rather than requiring repeated invocations.
     - **Safe by Default**: Packages explicitly installed by the user are never removed by `autoremove`, even if they are not dependencies of anything else.
 ## 9. Modular CLI Architecture
 
