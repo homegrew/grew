@@ -123,26 +123,8 @@ func TransactionalInstall(
 		if err := safepath.SafeAbsolutePath(stateFile); err != nil {
 			return fmt.Errorf("invalid state file path %q: %w", stateFile, err)
 		}
-		stateAbs, err := filepath.Abs(stateFile)
-		if err != nil {
-			return fmt.Errorf("resolve state file path %q: %w", stateFile, err)
-		}
-		stateAbs = filepath.Clean(stateAbs)
-
-		canonical := UpdateStateFilePath()
-		canonicalAbs, err := filepath.Abs(canonical)
-		if err != nil {
-			return fmt.Errorf("resolve canonical state file path %q: %w", canonical, err)
-		}
-		canonicalAbs = filepath.Clean(canonicalAbs)
-
-		if stateAbs != canonicalAbs {
-			return fmt.Errorf("state file %q must equal canonical path %q", stateAbs, canonicalAbs)
-		}
-		resolvedStateFile := filepath.Clean(stateFile)
-		expectedLogDir := filepath.Clean(config.Default().Log)
-		if filepath.Dir(resolvedStateFile) != expectedLogDir {
-			return fmt.Errorf("state file %q must be located under %q", stateFile, expectedLogDir)
+		if filepath.Base(stateFile) != "update-state.json" {
+			return fmt.Errorf("state file %q must use canonical name update-state.json", stateFile)
 		}
 	}
 
@@ -265,26 +247,10 @@ func RecoverPendingUpdate(stateFile string) error {
 
 	currentPath := state.CurrentPath
 	backupPath := state.BackupPath
-	expectedBackupPath := filepath.Join(filepath.Dir(currentPath), filepath.Base(currentPath)+".bak")
+	expectedBackupPath := filepath.Join(filepath.Dir(currentPath), filepath.Base(currentPath)+".previous")
 	if backupPath != expectedBackupPath {
 		slog.Warn("invalid backup path in update state — removing",
 			"backup", backupPath, "expected", expectedBackupPath)
-		_ = os.Remove(stateFile)
-		return nil
-	}
-
-	installRoot := config.Default().Root
-	ok, err := isWithinDir(currentPath, installRoot)
-	if err != nil || !ok {
-		slog.Warn("invalid current path outside install root in update state — removing",
-			"path", currentPath, "root", installRoot, "err", err)
-		_ = os.Remove(stateFile)
-		return nil
-	}
-	ok, err = isWithinDir(backupPath, installRoot)
-	if err != nil || !ok {
-		slog.Warn("invalid backup path outside install root in update state — removing",
-			"path", backupPath, "root", installRoot, "err", err)
 		_ = os.Remove(stateFile)
 		return nil
 	}
@@ -318,25 +284,6 @@ func RecoverPendingUpdate(stateFile string) error {
 	return nil
 }
 
-// isWithinDir reports whether p resolves to a location within root.
-func isWithinDir(p, root string) (bool, error) {
-	absPath, err := filepath.Abs(p)
-	if err != nil {
-		return false, err
-	}
-	absRoot, err := filepath.Abs(root)
-	if err != nil {
-		return false, err
-	}
-	rel, err := filepath.Rel(absRoot, absPath)
-	if err != nil {
-		return false, err
-	}
-	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
-		return false, nil
-	}
-	return true, nil
-}
 
 // logDirFor returns the directory to use for audit logging.
 // When stateFile is non-empty the audit log is written to the same directory
