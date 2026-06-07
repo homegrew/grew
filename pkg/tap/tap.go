@@ -1,6 +1,7 @@
 package tap
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
@@ -172,6 +173,40 @@ func (m *Manager) Update() (int, int, error) {
 	return tapsCount, totalCount, nil
 }
 
+func (m *Manager) safeTapRepoPath(user, repo string) (string, error) {
+	if user == "" || repo == "" {
+		return "", errors.New("tap path components must be non-empty")
+	}
+	if strings.Contains(user, string(os.PathSeparator)) || strings.Contains(repo, string(os.PathSeparator)) {
+		return "", errors.New("tap path components must not contain path separators")
+	}
+	if user == "." || user == ".." || repo == "." || repo == ".." {
+		return "", errors.New("tap path components must not be dot segments")
+	}
+
+	baseAbs, err := filepath.Abs(m.TapsDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve taps dir: %w", err)
+	}
+	baseAbs = filepath.Clean(baseAbs)
+
+	targetAbs, err := filepath.Abs(filepath.Join(baseAbs, user, repo))
+	if err != nil {
+		return "", fmt.Errorf("resolve tap path: %w", err)
+	}
+	targetAbs = filepath.Clean(targetAbs)
+
+	rel, err := filepath.Rel(baseAbs, targetAbs)
+	if err != nil {
+		return "", fmt.Errorf("verify tap path: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
+		return "", fmt.Errorf("refusing path outside taps dir: %q", targetAbs)
+	}
+
+	return targetAbs, nil
+}
+
 // Add clones a new tap. name should be in "user/repo" format.
 func (m *Manager) Add(name, customURL string) error {
 	parts := strings.Split(name, "/")
@@ -185,7 +220,10 @@ func (m *Manager) Add(name, customURL string) error {
 		url = fmt.Sprintf("https://github.com/%s/homegrew-%s.git", user, repo)
 	}
 
-	repoPath := filepath.Join(m.TapsDir, user, repo)
+	repoPath, err := m.safeTapRepoPath(user, repo)
+	if err != nil {
+		return fmt.Errorf("invalid tap path: %w", err)
+	}
 	if _, err := os.Stat(repoPath); err == nil {
 		return fmt.Errorf("tap %s is already installed", name)
 	}
@@ -217,7 +255,10 @@ func (m *Manager) Remove(name string) error {
 	}
 	user, repo := parts[0], parts[1]
 
-	repoPath := filepath.Join(m.TapsDir, user, repo)
+	repoPath, err := m.safeTapRepoPath(user, repo)
+	if err != nil {
+		return fmt.Errorf("invalid tap path: %w", err)
+	}
 	if _, err := os.Stat(repoPath); os.IsNotExist(err) {
 		return fmt.Errorf("tap %s is not installed", name)
 	}
