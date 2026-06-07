@@ -106,11 +106,10 @@ func TestIsBinary(t *testing.T) {
 		{"empty", []byte{}, false},
 	}
 
-	dir := t.TempDir()
-
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
+			dir := t.TempDir()
 			path := filepath.Join(dir, tc.name)
 			// Pad to at least 8 bytes so the updated magic read succeeds.
 			// For fat binaries, set a mock narchs count of 2 in the correct byte order.
