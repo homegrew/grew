@@ -380,7 +380,13 @@ func RecoverPendingUpdate(stateFile string) error {
 			"crash recovery: restored previous binary")
 	} else {
 		// New binary is healthy — the update succeeded; just clean up.
-		_ = os.Remove(backupPath)
+		expectedBackupPath := filepath.Join(filepath.Dir(currentPath), filepath.Base(currentPath)+".previous")
+		if err := safepath.SafeAbsolutePath(backupPath); err != nil || backupPath != expectedBackupPath {
+			slog.Warn("skipping backup removal due to invalid path during recovery cleanup",
+				"backup", backupPath, "expected", expectedBackupPath, "err", err)
+		} else {
+			_ = os.Remove(backupPath)
+		}
 	}
 
 	_ = os.Remove(stateFile)
