@@ -32,6 +32,10 @@ func RunSudoCmd(executable string, args ...string) error {
 		return fmt.Errorf("invalid executable path: %w", err)
 	}
 
+	if _, err := os.Stat(executable); err != nil {
+		return fmt.Errorf("executable does not exist: %w", err)
+	}
+
 	cmdArgs := []string{"-A", "--", executable}
 	cmdArgs = append(cmdArgs, args...)
 	cmd := exec.Command("sudo", cmdArgs...)
