@@ -212,11 +212,25 @@ func destIsDir(root, destPath string) bool {
 	if err := safepath.SafeAbsolutePath(resolvedDest); err != nil {
 		return false
 	}
-	if err := safepath.CheckSubpath(absRoot, resolvedDest); err != nil {
+
+	// Rebuild the path handed to os.Stat from the trusted root plus the
+	// validated relative remainder via safepath.SafeJoin (join + containment
+	// in one call, the repo's sanctioned barrier). This severs the taint that
+	// would otherwise flow from the original destPath argument into the stat
+	// sink, in addition to the containment checks above.
+	rel, err := filepath.Rel(absRoot, resolvedDest)
+	if err != nil {
 		return false
 	}
+	statPath := absRoot
+	if rel != "." {
+		statPath, err = safepath.SafeJoin(absRoot, rel)
+		if err != nil {
+			return false
+		}
+	}
 
-	fi, err := os.Stat(resolvedDest) // within absRoot, validated above
+	fi, err := os.Stat(statPath) // built from absRoot via SafeJoin, contained above
 	return err == nil && fi.IsDir()
 }
 
