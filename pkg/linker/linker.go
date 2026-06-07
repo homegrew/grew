@@ -322,6 +322,12 @@ func unsymDir(symlinkPath, root string) error {
 		return fmt.Errorf("resolve path %s: %w", symlinkPath, err)
 	}
 	absSymlinkPath = filepath.Clean(absSymlinkPath)
+	if err := safepath.SafeAbsolutePath(realRoot); err != nil {
+		return fmt.Errorf("invalid root path %s: %w", realRoot, err)
+	}
+	if err := safepath.SafeAbsolutePath(absSymlinkPath); err != nil {
+		return fmt.Errorf("invalid symlink path %s: %w", absSymlinkPath, err)
+	}
 	if !isWithinRoot(realRoot, absSymlinkPath) {
 		return fmt.Errorf("refusing to modify path outside root: %s", absSymlinkPath)
 	}
