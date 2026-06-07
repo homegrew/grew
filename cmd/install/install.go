@@ -21,6 +21,7 @@ var (
 	installCask             bool
 	installBuildFromSource  bool
 	installForce            bool
+	installForceBottle      bool
 	installOnlyDependencies bool
 	installIgnoreDeps       bool
 	installSkipPostInstall  bool
@@ -42,6 +43,7 @@ If the formula/cask is already installed (without --force), the command is a no-
 Examples:
   grew install jq
   grew install -s ldns
+  grew install --force-bottle jq
   grew install --only-dependencies ldns
   grew install --ignore-dependencies jq
   grew install --cask firefox
@@ -54,6 +56,7 @@ Examples:
 func init() {
 	Command.Flags().BoolVar(&installCask, "cask", false, "Install a macOS application cask instead of a formula.")
 	Command.Flags().BoolVarP(&installBuildFromSource, "build-from-source", "s", false, "Build the formula from source instead of using the pre-built bottle.")
+	Command.Flags().BoolVar(&installForceBottle, "force-bottle", false, "Install from a bottle if it exists for the current or newest version of macOS, even if it would not normally be used for installation.")
 	Command.Flags().BoolVar(&installOnlyDependencies, "only-dependencies", false, "Install the dependencies but not the formula itself.")
 	Command.Flags().BoolVar(&installIgnoreDeps, "ignore-dependencies", false, "Skip installing dependencies; install only the formula.")
 	Command.Flags().BoolVar(&installSkipPostInstall, "skip-post-install", false, "Do not run the post-install script.")
@@ -69,6 +72,10 @@ func RunInstall(args []string) error {
 
 	if installOnlyDependencies && installIgnoreDeps {
 		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
+	}
+
+	if installBuildFromSource && installForceBottle {
+		return fmt.Errorf("--build-from-source and --force-bottle are mutually exclusive")
 	}
 
 	remaining := args
@@ -88,6 +95,9 @@ func RunInstall(args []string) error {
 	if installCask {
 		if installBuildFromSource {
 			return fmt.Errorf("--build-from-source is not supported for casks")
+		}
+		if installForceBottle {
+			return fmt.Errorf("--force-bottle is not supported for casks")
 		}
 		if installOnlyDependencies {
 			return fmt.Errorf("--only-dependencies is not supported for casks")
@@ -198,7 +208,7 @@ func RunInstall(args []string) error {
 		}
 
 		if installDryRun {
-			if err := simulateInstall(installOrder, name, ctx, installOnlyDependencies, installBuildFromSource, installForce); err != nil {
+			if err := simulateInstall(installOrder, name, ctx, installOnlyDependencies, installBuildFromSource, installForce, installForceBottle); err != nil {
 				return err
 			}
 			continue
@@ -232,15 +242,17 @@ func RunInstall(args []string) error {
 				ext = safepath.URLExt(dlURL)
 				filename = f.Name + "-" + f.Version + "-src" + ext
 			} else {
-				dlURL, err = f.GetURL()
-				if err != nil {
-					return err
+				if installForceBottle && f.Name == name {
+					dlURL, sha256, sha512, err = f.ResolveForceBottle()
+				} else {
+					dlURL, err = f.GetURL()
+					if err == nil {
+						sha256, err = f.GetSHA256()
+					}
+					if err == nil {
+						sha512, err = f.GetSHA512()
+					}
 				}
-				sha256, err = f.GetSHA256()
-				if err != nil {
-					return err
-				}
-				sha512, err = f.GetSHA512()
 				if err != nil {
 					return err
 				}
@@ -288,6 +300,7 @@ func RunInstall(args []string) error {
 				SkipPostInstall:    installSkipPostInstall,
 				SkipLink:           installSkipLink && f.Name == name,
 				InstalledOnRequest: f.Name == name,
+				ForceBottle:        installForceBottle && f.Name == name,
 			}
 			if installBuildFromSource && f.Name == name {
 				if err := installer.InstallFormulaFromSource(f, ctx, opts); err != nil {
@@ -311,7 +324,7 @@ func RunInstall(args []string) error {
 }
 
 // simulateInstall prints what would happen without making any changes.
-func simulateInstall(installOrder []*formula.Formula, target string, ctx *context.InstallContext, onlyDeps bool, buildFromSource bool, force bool) error {
+func simulateInstall(installOrder []*formula.Formula, target string, ctx *context.InstallContext, onlyDeps bool, buildFromSource bool, force bool, forceBottle bool) error {
 	ui.FprintArrow(os.Stderr, "Dry run: the following actions would be performed\n")
 
 	for _, f := range installOrder {
@@ -327,6 +340,8 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *contex
 		method := "bottle"
 		if buildFromSource && f.Name == target {
 			method = "source"
+		} else if forceBottle && f.Name == target {
+			method = "bottle (forced)"
 		}
 
 		dlURL := ""
@@ -336,6 +351,8 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *contex
 			dlURL, _ = f.GetSourceURL()
 			sha256, _ = f.GetSourceSHA256()
 			sha512, _ = f.GetSourceSHA512()
+		} else if forceBottle && f.Name == target {
+			dlURL, sha256, sha512, _ = f.ResolveForceBottle()
 		} else {
 			dlURL, _ = f.GetURL()
 			sha256, _ = f.GetSHA256()

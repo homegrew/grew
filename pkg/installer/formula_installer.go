@@ -26,6 +26,10 @@ type InstallOpts struct {
 	SkipPostInstall    bool
 	SkipLink           bool
 	InstalledOnRequest bool
+	// ForceBottle pours a bottle even when one for the exact current macOS
+	// version is not available, using the newest available macOS version's
+	// bottle instead (mirrors `brew install --force-bottle`).
+	ForceBottle bool
 }
 
 func InstallFormula(f *formula.Formula, ctx *context.InstallContext, opts InstallOpts) (err error) {
@@ -43,20 +47,27 @@ func InstallFormula(f *formula.Formula, ctx *context.InstallContext, opts Instal
 
 	ui.FprintArrow(os.Stderr, "Installing %s %s", f.Name, f.Version)
 
-	dlURL, err := f.GetURL()
-	if err != nil {
-		return err
+	var dlURL, sha256, sha512 string
+	if opts.ForceBottle {
+		dlURL, sha256, sha512, err = f.ResolveForceBottle()
+		if err != nil {
+			return err
+		}
+	} else {
+		dlURL, err = f.GetURL()
+		if err != nil {
+			return err
+		}
+		sha256, err = f.GetSHA256()
+		if err != nil {
+			return err
+		}
+		sha512, err = f.GetSHA512()
+		if err != nil {
+			return err
+		}
 	}
 	slog.Info("URL: " + dlURL)
-
-	sha256, err := f.GetSHA256()
-	if err != nil {
-		return err
-	}
-	sha512, err := f.GetSHA512()
-	if err != nil {
-		return err
-	}
 
 	slog.Info("expected SHA256: " + sha256)
 	if sha512 != "" {
