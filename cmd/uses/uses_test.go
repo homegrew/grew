@@ -5,7 +5,6 @@ import (
 	"io"
 	"os"
 	"path/filepath"
-	"strings"
 	"testing"
 
 	"github.com/homegrew/grew/pkg/config"
@@ -43,12 +42,15 @@ func captureStdout(t *testing.T, fn func()) string {
 		t.Fatal(err)
 	}
 	os.Stdout = w
+	defer func() {
+		os.Stdout = old
+		_ = w.Close()
+		_ = r.Close()
+	}()
 	fn()
 	_ = w.Close()
-	os.Stdout = old
 	var buf bytes.Buffer
 	_, _ = io.Copy(&buf, r)
-	_ = r.Close()
 	return buf.String()
 }
 
@@ -86,10 +88,8 @@ func TestRunUsesDirectDependents(t *testing.T) {
 		}
 	})
 
-	lines := strings.Fields(strings.TrimSpace(out))
-	got := strings.Join(lines, " ")
-	if got != "curl git" {
-		t.Fatalf("expected 'curl git', got %q", got)
+	if out != "curl\ngit\n" {
+		t.Fatalf("expected %q, got %q", "curl\ngit\n", out)
 	}
 }
 
@@ -122,7 +122,7 @@ func TestRunUsesNoDependents(t *testing.T) {
 		}
 	})
 
-	if strings.TrimSpace(out) != "" {
+	if out != "" {
 		t.Fatalf("expected no output, got %q", out)
 	}
 }
