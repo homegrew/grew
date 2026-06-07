@@ -114,6 +114,15 @@ func (m *Manager) Update() (int, int, error) {
 		return 0, 0, err
 	}
 
+	expectedBase, err := filepath.Abs(m.TapsDir)
+	if err != nil {
+		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
+	}
+	expectedBase = filepath.Clean(expectedBase)
+	if err := safepath.SafeAbsolutePath(expectedBase); err != nil {
+		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", expectedBase, err)
+	}
+
 	tapsBase, err := filepath.Abs(m.TapsDir)
 	if err != nil {
 		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
@@ -124,6 +133,10 @@ func (m *Manager) Update() (int, int, error) {
 	tapsBase = filepath.Clean(tapsBase)
 	if err := safepath.SafeAbsolutePath(tapsBase); err != nil {
 		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", tapsBase, err)
+	}
+	rel, err := filepath.Rel(expectedBase, tapsBase)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return 0, 0, fmt.Errorf("resolved taps directory escapes configured base: %q", tapsBase)
 	}
 
 	users, err := os.ReadDir(tapsBase)
@@ -137,7 +150,11 @@ func (m *Manager) Update() (int, int, error) {
 		if !user.IsDir() {
 			continue
 		}
-		repos, err := os.ReadDir(filepath.Join(tapsBase, user.Name()))
+		userPath, err := safepath.SafeJoin(tapsBase, user.Name())
+		if err != nil {
+			continue
+		}
+		repos, err := os.ReadDir(userPath)
 		if err != nil {
 			continue
 		}
