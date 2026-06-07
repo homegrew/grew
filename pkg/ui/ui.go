@@ -17,12 +17,16 @@ const (
 	cyan   = "\033[36m"
 )
 
-// Config represents global UI configuration
+// Config holds global UI rendering options.
 type Config struct {
+	// NoColor disables ANSI colour codes regardless of whether the output
+	// stream is a terminal. Set this to honour the NO_COLOR convention or
+	// when piping output to a file.
 	NoColor bool
 }
 
-// Global configuration
+// DefaultConfig is the package-level UI configuration. Commands may mutate
+// this (e.g. in response to --no-color) before producing any output.
 var DefaultConfig = Config{}
 
 // isTerminal checks if the given file descriptor is a terminal.
@@ -49,27 +53,33 @@ func colorize(colorCode, text string, out io.Writer) string {
 	return colorCode + text + reset
 }
 
-// Formatters
+// Bold returns text wrapped in the bold ANSI escape sequence when out is a
+// terminal and colour is not disabled.
 func Bold(text string, out io.Writer) string {
 	return colorize(bold, text, out)
 }
 
+// Red returns text in red when out is a terminal and colour is not disabled.
 func Red(text string, out io.Writer) string {
 	return colorize(red, text, out)
 }
 
+// Green returns text in green when out is a terminal and colour is not disabled.
 func Green(text string, out io.Writer) string {
 	return colorize(green, text, out)
 }
 
+// Yellow returns text in yellow when out is a terminal and colour is not disabled.
 func Yellow(text string, out io.Writer) string {
 	return colorize(yellow, text, out)
 }
 
+// Blue returns text in blue when out is a terminal and colour is not disabled.
 func Blue(text string, out io.Writer) string {
 	return colorize(blue, text, out)
 }
 
+// Cyan returns text in cyan when out is a terminal and colour is not disabled.
 func Cyan(text string, out io.Writer) string {
 	return colorize(cyan, text, out)
 }

@@ -14,8 +14,8 @@ import (
 
 // KeyPair holds an Ed25519 key pair for signing and verification.
 type KeyPair struct {
-	PublicKey  ed25519.PublicKey
-	PrivateKey ed25519.PrivateKey
+	PublicKey  ed25519.PublicKey  // 32-byte Ed25519 public key
+	PrivateKey ed25519.PrivateKey // 64-byte Ed25519 private key (seed || pubkey)
 }
 
 // GenerateKey generates a new Ed25519 key pair.

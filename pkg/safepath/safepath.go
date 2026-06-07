@@ -1,5 +1,3 @@
-// Package safepath provides utilities for safe filesystem path manipulation,
-// ensuring that paths remain within expected boundaries and are well-formed.
 package safepath
 
 import (

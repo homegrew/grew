@@ -11,14 +11,14 @@ import (
 	"github.com/homegrew/grew/pkg/validation"
 )
 
-// Status represents the state of a service.
+// Status represents the runtime state of a managed service.
 type Status int
 
 const (
-	StatusStopped Status = iota
-	StatusRunning
-	StatusError
-	StatusUnknown
+	StatusStopped Status = iota // service is not running
+	StatusRunning               // service is running (PID known or assumed)
+	StatusError                 // service file exists but the process exited with an error
+	StatusUnknown               // state cannot be determined
 )
 
 func (s Status) String() string {
@@ -36,18 +36,20 @@ func (s Status) String() string {
 
 // Info holds runtime information about a managed service.
 type Info struct {
-	Name    string
-	Status  Status
-	PID     int    // 0 if not running
-	File    string // path to the generated service file (plist/unit)
+	Name   string // formula name (e.g. "redis")
+	Status Status // current runtime state
+	PID    int    // OS process ID; 0 when the service is not running
+	File   string // absolute path to the generated service file (plist/unit)
 	LogPath string
 }
 
-// Manager manages formula services using the platform init system.
+// Manager manages formula services using the platform-native init system
+// (launchd on macOS). It writes per-formula service files into ServiceDir
+// and delegates load/unload to the platform implementation.
 type Manager struct {
-	ServiceDir string // directory where service files are written
-	CellarPath string
-	OptPath    string
+	ServiceDir string // directory where service files are written (e.g. ~/Library/LaunchAgents)
+	CellarPath string // absolute path to the Cellar root; used for {cellar} substitution in run commands
+	OptPath    string // absolute path to <prefix>/opt; used for {opt} substitution in run commands
 	Loader     *formula.Loader
 }
 

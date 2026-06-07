@@ -11,21 +11,53 @@ import (
 	"github.com/homegrew/grew/pkg/safepath"
 )
 
-// ReceiptFile is the name of the receipt stored inside each keg.
+// ReceiptFile is the name of the receipt file stored at the root of each keg
+// directory (e.g. <prefix>/Cellar/jq/1.6/INSTALL_RECEIPT.json).
 const ReceiptFile = "INSTALL_RECEIPT.json"
 
-// Receipt records metadata about an installation.
+// Receipt records provenance and build metadata for an installed formula.
+// It is written once at the end of installation and is treated as
+// supplemental — integrity verification uses .MANIFEST.json instead, and
+// the receipt is explicitly excluded from those checks to avoid false
+// positives caused by the file being created after the snapshot.
 type Receipt struct {
-	Name                string    `json:"name"`
-	Version             string    `json:"version"`
-	BuiltFromSource     bool      `json:"built_from_source"`
-	PouredFromBottle    bool      `json:"poured_from_bottle"`
-	InstalledAt         time.Time `json:"installed_at"`
-	Dependencies        []string  `json:"dependencies"`
-	RuntimeDependencies []string  `json:"runtime_dependencies,omitempty"`
-	Compiler            string    `json:"compiler,omitempty"`
-	BuildOptions        []string  `json:"build_options,omitempty"`
-	InstalledOnRequest  bool      `json:"installed_on_request"`
+	// Name is the formula name as it appears in the tap definition.
+	Name string `json:"name"`
+
+	// Version is the installed version string (e.g. "1.6").
+	Version string `json:"version"`
+
+	// BuiltFromSource is true when the formula was compiled locally rather
+	// than poured from a pre-built bottle.
+	BuiltFromSource bool `json:"built_from_source"`
+
+	// PouredFromBottle is true when a pre-built binary bottle was used.
+	PouredFromBottle bool `json:"poured_from_bottle"`
+
+	// InstalledAt is the UTC timestamp recorded at the end of installation.
+	InstalledAt time.Time `json:"installed_at"`
+
+	// Dependencies lists the direct formula dependencies declared by the
+	// formula at install time.
+	Dependencies []string `json:"dependencies"`
+
+	// RuntimeDependencies lists only the subset of Dependencies that are
+	// needed at runtime (as opposed to build-only deps). Omitted when empty.
+	RuntimeDependencies []string `json:"runtime_dependencies,omitempty"`
+
+	// Compiler records the compiler used for a source build (e.g. "clang").
+	// Omitted for bottle installs.
+	Compiler string `json:"compiler,omitempty"`
+
+	// BuildOptions lists any custom flags passed to the build step.
+	// Omitted when none were provided.
+	BuildOptions []string `json:"build_options,omitempty"`
+
+	// InstalledOnRequest is true when the user explicitly asked for this
+	// formula (e.g. via `grew install`). False means it was pulled in
+	// automatically as a dependency. This field drives `grew leaves` and
+	// `grew autoremove`.
+	InstalledOnRequest bool `json:"installed_on_request"`
 }
 
 // Save atomically writes the receipt to kegPath/INSTALL_RECEIPT.json.

@@ -14,7 +14,14 @@ import (
 
 const defaultRepoURL = "https://github.com/homegrew/homegrew-taps.git"
 
+// Manager manages the collection of taps installed under TapsDir.
+// Each tap is a shallow git clone laid out as TapsDir/<user>/<repo>/.
+// The official core tap (homegrew/homegrew-taps) lives at
+// TapsDir/homegrew/homegrew-taps and is the primary source of formula and
+// cask definitions.
 type Manager struct {
+	// TapsDir is the absolute path to the taps root
+	// (e.g. <prefix>/Taps on a standard install).
 	TapsDir string
 }
 
@@ -178,6 +185,10 @@ func (m *Manager) Update() (int, int, error) {
 	return tapsCount, totalCount, nil
 }
 
+// safeTapRepoPath validates user and repo components and returns the absolute
+// path to the tap's git clone directory. It rejects empty values, path
+// separators, and dot segments, then double-checks that the resolved path
+// stays within TapsDir to prevent directory traversal via crafted tap names.
 func (m *Manager) safeTapRepoPath(user, repo string) (string, error) {
 	if user == "" || repo == "" {
 		return "", errors.New("tap path components must be non-empty")

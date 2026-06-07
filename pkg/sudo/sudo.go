@@ -22,7 +22,17 @@ on run
 end run
 `
 
-// RunSudoCmd executes a command using sudo, prompting the user graphically on macOS if needed.
+// RunSudoCmd executes the given executable under sudo, using a graphical
+// password prompt on macOS via SUDO_ASKPASS.
+//
+// It writes a temporary AppleScript helper to os.TempDir(), sets
+// SUDO_ASKPASS to point at it, then invokes /usr/bin/sudo -A. The helper
+// is removed on return. Stdout and stderr are forwarded to the calling
+// process.
+//
+// executable must be an absolute path to a regular file; the function
+// validates this before spawning anything. All additional args are passed
+// after a -- separator so they cannot be misinterpreted as sudo flags.
 func RunSudoCmd(executable string, args ...string) error {
 	if executable == "" {
 		return fmt.Errorf("no executable provided")
