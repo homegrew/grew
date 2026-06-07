@@ -327,7 +327,15 @@ func unsymDir(symlinkPath, root string) error {
 	if !filepath.IsAbs(target) {
 		target = filepath.Join(filepath.Dir(absSymlinkPath), target)
 	}
-	target = filepath.Clean(target)
+	if absTarget, err := filepath.Abs(target); err == nil {
+		target = filepath.Clean(absTarget)
+	} else {
+		target = filepath.Clean(target)
+	}
+
+	if target != absRoot && !strings.HasPrefix(target, absRoot+string(filepath.Separator)) {
+		return fmt.Errorf("refusing to use symlink target outside root: %s", target)
+	}
 
 	info, err := os.Stat(target)
 	if err != nil {
