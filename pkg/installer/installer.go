@@ -9,14 +9,15 @@ import (
 	"path/filepath"
 	"strings"
 
+	"runtime"
+
 	"github.com/homegrew/grew/pkg/auditlog"
 	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/release"
-	"github.com/homegrew/grew/pkg/sandbox"
-	verpkg "github.com/homegrew/grew/pkg/version"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/sandbox"
 	"github.com/homegrew/grew/pkg/ui"
-	"runtime"
+	verpkg "github.com/homegrew/grew/pkg/version"
 )
 
 var ErrNoGitRepo = errors.New("no git repository found")
@@ -266,33 +267,6 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")
 	return nil
-}
-
-func ensurePathWithinBase(base, target string) (string, error) {
-	baseAbs, err := filepath.Abs(filepath.Clean(base))
-	if err != nil {
-		return "", fmt.Errorf("resolve base path: %w", err)
-	}
-	if err := safepath.SafeAbsolutePath(baseAbs); err != nil {
-		return "", fmt.Errorf("invalid base path %q: %w", baseAbs, err)
-	}
-
-	targetAbs, err := filepath.Abs(filepath.Clean(target))
-	if err != nil {
-		return "", fmt.Errorf("resolve target path: %w", err)
-	}
-	if err := safepath.SafeAbsolutePath(targetAbs); err != nil {
-		return "", fmt.Errorf("invalid target path %q: %w", targetAbs, err)
-	}
-
-	rel, err := filepath.Rel(baseAbs, targetAbs)
-	if err != nil {
-		return "", fmt.Errorf("compute relative path: %w", err)
-	}
-	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-		return "", fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
-	}
-	return targetAbs, nil
 }
 
 type OSVResult struct {
