@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"archive/zip"
 	"bytes"
 	"fmt"
@@ -14,6 +12,8 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 // makeDummyAppZip creates a zip file containing a dummy .app bundle

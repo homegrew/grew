@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -10,6 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 func TestAutoremove(t *testing.T) {

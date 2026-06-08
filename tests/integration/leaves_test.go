@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -11,6 +9,8 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 func TestLeaves(t *testing.T) {
@@ -89,7 +89,7 @@ dependencies:
 
 	output := strings.TrimSpace(string(out))
 	lines := strings.Split(output, "\n")
-	
+
 	if len(lines) != 1 || lines[0] != "pkga" {
 		t.Errorf("expected only 'pkga' as leaf, got:\n%s", output)
 	}

@@ -1,14 +1,15 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/pkg/testhelper"
 )
+
 func TestShellCompletion(t *testing.T) {
 	tmpDir := t.TempDir()
 	prefix := testhelper.SetupPrefix(t, tmpDir)

@@ -1,4 +1,3 @@
-
 package testhelper
 
 import (
@@ -36,6 +35,7 @@ func ComputeSHA512(data []byte) string {
 }
 
 func SetupPrefix(t *testing.T, tmpDir string) string {
+	t.Helper()
 	prefix := filepath.Join(tmpDir, "prefix")
 	coreTapDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps")
 	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
@@ -51,7 +51,12 @@ func SetupPrefix(t *testing.T, tmpDir string) string {
 }
 
 func GetProjectRoot(t *testing.T) string {
-	cwd, _ := os.Getwd()
+	t.Helper()
+	cwd, errCwd := os.Getwd()
+	if errCwd != nil {
+		t.Skip("could not get current working directory")
+	}
+
 	root := cwd
 	for {
 		if _, err := os.Stat(filepath.Join(root, "go.mod")); err == nil {
@@ -67,6 +72,7 @@ func GetProjectRoot(t *testing.T) string {
 }
 
 func BuildTestBinary(t *testing.T, tmpDir string) string {
+	t.Helper()
 	exePath := filepath.Join(tmpDir, "grew-test")
 	root := GetProjectRoot(t)
 
@@ -78,6 +84,7 @@ func BuildTestBinary(t *testing.T, tmpDir string) string {
 }
 
 func CreateFormula(t *testing.T, prefix, name, yamlContent string) {
+	t.Helper()
 	coreTapDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps", "core")
 	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
 		t.Fatalf("failed to create core tap dir: %v", err)

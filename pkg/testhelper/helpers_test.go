@@ -17,7 +17,7 @@ func TestWriteServerCert(t *testing.T) {
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	}))
-	defer server.Close()
+	t.Cleanup(func() { server.Close() })
 
 	tmpDir := t.TempDir()
 	certPath := filepath.Join(tmpDir, "cert.pem")
@@ -219,7 +219,7 @@ description: A test formula
 
 func TestWriteServerCert_ValidPEM(t *testing.T) {
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
-	defer server.Close()
+	t.Cleanup(func() { server.Close() })
 
 	tmpDir := t.TempDir()
 	certPath := filepath.Join(tmpDir, "test.pem")

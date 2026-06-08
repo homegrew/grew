@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -12,6 +10,8 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 func TestInstallSkipLinkForceIntegration(t *testing.T) {

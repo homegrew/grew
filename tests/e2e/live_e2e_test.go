@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/homegrew/grew/tests/testhelper"
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 // TestLiveEndToEnd executes the full E2E suite against real remote taps

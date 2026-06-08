@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/homegrew/grew/tests/testhelper"
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 func TestAuditVulnerability(t *testing.T) {

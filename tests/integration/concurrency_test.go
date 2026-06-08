@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -13,6 +11,8 @@ import (
 	"strings"
 	"sync"
 	"testing"
+
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 func TestConcurrentInstall(t *testing.T) {

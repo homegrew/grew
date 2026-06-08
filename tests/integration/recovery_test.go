@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"context"
 	"fmt"
 	"net/http"
@@ -14,6 +12,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 func TestInterruptedInstallRecovery(t *testing.T) {

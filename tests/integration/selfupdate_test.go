@@ -14,7 +14,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/homegrew/grew/tests/testhelper"
+	"github.com/homegrew/grew/pkg/testhelper"
 )
 
 // makeGrewTarGz creates a simple .tar.gz containing a single executable file "grew"
