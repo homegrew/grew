@@ -22,4 +22,4 @@ jobs:
         with:
           go-version: stable
           cache: true
-      - run: go build ./...
+      - run: go build -v
