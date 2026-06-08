@@ -191,6 +191,7 @@ grew missing --hide=openssl@3,readline    # hide multiple formulae (comma-separa
 | `outdated` | The hall of shame |
 | `reinstall` | Uninstall + install from scratch (`--cask`, `-f` without checking for previously installed keg-only or non-migrated versions) |
 | `cleanup` | Remove old versions and prune download cache (`-s` to scrub all, `--prune=DAYS`) |
+| `desc` | Display a formula or cask's name and one-line description; search by name, description, or `/regex/` across both kinds |
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |
 | `audit` | Lint formula/cask definitions for quality and security |
