@@ -9,6 +9,7 @@ import (
 	"github.com/homegrew/grew/cmd/autoremove"
 	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/installer"
+
 	"github.com/spf13/cobra"
 )
 
@@ -44,7 +45,7 @@ func init() {
 	Command.Flags().BoolVar(&uninstallCask, "cask", false, "Uninstall a cask instead of a formula.")
 	Command.Flags().BoolVarP(&uninstallForce, "force", "f", false, "Delete all installed versions of formula. Uninstall even if cask is not installed.")
 	Command.Flags().BoolVar(&uninstallIgnoreDeps, "ignore-dependencies", false, "Uninstall even if the formula is required by another installed formula.")
-	Command.Flags().BoolVar(&uninstallAutoremove, "autoremove", false, "Remove unused dependencies after uninstalling.")
+	Command.Flags().BoolVarP(&uninstallAutoremove, "autoremove", "A", false, "Remove unused dependencies after uninstalling.")
 }
 
 func runUninstall(ctx *context.Context, args []string) error {

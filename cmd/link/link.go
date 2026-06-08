@@ -1,14 +1,15 @@
 package link
 
 import (
-	"github.com/homegrew/grew/pkg/context"
 	"fmt"
 	"log/slog"
 	"os"
 
+	"github.com/homegrew/grew/pkg/context"
+
 	"github.com/homegrew/grew/pkg/linker"
-	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
+	"github.com/spf13/cobra"
 )
 
 var (
@@ -40,7 +41,7 @@ Examples:
 func init() {
 	Command.Flags().BoolVar(&linkOverwrite, "overwrite", false, "Overwrite existing files or symlinks from other formulas")
 	Command.Flags().BoolVarP(&linkDryRun, "dry-run", "n", false, "Show what would be linked without making changes")
-	Command.Flags().BoolVar(&linkForce, "force", false, "Link a keg-only formula into bin/, lib/, include/")
+	Command.Flags().BoolVarP(&linkForce, "force", "f", false, "Link a keg-only formula into bin/, lib/, include/")
 }
 
 func runLink(args []string) error {
