@@ -115,6 +115,34 @@ func (ctx *Context) LoadCask(name string) (*cask.Cask, error) {
 	return nil, err // Return original error if remote also fails
 }
 
+// ResolveKind determines whether name should be treated as a cask or a
+// formula. When forceCask or forceFormula is set, the kind is fixed and the
+// method only verifies that the package exists in the corresponding local tap.
+// In auto mode (neither forced), a formula takes precedence over a cask of the
+// same name; if neither exists locally an error is returned.
+func (ctx *Context) ResolveKind(name string, forceCask, forceFormula bool) (isCask bool, err error) {
+	switch {
+	case forceCask:
+		if _, err := ctx.CaskLoader.LoadByName(name); err != nil {
+			return true, err
+		}
+		return true, nil
+	case forceFormula:
+		if _, err := ctx.Loader.LoadByName(name); err != nil {
+			return false, err
+		}
+		return false, nil
+	default:
+		if _, err := ctx.Loader.LoadByName(name); err == nil {
+			return false, nil
+		}
+		if _, err := ctx.CaskLoader.LoadByName(name); err == nil {
+			return true, nil
+		}
+		return false, fmt.Errorf("no formula or cask found for %q", name)
+	}
+}
+
 // NewLoader creates a formula.Loader with debug logging wired in.
 func NewLoader(tapDir string) *formula.Loader {
 	l := formula.NewLoader(tapDir)
