@@ -51,10 +51,9 @@ func RunSudoCmd(executable string, args ...string) error {
 		return fmt.Errorf("executable is not a regular file")
 	}
 
-	sudoPath := "/usr/bin/sudo"
 	cmdArgs := []string{"-A", "--", executable}
 	cmdArgs = append(cmdArgs, args...)
-	cmd := exec.Command(sudoPath, cmdArgs...)
+	cmd := exec.Command("/usr/bin/sudo", cmdArgs...)
 
 	// Pass through stdout/stderr
 	cmd.Stdout = os.Stdout
