@@ -197,7 +197,30 @@ This metadata enables precise identification of "orphaned" dependencies—packag
     - **Exit status**: Returns a non-zero exit code when any missing dependency is found, so it can gate scripts and CI checks. Because a non-zero exit is the command's normal "found something" signal rather than a misuse, it suppresses Cobra's automatic usage/help text (the command syntax summary shown on errors) and prints only the offending list.
     - **Casks**: grew casks declare no dependencies, so cask installations are always reported as complete.
 
-## 9. Modular CLI Architecture
+## 9. Shell Completion (`pkg/completion`)
+
+`grew` generates shell completion scripts via `grew completion <bash|zsh|fish>` (cobra built-in). For argument completion — suggesting formula or cask names as you type — `grew info` registers a `ValidArgsFunction` that delegates to `pkg/completion.NamesCache`.
+
+### Name list caching
+
+Fetching the full Homebrew formula or cask list on every tab-press would be impractical (~7 MB and ~2 MB respectively). `NamesCache` solves this with a file-based cache under `{cache}/completion/`:
+
+| File | Contents |
+|---|---|
+| `formula-names.json` | `{"names":[…],"fetched_at":"…"}` |
+| `cask-names.json`    | Same for cask tokens |
+
+**TTL:** 24 hours, enforced by checking the file's mtime. On a cache miss (file absent, expired, or corrupt), `NamesCache` calls `homebrew.FetchFormulaNames()` or `homebrew.FetchCaskNames()` and overwrites the cache. Write errors are silently ignored so completion degrades gracefully offline.
+
+### Lightweight API fetch
+
+`FetchFormulaNames` and `FetchCaskNames` in `pkg/homebrew` hit the same `formulae.brew.sh` list endpoints as the full bulk fetchers but parse only the minimal fields needed for filtering (name/token, deprecated, disabled, version). This avoids allocating thousands of full `Formula`/`Cask` structs just to extract names.
+
+### Completion probe performance
+
+`ValidArgsFunction` calls `config.Default()` directly rather than `context.New()`, skipping core-tap initialisation. The probe is therefore fast on a cache hit: it reads a small JSON file and returns.
+
+## 10. Modular CLI Architecture
 
 Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. Subcommands are no longer monolithic within a single package. Instead, each command resides in its own standalone package under the `cmd/` directory (e.g., `cmd/install`, `cmd/upgrade`).
 
@@ -213,7 +236,7 @@ Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. 
 
 The CLI entry point in `main.go` and the root command definition in `root.go` utilize the `pkg/cli` package to import these standalone packages and register them into the primary `Grew` root command.
 
-## 10. Execution Context (`pkg/context`)
+## 11. Execution Context (`pkg/context`)
 
 The `Context` struct serves as the central registry for shared application state in `grew`. Its primary purpose is to bundle together the various managers and loaders that almost every command needs to function, implementing a pattern of explicit dependency injection.
 
@@ -227,7 +250,7 @@ The `Context` struct serves as the central registry for shared application state
 2.  **Shared Logic**: It hosts cross-cutting methods like `LoadFormula` and `LoadCask`, which encapsulate complex behaviors such as automatic repository tapping (auto-tapping) and falling back to the Homebrew API when a local definition is missing. `ResolveKind(name, forceCask, forceFormula)` returns `(isCask bool, err error)` for commands that accept either kind and need to determine which loader to use without duplicating the formula-wins logic inline.
 3.  **Consistency**: By passing a single `Context` object through the command hierarchy, `grew` ensures that all components operate on the same configuration and prefix, preventing environment drift during execution.
 
-## 11. Dependency Resolution & Lifecycle Hooks
+## 12. Dependency Resolution & Lifecycle Hooks
 
 `grew` provides structured dependency management with multiple scopes (runtime, build, test, optional, recommended) and supports formula lifecycle hooks for build, test, and post-install phases.
 

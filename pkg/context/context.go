@@ -17,8 +17,8 @@ import (
 	"github.com/homegrew/grew/pkg/fsutil"
 	"github.com/homegrew/grew/pkg/homebrew"
 	"github.com/homegrew/grew/pkg/linker"
-	"github.com/homegrew/grew/pkg/tap"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/tap"
 	"github.com/homegrew/grew/pkg/ui"
 )
 

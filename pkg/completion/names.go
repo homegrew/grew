@@ -3,9 +3,9 @@ package completion
 import (
 	"encoding/json"
 	"os"
-	"path/filepath"
 	"time"
 
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/homebrew"
 	"github.com/homegrew/grew/pkg/safepath"
 )
@@ -20,27 +20,20 @@ type NamesCache struct {
 // New returns a NamesCache that stores files under {cacheDir}/completion/.
 // If cacheDir is invalid, caching is disabled and completion falls back to live fetches.
 func New(cacheDir string) *NamesCache {
-	ucd, err := os.UserCacheDir()
-	if err != nil {
-		return &NamesCache{}
-	}
-
-	baseCache := filepath.Join(ucd, "Homegrew")
-	if err := safepath.SafeAbsolutePath(baseCache); err != nil {
-		return &NamesCache{}
-	}
-	if err := safepath.SafeAbsolutePath(cacheDir); err != nil {
-		return &NamesCache{}
-	}
-	if err := safepath.CheckSubpath(baseCache, cacheDir); err != nil {
-		return &NamesCache{}
-	}
-
 	dir, err := safepath.SafeJoin(cacheDir, "completion")
 	if err != nil {
 		return &NamesCache{}
 	}
 	return &NamesCache{dir: dir}
+}
+
+func NewWithContent(ctx *context.Context) *NamesCache {
+	// dir := filepath.Join(ctx.Paths.Cache, "completion")
+	// 		if err := os.MkdirAll(dir, 0755); err != nil {
+	// 			return &NamesCache{}
+	// }
+
+	return New(ctx.Paths.Cache)
 }
 
 type namesCacheFile struct {

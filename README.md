@@ -284,6 +284,7 @@ grew/
 │   ├── auditlog/     ← persistent record of all install/upgrade/tap actions
 │   ├── bpatch/       ← binary delta patching (using bspatch)
 │   ├── cache/        ← download cache management and pruning
+│   ├── completion/   ← shell completion name lists (API-fetched, 24 h cache)
 │   ├── cask/         ← cask parsing, Caskroom, and helpers
 │   ├── caveats/      ← post-install message rendering with template substitution
 │   ├── cellar/       ← installed package management and cleanup
