@@ -26,7 +26,7 @@ jobs:
       - name: Run unit tests with coverage
         run: |
           go list ./... | grep -v /tests > unit_pkgs.txt
-          go test -tags devmode -race -coverprofile=./coverageFiles/coverage_unit.txt -covermode=atomic $(cat unit_pkgs.txt)
+          go test -race -coverprofile=./coverageFiles/coverage_unit.txt -covermode=atomic $(cat unit_pkgs.txt)
 
 #      - uses: codecov/codecov-action@v6
 #        with:
