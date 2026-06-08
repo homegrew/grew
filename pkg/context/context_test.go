@@ -5,6 +5,9 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/homegrew/grew/pkg/cask"
+	"github.com/homegrew/grew/pkg/formula"
 )
 
 func TestNewLoader(t *testing.T) {
@@ -36,18 +39,18 @@ func TestNewCaskLoader(t *testing.T) {
 }
 
 func TestNew(t *testing.T) {
-	// Mock HOMEGREW_PREFIX, HOMEGREW_CACHE, and HOMEGREW_APPDIR to a temporary directory 
+	// Mock HOMEGREW_PREFIX, HOMEGREW_CACHE, and HOMEGREW_APPDIR to a temporary directory
 	// to avoid affecting the host system and to avoid permission errors in restricted environments.
 	tmpDir := t.TempDir()
-	
+
 	origPrefix := os.Getenv("HOMEGREW_PREFIX")
 	origCache := os.Getenv("HOMEGREW_CACHE")
 	origAppDir := os.Getenv("HOMEGREW_APPDIR")
-	
+
 	os.Setenv("HOMEGREW_PREFIX", tmpDir)
 	os.Setenv("HOMEGREW_CACHE", filepath.Join(tmpDir, "cache"))
 	os.Setenv("HOMEGREW_APPDIR", filepath.Join(tmpDir, "Applications"))
-	
+
 	defer func() {
 		os.Setenv("HOMEGREW_PREFIX", origPrefix)
 		os.Setenv("HOMEGREW_CACHE", origCache)
@@ -104,21 +107,21 @@ func TestNew(t *testing.T) {
 
 func TestNew_Error(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	// Create a file where the Taps directory should be to cause a failure
 	tapsPath := filepath.Join(tmpDir, "Taps")
 	if err := os.WriteFile(tapsPath, []byte("not a directory"), 0644); err != nil {
 		t.Fatalf("failed to create file: %v", err)
 	}
-	
+
 	origPrefix := os.Getenv("HOMEGREW_PREFIX")
 	origCache := os.Getenv("HOMEGREW_CACHE")
 	origAppDir := os.Getenv("HOMEGREW_APPDIR")
-	
+
 	os.Setenv("HOMEGREW_PREFIX", tmpDir)
 	os.Setenv("HOMEGREW_CACHE", filepath.Join(tmpDir, "cache"))
 	os.Setenv("HOMEGREW_APPDIR", filepath.Join(tmpDir, "Applications"))
-	
+
 	defer func() {
 		os.Setenv("HOMEGREW_PREFIX", origPrefix)
 		os.Setenv("HOMEGREW_CACHE", origCache)
@@ -133,16 +136,16 @@ func TestNew_Error(t *testing.T) {
 
 func TestInstallContext(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	origPrefix := os.Getenv("HOMEGREW_PREFIX")
 	origCache := os.Getenv("HOMEGREW_CACHE")
 	origAppDir := os.Getenv("HOMEGREW_APPDIR")
-	
+
 	os.Setenv("HOMEGREW_PREFIX", tmpDir)
 	os.Setenv("HOMEGREW_CACHE", filepath.Join(tmpDir, "cache"))
 	os.Setenv("HOMEGREW_APPDIR", filepath.Join(tmpDir, "Applications"))
 	os.Setenv("HOMEGREW_NO_INIT_TAP", "1")
-	
+
 	defer func() {
 		os.Setenv("HOMEGREW_PREFIX", origPrefix)
 		os.Setenv("HOMEGREW_CACHE", origCache)
@@ -172,7 +175,7 @@ func TestInstallContext(t *testing.T) {
 
 func TestLoadFormula_NotFound(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	origPrefix := os.Getenv("HOMEGREW_PREFIX")
 	os.Setenv("HOMEGREW_PREFIX", tmpDir)
 	os.Setenv("HOMEGREW_NO_INIT_TAP", "1")
@@ -190,7 +193,7 @@ func TestLoadFormula_NotFound(t *testing.T) {
 
 func TestLoadCask_NotFound(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	origPrefix := os.Getenv("HOMEGREW_PREFIX")
 	os.Setenv("HOMEGREW_PREFIX", tmpDir)
 	os.Setenv("HOMEGREW_NO_INIT_TAP", "1")
@@ -208,7 +211,7 @@ func TestLoadCask_NotFound(t *testing.T) {
 
 func TestClose(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	origPrefix := os.Getenv("HOMEGREW_PREFIX")
 	os.Setenv("HOMEGREW_PREFIX", tmpDir)
 	os.Setenv("HOMEGREW_NO_INIT_TAP", "1")
@@ -219,9 +222,9 @@ func TestClose(t *testing.T) {
 
 	ictx, _ := NewInstallContext()
 	lockFile := ictx.GlobalLock
-	
+
 	ictx.Close()
-	
+
 	if ictx.GlobalLock != nil {
 		t.Error("expected GlobalLock to be nil after Close()")
 	}
@@ -267,4 +270,170 @@ func ExampleContext() {
 
 	// Output:
 	// Context initialized successfully
+}
+
+func TestResolveKind(t *testing.T) {
+	// Helper to create a fixture formula YAML file
+	createFormulaFixture := func(tapDir, formulaName string) error {
+		formulaDir := filepath.Join(tapDir, "homegrew", "homegrew-taps", "core")
+		if err := os.MkdirAll(formulaDir, 0755); err != nil {
+			return err
+		}
+		formulaYAML := fmt.Sprintf(`name: %s
+version: "1.0"
+homepage: https://example.com
+description: test formula
+url:
+  darwin_arm64: https://example.com/%s-1.0.tar.gz
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+install:
+  type: binary
+  binary_name: %s
+`, formulaName, formulaName, formulaName)
+		return os.WriteFile(filepath.Join(formulaDir, formulaName+".yaml"), []byte(formulaYAML), 0644)
+	}
+
+	// Helper to create a fixture cask YAML file
+	createCaskFixture := func(tapDir, caskName string) error {
+		caskDir := filepath.Join(tapDir, "homegrew", "homegrew-taps", "cask")
+		if err := os.MkdirAll(caskDir, 0755); err != nil {
+			return err
+		}
+		caskYAML := fmt.Sprintf(`token: %s
+version: "1.0"
+url: https://example.com/%s-1.0.dmg
+sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+name:
+  - My %s
+homepage: https://example.com
+artifacts:
+  - app: %s.app
+`, caskName, caskName, caskName, caskName)
+		return os.WriteFile(filepath.Join(caskDir, caskName+".yaml"), []byte(caskYAML), 0644)
+	}
+
+	tests := []struct {
+		name         string
+		forceCask    bool
+		forceFormula bool
+		setupFixture func(tapDir string) error
+		packageName  string
+		wantIsCask   bool
+		wantErr      bool
+	}{
+		{
+			name:         "ForceFormula_Found",
+			forceCask:    false,
+			forceFormula: true,
+			setupFixture: func(tapDir string) error {
+				return createFormulaFixture(tapDir, "myformula")
+			},
+			packageName: "myformula",
+			wantIsCask:  false,
+			wantErr:     false,
+		},
+		{
+			name:         "ForceFormula_NotFound",
+			forceCask:    false,
+			forceFormula: true,
+			setupFixture: func(tapDir string) error {
+				return nil // No fixture
+			},
+			packageName: "nonexistent",
+			wantIsCask:  false,
+			wantErr:     true,
+		},
+		{
+			name:         "ForceCask_Found",
+			forceCask:    true,
+			forceFormula: false,
+			setupFixture: func(tapDir string) error {
+				return createCaskFixture(tapDir, "mycask")
+			},
+			packageName: "mycask",
+			wantIsCask:  true,
+			wantErr:     false,
+		},
+		{
+			name:         "ForceCask_NotFound",
+			forceCask:    true,
+			forceFormula: false,
+			setupFixture: func(tapDir string) error {
+				return nil // No fixture
+			},
+			packageName: "nonexistent",
+			wantIsCask:  true,
+			wantErr:     true,
+		},
+		{
+			name:         "Auto_FormulaWins",
+			forceCask:    false,
+			forceFormula: false,
+			setupFixture: func(tapDir string) error {
+				if err := createFormulaFixture(tapDir, "both"); err != nil {
+					return err
+				}
+				return createCaskFixture(tapDir, "both")
+			},
+			packageName: "both",
+			wantIsCask:  false, // Formula should win
+			wantErr:     false,
+		},
+		{
+			name:         "Auto_CaskFallback",
+			forceCask:    false,
+			forceFormula: false,
+			setupFixture: func(tapDir string) error {
+				return createCaskFixture(tapDir, "onlycask")
+			},
+			packageName: "onlycask",
+			wantIsCask:  true,
+			wantErr:     false,
+		},
+		{
+			name:         "Auto_NeitherFound",
+			forceCask:    false,
+			forceFormula: false,
+			setupFixture: func(tapDir string) error {
+				return nil // No fixture
+			},
+			packageName: "neither",
+			wantIsCask:  false,
+			wantErr:     true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			// Create a temporary tap directory for this test
+			tapDir := t.TempDir()
+
+			// Set up the fixture
+			if err := tt.setupFixture(tapDir); err != nil {
+				t.Fatalf("failed to set up fixture: %v", err)
+			}
+
+			// Create a minimal context with formula and cask loaders pointing to our temp tap
+			ctx := &Context{
+				Loader:     &formula.Loader{TapDir: tapDir},
+				CaskLoader: &cask.Loader{TapDir: tapDir},
+			}
+
+			// Call ResolveKind
+			isCask, err := ctx.ResolveKind(tt.packageName, tt.forceCask, tt.forceFormula)
+
+			// Check error expectation
+			if (err != nil) != tt.wantErr {
+				t.Errorf("ResolveKind(%q, %v, %v) error = %v, wantErr %v",
+					tt.packageName, tt.forceCask, tt.forceFormula, err, tt.wantErr)
+			}
+
+			// Check isCask value (only meaningful if no error expected)
+			if !tt.wantErr && isCask != tt.wantIsCask {
+				t.Errorf("ResolveKind(%q, %v, %v) isCask = %v, want %v",
+					tt.packageName, tt.forceCask, tt.forceFormula, isCask, tt.wantIsCask)
+			}
+		})
+	}
 }
