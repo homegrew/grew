@@ -13,18 +13,11 @@ import (
 // resetFlags restores all package-level flag state to its zero value so tests
 // (which mutate these globals) do not leak into one another.
 func resetFlags() {
-	descSearch = false
-	descName = false
-	descDescription = false
-	descFormula = false
-	descCask = false
-	descPlain = false
 }
 
 // captureStdout runs fn while capturing everything written to os.Stdout.
 func captureStdout(t *testing.T, fn func()) string {
 	t.Helper()
-	oldStdout := os.Stdout
 	r, w, err := os.Pipe()
 	if err != nil {
 		t.Fatal(err)
@@ -38,7 +31,6 @@ func captureStdout(t *testing.T, fn func()) string {
 	}()
 	fn()
 	_ = w.Close()
-	os.Stdout = oldStdout
 	out := <-done
 	_ = r.Close()
 	return out
@@ -124,17 +116,16 @@ artifacts:
 func TestMatcherLiteralSubstring(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descSearch = true
 
 	ms, err := buildMatchers([]string{"JSON"})
 	if err != nil {
 		t.Fatal(err)
 	}
 	// case-insensitive substring against name
-	if !matchAny(ms, "jq", "Lightweight JSON processor") {
+	if !matchAny(descOptions{search: true}, ms, "jq", "Lightweight JSON processor") {
 		t.Error("expected literal 'JSON' to match description case-insensitively")
 	}
-	if matchAny(ms, "wget", "Internet file retriever") {
+	if matchAny(descOptions{search: true}, ms, "wget", "Internet file retriever") {
 		t.Error("did not expect 'JSON' to match unrelated package")
 	}
 }
@@ -142,16 +133,15 @@ func TestMatcherLiteralSubstring(t *testing.T) {
 func TestMatchAnyNameMode(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descName = true
 
 	ms, err := buildMatchers([]string{"foo"})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !matchAny(ms, "foobar", "unrelated description") {
+	if !matchAny(descOptions{name: true}, ms, "foobar", "unrelated description") {
 		t.Error("expected name-mode to match on name")
 	}
-	if matchAny(ms, "bar", "contains foo in description") {
+	if matchAny(descOptions{name: true}, ms, "bar", "contains foo in description") {
 		t.Error("name-mode must not match on description")
 	}
 }
@@ -159,16 +149,15 @@ func TestMatchAnyNameMode(t *testing.T) {
 func TestMatchAnyDescriptionMode(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descDescription = true
 
 	ms, err := buildMatchers([]string{"foo"})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !matchAny(ms, "bar", "this has foo inside") {
+	if !matchAny(descOptions{description: true}, ms, "bar", "this has foo inside") {
 		t.Error("expected description-mode to match on description")
 	}
-	if matchAny(ms, "foobar", "unrelated") {
+	if matchAny(descOptions{description: true}, ms, "foobar", "unrelated") {
 		t.Error("description-mode must not match on name")
 	}
 }
@@ -176,7 +165,6 @@ func TestMatchAnyDescriptionMode(t *testing.T) {
 func TestRegexPatternMatching(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descName = true
 
 	ms, err := buildMatchers([]string{"/^py.*3$/"})
 	if err != nil {
@@ -185,10 +173,10 @@ func TestRegexPatternMatching(t *testing.T) {
 	if len(ms) != 1 || ms[0].re == nil {
 		t.Fatalf("expected a compiled regex matcher, got %+v", ms)
 	}
-	if !matchAny(ms, "Python3", "lang") {
+	if !matchAny(descOptions{name: true}, ms, "Python3", "lang") {
 		t.Error("expected regex /^py.*3$/ to match 'Python3' case-insensitively")
 	}
-	if matchAny(ms, "ruby", "lang") {
+	if matchAny(descOptions{name: true}, ms, "ruby", "lang") {
 		t.Error("did not expect regex to match 'ruby'")
 	}
 }
@@ -234,6 +222,7 @@ func TestRenderGroupedHeaders(t *testing.T) {
 
 	out := captureStdout(t, func() {
 		render(
+			descOptions{plain: false},
 			[]entry{{name: "jq", desc: "json"}},
 			[]entry{{name: "firefox", desc: "browser"}},
 		)
@@ -258,7 +247,7 @@ func TestRenderGroupedOmitsEmptyHeader(t *testing.T) {
 	resetFlags()
 
 	out := captureStdout(t, func() {
-		render([]entry{{name: "jq", desc: "json"}}, nil)
+		render(descOptions{plain: false}, []entry{{name: "jq", desc: "json"}}, nil)
 	})
 	if strings.Contains(out, "==> Casks") {
 		t.Errorf("did not expect Casks header when no casks, got:\n%s", out)
@@ -271,10 +260,10 @@ func TestRenderGroupedOmitsEmptyHeader(t *testing.T) {
 func TestRenderPlainNoHeaders(t *testing.T) {
 	defer resetFlags()
 	resetFlags()
-	descPlain = true
 
 	out := captureStdout(t, func() {
 		render(
+			descOptions{plain: true},
 			[]entry{{name: "jq", desc: "json"}},
 			[]entry{{name: "firefox", desc: "browser"}},
 		)
@@ -291,10 +280,9 @@ func TestRenderPlainNoHeaders(t *testing.T) {
 func TestRenderSortsByName(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descPlain = true
 
 	out := captureStdout(t, func() {
-		render([]entry{{name: "zed", desc: "z"}, {name: "abc", desc: "a"}}, nil)
+		render(descOptions{plain: true}, []entry{{name: "zed", desc: "z"}, {name: "abc", desc: "a"}}, nil)
 	})
 	ai := strings.Index(out, "abc:")
 	zi := strings.Index(out, "zed:")
@@ -314,7 +302,7 @@ func TestRunNameMode(t *testing.T) {
 	})
 
 	out := captureStdout(t, func() {
-		if err := runNameMode(ctx, []string{"jq"}); err != nil {
+		if err := runNameMode(ctx, descOptions{plain: false}, []string{"jq"}); err != nil {
 			t.Fatalf("runNameMode failed: %v", err)
 		}
 	})
@@ -336,7 +324,7 @@ func TestRunNameModeMissingPackage(t *testing.T) {
 	})
 
 	out := captureStdout(t, func() {
-		err := runNameMode(ctx, []string{"jq", "does-not-exist"})
+		err := runNameMode(ctx, descOptions{plain: false}, []string{"jq", "does-not-exist"})
 		if err == nil {
 			t.Error("expected non-nil error when a package is missing")
 		}
@@ -350,7 +338,6 @@ func TestRunNameModeMissingPackage(t *testing.T) {
 func TestRunSearchModeSubstring(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descSearch = true
 
 	ctx := setupCtx(t, map[string]string{
 		"core/jq.yaml":      formulaYAML("jq", "Lightweight JSON processor"),
@@ -359,7 +346,7 @@ func TestRunSearchModeSubstring(t *testing.T) {
 	})
 
 	out := captureStdout(t, func() {
-		if err := runSearchMode(ctx, []string{"json"}); err != nil {
+		if err := runSearchMode(ctx, descOptions{search: true}, []string{"json"}); err != nil {
 			t.Fatalf("runSearchMode failed: %v", err)
 		}
 	})
@@ -382,15 +369,13 @@ func TestRunSearchModeSubstring(t *testing.T) {
 func TestRunSearchModeFormulaRestriction(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descName = true
-	descFormula = true // restrict to formulae only: the cask loader must not run
 
 	ctx := setupCtx(t, map[string]string{
 		"core/fooform.yaml": formulaYAML("fooform", "a foo formula"),
 	})
 
 	out := captureStdout(t, func() {
-		if err := runSearchMode(ctx, []string{"foo"}); err != nil {
+		if err := runSearchMode(ctx, descOptions{formula: true}, []string{"foo"}); err != nil {
 			t.Fatalf("runSearchMode failed: %v", err)
 		}
 	})
@@ -406,15 +391,13 @@ func TestRunSearchModeFormulaRestriction(t *testing.T) {
 func TestRunSearchModeCaskRestriction(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descName = true
-	descCask = true // restrict to casks only: the formula loader must not run
 
 	ctx := setupCtx(t, map[string]string{
 		"cask/foocask.yaml": caskYAML("foocask", "a foo cask"),
 	})
 
 	out := captureStdout(t, func() {
-		if err := runSearchMode(ctx, []string{"foo"}); err != nil {
+		if err := runSearchMode(ctx, descOptions{cask: true}, []string{"foo"}); err != nil {
 			t.Fatalf("runSearchMode failed: %v", err)
 		}
 	})
@@ -430,7 +413,6 @@ func TestRunSearchModeCaskRestriction(t *testing.T) {
 func TestRunSearchModeRegex(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descName = true
 
 	ctx := setupCtx(t, map[string]string{
 		"core/python3.yaml": formulaYAML("python3", "interpreted language"),
@@ -438,7 +420,7 @@ func TestRunSearchModeRegex(t *testing.T) {
 	})
 
 	out := captureStdout(t, func() {
-		if err := runSearchMode(ctx, []string{"/^py.*3$/"}); err != nil {
+		if err := runSearchMode(ctx, descOptions{name: true}, []string{"/^py.*3$/"}); err != nil {
 			t.Fatalf("runSearchMode failed: %v", err)
 		}
 	})
@@ -454,14 +436,12 @@ func TestRunSearchModeRegex(t *testing.T) {
 func TestRunDescMutualExclusion(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descSearch = true
-	descName = true
 
 	ctx := setupCtx(t, map[string]string{
 		"core/python3.yaml": formulaYAML("python3", "interpreted language"),
 		"core/ruby.yaml":    formulaYAML("ruby", "interpreted language"),
 	})
-	if err := runDesc(ctx, []string{"foo"}); err == nil {
+	if err := runDesc(ctx, descOptions{search: true, name: true}, []string{"foo"}); err == nil {
 		t.Error("expected error when multiple search modes are set")
 	}
 }
@@ -469,14 +449,12 @@ func TestRunDescMutualExclusion(t *testing.T) {
 func TestRunDescFormulaCaskExclusion(t *testing.T) {
 	t.Cleanup(resetFlags)
 	resetFlags()
-	descFormula = true
-	descCask = true
 
 	ctx := setupCtx(t, map[string]string{
 		"cask/foocask.yaml": caskYAML("foocask", "a foo cask"),
 	})
 
-	if err := runDesc(ctx, []string{"foo"}); err == nil {
+	if err := runDesc(ctx, descOptions{formula: true, cask: true}, []string{"foo"}); err == nil {
 		t.Error("expected error when both --formula and --cask are set")
 	}
 }

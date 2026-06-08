@@ -12,18 +12,18 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	descSearch      bool
-	descName        bool
-	descDescription bool
-	descFormula     bool
-	descCask        bool
-	descPlain       bool
-)
-
 // maxPatternLen caps the length of a user-supplied regular expression to
 // guard against pathological patterns.
 const maxPatternLen = 1024
+
+type descOptions struct {
+	search      bool
+	name        bool
+	description bool
+	formula     bool
+	cask        bool
+	plain       bool
+}
 
 var Command = &cobra.Command{
 	Use:   "desc [options] formula|cask|text|/regex/ [...]",
@@ -47,19 +47,30 @@ Examples:
 		if err != nil {
 			return err
 		}
-		return runDesc(ctx, args)
+		var opts descOptions
+		opts.search, _ = c.Flags().GetBool("search")
+		opts.name, _ = c.Flags().GetBool("name")
+		opts.description, _ = c.Flags().GetBool("description")
+		f1, _ := c.Flags().GetBool("formula")
+		f2, _ := c.Flags().GetBool("formulae")
+		opts.formula = f1 || f2
+		k1, _ := c.Flags().GetBool("cask")
+		k2, _ := c.Flags().GetBool("casks")
+		opts.cask = k1 || k2
+		opts.plain, _ = c.Flags().GetBool("plain")
+		return runDesc(ctx, opts, args)
 	},
 }
 
 func init() {
-	Command.Flags().BoolVarP(&descSearch, "search", "s", false, "Search both names and descriptions for text. If text is /flanked by slashes/, it is treated as a regular expression.")
-	Command.Flags().BoolVarP(&descName, "name", "n", false, "Search just names for text (regex if slash-flanked).")
-	Command.Flags().BoolVar(&descDescription, "description", false, "Search just descriptions for text (regex if slash-flanked).")
-	Command.Flags().BoolVar(&descFormula, "formula", false, "Treat all named arguments as formulae.")
-	Command.Flags().BoolVar(&descFormula, "formulae", false, "Treat all named arguments as formulae.")
-	Command.Flags().BoolVar(&descCask, "cask", false, "Treat all named arguments as casks.")
-	Command.Flags().BoolVar(&descCask, "casks", false, "Treat all named arguments as casks.")
-	Command.Flags().BoolVar(&descPlain, "plain", false, "Print plain 'name: description' lines without ==> Formulae / ==> Casks group headers.")
+	Command.Flags().BoolP("search", "s", false, "Search both names and descriptions for text. If text is /flanked by slashes/, it is treated as a regular expression.")
+	Command.Flags().BoolP("name", "n", false, "Search just names for text (regex if slash-flanked).")
+	Command.Flags().Bool("description", false, "Search just descriptions for text (regex if slash-flanked).")
+	Command.Flags().Bool("formula", false, "Treat all named arguments as formulae.")
+	Command.Flags().Bool("formulae", false, "Treat all named arguments as formulae.")
+	Command.Flags().Bool("cask", false, "Treat all named arguments as casks.")
+	Command.Flags().Bool("casks", false, "Treat all named arguments as casks.")
+	Command.Flags().Bool("plain", false, "Print plain 'name: description' lines without ==> Formulae / ==> Casks group headers.")
 }
 
 // entry is a single package name and its description.
@@ -68,24 +79,24 @@ type entry struct {
 	desc string
 }
 
-func runDesc(ctx *context.Context, args []string) error {
+func runDesc(ctx *context.Context, opts descOptions, args []string) error {
 	slog.Debug("starting desc command execution")
 
 	searchModes := 0
-	if descSearch {
+	if opts.search {
 		searchModes++
 	}
-	if descName {
+	if opts.name {
 		searchModes++
 	}
-	if descDescription {
+	if opts.description {
 		searchModes++
 	}
 	if searchModes > 1 {
 		return fmt.Errorf("--search, --name, and --description are mutually exclusive")
 	}
 
-	if descFormula && descCask {
+	if opts.formula && opts.cask {
 		return fmt.Errorf("--formula and --cask are mutually exclusive")
 	}
 
@@ -94,20 +105,20 @@ func runDesc(ctx *context.Context, args []string) error {
 	}
 
 	if searchModes == 1 {
-		return runSearchMode(ctx, args)
+		return runSearchMode(ctx, opts, args)
 	}
-	return runNameMode(ctx, args)
+	return runNameMode(ctx, opts, args)
 }
 
 // runNameMode resolves each argument as a package name and prints its
 // description. Missing packages are reported to stderr but do not abort the
 // remaining arguments; a non-nil error is returned at the end if any failed.
-func runNameMode(ctx *context.Context, args []string) error {
+func runNameMode(ctx *context.Context, opts descOptions, args []string) error {
 	var formulae, casks []entry
 	failed := false
 
 	for _, name := range args {
-		isCask, err := ctx.ResolveKind(name, descCask, descFormula)
+		isCask, err := ctx.ResolveKind(name, opts.cask, opts.formula)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			failed = true
@@ -132,7 +143,7 @@ func runNameMode(ctx *context.Context, args []string) error {
 		}
 	}
 
-	render(formulae, casks)
+	render(opts, formulae, casks)
 
 	if failed {
 		return fmt.Errorf("some packages could not be found")
@@ -142,7 +153,7 @@ func runNameMode(ctx *context.Context, args []string) error {
 
 // runSearchMode loads all formulae and/or casks and matches them against the
 // provided patterns.
-func runSearchMode(ctx *context.Context, args []string) error {
+func runSearchMode(ctx *context.Context, opts descOptions, args []string) error {
 	matchers, err := buildMatchers(args)
 	if err != nil {
 		return err
@@ -150,31 +161,31 @@ func runSearchMode(ctx *context.Context, args []string) error {
 
 	var formulae, casks []entry
 
-	if !descCask {
+	if !opts.cask {
 		all, err := ctx.Loader.LoadAll()
 		if err != nil {
 			return err
 		}
 		for _, f := range all {
-			if matchAny(matchers, f.Name, f.Description) {
+			if matchAny(opts, matchers, f.Name, f.Description) {
 				formulae = append(formulae, entry{name: f.Name, desc: f.Description})
 			}
 		}
 	}
 
-	if !descFormula {
+	if !opts.formula {
 		all, err := ctx.CaskLoader.LoadAll()
 		if err != nil {
 			return err
 		}
 		for _, c := range all {
-			if matchAny(matchers, c.Name, c.Description) {
+			if matchAny(opts, matchers, c.Name, c.Description) {
 				casks = append(casks, entry{name: c.Name, desc: c.Description})
 			}
 		}
 	}
 
-	render(dedupe(formulae), dedupe(casks))
+	render(opts, dedupe(formulae), dedupe(casks))
 	return nil
 }
 
@@ -214,18 +225,18 @@ func buildMatchers(args []string) ([]matcher, error) {
 
 // matchAny reports whether any argument matcher matches according to the
 // active search mode (name, description, or both).
-func matchAny(matchers []matcher, name, description string) bool {
+func matchAny(opts descOptions, matchers []matcher, name, description string) bool {
 	for _, m := range matchers {
 		switch {
-		case descName:
+		case opts.name:
 			if m.matches(name) {
 				return true
 			}
-		case descDescription:
+		case opts.description:
 			if m.matches(description) {
 				return true
 			}
-		default: // descSearch: either
+		default: // search: either
 			if m.matches(name) || m.matches(description) {
 				return true
 			}
@@ -249,11 +260,11 @@ func dedupe(entries []entry) []entry {
 
 // render prints the formula and cask entries either grouped (default) or as
 // plain "name: description" lines (--plain). Both lists are sorted by name.
-func render(formulae, casks []entry) {
+func render(opts descOptions, formulae, casks []entry) {
 	sortEntries(formulae)
 	sortEntries(casks)
 
-	if descPlain {
+	if opts.plain {
 		for _, e := range formulae {
 			fmt.Printf("%s: %s\n", e.name, e.desc)
 		}
