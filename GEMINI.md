@@ -9,6 +9,7 @@ This repository contains `grew`, a Go-based macOS package manager inspired by Ho
 `grew` is not a generic experiment. It is a full CLI product with:
 
 - Formula and cask installation.
+- Name and description lookup and search (`desc`), including substring and `/regex/` matching across both kinds.
 - Tap support and auto-install of missing taps.
 - Deterministic linking and opt symlinks.
 - Dependency resolution and tree inspection.

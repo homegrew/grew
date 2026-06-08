@@ -224,7 +224,7 @@ The `Context` struct serves as the central registry for shared application state
 
 ### Design Goals
 1.  **Lifecycle Management**: The context initialization ensures that system paths are validated and core components (like the default Tap) are ready before any command logic executes.
-2.  **Shared Logic**: It hosts cross-cutting methods like `LoadFormula` and `LoadCask`, which encapsulate complex behaviors such as automatic repository tapping (auto-tapping) and falling back to the Homebrew API when a local definition is missing.
+2.  **Shared Logic**: It hosts cross-cutting methods like `LoadFormula` and `LoadCask`, which encapsulate complex behaviors such as automatic repository tapping (auto-tapping) and falling back to the Homebrew API when a local definition is missing. `ResolveKind(name, forceCask, forceFormula)` returns `(isCask bool, err error)` for commands that accept either kind and need to determine which loader to use without duplicating the formula-wins logic inline.
 3.  **Consistency**: By passing a single `Context` object through the command hierarchy, `grew` ensures that all components operate on the same configuration and prefix, preventing environment drift during execution.
 
 ## 11. Dependency Resolution & Lifecycle Hooks

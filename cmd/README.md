@@ -35,6 +35,7 @@ When adding a new subcommand:
 | [config](./config) | What grew thinks it knows |
 | [create](./create) | Create a new formula from a URL |
 | [deps](./deps) | Dependency spelunking |
+| [desc](./desc) | Show package names and one-line descriptions |
 | [doctor](./doctor) | It's not a bug, it's a misconfiguration |
 | [extract](./extract) | Internal hidden extraction command |
 | [homepage](./homepage) | Open a formula's homepage in a browser |
