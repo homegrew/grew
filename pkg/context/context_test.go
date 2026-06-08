@@ -300,16 +300,17 @@ install:
 		if err := os.MkdirAll(caskDir, 0755); err != nil {
 			return err
 		}
-		caskYAML := fmt.Sprintf(`token: %s
+		caskYAML := fmt.Sprintf(`name: %s
 version: "1.0"
-url: https://example.com/%s-1.0.dmg
-sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-name:
-  - My %s
 homepage: https://example.com
+url:
+  darwin_arm64: https://example.com/%s-1.0.dmg
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 artifacts:
-  - app: %s.app
-`, caskName, caskName, caskName, caskName)
+  app:
+    - %s.app
+`, caskName, caskName, caskName)
 		return os.WriteFile(filepath.Join(caskDir, caskName+".yaml"), []byte(caskYAML), 0644)
 	}
 
