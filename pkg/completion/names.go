@@ -20,10 +20,27 @@ type NamesCache struct {
 // New returns a NamesCache that stores files under {cacheDir}/completion/.
 // If cacheDir is invalid, caching is disabled and completion falls back to live fetches.
 func New(cacheDir string) *NamesCache {
+	ucd, err := os.UserCacheDir()
+	if err != nil {
+		return &NamesCache{}
+	}
+
+	baseCache := filepath.Join(ucd, "Homegrew")
+	if err := safepath.SafeAbsolutePath(baseCache); err != nil {
+		return &NamesCache{}
+	}
 	if err := safepath.SafeAbsolutePath(cacheDir); err != nil {
 		return &NamesCache{}
 	}
-	return &NamesCache{dir: filepath.Join(cacheDir, "completion")}
+	if err := safepath.CheckSubpath(baseCache, cacheDir); err != nil {
+		return &NamesCache{}
+	}
+
+	dir, err := safepath.SafeJoin(cacheDir, "completion")
+	if err != nil {
+		return &NamesCache{}
+	}
+	return &NamesCache{dir: dir}
 }
 
 type namesCacheFile struct {
