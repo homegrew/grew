@@ -104,7 +104,10 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	}
 
 	slog.Debug("verifying binary integrity", "path", binPath)
-	cmd := exec.Command(binPath, "--", "version")
+	// binPath is validated as an absolute, traversal-free path above and is
+	// always either os.Executable(), a path within the grew prefix (checked by
+	// callers via ensurePathWithinBase), or a process-owned temp directory.
+	cmd := exec.Command(binPath, "version") //nolint:gosec // G204: path is validated above
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("failed to execute binary check: %w\noutput: %s", err, string(out))
