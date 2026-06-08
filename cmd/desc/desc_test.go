@@ -122,7 +122,7 @@ artifacts:
 // ---- Pure helper tests (no context needed) ----
 
 func TestMatcherLiteralSubstring(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descSearch = true
 
@@ -140,7 +140,7 @@ func TestMatcherLiteralSubstring(t *testing.T) {
 }
 
 func TestMatchAnyNameMode(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descName = true
 
@@ -157,7 +157,7 @@ func TestMatchAnyNameMode(t *testing.T) {
 }
 
 func TestMatchAnyDescriptionMode(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descDescription = true
 
@@ -174,7 +174,7 @@ func TestMatchAnyDescriptionMode(t *testing.T) {
 }
 
 func TestRegexPatternMatching(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descName = true
 
@@ -194,7 +194,7 @@ func TestRegexPatternMatching(t *testing.T) {
 }
 
 func TestRegexTooLongRejected(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	long := "/" + strings.Repeat("a", maxPatternLen+1) + "/"
 	_, err := buildMatchers([]string{long})
@@ -207,7 +207,7 @@ func TestRegexTooLongRejected(t *testing.T) {
 }
 
 func TestRegexInvalidRejected(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	_, err := buildMatchers([]string{"/(unterminated/"})
 	if err == nil {
@@ -229,7 +229,7 @@ func TestDedupe(t *testing.T) {
 // ---- render / output-format tests ----
 
 func TestRenderGroupedHeaders(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags() // descPlain = false -> grouped
 
 	out := captureStdout(t, func() {
@@ -254,7 +254,7 @@ func TestRenderGroupedHeaders(t *testing.T) {
 }
 
 func TestRenderGroupedOmitsEmptyHeader(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 
 	out := captureStdout(t, func() {
@@ -289,7 +289,7 @@ func TestRenderPlainNoHeaders(t *testing.T) {
 }
 
 func TestRenderSortsByName(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descPlain = true
 
@@ -306,7 +306,7 @@ func TestRenderSortsByName(t *testing.T) {
 // ---- context-backed mode tests ----
 
 func TestRunNameMode(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 
 	ctx := setupCtx(t, map[string]string{
@@ -328,7 +328,7 @@ func TestRunNameMode(t *testing.T) {
 }
 
 func TestRunNameModeMissingPackage(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 
 	ctx := setupCtx(t, map[string]string{
@@ -348,7 +348,7 @@ func TestRunNameModeMissingPackage(t *testing.T) {
 }
 
 func TestRunSearchModeSubstring(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descSearch = true
 
@@ -380,7 +380,7 @@ func TestRunSearchModeSubstring(t *testing.T) {
 // loader is never consulted (no opposite-group header).
 
 func TestRunSearchModeFormulaRestriction(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descName = true
 	descFormula = true // restrict to formulae only: the cask loader must not run
@@ -404,7 +404,7 @@ func TestRunSearchModeFormulaRestriction(t *testing.T) {
 }
 
 func TestRunSearchModeCaskRestriction(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descName = true
 	descCask = true // restrict to casks only: the formula loader must not run
@@ -428,7 +428,7 @@ func TestRunSearchModeCaskRestriction(t *testing.T) {
 }
 
 func TestRunSearchModeRegex(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descName = true
 
@@ -452,23 +452,31 @@ func TestRunSearchModeRegex(t *testing.T) {
 }
 
 func TestRunDescMutualExclusion(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descSearch = true
 	descName = true
 
-	if err := runDesc([]string{"foo"}); err == nil {
+	ctx := setupCtx(t, map[string]string{
+		"core/python3.yaml": formulaYAML("python3", "interpreted language"),
+		"core/ruby.yaml":    formulaYAML("ruby", "interpreted language"),
+	})
+	if err := runDesc(ctx, []string{"foo"}); err == nil {
 		t.Error("expected error when multiple search modes are set")
 	}
 }
 
 func TestRunDescFormulaCaskExclusion(t *testing.T) {
-	defer resetFlags()
+	t.Cleanup(resetFlags)
 	resetFlags()
 	descFormula = true
 	descCask = true
 
-	if err := runDesc([]string{"foo"}); err == nil {
+	ctx := setupCtx(t, map[string]string{
+		"cask/foocask.yaml": caskYAML("foocask", "a foo cask"),
+	})
+
+	if err := runDesc(ctx, []string{"foo"}); err == nil {
 		t.Error("expected error when both --formula and --cask are set")
 	}
 }

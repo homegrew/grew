@@ -181,6 +181,31 @@ func TestSmoke_DoctorQuiet(t *testing.T) {
 	}
 }
 
+func TestSmoke_Desc(t *testing.T) {
+	t.Parallel()
+	prefix, exePath, env := setupBinary(t)
+
+	// Create a dummy formula to describe
+	testhelper.CreateFormula(t, prefix, "descpkg", `name: descpkg
+version: 3.0.0
+description: A package for testing desc
+url:
+  darwin_arm64: https://example.com/descpkg.tar.gz
+install:
+  type: archive
+`)
+
+	cmd := exec.Command(exePath, "desc", "descpkg")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("desc command failed: %v\nOutput: %s", err, string(out))
+	}
+	if !strings.Contains(string(out), "A package for testing desc") {
+		t.Errorf("expected desc output to contain description, got: %s", string(out))
+	}
+}
+
 func setupBinary(t *testing.T) (string, string, []string) {
 	t.Helper()
 	tmpDir := t.TempDir()
