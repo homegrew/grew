@@ -73,7 +73,7 @@ install:
 		_ = r.Close()
 	}()
 
-	err = runInfoJSON(ctx, []string{"test-formula"}, false)
+	err = runInfoJSON(ctx, []string{"test-formula"})
 	w.Close()
 
 	if err != nil {
@@ -162,7 +162,9 @@ artifacts:
 		_ = r.Close()
 	}()
 
-	err = runInfoJSON(ctx, []string{"test-cask"}, true)
+	infoCask = true
+	err = runInfoJSON(ctx, []string{"test-cask"})
+	infoCask = false
 	w.Close()
 
 	if err != nil {

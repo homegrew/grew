@@ -14,13 +14,14 @@ import (
 
 var (
 	uninstallCask       bool
+	uninstallFormula    bool
 	uninstallForce      bool
 	uninstallIgnoreDeps bool
 	uninstallAutoremove bool
 )
 
 var Command = &cobra.Command{
-	Use:     "uninstall [flags] <formula>",
+	Use:     "uninstall [flags] <formula|cask>...",
 	Aliases: []string{"remove", "rm"},
 	Short:   "Uninstall formulas or casks",
 	Long: `Uninstall a formula by removing its symlinks and Cellar directory.
@@ -42,6 +43,7 @@ Examples:
 
 func init() {
 	Command.Flags().BoolVar(&uninstallCask, "cask", false, "Uninstall a cask instead of a formula.")
+	Command.Flags().BoolVar(&uninstallFormula, "formula", false, "Uninstall a formula even if a cask with the same name exists.")
 	Command.Flags().BoolVarP(&uninstallForce, "force", "f", false, "Delete all installed versions of formula. Uninstall even if cask is not installed.")
 	Command.Flags().BoolVar(&uninstallIgnoreDeps, "ignore-dependencies", false, "Uninstall even if the formula is required by another installed formula.")
 	Command.Flags().BoolVar(&uninstallAutoremove, "autoremove", false, "Remove unused dependencies after uninstalling.")
@@ -51,16 +53,11 @@ func runUninstall(ctx *context.Context, args []string) error {
 	slog.Debug("starting uninstall command execution")
 
 	if len(args) == 0 {
-		return fmt.Errorf("usage: grew uninstall [-f] [--cask] <formula>...")
+		return fmt.Errorf("usage: grew uninstall [flags] <formula|cask>...")
 	}
 
-	if uninstallCask {
-		for _, name := range args {
-			if err := installer.CaskUninstall(ctx, name, uninstallForce); err != nil {
-				return err
-			}
-		}
-		return nil
+	if uninstallCask && uninstallFormula {
+		return fmt.Errorf("--cask and --formula are mutually exclusive")
 	}
 
 	installCtx, err := context.NewInstallContext()
@@ -90,8 +87,18 @@ func runUninstall(ctx *context.Context, args []string) error {
 	}
 
 	for _, name := range args {
-		if err := installCtx.UninstallFormula(name, uninstallForce); err != nil {
+		isCask, err := installCtx.ResolveKind(name, uninstallCask, uninstallFormula)
+		if err != nil {
 			return err
+		}
+		if isCask {
+			if err := installer.CaskUninstall(installCtx.Context, name, uninstallForce); err != nil {
+				return err
+			}
+		} else {
+			if err := installCtx.UninstallFormula(name, uninstallForce); err != nil {
+				return err
+			}
 		}
 	}
 

@@ -20,6 +20,7 @@ import (
 
 var (
 	installCask             bool
+	installFormula          bool
 	installBuildFromSource  bool
 	installForce            bool
 	installForceBottle      bool
@@ -33,11 +34,14 @@ var (
 )
 
 var Command = &cobra.Command{
-	Use:     "install [flags] <formula>",
+	Use:     "install [flags] <formula|cask>...",
 	Aliases: []string{"i"},
 	Short:   "Install formulas or casks",
 	Long: `Install a formula and its dependencies. Downloads the package, verifies
 its SHA256 checksum, extracts it to the Cellar, and creates symlinks.
+
+If a cask is given, installs it instead. Package kind (formula or cask) is auto-detected
+unless --cask or --formula is specified.
 
 If the formula/cask is already installed (without --force), the command is a no-op.
 
@@ -56,6 +60,7 @@ Examples:
 
 func init() {
 	Command.Flags().BoolVar(&installCask, "cask", false, "Install a macOS application cask instead of a formula.")
+	Command.Flags().BoolVar(&installFormula, "formula", false, "Operate on a formula even if a cask with the same name exists.")
 	Command.Flags().BoolVarP(&installBuildFromSource, "build-from-source", "s", false, "Build the formula from source instead of using the pre-built bottle.")
 	Command.Flags().BoolVar(&installForceBottle, "force-bottle", false, "Install from a bottle if it exists for the current or newest version of macOS, even if it would not normally be used for installation.")
 	Command.Flags().BoolVar(&installOnlyDependencies, "only-dependencies", false, "Install the dependencies but not the formula itself.")
@@ -79,12 +84,13 @@ func RunInstall(args []string) error {
 		return fmt.Errorf("--build-from-source and --force-bottle are mutually exclusive")
 	}
 
+	if installCask && installFormula {
+		return fmt.Errorf("--cask and --formula are mutually exclusive")
+	}
+
 	remaining := args
 	if len(remaining) == 0 {
-		if installCask {
-			return fmt.Errorf("usage: grew install --cask <cask>...")
-		}
-		return fmt.Errorf("usage: grew install [-f] [-s] [--only-dependencies|--ignore-dependencies] <formula>...")
+		return fmt.Errorf("usage: grew install [--cask|--formula] <name>...")
 	}
 
 	ctx, err := context.NewInstallContext()
@@ -93,226 +99,207 @@ func RunInstall(args []string) error {
 	}
 	defer ctx.Close()
 
-	if installCask {
-		if installBuildFromSource {
-			return fmt.Errorf("--build-from-source is not supported for casks")
+	// Phase 1: Resolve each name to a kind (formula or cask)
+	type resolvedPkg struct {
+		name   string
+		isCask bool
+	}
+	resolved := make([]resolvedPkg, 0, len(remaining))
+	for _, name := range remaining {
+		isCask, err := ctx.ResolveKind(name, installCask, installFormula)
+		if err != nil {
+			return err
 		}
-		if installForceBottle {
-			return fmt.Errorf("--force-bottle is not supported for casks")
-		}
-		if installOnlyDependencies {
-			return fmt.Errorf("--only-dependencies is not supported for casks")
-		}
-		if installIgnoreDeps {
-			return fmt.Errorf("--ignore-dependencies is not supported for casks")
-		}
+		resolved = append(resolved, resolvedPkg{name, isCask})
+	}
 
-		var requests []downloader.DownloadRequest
-		seen := make(map[string]struct{})
-		for _, name := range remaining {
-			c, err := ctx.LoadCask(name)
-			if err != nil {
-				return fmt.Errorf("cask not found: %s", name)
+	// Phase 2: Validate flag compatibility and install
+	for _, pkg := range resolved {
+		name := pkg.name
+		isCask := pkg.isCask
+
+		if isCask {
+			// Validate that formula-only flags are not set
+			if installBuildFromSource {
+				return fmt.Errorf("--build-from-source is not supported for casks")
 			}
-			if ctx.Caskroom.IsInstalled(c.Name) && !installForce {
-				continue
+			if installForceBottle {
+				return fmt.Errorf("--force-bottle is not supported for casks")
+			}
+			if installOnlyDependencies {
+				return fmt.Errorf("--only-dependencies is not supported for casks")
+			}
+			if installIgnoreDeps {
+				return fmt.Errorf("--ignore-dependencies is not supported for casks")
+			}
+			if installRequireSHA {
+				return fmt.Errorf("--require-sha is not supported for casks")
+			}
+			if installSkipPostInstall {
+				return fmt.Errorf("--skip-post-install is not supported for casks")
 			}
 
-			dlURL, err := c.GetURL()
-			if err != nil {
-				return err
-			}
-			sha256, err := c.GetSHA256()
-			if err != nil {
-				return err
-			}
-			sha512 := c.GetSHA512()
-			filename := c.Name + "-" + c.Version + safepath.URLExt(dlURL)
-
-			if _, ok := seen[filename]; ok {
-				continue
-			}
-			seen[filename] = struct{}{}
-
-			if ctx.DL.Cache == nil || !ctx.DL.Cache.Exists(filename) {
-				requests = append(requests, downloader.DownloadRequest{
-					URL:            dlURL,
-					Filename:       filename,
-					ExpectedSHA256: sha256,
-					ExpectedSHA512: sha512,
-				})
-			}
-		}
-
-		if len(requests) > 0 {
-			if err := ctx.DL.BatchDownload(requests, 4); err != nil {
-				return err
-			}
-		}
-
-		for _, name := range remaining {
+			// Install cask
 			if err := installer.CaskInstall(ctx, name, installNoQuarantine, installForce, installSkipLink); err != nil {
 				return err
 			}
-		}
-		return nil
-	}
-
-	for _, name := range remaining {
-		var installOrder []*formula.Formula
-		if installIgnoreDeps {
-			f, err := ctx.LoadFormula(name)
-			if err != nil {
-				return fmt.Errorf("formula not found: %s", name)
-			}
-			installOrder = []*formula.Formula{f}
 		} else {
-			resolver := &depgraph.Resolver{
-				Loader:      ctx.Loader,
-				LoadFormula: ctx.LoadFormula,
+			// Formula installation path
+			var installOrder []*formula.Formula
+			if installIgnoreDeps {
+				f, err := ctx.LoadFormula(name)
+				if err != nil {
+					return fmt.Errorf("formula not found: %s", name)
+				}
+				installOrder = []*formula.Formula{f}
+			} else {
+				resolver := &depgraph.Resolver{
+					Loader:      ctx.Loader,
+					LoadFormula: ctx.LoadFormula,
+				}
+				slog.Debug(fmt.Sprintf("resolving dependencies for %s", name))
+				var err error
+				installOrder, err = resolver.Resolve(name)
+				if err != nil {
+					return err
+				}
+				slog.Debug(fmt.Sprintf("resolved %d formula(s)", len(installOrder)))
 			}
-			slog.Debug(fmt.Sprintf("resolving dependencies for %s", name))
-			var err error
-			installOrder, err = resolver.Resolve(name)
-			if err != nil {
-				return err
-			}
-			slog.Debug(fmt.Sprintf("resolved %d formula(s)", len(installOrder)))
-		}
 
-		if flags.Verbose && len(installOrder) > 1 {
-			names := make([]string, len(installOrder))
-			for i, f := range installOrder {
-				names[i] = f.Name
+			if flags.Verbose && len(installOrder) > 1 {
+				names := make([]string, len(installOrder))
+				for i, f := range installOrder {
+					names[i] = f.Name
+				}
+				slog.Info("install order: " + fmt.Sprintf("%v", names))
 			}
-			slog.Info("install order: " + fmt.Sprintf("%v", names))
-		}
 
-		if installRequireSHA {
+			if installRequireSHA {
+				for _, f := range installOrder {
+					if installOnlyDependencies && f.Name == name {
+						continue
+					}
+					if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
+						continue
+					}
+					if installBuildFromSource && f.Name == name {
+						if _, err := f.GetSourceSHA256(); err != nil {
+							return fmt.Errorf("--require-sha: %s has no source SHA256 checksum", f.Name)
+						}
+					} else {
+						if _, err := f.GetSHA256(); err != nil {
+							return fmt.Errorf("--require-sha: %s has no SHA256 checksum for platform %s", f.Name, formula.PlatformKey())
+						}
+					}
+				}
+			}
+
+			if installDryRun {
+				if err := simulateInstall(installOrder, name, ctx, installOnlyDependencies, installBuildFromSource, installForce, installForceBottle); err != nil {
+					return err
+				}
+				continue
+			}
+
+			var requests []downloader.DownloadRequest
 			for _, f := range installOrder {
 				if installOnlyDependencies && f.Name == name {
 					continue
 				}
+
 				if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
 					continue
 				}
+
+				var dlURL, sha256, sha512, ext, filename string
+				var err error
 				if installBuildFromSource && f.Name == name {
-					if _, err := f.GetSourceSHA256(); err != nil {
-						return fmt.Errorf("--require-sha: %s has no source SHA256 checksum", f.Name)
+					dlURL, err = f.GetSourceURL()
+					if err != nil {
+						return err
+					}
+					sha256, err = f.GetSourceSHA256()
+					if err != nil {
+						return err
+					}
+					sha512, err = f.GetSourceSHA512()
+					if err != nil {
+						return err
+					}
+					ext = safepath.URLExt(dlURL)
+					filename = f.Name + "-" + f.Version + "-src" + ext
+				} else {
+					if installForceBottle && f.Name == name {
+						dlURL, sha256, sha512, err = f.ResolveForceBottle()
+					} else {
+						dlURL, err = f.GetURL()
+						if err == nil {
+							sha256, err = f.GetSHA256()
+						}
+						if err == nil {
+							sha512, err = f.GetSHA512()
+						}
+					}
+					if err != nil {
+						return err
+					}
+					ext = safepath.URLExt(dlURL)
+					if ext == "" && f.Install.Format != "" {
+						ext = "." + f.Install.Format
+					}
+					filename = f.Name + "-" + f.Version + ext
+				}
+
+				if dlURL != "" {
+					if ctx.DL.Cache == nil || !ctx.DL.Cache.Exists(filename) {
+						requests = append(requests, downloader.DownloadRequest{
+							URL:            dlURL,
+							Filename:       filename,
+							ExpectedSHA256: sha256,
+							ExpectedSHA512: sha512,
+						})
+					}
+				}
+			}
+
+			if len(requests) > 0 {
+				if err := ctx.DL.BatchDownload(requests, 4); err != nil {
+					return err
+				}
+			}
+
+			for _, f := range installOrder {
+				if installOnlyDependencies && f.Name == name {
+					continue
+				}
+
+				if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
+					if !ctx.Linker.IsLinked(f.Name) {
+						ui.FprintArrow(os.Stderr, "Linking %s %s...", f.Name, f.Version)
+						_ = ctx.Linker.Link(f.Name, f.Version, f.KegOnly)
+					} else {
+						ui.FprintArrow(os.Stderr, "%s %s is already installed and linked, skipping", f.Name, f.Version)
+					}
+					continue
+				}
+
+				opts := installer.InstallOpts{
+					SkipPostInstall:    installSkipPostInstall,
+					SkipLink:           installSkipLink && f.Name == name,
+					InstalledOnRequest: f.Name == name,
+					ForceBottle:        installForceBottle && f.Name == name,
+				}
+				if f.Name == name {
+					opts.CaveatRenderer = caveats.New(os.Stderr)
+				}
+				if installBuildFromSource && f.Name == name {
+					if err := installer.InstallFormulaFromSource(f, ctx, opts); err != nil {
+						return err
 					}
 				} else {
-					if _, err := f.GetSHA256(); err != nil {
-						return fmt.Errorf("--require-sha: %s has no SHA256 checksum for platform %s", f.Name, formula.PlatformKey())
+					if err := installer.InstallFormula(f, ctx, opts); err != nil {
+						return err
 					}
-				}
-			}
-		}
-
-		if installDryRun {
-			if err := simulateInstall(installOrder, name, ctx, installOnlyDependencies, installBuildFromSource, installForce, installForceBottle); err != nil {
-				return err
-			}
-			continue
-		}
-
-		var requests []downloader.DownloadRequest
-		for _, f := range installOrder {
-			if installOnlyDependencies && f.Name == name {
-				continue
-			}
-
-			if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
-				continue
-			}
-
-			var dlURL, sha256, sha512, ext, filename string
-			var err error
-			if installBuildFromSource && f.Name == name {
-				dlURL, err = f.GetSourceURL()
-				if err != nil {
-					return err
-				}
-				sha256, err = f.GetSourceSHA256()
-				if err != nil {
-					return err
-				}
-				sha512, err = f.GetSourceSHA512()
-				if err != nil {
-					return err
-				}
-				ext = safepath.URLExt(dlURL)
-				filename = f.Name + "-" + f.Version + "-src" + ext
-			} else {
-				if installForceBottle && f.Name == name {
-					dlURL, sha256, sha512, err = f.ResolveForceBottle()
-				} else {
-					dlURL, err = f.GetURL()
-					if err == nil {
-						sha256, err = f.GetSHA256()
-					}
-					if err == nil {
-						sha512, err = f.GetSHA512()
-					}
-				}
-				if err != nil {
-					return err
-				}
-				ext = safepath.URLExt(dlURL)
-				if ext == "" && f.Install.Format != "" {
-					ext = "." + f.Install.Format
-				}
-				filename = f.Name + "-" + f.Version + ext
-			}
-
-			if dlURL != "" {
-				if ctx.DL.Cache == nil || !ctx.DL.Cache.Exists(filename) {
-					requests = append(requests, downloader.DownloadRequest{
-						URL:            dlURL,
-						Filename:       filename,
-						ExpectedSHA256: sha256,
-						ExpectedSHA512: sha512,
-					})
-				}
-			}
-		}
-
-		if len(requests) > 0 {
-			if err := ctx.DL.BatchDownload(requests, 4); err != nil {
-				return err
-			}
-		}
-
-		for _, f := range installOrder {
-			if installOnlyDependencies && f.Name == name {
-				continue
-			}
-
-			if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
-				if !ctx.Linker.IsLinked(f.Name) {
-					ui.FprintArrow(os.Stderr, "Linking %s %s...", f.Name, f.Version)
-					_ = ctx.Linker.Link(f.Name, f.Version, f.KegOnly)
-				} else {
-					ui.FprintArrow(os.Stderr, "%s %s is already installed and linked, skipping", f.Name, f.Version)
-				}
-				continue
-			}
-
-			opts := installer.InstallOpts{
-				SkipPostInstall:    installSkipPostInstall,
-				SkipLink:           installSkipLink && f.Name == name,
-				InstalledOnRequest: f.Name == name,
-				ForceBottle:        installForceBottle && f.Name == name,
-			}
-			if f.Name == name {
-				opts.CaveatRenderer = caveats.New(os.Stderr)
-			}
-			if installBuildFromSource && f.Name == name {
-				if err := installer.InstallFormulaFromSource(f, ctx, opts); err != nil {
-					return err
-				}
-			} else {
-				if err := installer.InstallFormula(f, ctx, opts); err != nil {
-					return err
 				}
 			}
 		}

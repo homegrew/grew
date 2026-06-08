@@ -17,10 +17,11 @@ import (
 )
 
 var infoCask bool
+var infoFormula bool
 var infoJSON bool
 
 var Command = &cobra.Command{
-	Use:     "info [formula ...]",
+	Use:     "info [flags] <formula|cask>...",
 	Aliases: []string{"abv"},
 	Short:   "Show formula or cask info",
 	Long: `Show detailed information about a formula including its name, version,
@@ -37,6 +38,7 @@ Examples:
 
 func init() {
 	Command.Flags().BoolVar(&infoCask, "cask", false, "Show cask info")
+	Command.Flags().BoolVar(&infoFormula, "formula", false, "Show formula info even if a cask with the same name exists.")
 	Command.Flags().BoolVar(&infoJSON, "json", false, "Print information in JSON format")
 }
 
@@ -48,6 +50,10 @@ func runInfo(args []string) error {
 		return err
 	}
 
+	if infoCask && infoFormula {
+		return fmt.Errorf("--cask and --formula are mutually exclusive")
+	}
+
 	if len(args) == 0 {
 		if infoJSON {
 			return fmt.Errorf("usage: grew info --json <formula|cask>")
@@ -56,25 +62,7 @@ func runInfo(args []string) error {
 	}
 
 	if infoJSON {
-		return runInfoJSON(ctx, args, infoCask)
-	}
-
-	if infoCask {
-		for i, name := range args {
-			if i > 0 {
-				fmt.Println()
-			}
-			c, err := ctx.LoadCask(name)
-			if err != nil {
-				return err
-			}
-			ver := ""
-			if ctx.Caskroom.IsInstalled(c.Name) {
-				ver, _ = ctx.Caskroom.InstalledVersion(c.Name)
-			}
-			cask.PrintInfoWithData(c, ver)
-		}
-		return nil
+		return runInfoJSON(ctx, args)
 	}
 
 	lnk := &linker.Linker{Paths: ctx.Paths}
@@ -84,62 +72,82 @@ func runInfo(args []string) error {
 			fmt.Println()
 		}
 
-		f, err := ctx.LoadFormula(name)
+		isCask, err := ctx.ResolveKind(name, infoCask, infoFormula)
 		if err != nil {
 			return err
 		}
-
-		fmt.Printf("%s: %s %s\n", f.Name, f.Description, f.Version)
-		if f.Tap != "" {
-			fmt.Printf("From: %s\n", f.Tap)
-		}
-		fmt.Printf("Homepage: %s\n", f.Homepage)
-		fmt.Printf("License:  %s\n", f.License)
-
-		if ctx.Cellar.IsInstalled(f.Name) {
-			ver, _ := ctx.Cellar.InstalledVersion(f.Name)
-			linked := "not linked"
-			if lnk.IsLinked(f.Name) {
-				linked = "linked"
+		if isCask {
+			c, err := ctx.LoadCask(name)
+			if err != nil {
+				return err
 			}
-			fmt.Printf("Installed: %s (%s)\n", ver, linked)
+			ver := ""
+			if ctx.Caskroom.IsInstalled(c.Name) {
+				ver, _ = ctx.Caskroom.InstalledVersion(c.Name)
+			}
+			cask.PrintInfoWithData(c, ver)
+		} else {
+			f, err := ctx.LoadFormula(name)
+			if err != nil {
+				return err
+			}
 
-			if cellarPath, err := ctx.Cellar.KegPath(f.Name, ver); err == nil {
-				if r, err := receipt.Load(cellarPath); err == nil {
-					if r.PouredFromBottle {
-						fmt.Printf("  Poured from bottle on %s\n", r.InstalledAt.Format("2006-01-02 at 15:04:05"))
-					} else {
-						fmt.Printf("  Built from source on %s\n", r.InstalledAt.Format("2006-01-02 at 15:04:05"))
+			fmt.Printf("%s: %s %s\n", f.Name, f.Description, f.Version)
+			if f.Tap != "" {
+				fmt.Printf("From: %s\n", f.Tap)
+			}
+			fmt.Printf("Homepage: %s\n", f.Homepage)
+			fmt.Printf("License:  %s\n", f.License)
+
+			if ctx.Cellar.IsInstalled(f.Name) {
+				ver, _ := ctx.Cellar.InstalledVersion(f.Name)
+				linked := "not linked"
+				if lnk.IsLinked(f.Name) {
+					linked = "linked"
+				}
+				fmt.Printf("Installed: %s (%s)\n", ver, linked)
+
+				if cellarPath, err := ctx.Cellar.KegPath(f.Name, ver); err == nil {
+					if r, err := receipt.Load(cellarPath); err == nil {
+						if r.PouredFromBottle {
+							fmt.Printf("  Poured from bottle on %s\n", r.InstalledAt.Format("2006-01-02 at 15:04:05"))
+						} else {
+							fmt.Printf("  Built from source on %s\n", r.InstalledAt.Format("2006-01-02 at 15:04:05"))
+						}
 					}
 				}
+			} else {
+				fmt.Println("Installed: no")
 			}
-		} else {
-			fmt.Println("Installed: no")
-		}
 
-		if f.KegOnly {
-			fmt.Println("Keg-only: yes")
-		}
+			if f.KegOnly {
+				fmt.Println("Keg-only: yes")
+			}
 
-		if len(f.Dependencies) > 0 {
-			fmt.Printf("Dependencies: %s\n", strings.Join(f.Dependencies, ", "))
-		}
+			if len(f.Dependencies) > 0 {
+				fmt.Printf("Dependencies: %s\n", strings.Join(f.Dependencies, ", "))
+			}
 
-		platforms := make([]string, 0, len(f.URL))
-		for k := range f.URL {
-			platforms = append(platforms, k)
+			platforms := make([]string, 0, len(f.URL))
+			for k := range f.URL {
+				platforms = append(platforms, k)
+			}
+			fmt.Printf("Platforms: %s\n", strings.Join(platforms, ", "))
 		}
-		fmt.Printf("Platforms: %s\n", strings.Join(platforms, ", "))
 	}
 
 	return nil
 }
 
-func runInfoJSON(ctx *context.Context, names []string, isCask bool) error {
+func runInfoJSON(ctx *context.Context, names []string) error {
 	var output InfoJSONv2
 	lnk := &linker.Linker{Paths: ctx.Paths}
 
 	for _, name := range names {
+		isCask, err := ctx.ResolveKind(name, infoCask, infoFormula)
+		if err != nil {
+			return err
+		}
 		if isCask {
 			c, err := ctx.LoadCask(name)
 			if err != nil {
