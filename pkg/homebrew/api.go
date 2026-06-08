@@ -248,6 +248,84 @@ func FetchAllCasks() ([]*cask.Cask, error) {
 	return result, nil
 }
 
+// FetchFormulaNames returns the name of every non-deprecated, non-disabled formula.
+func FetchFormulaNames() ([]string, error) {
+	resp, err := httpsGet(formulaListAPI)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("Homebrew API returned status %d", resp.StatusCode)
+	}
+
+	data, err := io.ReadAll(io.LimitReader(resp.Body, 256<<20))
+	if err != nil {
+		return nil, err
+	}
+
+	var items []struct {
+		Name       string `json:"name"`
+		Deprecated bool   `json:"deprecated"`
+		Disabled   bool   `json:"disabled"`
+		Versions   struct {
+			Stable string `json:"stable"`
+			Head   string `json:"head"`
+		} `json:"versions"`
+	}
+	if err := json.Unmarshal(data, &items); err != nil {
+		return nil, err
+	}
+
+	names := make([]string, 0, len(items))
+	for _, item := range items {
+		if item.Deprecated || item.Disabled || (item.Versions.Stable == "" && item.Versions.Head == "") {
+			continue
+		}
+		names = append(names, item.Name)
+	}
+	return names, nil
+}
+
+// FetchCaskNames returns the token of every non-deprecated, non-disabled cask.
+func FetchCaskNames() ([]string, error) {
+	resp, err := httpsGet(caskListAPI)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("Homebrew API returned status %d", resp.StatusCode)
+	}
+
+	data, err := io.ReadAll(io.LimitReader(resp.Body, 256<<20))
+	if err != nil {
+		return nil, err
+	}
+
+	var items []struct {
+		Token      string `json:"token"`
+		Deprecated bool   `json:"deprecated"`
+		Disabled   bool   `json:"disabled"`
+		Version    string `json:"version"`
+		SHA256     string `json:"sha256"`
+	}
+	if err := json.Unmarshal(data, &items); err != nil {
+		return nil, err
+	}
+
+	names := make([]string, 0, len(items))
+	for _, item := range items {
+		if item.Deprecated || item.Disabled || item.Version == "" || item.Version == "latest" || item.SHA256 == "" || item.SHA256 == "no_check" {
+			continue
+		}
+		names = append(names, item.Token)
+	}
+	return names, nil
+}
+
 var apiClient = &http.Client{Timeout: 60 * time.Second} // Increased timeout for bulk fetches
 
 func httpsGet(rawURL string) (*http.Response, error) {

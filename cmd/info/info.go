@@ -1,7 +1,6 @@
 package info
 
 import (
-	"github.com/homegrew/grew/pkg/cask"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -9,11 +8,14 @@ import (
 	"strings"
 	"time"
 
+	"github.com/homegrew/grew/pkg/cask"
+	"github.com/homegrew/grew/pkg/completion"
+	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/fsutil"
 	"github.com/homegrew/grew/pkg/linker"
 	"github.com/homegrew/grew/pkg/receipt"
 	"github.com/spf13/cobra"
-	"github.com/homegrew/grew/pkg/context"
 )
 
 var infoCask bool
@@ -38,6 +40,20 @@ Examples:
 func init() {
 	Command.Flags().BoolVar(&infoCask, "cask", false, "Show cask info")
 	Command.Flags().BoolVar(&infoJSON, "json", false, "Print information in JSON format")
+
+	Command.ValidArgsFunction = func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		paths := config.Default()
+		nc := completion.New(paths.Cache)
+
+		isCask, _ := cmd.Flags().GetBool("cask")
+		var names []string
+		if isCask {
+			names, _ = nc.CaskNames()
+		} else {
+			names, _ = nc.FormulaNames()
+		}
+		return names, cobra.ShellCompDirectiveNoFileComp
+	}
 }
 
 func runInfo(args []string) error {
