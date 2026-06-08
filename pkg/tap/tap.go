@@ -131,20 +131,13 @@ func (m *Manager) Update() (int, int, error) {
 		return 0, 0, err
 	}
 
-	tapsBase, err := resolveAndValidate(m.TapsDir)
-	if err != nil {
-		return 0, 0, err
-	}
-	if eval, err := filepath.EvalSymlinks(tapsBase); err == nil {
-		tapsBase = eval
-	}
-	tapsBase = filepath.Clean(tapsBase)
-	if err := safepath.SafeAbsolutePath(tapsBase); err != nil {
-		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", tapsBase, err)
-	}
-	rel, err := filepath.Rel(expectedBase, tapsBase)
-	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
-		return 0, 0, fmt.Errorf("resolved taps directory escapes configured base: %q", tapsBase)
+	// Resolve both paths consistently to handle symlinked temp directories
+	tapsBase := expectedBase
+	if eval, err := filepath.EvalSymlinks(expectedBase); err == nil {
+		evalClean := filepath.Clean(eval)
+		if err := safepath.SafeAbsolutePath(evalClean); err == nil {
+			tapsBase = evalClean
+		}
 	}
 
 	users, err := os.ReadDir(tapsBase)
