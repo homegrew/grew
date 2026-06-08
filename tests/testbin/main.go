@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/pkg/cli"
@@ -20,12 +21,35 @@ func init() {
 
 func main() {
 	if len(os.Args) < 2 {
+		slog.Debug("No command provided, exiting", "exe", os.Args[0])
 		os.Exit(1)
 	}
+	slog.Debug("Starting test binary", "exe", os.Args[0], "args", os.Args)
 
 	cli.SetupTestEnvironment()
 
+	slog.Debug("Starting test binary", "exe", os.Args[0], "args", os.Args)
 	switch os.Args[1] {
+	case "run":
+		exePath, err := os.Executable()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
+		if err := cmd.ExportSelfUpdateFromRelease(exePath); err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
+	case "from-release":
+		exePath, err := os.Executable()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
+		if err := cmd.ExportSelfUpdateFromRelease(exePath); err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
 	default:
 		// Delegate everything else (like "install", "_extract") to the real command router
 		testCmd := &cobra.Command{Use: "grew"}
