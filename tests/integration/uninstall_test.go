@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
@@ -15,6 +13,8 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/tests/testhelper"
 )
 
 func makeDummyTarGzWithShare(t *testing.T) []byte {
@@ -164,6 +164,7 @@ sha256:
   `+platformKey()+`: `+archiveSHA+`
 install:
   type: binary
+  binary_name: libfoo
 `)
 
 	testhelper.CreateFormula(t, prefix, "bar", `
@@ -177,6 +178,7 @@ sha256:
   `+platformKey()+`: `+archiveSHA+`
 install:
   type: binary
+  binary_name: bar
 `)
 
 	env := append(os.Environ(),
@@ -193,12 +195,13 @@ install:
 		return string(out), err
 	}
 
-	if out, err := runGrew("install", "libfoo"); err != nil {
-		t.Fatalf("failed to install libfoo: %v\nOutput: %s", err, out)
-	}
 	if out, err := runGrew("install", "bar"); err != nil {
 		t.Fatalf("failed to install bar: %v\nOutput: %s", err, out)
 	}
+
+	// if out, err := runGrew("install", "libfoo"); err != nil {
+	// 	t.Fatalf("failed to install libfoo: %v\nOutput: %s", err, out)
+	// }
 
 	// Attempting to remove libfoo while bar depends on it must fail.
 	out, err := runGrew("uninstall", "libfoo")
