@@ -1,8 +1,6 @@
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
@@ -15,6 +13,8 @@ import (
 	"path/filepath"
 	"runtime"
 	"testing"
+
+	"github.com/homegrew/grew/tests/testhelper"
 )
 
 // makeGrewTarGz creates a simple .tar.gz containing a single executable file "grew"
