@@ -28,7 +28,12 @@ default, version information is displayed in interactive shells and suppressed
 otherwise.`,
 	Args: cobra.ArbitraryArgs,
 	RunE: func(c *cobra.Command, args []string) error {
-		return runOutdated(args)
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
+
+		return runOutdated(ctx, args)
 	},
 }
 
@@ -54,13 +59,8 @@ type outdatedEntry struct {
 	Pinned    bool
 }
 
-func runOutdated(args []string) error {
+func runOutdated(ctx *context.Context, args []string) error {
 	slog.Debug("starting outdated command execution")
-
-	ctx, err := context.New()
-	if err != nil {
-		return err
-	}
 
 	// Build optional name filter from positional args.
 	nameFilter := make(map[string]bool, len(args))
@@ -81,9 +81,9 @@ func runOutdated(args []string) error {
 			if hasFilter && !nameFilter[pkg.Name] {
 				continue
 			}
-			f, err := ctx.Loader.LoadByName(pkg.Name)
+			f, err := ctx.LoadFormula(pkg.Name)
 			if err != nil {
-				slog.Debug(fmt.Sprintf("outdated: skipping formula %s: not in any tap (%v)", pkg.Name, err))
+				slog.Debug(fmt.Sprintf("outdated: skipping formula %s: could not load definition (%v)", pkg.Name, err))
 				continue
 			}
 			if pkg.Version == f.Version {
@@ -153,9 +153,9 @@ func runOutdated(args []string) error {
 			pinMarker = " [pinned]"
 		}
 		if flags.Verbose {
-			fmt.Fprintf(os.Stdout, "%-20s %s -> %s%s (%s)\n", e.Name, e.Installed, e.Available, pinMarker, e.Kind)
+			fmt.Fprintf(os.Stderr, "%-20s %s -> %s%s (%s)\n", e.Name, e.Installed, e.Available, pinMarker, e.Kind)
 		} else {
-			fmt.Fprintf(os.Stdout, "%-20s %s -> %s%s\n", e.Name, e.Installed, e.Available, pinMarker)
+			fmt.Fprintf(os.Stderr, "%-20s %s -> %s%s\n", e.Name, e.Installed, e.Available, pinMarker)
 		}
 	}
 	return nil
