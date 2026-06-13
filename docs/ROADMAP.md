@@ -33,6 +33,7 @@ Improve performance and reduce initial installation friction by removing the str
 *   [x] **`grew uses <formula>`**: Display all installed formulae that depend on the specified package.
 *   [x] **`grew missing`**: Check installed formula kegs for missing runtime dependencies; exits non-zero if any are found. Supports `--hide` to treat a comma-separated list of packages as not installed.
 *   [x] **`grew desc [formula|cask|text|/regex/]`**: Display a package's name and one-line description. Supports `-s/--search` (names + descriptions), `-n/--name` (names only), `-d/--description` (descriptions only), `--formula/--cask` kind restriction, `/regex/` patterns, and `--plain` to suppress grouped `==> Formulae`/`==> Casks` headers.
+*   [x] **`grew outdated [formula|cask ...]`**: List installed formulas and casks with an updated version available. Supports `--formula`/`--cask` to filter by kind, `--json` for machine-readable output, `--quiet` for names-only output, and `--minimum-version` to filter by a version floor. Extracted from the upgrade command into its own standalone package (`cmd/outdated`).
 
 ## 7. Dependency Resolution & Lifecycle Management ✅ COMPLETE
 Advanced dependency modeling and formula lifecycle hooks.

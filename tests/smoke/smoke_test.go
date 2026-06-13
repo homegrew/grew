@@ -206,6 +206,40 @@ install:
 	}
 }
 
+func TestSmoke_Outdated(t *testing.T) {
+	t.Parallel()
+	_, exePath, env := setupBinary(t)
+
+	cmd := exec.Command(exePath, "outdated")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("outdated command failed: %v\nOutput: %s", err, string(out))
+	}
+	// Empty prefix: either "Everything is up-to-date." or empty output.
+	output := strings.TrimSpace(string(out))
+	if output != "" && !strings.Contains(output, "up-to-date") {
+		t.Errorf("unexpected output for empty prefix: %q", output)
+	}
+}
+
+func TestSmoke_Outdated_Help(t *testing.T) {
+	t.Parallel()
+	_, exePath, env := setupBinary(t)
+
+	cmd := exec.Command(exePath, "outdated", "--help")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("outdated --help failed: %v\nOutput: %s", err, string(out))
+	}
+	for _, expected := range []string{"--formula", "--cask", "--json", "--minimum-version"} {
+		if !strings.Contains(string(out), expected) {
+			t.Errorf("expected --help to contain %q, got: %s", expected, string(out))
+		}
+	}
+}
+
 func setupBinary(t *testing.T) (string, string, []string) {
 	t.Helper()
 	tmpDir := t.TempDir()
