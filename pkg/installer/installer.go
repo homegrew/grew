@@ -103,7 +103,6 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 		return fmt.Errorf("binary is not a regular file")
 	}
 
-	slog.Debug("verifying binary integrity", "path", binPath)
 	// binPath is validated as an absolute, traversal-free path above and is
 	// always either os.Executable(), a path within the grew prefix (checked by
 	// callers via ensurePathWithinBase), or a process-owned temp directory.
