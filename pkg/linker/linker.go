@@ -226,11 +226,35 @@ func (l *Linker) IsLinked(name string) bool {
 func (l *Linker) checkFamilyConflict(name string, opts LinkOpts) error {
 	base := formula.BaseName(name)
 
-	// Guard against path-injection: verify Opt is within Root before calling os.ReadDir.
-	if !strings.HasPrefix(l.Paths.Opt, l.Paths.Root+string(filepath.Separator)) && l.Paths.Opt != l.Paths.Root {
+	// Guard against path-injection: canonicalize and verify Opt is within Root
+	// before calling os.ReadDir.
+	rootAbs, err := filepath.Abs(l.Paths.Root)
+	if err != nil {
+		return fmt.Errorf("invalid root path: %w", err)
+	}
+	rootAbs = filepath.Clean(rootAbs)
+	if err := safepath.SafeAbsolutePath(rootAbs); err != nil {
+		return fmt.Errorf("invalid root path")
+	}
+
+	optAbs, err := filepath.Abs(l.Paths.Opt)
+	if err != nil {
+		return fmt.Errorf("invalid opt path: %w", err)
+	}
+	optAbs = filepath.Clean(optAbs)
+	if err := safepath.SafeAbsolutePath(optAbs); err != nil {
 		return fmt.Errorf("invalid opt path")
 	}
-	entries, err := os.ReadDir(l.Paths.Opt)
+
+	rel, err := filepath.Rel(rootAbs, optAbs)
+	if err != nil {
+		return fmt.Errorf("invalid opt path: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return fmt.Errorf("invalid opt path")
+	}
+
+	entries, err := os.ReadDir(optAbs)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil
