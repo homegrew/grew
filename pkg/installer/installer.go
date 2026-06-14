@@ -220,7 +220,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 		// Ensure the file to be removed is strictly within the trusted system temp directory.
 		if err := safepath.CheckSubpath(expectedTmpDir, cleanedTmpFile); err != nil {
-			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside trusted temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
+			slog.Error("security: refusing to remove temporary file outside trusted temp directory", "file", cleanedTmpFile, "trusted_dir", expectedTmpDir, "error", err)
 			return fmt.Errorf("temporary file %q escaped trusted temporary directory: %w", cleanedTmpFile, err)
 		}
 		defer func() {
