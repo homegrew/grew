@@ -95,29 +95,34 @@ func runFormulaImport(args []string) {
 		os.Exit(1)
 	}
 
-	imported := 0
+	imported, skipped := 0, 0
 	for _, f := range formulas {
 		subdir := getSubdir(f.Name)
 		targetDir := filepath.Join(outDir, subdir)
 
 		if err := os.MkdirAll(targetDir, 0755); err != nil {
 			slog.Error("Failed to create subdirectory", "dir", targetDir, "error", err)
+			skipped++
 			continue
 		}
 
 		outPath, err := safeJoinUnderBase(targetDir, f.Name+".yaml")
 		if err != nil {
 			slog.Warn("Skipping formula due to invalid output path", "name", f.Name, "error", err)
+			skipped++
 			continue
 		}
 
-		// Remove "(remote)" suffix from the tap since we are generating a local repo
-		f.Tap = ""
+		if err := f.Validate(); err != nil {
+			slog.Warn("Skipping invalid formula", "name", f.Name, "error", err)
+			skipped++
+			continue
+		}
 
 		saveYAML(outPath, f)
 		imported++
 	}
-	slog.Info("Formula import complete", "imported", imported)
+	slog.Info("Formula import complete", "imported", imported, "skipped", skipped)
 }
 
 func runCaskImport(args []string) {
@@ -139,30 +144,35 @@ func runCaskImport(args []string) {
 		os.Exit(1)
 	}
 
-	imported := 0
+	imported, skipped := 0, 0
 	for _, c := range casks {
 		subdir := getSubdir(c.Name)
 		targetDir := filepath.Join(outDir, subdir)
 
 		if err := os.MkdirAll(targetDir, 0755); err != nil {
 			slog.Error("Failed to create subdirectory", "dir", targetDir, "error", err)
+			skipped++
 			continue
 		}
 
 		outPath, err := safeJoinUnderBase(targetDir, c.Name+".yaml")
 		if err != nil {
 			slog.Warn("Skipping cask due to invalid output path", "name", c.Name, "error", err)
+			skipped++
 			continue
 		}
 
-		// Remove "(remote)" suffix from the tap since we are generating a local repo
-		c.Tap = ""
+		if err := c.Validate(); err != nil {
+			slog.Warn("Skipping invalid cask", "name", c.Name, "error", err)
+			skipped++
+			continue
+		}
 
 		saveYAML(outPath, c)
 		imported++
 	}
 
-	slog.Info("Cask import complete", "imported", imported)
+	slog.Info("Cask import complete", "imported", imported, "skipped", skipped)
 }
 
 func safeOutputDir(input string) (string, error) {

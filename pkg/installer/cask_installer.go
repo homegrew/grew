@@ -122,7 +122,7 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 	}
 	slog.Info("extracted to staging: " + stageDir)
 
-	inst := &cask.Installer{AppDir: ctx.Paths.AppDir, BinDir: ctx.Paths.Bin}
+	inst := &cask.Installer{AppDir: ctx.Paths.AppDir, BinDir: ctx.Paths.Bin, FontDir: ctx.Paths.FontDir}
 
 	for _, appName := range c.Artifacts.App {
 		dest, err := inst.InstallApp(stageDir, appName)
@@ -176,6 +176,34 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 		installedPkgs = append(installedPkgs, pkgName)
 	}
 
+	for _, fontRel := range c.Artifacts.Font {
+		dest, err := inst.InstallFont(stageDir, fontRel)
+		if err != nil {
+			if errRm := os.RemoveAll(stageDir); errRm != nil {
+				slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+			}
+			if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+				slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+			}
+			slog.Debug("failed to install cask font artifact", "font", fontRel, "error", err)
+			return fmt.Errorf("install artifact %s: %w", fontRel, err)
+		}
+		ui.FprintArrow(os.Stderr, "Installed %s to %s", filepath.Base(fontRel), dest)
+	}
+
+	for _, script := range c.Artifacts.Installer {
+		if err := inst.InstallInstallerScript(stageDir, script, ctx.Paths.Root); err != nil {
+			if errRm := os.RemoveAll(stageDir); errRm != nil {
+				slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+			}
+			if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+				slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+			}
+			slog.Debug("failed to run cask installer script", "executable", script.Executable, "error", err)
+			return fmt.Errorf("install artifact %s: %w", script.Executable, err)
+		}
+	}
+
 	if !skipLink {
 		for _, binName := range c.Artifacts.Bin {
 			binTarget := findCaskBinary(ctx.Paths.AppDir, c.Artifacts.App, binName)
@@ -226,7 +254,7 @@ func CaskUninstall(ctx *context.Context, name string, force bool) error {
 	}
 
 	c, err := ctx.LoadCask(name)
-	inst := &cask.Installer{AppDir: ctx.Paths.AppDir, BinDir: ctx.Paths.Bin}
+	inst := &cask.Installer{AppDir: ctx.Paths.AppDir, BinDir: ctx.Paths.Bin, FontDir: ctx.Paths.FontDir}
 
 	if err == nil {
 		for _, appName := range c.Artifacts.App {
@@ -256,6 +284,18 @@ func CaskUninstall(ctx *context.Context, name string, force bool) error {
 					slog.Warn(fmt.Sprintf("could not unlink binary %s: %v", binName, err))
 				}
 			}
+		}
+		for _, fontRel := range c.Artifacts.Font {
+			if err := inst.UninstallFont(fontRel); err != nil {
+				if force {
+					slog.Warn(fmt.Sprintf("ignoring error while removing font %s: %v", fontRel, err))
+				} else {
+					slog.Warn(fmt.Sprintf("could not remove font %s: %v", fontRel, err))
+				}
+			}
+		}
+		for _, script := range c.Artifacts.Installer {
+			slog.Warn(fmt.Sprintf("cask %s was installed by running %s; grew cannot automatically undo it — remove its files manually", c.Name, script.Executable))
 		}
 	}
 

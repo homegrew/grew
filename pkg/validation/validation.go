@@ -15,8 +15,10 @@ var SafeNameRe = regexp.MustCompile(`^[a-z0-9][a-z0-9@._\-\+]*$`)
 
 // SafeVersionRe is a regular expression that defines the allowed format for package versions.
 // Versions must start with an alphanumeric character and can contain alphanumeric
-// characters, dots, underscores, hyphens, plus signs, tildes, and colons.
-var SafeVersionRe = regexp.MustCompile(`^[a-zA-Z0-9][a-zA-Z0-9._\-\+\~:]*$`)
+// characters, dots, underscores, hyphens, plus signs, tildes, colons, and commas.
+// The comma separates a version from its build/revision in Homebrew cask
+// versions (e.g. "7.2.8,173730").
+var SafeVersionRe = regexp.MustCompile(`^[a-zA-Z0-9][a-zA-Z0-9._\-\+\~:,]*$`)
 
 // IsValidName reports whether the given name matches the safe name criteria.
 func IsValidName(name string) bool {

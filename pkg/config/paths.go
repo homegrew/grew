@@ -44,6 +44,8 @@ type Paths struct {
 	Caskroom string
 	// AppDir is the directory for macOS applications (usually /Applications or ~/Applications).
 	AppDir string
+	// FontDir is the directory for installed font cask artifacts (usually ~/Library/Fonts).
+	FontDir string
 	// Cache is the directory for download and metadata cache.
 	Cache string
 	// Tmp is the temporary directory for builds and extractions (Root/tmp).
@@ -238,6 +240,35 @@ func (p Paths) IsUnderRoot(path string) bool {
 	return true
 }
 
+// resolveFontDir determines where font cask artifacts are installed.
+// HOMEGREW_FONTDIR overrides it; otherwise it defaults to Library/Fonts under
+// the same home directory that holds appDir. Deriving from appDir keeps fonts
+// co-located with apps, so a test or devmode override of HOMEGREW_APPDIR also
+// keeps fonts out of the real ~/Library/Fonts.
+func resolveFontDir(appDir string) string {
+	if env := os.Getenv("HOMEGREW_FONTDIR"); env != "" {
+		if abs, err := filepath.Abs(env); err == nil {
+			cleaned := filepath.Clean(abs)
+			if err := safepath.SafeAbsolutePath(cleaned); err == nil {
+				return cleaned
+			}
+			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_FONTDIR %q: %v", env, err))
+		} else {
+			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_FONTDIR %q: %v", env, err))
+		}
+	}
+
+	fontDir := filepath.Clean(filepath.Join(filepath.Dir(appDir), "Library", "Fonts"))
+	if err := safepath.SafeAbsolutePath(fontDir); err != nil {
+		home, herr := os.UserHomeDir()
+		if herr != nil {
+			home = "."
+		}
+		fontDir = filepath.Clean(filepath.Join(home, "Library", "Fonts"))
+	}
+	return fontDir
+}
+
 // FromRoot builds a Paths struct from an explicit root, appDir, and cacheDir.
 func FromRoot(root, appDir, cacheDir string) Paths {
 	// Normalize root so that all derived paths (Cellar, Caskroom, etc.) are
@@ -296,6 +327,8 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		slog.Warn(fmt.Sprintf("config: invalid cache dir %q: %v; falling back to %q", invalidCacheDir, err, cacheDir))
 	}
 
+	fontDir := resolveFontDir(appDir)
+
 	return Paths{
 		Root:     root,
 		Cellar:   filepath.Join(root, "Cellar"),
@@ -310,6 +343,7 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		CaskTap:  filepath.Join(root, "Taps", "homegrew", "homegrew-taps", "cask"),
 		Caskroom: filepath.Join(root, "Caskroom"),
 		AppDir:   appDir,
+		FontDir:  fontDir,
 		Cache:    cacheDir,
 		Tmp:      filepath.Join(root, "var", "homegrew", "tmp"),
 		Log:      filepath.Join(root, "var", "homegrew", "log"),

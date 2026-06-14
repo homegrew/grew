@@ -630,3 +630,49 @@ func TestCaskroom_Methods(t *testing.T) {
 		t.Errorf("IsInstalled returned true after removal")
 	}
 }
+
+func TestInstallerScriptExecutableValidation(t *testing.T) {
+	t.Parallel()
+
+	makeCask := func(exe string) *Cask {
+		return &Cask{
+			Name:    "test-cask",
+			Version: "1.0",
+			URL:     map[string]string{"darwin_arm64": "https://example.com/f.zip"},
+			SHA256:  map[string]string{"darwin_arm64": "a" + string(make([]byte, 63))},
+			Artifacts: Artifacts{
+				Installer: []InstallerScript{{Executable: exe}},
+			},
+		}
+	}
+
+	// Traversal in the executable path must be rejected.
+	traversalCases := []string{
+		"../../evil/script.sh",
+		"../script.sh",
+		"subdir/../../etc/passwd",
+	}
+	for _, exe := range traversalCases {
+		c := makeCask(exe)
+		if err := c.Validate(); err == nil {
+			t.Errorf("Validate(%q): expected error for traversal path, got nil", exe)
+		}
+	}
+
+	// Legitimate subdir paths must pass.
+	validCases := []string{
+		"Install.sh",
+		"subdir/Install.sh",
+		"a/b/c/run.sh",
+	}
+	for _, exe := range validCases {
+		c := makeCask(exe)
+		// Force a minimal valid sha256 so only the executable is at issue.
+		for k := range c.SHA256 {
+			c.SHA256[k] = "aabbccddeeff0011aabbccddeeff0011aabbccddeeff0011aabbccddeeff0011"
+		}
+		if err := c.Validate(); err != nil {
+			t.Errorf("Validate(%q): unexpected error for valid path: %v", exe, err)
+		}
+	}
+}
