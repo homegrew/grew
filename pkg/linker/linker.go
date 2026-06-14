@@ -335,8 +335,18 @@ func (l *Linker) hasBinLinks(other string) bool {
 		if err != nil {
 			continue
 		}
-		// Guard against path-injection: verify fullPath is within Bin before calling os.Readlink.
-		if !strings.HasPrefix(fullPath, binAbs+string(filepath.Separator)) && fullPath != binAbs {
+		// Guard against path-injection: canonicalize and verify fullPath remains under binAbs
+		// before calling os.Readlink. Prefer symlink-evaluated paths when available.
+		canonBin := binAbs
+		if resolvedBin, err := filepath.EvalSymlinks(binAbs); err == nil {
+			canonBin = filepath.Clean(resolvedBin)
+		}
+		canonParent := filepath.Dir(fullPath)
+		if resolvedParent, err := filepath.EvalSymlinks(canonParent); err == nil {
+			canonParent = filepath.Clean(resolvedParent)
+		}
+		canonFull := filepath.Join(canonParent, filepath.Base(fullPath))
+		if !safepath.IsSubpath(canonBin, canonFull) {
 			continue
 		}
 		target, err := os.Readlink(fullPath)
