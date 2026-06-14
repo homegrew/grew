@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/homegrew/grew/pkg/auditlog"
@@ -228,6 +229,18 @@ func NewInstallContext() (*InstallContext, error) {
 	}, nil
 }
 
+func canonicalPath(p string) (string, error) {
+	resolved, err := filepath.EvalSymlinks(p)
+	if err != nil {
+		return "", err
+	}
+	abs, err := filepath.Abs(resolved)
+	if err != nil {
+		return "", err
+	}
+	return filepath.Clean(abs), nil
+}
+
 func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err := safepath.SafeAbsolutePath(paths.Root); err != nil {
 		return nil, fmt.Errorf("invalid root directory %q: %w", paths.Root, err)
@@ -238,7 +251,37 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err := safepath.CheckSubpath(paths.Root, paths.Locks); err != nil {
 		return nil, fmt.Errorf("invalid locks directory %q: %w", paths.Locks, err)
 	}
-	lockAbs, err := safepath.SafeJoin(paths.Locks, ".grew.lock")
+
+	rootCanon, err := canonicalPath(paths.Root)
+	if err != nil {
+		return nil, fmt.Errorf("resolve root directory %q: %w", paths.Root, err)
+	}
+	if err := safepath.SafeAbsolutePath(rootCanon); err != nil {
+		return nil, fmt.Errorf("invalid root directory %q: %w", rootCanon, err)
+	}
+
+	locksCanon, err := safepath.SafeJoin(rootCanon, "var", "homegrew", "locks")
+	if err != nil {
+		return nil, fmt.Errorf("invalid locks directory under root %q: %w", rootCanon, err)
+	}
+	if err := safepath.SafeAbsolutePath(locksCanon); err != nil {
+		return nil, fmt.Errorf("invalid locks directory %q: %w", locksCanon, err)
+	}
+	if err := safepath.CheckSubpath(rootCanon, locksCanon); err != nil {
+		return nil, fmt.Errorf("invalid locks directory %q: %w", locksCanon, err)
+	}
+
+	locksInfo, err := os.Lstat(locksCanon)
+	if err != nil {
+		return nil, fmt.Errorf("stat locks directory %q: %w", locksCanon, err)
+	}
+	if locksInfo.Mode()&os.ModeSymlink != 0 {
+		return nil, fmt.Errorf("invalid locks directory %q: must not be a symlink", locksCanon)
+	}
+	if !locksInfo.IsDir() {
+		return nil, fmt.Errorf("invalid locks directory %q: not a directory", locksCanon)
+	}
+	lockAbs, err := safepath.SafeJoin(locksCanon, ".grew.lock")
 	if err != nil {
 		return nil, fmt.Errorf("invalid lock file path: %w", err)
 	}
