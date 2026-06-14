@@ -16,7 +16,7 @@ var Command = &cobra.Command{
 	Short: "Manage the formula lockfile",
 	Long: `Manage the formula lockfile. The lockfile records the exact state of all
 installed formulas (versions, checksums, dependencies) so environments
-are reproducible. It is stored at <grew_root>/grew.lock as JSON.
+are reproducible. It is stored at <grew_root>/var/homegrew/locks/grew.lock as JSON.
 
 Subcommands:
   generate    Generate a lockfile from the current installed state (default)
