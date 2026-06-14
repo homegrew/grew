@@ -30,6 +30,7 @@ When adding a new subcommand:
 | [audit](./audit) | Lint formula/cask definitions for quality and security |
 | [autoremove](./autoremove) | Uninstall formulae that were only installed as a dependency |
 | [cache](./cache) | Display grew's download cache |
+| [casks](./casks) | List all locally installable casks |
 | [cleanup](./cleanup) | Remove old versions and prune download cache |
 | [completion](./completion) | Generate shell completion (bash, zsh, fish) |
 | [config](./config) | What grew thinks it knows |
@@ -38,6 +39,7 @@ When adding a new subcommand:
 | [desc](./desc) | Show package names and one-line descriptions |
 | [doctor](./doctor) | It's not a bug, it's a misconfiguration |
 | [extract](./extract) | Internal hidden extraction command |
+| [formulae](./formulae) | List all locally installable formulae |
 | [homepage](./homepage) | Open a formula's homepage in a browser |
 | [info](./info) | Stalk packages |
 | [install](./install) | Install formulas or casks |

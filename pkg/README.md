@@ -92,11 +92,13 @@ Uses `fsutil.WriteFileAtomic` for crash-safe manifest writes.
 Parses formula YAML definitions. Resolves bottle URLs for the current
 platform/OS version, collects build and runtime dependencies, and maps
 Homebrew bottle naming conventions to grew's internal model.
+Provides `LoadAll()` for comprehensive listing of all locally-available formulae.
 
 ### `cask`
 Parses cask YAML definitions. Extracts app bundles, binary stubs, and install
 targets from macOS-specific cask specs. Provides `Caskroom` for managing
 installed casks and their `.MANIFEST.json` snapshots.
+Provides `LoadAll()` for comprehensive listing of all locally-available casks.
 
 ---
 

@@ -11,6 +11,7 @@ import (
 	"github.com/homegrew/grew/cmd/audit"
 	"github.com/homegrew/grew/cmd/autoremove"
 	cmdcache "github.com/homegrew/grew/cmd/cache"
+	"github.com/homegrew/grew/cmd/casks"
 	"github.com/homegrew/grew/cmd/cleanup"
 	"github.com/homegrew/grew/cmd/config"
 	"github.com/homegrew/grew/cmd/create"
@@ -18,6 +19,7 @@ import (
 	"github.com/homegrew/grew/cmd/desc"
 	"github.com/homegrew/grew/cmd/doctor"
 	"github.com/homegrew/grew/cmd/extract"
+	"github.com/homegrew/grew/cmd/formulae"
 	"github.com/homegrew/grew/cmd/homepage"
 	"github.com/homegrew/grew/cmd/info"
 	"github.com/homegrew/grew/cmd/install"
@@ -111,6 +113,7 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(audit.Command)
 	rootCmd.AddCommand(autoremove.Command)
 	rootCmd.AddCommand(cmdcache.Command)
+	rootCmd.AddCommand(casks.Command)
 	rootCmd.AddCommand(cleanup.Command)
 	rootCmd.AddCommand(config.Command)
 	rootCmd.AddCommand(create.Command)
@@ -118,6 +121,7 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(desc.Command)
 	rootCmd.AddCommand(doctor.Command)
 	rootCmd.AddCommand(extract.Command)
+	rootCmd.AddCommand(formulae.Command)
 	rootCmd.AddCommand(homepage.Command)
 	rootCmd.AddCommand(info.Command)
 	rootCmd.AddCommand(install.Command)
