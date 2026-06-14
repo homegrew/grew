@@ -87,6 +87,16 @@ Every filesystem operation that touches an externally-influenced path (archive e
 - **Default behavior:** when unset, `grew` uses a conservative built-in list containing only the hosts required for official release/download/update flows.
 - **Security implications:** expanding this list increases the outbound destinations `grew` may contact. Avoid wildcards or broad internal domains; doing so weakens SSRF protections and can expose internal services/metadata endpoints if untrusted input ever reaches download URLs.
 
+### Symlink conflict management (`pkg/linker`)
+
+`pkg/linker` creates and removes the prefix symlinks that expose installed kegs through shared directories (`bin/`, `lib/`, `include/`, `share/`, `opt/`). It implements two safety mechanisms to prevent version-family conflicts:
+
+1. **Ownership tracking**: When linking, the linker only replaces an existing symlink if it already points into the same formula's cellar subtree. Links owned by a different formula cause an error unless `LinkOpts.Overwrite` is explicitly set.
+
+2. **Version-family conflict guard** (defense-in-depth): Refuses to link a formula into shared directories when another member of the same version family is already linked. For example, when `node@24` attempts to link `bin/node`, the linker checks if an unversioned `node` is already providing that link. This is a backstop that protects against scenarios where a formula definition explicitly sets `keg_only: false` despite being versioned — the check ensures the version family's uniqueness regardless of the formula definition. The `Overwrite` or `Force` option overrides this check.
+
+See [pkg/linker/doc.go](../pkg/linker/doc.go) for complete documentation of linking semantics, including keg-only behavior and path safety.
+
 ### Command-execution hardening
 
 External tools (`git`, `go`, an editor from `$EDITOR`, etc.) are resolved with `exec.LookPath` before being passed to `exec.Command`, and every external invocation passes the `--` end-of-options separator so that attacker-influenced arguments cannot be reinterpreted as flags. Where a value such as `$EDITOR` is involved, it is additionally screened for shell metacharacters before resolution (see [cmd/alias/alias.go](../cmd/alias/alias.go)). No runtime path constructs a shell command string.

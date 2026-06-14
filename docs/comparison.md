@@ -42,6 +42,7 @@
 | **Post-install sandbox** | Keg is **read-only** during post-install — brew doesn't enforce this |
 | **SSRF host allowlist** | Hardcoded + `HOMEGREW_ALLOWED_HOSTS` — brew doesn't restrict download hosts |
 | **Zip Slip + symlink escape protection** | Multi-layer: textual check + `EvalSymlinks` + `withinDir()` — brew relies on system tar |
+| **Symlink conflict detection** | Ownership tracking + version-family guard to prevent member conflicts (e.g., `node@24` blocking when `node` is linked) — brew requires `--force` without validation |
 | **File mode sanitization** | Strips setuid/setgid/sticky/world-write bits on extraction |
 | **Audit logging** | Records every install, upgrade, self-update, and tap update action (including failures and skips) with hashes and methods |
 | **`--require-sha`** | Refuse install if SHA256 is missing — brew doesn't have this flag |
