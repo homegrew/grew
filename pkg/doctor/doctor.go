@@ -17,6 +17,7 @@ import (
 	grewrt "github.com/homegrew/grew/pkg/runtime"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/sandbox"
+	"github.com/homegrew/grew/pkg/signing"
 	"github.com/homegrew/grew/pkg/snapshot"
 )
 
@@ -54,6 +55,7 @@ func RegisterExtraChecks(checks []Check) {
 func BaseChecks() []Check {
 	return []Check{
 		// --- Security checks ---
+		{"check_trusted_keys", "Check that at least one trusted Ed25519 key is configured", CheckTrustedKeys},
 		{"check_prefix_isolation", "Check grew prefix is outside $HOME", CheckPrefixIsolation},
 		{"check_directory_permissions", "Check grew directories are not world-writable", CheckDirectoryPermissions},
 		{"check_formula_https", "Check all formula URLs use HTTPS", CheckFormulaHTTPS},
@@ -71,8 +73,10 @@ func BaseChecks() []Check {
 		{"check_path", "Check grew bin/ is in PATH", CheckPath},
 		{"check_core_tap", "Check core tap has formulas", CheckCoreTap},
 		{"check_broken_symlinks", "Check for broken symlinks in bin/, lib/, include/", CheckBrokenSymlinks},
+		{"check_stale_version_symlinks", "Check for symlinks pointing at an older keg version", CheckStaleVersionSymlinks},
 		{"check_broken_opt_symlinks", "Check for broken opt/ symlinks", CheckBrokenOptSymlinks},
 		{"check_unlinked_kegs", "Check installed formulas are linked", CheckUnlinkedKegs},
+		{"check_cellar_orphans", "Check for installed kegs whose formula is no longer resolvable", CheckCellarOrphans},
 		{"check_orphaned_symlinks", "Check for orphaned symlinks", CheckOrphanedSymlinks},
 		{"check_multiple_versions", "Check for multiple installed versions", CheckMultipleVersions},
 		{"check_pinned_formulas", "Check for pinned formulas", CheckPinnedFormulas},
@@ -352,6 +356,23 @@ func CheckSandbox(ctx *Context) {
 	}
 }
 
+// CheckTrustedKeys verifies that the trusted-keys file exists and contains at
+// least one valid Ed25519 public key. Without trusted keys, bottle signature
+// verification is effectively disabled.
+func CheckTrustedKeys(ctx *Context) {
+	keys, err := signing.LoadTrustedKeys(ctx.Paths.Root)
+	if err != nil {
+		ctx.Warn("trusted-keys file is malformed: %v\n"+
+			"  Edit %s/etc/trusted-keys to fix or remove invalid entries.", err, ctx.Paths.Root)
+		return
+	}
+	if len(keys) == 0 {
+		ctx.Warn("no trusted Ed25519 keys found in %s/etc/trusted-keys\n"+
+			"  Bottle signature verification is disabled. Add a public key or run 'grew trust <key>'.",
+			ctx.Paths.Root)
+	}
+}
+
 // --- Structural checks ---
 
 // CheckDirectories ensures that all required core grew directories exist.
@@ -453,6 +474,31 @@ func CheckOrphanedSymlinks(ctx *Context) {
 	})
 }
 
+// CheckStaleVersionSymlinks identifies symlinks in bin/, lib/, and include/ that point into the
+// Cellar at a version older than the currently installed one — typically left behind after an upgrade.
+func CheckStaleVersionSymlinks(ctx *Context) {
+	WalkSymlinks([]string{ctx.Paths.Bin, ctx.Paths.Lib, ctx.Paths.Include}, func(si SymlinkInfo) {
+		target := filepath.Clean(si.Target)
+		rel, err := filepath.Rel(ctx.Paths.Cellar, target)
+		if err != nil || strings.HasPrefix(rel, "..") {
+			return
+		}
+		parts := strings.SplitN(rel, string(filepath.Separator), 3)
+		if len(parts) < 2 {
+			return
+		}
+		name, linkedVersion := parts[0], parts[1]
+		current, err := ctx.Cel.InstalledVersion(name)
+		if err != nil {
+			return
+		}
+		if linkedVersion != current {
+			ctx.Warn("stale symlink: %s points to %s version %s, but %s is installed — run 'grew link --overwrite %s'",
+				si.Path, name, linkedVersion, current, name)
+		}
+	})
+}
+
 // CheckMultipleVersions identifies formulas that have multiple versions installed in the Cellar.
 func CheckMultipleVersions(ctx *Context) {
 	for _, pkg := range ctx.Packages {
@@ -483,6 +529,17 @@ func CheckStaleTmp(ctx *Context) {
 	entries, err := os.ReadDir(ctx.Paths.Tmp)
 	if err == nil && len(entries) > 0 {
 		ctx.Warn("%d leftover file(s) in tmp directory, consider running 'grew cleanup'", len(entries))
+	}
+}
+
+// CheckCellarOrphans warns about installed kegs whose formula can no longer be
+// resolved from any tap — packages that cannot be upgraded, verified, or managed.
+func CheckCellarOrphans(ctx *Context) {
+	for _, pkg := range ctx.Packages {
+		if _, err := ctx.Loader.LoadByName(pkg.Name); err != nil {
+			ctx.Warn("%s %s: formula not found in any tap — run 'grew uninstall %s' to remove the orphan",
+				pkg.Name, pkg.Version, pkg.Name)
+		}
 	}
 }
 
