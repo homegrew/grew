@@ -133,7 +133,7 @@ func runInfo(args []string) error {
 			fmt.Println("Installed: no")
 		}
 
-		if f.KegOnly {
+		if f.EffectiveKegOnly() {
 			fmt.Println("Keg-only: yes")
 		}
 

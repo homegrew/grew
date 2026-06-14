@@ -290,7 +290,7 @@ func RunInstall(args []string) error {
 			if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
 				if !ctx.Linker.IsLinked(f.Name) {
 					ui.FprintArrow(os.Stderr, "Linking %s %s...", f.Name, f.Version)
-					_ = ctx.Linker.Link(f.Name, f.Version, f.KegOnly)
+					_ = ctx.Linker.Link(f.Name, f.Version, f.EffectiveKegOnly())
 				} else {
 					ui.FprintArrow(os.Stderr, "%s %s is already installed and linked, skipping", f.Name, f.Version)
 				}
@@ -378,7 +378,7 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *contex
 			fmt.Printf("            keg:    %s\n", kegPath)
 			if installSkipLink && f.Name == target {
 				fmt.Printf("            link:   skipped (--skip-link)\n")
-			} else if f.KegOnly {
+			} else if f.EffectiveKegOnly() {
 				fmt.Printf("            link:   keg-only (not linked)\n")
 			} else {
 				fmt.Printf("            link:   opt/%s -> %s\n", f.Name, kegPath)

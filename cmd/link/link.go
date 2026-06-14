@@ -70,7 +70,7 @@ func runLink(args []string) error {
 		f, err := ctx.Loader.LoadByName(name)
 		kegOnly := false
 		if err == nil {
-			kegOnly = f.KegOnly
+			kegOnly = f.EffectiveKegOnly()
 		}
 
 		if kegOnly && !linkForce {

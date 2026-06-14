@@ -449,7 +449,7 @@ func CheckUnlinkedKegs(ctx *Context) {
 			continue
 		}
 		f, err := ctx.Loader.LoadByName(pkg.Name)
-		if err == nil && f.KegOnly {
+		if err == nil && f.EffectiveKegOnly() {
 			continue
 		}
 		ctx.Warn("%s %s is installed but not linked", pkg.Name, pkg.Version)
