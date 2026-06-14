@@ -371,6 +371,91 @@ install:
 	}
 }
 
+// simulateCaskInstall records a cask as installed by creating the Caskroom entry
+// and writing a minimal cask YAML to the core tap's Casks/ directory so that
+// ctx.LoadCask can resolve it.
+func simulateCaskInstall(t *testing.T, prefix, name, installedVersion, tapVersion string) {
+	t.Helper()
+
+	// Record the installed version in the Caskroom (<prefix>/Caskroom/<name>/<version>/).
+	caskroomDir := filepath.Join(prefix, "Caskroom", name, installedVersion)
+	if err := os.MkdirAll(caskroomDir, 0755); err != nil {
+		t.Fatalf("simulateCaskInstall: create caskroom dir %q: %v", caskroomDir, err)
+	}
+
+	// Write the tap-side cask YAML at the version the tap advertises.
+	casksDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps", "Casks")
+	if err := os.MkdirAll(casksDir, 0755); err != nil {
+		t.Fatalf("simulateCaskInstall: create Casks dir: %v", err)
+	}
+	yaml := "name: " + name + "\nversion: " + tapVersion + "\ndescription: test cask\nhomepage: https://example.com\nurl:\n  " +
+		platformKey() + ": https://example.com/" + name + ".zip\nsha256:\n  " +
+		platformKey() + ": " + strings.Repeat("c", 64) + "\nartifacts:\n  app:\n    - " + name + ".app\n"
+	if err := os.WriteFile(filepath.Join(casksDir, name+".yaml"), []byte(yaml), 0644); err != nil {
+		t.Fatalf("simulateCaskInstall: write cask yaml: %v", err)
+	}
+}
+
+// TestOutdated_CaskFilter verifies that --cask shows outdated casks and
+// excludes outdated formulas, and that --formula excludes casks.
+func TestOutdated_CaskFilter(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+
+	// An outdated formula (installed 1.0.0, tap has 2.0.0).
+	testhelper.CreateFormula(t, prefix, "myformula", `
+name: myformula
+version: 2.0.0
+url:
+  `+platformKey()+`: https://example.com/myformula.tar.gz
+install:
+  type: binary
+  binary_name: myformula
+`)
+	simulateInstall(t, prefix, "myformula", "1.0.0", true)
+
+	// An outdated cask (installed 1.0.0, tap has 2.0.0).
+	simulateCaskInstall(t, prefix, "mycask", "1.0.0", "2.0.0")
+
+	env := buildEnv(prefix, tmpDir)
+
+	// --cask: must show the cask, must not show the formula.
+	t.Run("cask only", func(t *testing.T) {
+		cmd := exec.Command(exePath, "outdated", "--cask")
+		cmd.Env = env
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			t.Fatalf("outdated --cask failed: %v\nOutput: %s", err, string(out))
+		}
+		output := string(out)
+		if !strings.Contains(output, "mycask") {
+			t.Errorf("expected 'mycask' in --cask output, got: %s", output)
+		}
+		if strings.Contains(output, "myformula") {
+			t.Errorf("expected 'myformula' to be excluded by --cask, got: %s", output)
+		}
+	})
+
+	// --formula: must show the formula, must not show the cask.
+	t.Run("formula only", func(t *testing.T) {
+		cmd := exec.Command(exePath, "outdated", "--formula")
+		cmd.Env = env
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			t.Fatalf("outdated --formula failed: %v\nOutput: %s", err, string(out))
+		}
+		output := string(out)
+		if !strings.Contains(output, "myformula") {
+			t.Errorf("expected 'myformula' in --formula output, got: %s", output)
+		}
+		if strings.Contains(output, "mycask") {
+			t.Errorf("expected 'mycask' to be excluded by --formula, got: %s", output)
+		}
+	})
+}
+
 // keysOf is a small helper that extracts the keys of a map for error messages.
 func keysOf[V any](m map[string]V) []string {
 	keys := make([]string, 0, len(m))
