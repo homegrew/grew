@@ -37,10 +37,11 @@ func runFormulae(ctx *context.Context) error {
 		fmt.Println("No formulae available.")
 		return nil
 	}
+	formulae = dedupe(formulae)
 	sort.Slice(formulae, func(i, j int) bool {
 		return formulae[i].Name < formulae[j].Name
 	})
-	for _, f := range dedupe(formulae) {
+	for _, f := range formulae {
 		fmt.Printf("%-25s %s\n", f.Name, f.Description)
 	}
 	return nil

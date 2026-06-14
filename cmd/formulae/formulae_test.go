@@ -89,9 +89,13 @@ func TestRunFormulae_Empty(t *testing.T) {
 	}
 
 	ctx := newContext(t)
+	var runErr error
 	out := captureStdout(t, func() {
-		_ = runFormulae(ctx)
+		runErr = runFormulae(ctx)
 	})
+	if runErr != nil {
+		t.Fatalf("runFormulae: %v", runErr)
+	}
 	if !strings.Contains(out, "No formulae available") {
 		t.Errorf("expected 'No formulae available' message, got: %q", out)
 	}
@@ -107,9 +111,13 @@ func TestRunFormulae_SingleFormula(t *testing.T) {
 	writeFormula(t, formulaDir, "jq", "A lightweight JSON processor")
 
 	ctx := newContext(t)
+	var runErr error
 	out := captureStdout(t, func() {
-		_ = runFormulae(ctx)
+		runErr = runFormulae(ctx)
 	})
+	if runErr != nil {
+		t.Fatalf("runFormulae: %v", runErr)
+	}
 	if !strings.Contains(out, "jq") || !strings.Contains(out, "A lightweight JSON processor") {
 		t.Errorf("unexpected output: %q", out)
 	}
@@ -127,9 +135,13 @@ func TestRunFormulae_SortedOutput(t *testing.T) {
 	writeFormula(t, formulaDir, "mmm", "Middle package")
 
 	ctx := newContext(t)
+	var runErr error
 	out := captureStdout(t, func() {
-		_ = runFormulae(ctx)
+		runErr = runFormulae(ctx)
 	})
+	if runErr != nil {
+		t.Fatalf("runFormulae: %v", runErr)
+	}
 	lines := strings.Split(strings.TrimSpace(out), "\n")
 	if len(lines) != 3 {
 		t.Fatalf("expected 3 lines, got %d: %q", len(lines), out)

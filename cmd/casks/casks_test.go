@@ -44,15 +44,6 @@ func setupPrefix(t *testing.T) config.Paths {
 	return paths
 }
 
-func writeCask(t *testing.T, caskDir, name, description string) {
-	t.Helper()
-	yaml := minimalCaskYAML
-	caskPath := filepath.Join(caskDir, name+".yaml")
-	if err := os.WriteFile(caskPath, []byte(yaml), 0644); err != nil {
-		t.Fatal(err)
-	}
-}
-
 func newContext(t *testing.T) *context.Context {
 	t.Helper()
 	ctx, err := context.New()
