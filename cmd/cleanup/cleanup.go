@@ -2,13 +2,15 @@ package cleanup
 
 import (
 	"github.com/homegrew/grew/pkg/cmd"
+	"github.com/homegrew/grew/pkg/context"
+
 	"github.com/spf13/cobra"
 )
 
 var (
-	cleanupDryRun  bool
-	cleanupScrub   bool
-	cleanupPrune   string
+	cleanupDryRun bool
+	cleanupScrub  bool
+	cleanupPrune  string
 )
 
 var Command = &cobra.Command{
@@ -30,7 +32,13 @@ Examples:
 			Scrub:  cleanupScrub,
 			Prune:  cleanupPrune,
 		}
-		return cmd.RunCleanup(args, opts)
+
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
+
+		return cmd.RunCleanup(ctx, args, opts)
 	},
 }
 
