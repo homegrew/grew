@@ -36,17 +36,29 @@ Release binaries ignore `--unsafe` entirely. See [docs/tech.md](docs/tech.md) §
 
 ## Architecture
 
-**Entry point:** [main.go](main.go) → [root.go](root.go). `root.go` builds the `Grew` cobra root via `pkg/cli` (`InitializeRootCommand`, `AddCommands`) and `pkg/cmd` (`AddLegacyCommands`).
+**Entry point:** [main.go](main.go) → [root.go](root.go). `root.go` builds the `Grew` cobra root via `pkg/cli` (`InitializeRootCommand`, `AddCommands`) and `pkg/cmd` (`AddLegacyCommands` for legacy commands).
 
-**Modular CLI:** Every subcommand is its own package under `cmd/<name>/`, exporting a `Command` variable of type `*cobra.Command` plus a `doc.go` with a package-level description. The CLI layer stays thin — business logic lives in `pkg/` packages (`pkg/installer`, `pkg/cellar`, `pkg/formula`, `pkg/cask`, etc.). To add a command: create `cmd/<name>/`, export `Command`, add `doc.go`, register in `root.go`. See [cmd/README.md](cmd/README.md) and [cmd-creation-skill.md](cmd-creation-skill.md).
+**Modular CLI:** Commands are organized in two layers:
+  - **New commands** (refactored): under `cmd/<name>/`, each exporting a `Command` variable of type `*cobra.Command` plus a `doc.go` with package documentation. These are added via `pkg/cli.AddCommands()`.
+  - **Legacy commands** (being phased out): in `pkg/cmd/`, added via `pkg/cmd.AddLegacyCommands()`.
 
-**Execution context (`pkg/context`) — the single source of truth for system state.** All commands receive a `Context` (read-only ops) or `InstallContext` (destructive ops, holds global lock) rather than reading global variables. It bundles `Paths` (Cellar, Caskroom, Taps, Cache), `Loader`/`CaskLoader`, and `Cellar`/`Caskroom` managers. `LoadFormula`/`LoadCask` encapsulate auto-tapping (cloning a missing `user/repo` tap on demand) and falling back to the Homebrew JSON API when no local definition exists. `ResolveKind(name, forceCask, forceFormula)` returns `(isCask bool, err error)` for commands that accept either kind and need to determine which loader to use (formula wins in auto mode). **Never bypass this with global state or hardcoded paths** — use `ctx.Paths.Cellar` etc.
+The CLI layer stays thin — business logic lives in `pkg/` packages (`pkg/installer`, `pkg/cellar`, `pkg/formula`, `pkg/cask`, `pkg/linker`, etc.). To add a new command: create `cmd/<name>/`, export `Command`, add `doc.go`, and add a single line to `pkg/cli.AddCommands()`. See [cmd/README.md](cmd/README.md) and the `add-command` skill.
+
+**Execution context (`pkg/context`) — the single source of truth for system state.** All commands receive a `Context` or `InstallContext` (the latter holds the global lock for destructive ops) rather than reading global variables or env vars directly. The context bundles:
+  - `Paths`: Cellar, Caskroom, Taps, Cache, Etc directories
+  - `Loader` / `CaskLoader`: formula and cask discovery
+  - `Cellar` / `Caskroom`: installed keg and cask managers
+  - `Config`: user preferences (feature flags, thresholds, etc.)
+
+`LoadFormula` / `LoadCask` encapsulate auto-tapping (cloning a missing `user/repo` tap on demand) and fallback to the Homebrew JSON API when no local definition exists. `ResolveKind(name, forceCask, forceFormula)` returns `(isCask bool, err error)` for commands that accept either kind — formula wins by default. **Never bypass this with global state or hardcoded paths** — use `ctx.Paths.Cellar` etc.
 
 **Prefix layout** (`/opt/homegrew` on Apple Silicon, `/usr/local/homegrew` on Intel, `~/.homegrew` in devmode): `Cellar/` (installed kegs, each with `.MANIFEST.json`), `Taps/`, `bin//lib//include/` (symlinks), `opt/` (per-formula keg symlinks), `etc/trusted-keys` (Ed25519 pubkeys). The system prefix deliberately isolates sandboxed builds from `$HOME`.
 
 **Self-update (`grew selfupdate`)** is multi-layered (see [docs/tech.md](docs/tech.md) §2): source-based (git fetch + `go build`) if a repo exists at `<prefix>/Grew`, otherwise multi-hop binary delta patching via `bspatch` (BFS over intermediate patches), with full-archive fallback. Every asset is dual-hash verified; an OSV.dev vulnerability check and a sandboxed health-check run of the new binary both fail closed before atomic replacement.
 
 **Per-package metadata:** `.MANIFEST.json` is the canonical per-file SHA256 integrity snapshot used by `grew verify`; `INSTALL_RECEIPT.json` is supplemental provenance/dependency metadata (and is excluded from verify to avoid false positives). The `InstalledOnRequest` field distinguishes explicit installs from auto-pulled dependencies — this drives `grew leaves` and `grew autoremove`.
+
+**Symlink management (`pkg/linker`):** Manages the prefix symlinks that expose kegs. A keg lives isolated under `Cellar/<name>/<version>`; the linker populates `bin/`, `lib/`, `include/`, `share/` with symlinks pointing into the keg, plus a stable `opt/<name>` link. Conflict resolution: only replaces existing links that already belong to the same formula; for different formulas, requires `LinkOpts.Overwrite`. Version-family defense: refuses to link when another member of the same family (e.g. node@24 vs unversioned node) already owns the shared links, unless overridden. See [pkg/linker/doc.go](pkg/linker/doc.go).
 
 **Diagnostics (`pkg/doctor`):** Context-driven checks. Core `BaseChecks` plus platform-specific `ExtraChecks` registered via `init()` (e.g. `doctor_darwin.go` adds sandbox-entitlement, notarization, and quarantine checks). Add new checks by registering, not by editing the core flow.
 

@@ -45,7 +45,13 @@ Improve performance and reduce initial installation friction by removing the str
 *   [x] **`grew desc [formula|cask|text|/regex/]`**: Display a package's name and one-line description. Supports `-s/--search` (names + descriptions), `-n/--name` (names only), `-d/--description` (descriptions only), `--formula/--cask` kind restriction, `/regex/` patterns, and `--plain` to suppress grouped `==> Formulae`/`==> Casks` headers.
 *   [x] **`grew outdated [formula|cask ...]`**: List installed formulas and casks with an updated version available. Supports `--formula`/`--cask` to filter by kind, `--json` for machine-readable output, `--quiet` for names-only output, and `--minimum-version` to filter by a version floor. Extracted from the upgrade command into its own standalone package (`cmd/outdated`).
 
-## 8. Dependency Resolution & Lifecycle Management ✅ COMPLETE
+## 8. Linker & Symlink Management ✅ COMPLETE
+Robust prefix symlink management with conflict detection.
+*   [x] **Ownership Tracking**: Only replace symlinks owned by the same formula; require `--force` to override
+*   [x] **Version-Family Conflict Guard**: Prevent linked members of the same family (e.g., `node@24` when `node` is linked) from both winning shared directories
+*   [x] **Linker API Documentation**: Comprehensive [doc.go](../pkg/linker/doc.go) explaining linking semantics, keg-only behavior, and conflict resolution
+
+## 9. Dependency Resolution & Lifecycle Management ✅ COMPLETE
 Advanced dependency modeling and formula lifecycle hooks.
 *   [x] **Structured Dependencies**: `DepKind` enum with Runtime, Build, Test, Optional, and Recommended scopes
 *   [x] **Topological Sort**: Dependency-first ordering with Kahn's algorithm

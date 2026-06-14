@@ -87,6 +87,16 @@ Every filesystem operation that touches an externally-influenced path (archive e
 - **Default behavior:** when unset, `grew` uses a conservative built-in list containing only the hosts required for official release/download/update flows.
 - **Security implications:** expanding this list increases the outbound destinations `grew` may contact. Avoid wildcards or broad internal domains; doing so weakens SSRF protections and can expose internal services/metadata endpoints if untrusted input ever reaches download URLs.
 
+### Symlink conflict management (`pkg/linker`)
+
+`pkg/linker` creates and removes the prefix symlinks that expose installed kegs through shared directories (`bin/`, `lib/`, `include/`, `share/`, `opt/`). It implements two safety mechanisms to prevent version-family conflicts:
+
+1. **Ownership tracking**: When linking, the linker only replaces an existing symlink if it already points into the same formula's cellar subtree. Links owned by a different formula cause an error unless `LinkOpts.Overwrite` is explicitly set.
+
+2. **Version-family conflict guard** (defense-in-depth): Refuses to link a formula into shared directories when another member of the same version family is already linked. For example, when `node@24` attempts to link `bin/node`, the linker checks if an unversioned `node` is already providing that link. This is a backstop that protects against scenarios where a formula definition explicitly sets `keg_only: false` despite being versioned — the check ensures the version family's uniqueness regardless of the formula definition. The `Overwrite` or `Force` option overrides this check.
+
+See [pkg/linker/doc.go](../pkg/linker/doc.go) for complete documentation of linking semantics, including keg-only behavior and path safety.
+
 ### Command-execution hardening
 
 External tools (`git`, `go`, an editor from `$EDITOR`, etc.) are resolved with `exec.LookPath` before being passed to `exec.Command`, and every external invocation passes the `--` end-of-options separator so that attacker-influenced arguments cannot be reinterpreted as flags. Where a value such as `$EDITOR` is involved, it is additionally screened for shell metacharacters before resolution (see [cmd/alias/alias.go](../cmd/alias/alias.go)). No runtime path constructs a shell command string.
@@ -301,4 +311,332 @@ All URLs in caveats are validated; `http://` URLs are rejected at render time to
 ### Cycle Detection in Doctor
 
 The `grew doctor` command includes a `check_depgraph_acyclic` check that loads all formulas from installed kegs and reports any circular dependencies. This ensures that the installed package graph remains resolvable should a user ever attempt to construct a dependency chain manually.
+
+## 13. Formula & Cask Definition System
+
+Grew uses a YAML-based formula and cask definition format, inspired by Homebrew but simplified and extended with additional metadata.
+
+### Formula Structure (`pkg/formula`)
+
+A formula in `grew` is a YAML file defining a CLI tool or library. Key fields include:
+
+```yaml
+name: jq
+version: 1.7.1
+homepage: https://jqlang.github.io/jq/
+description: A lightweight and flexible command-line JSON processor
+license: MIT
+sha256: abc123...
+
+bottles:
+  - os: darwin
+    arch: arm64
+    macos_major: 14
+    sha256: def456...
+    url: https://github.com/...
+
+dependencies:
+  - name: openssl@3
+    kind: runtime
+  - name: bison
+    kind: build
+    platform: darwin
+    
+keg_only: false
+post_install: |
+  echo "Installed jq"
+```
+
+**Key Design Points:**
+- **Version-based kegs**: Each version is installed to `Cellar/<name>/<version>/`, allowing side-by-side installation of multiple versions.
+- **Bottle selection**: Bottles are matched by `os`, `arch`, and optionally `macos_major` (e.g., macOS 14, 15). The `--force-bottle` option forces a bottle even if it wouldn't normally apply.
+- **Platform-specific dependencies**: Dependencies can be tagged with `platform: darwin` to apply only on macOS.
+- **Validation**: Formula names and versions are validated via `pkg/validation` to ensure they conform to allowed characters (alphanumerics, `@`, `-`, `_`, `.`).
+
+### Cask Structure (`pkg/cask`)
+
+Casks represent GUI applications and system extensions. They differ from formulas in that they typically contain pre-built `.app` bundles or `.pkg` installers rather than source code.
+
+```yaml
+name: firefox
+version: 126.0
+homepage: https://www.mozilla.org/firefox/
+description: Web browser
+url: https://download.mozilla.org/firefox/releases/...
+sha256: ghi789...
+
+artifacts:
+  - app: Firefox.app
+    target: /Applications
+  - zap:
+    - ~/Library/Application Support/Firefox
+    - ~/Library/Caches/Firefox
+```
+
+**Key Design Points:**
+- **Artifact-based**: Casks declare artifacts (apps, packages, binaries) to install, extract, or manage.
+- **Zap rules**: Define cleanup targets (files/directories) for deep uninstalls (future `grew zap` command).
+- **No keg isolation**: Unlike formulas, cask artifacts are typically installed directly to system locations (e.g., `/Applications`).
+
+### Loader System (`pkg/formula.Loader`, `pkg/cask.Loader`)
+
+The loader provides a unified interface for discovering formulas and casks:
+
+1. **Local Resolution**: Searches installed taps in order. Taps are git-cloned repositories stored under `<prefix>/Taps/`.
+2. **Auto-tapping**: If a formula is requested as `user/repo/formula`, the loader automatically clones `https://github.com/user/repo` if it doesn't exist locally.
+3. **Homebrew API Fallback**: If a formula isn't found locally, the loader queries the Homebrew JSON API (`formulae.brew.sh`) for metadata and bottle information.
+4. **Caching**: Loaded formulas are cached in memory during a single command execution to avoid redundant parses.
+
+## 14. Installation Flow & Cellar Management
+
+The installation process follows a deterministic sequence designed to maximize safety and permit atomic rollback on failure.
+
+### Formula Installation (`pkg/installer.InstallFormula`)
+
+1. **Dependency Resolution**: Recursively load dependencies, construct a dependency graph, detect cycles, and topologically sort for installation order.
+2. **Bottle Selection**: 
+   - Match the current platform and macOS version against available bottles.
+   - Under `--force-bottle`, prefer the newest available bottle even if it predates the current macOS version.
+   - Fall back to source build if no suitable bottle is found and source is available.
+3. **Bottle Installation** (preferred):
+   - Download the bottle archive with SHA-256 verification.
+   - Extract to a temporary staging directory within the Cellar (isolated from other kegs).
+   - Validate file mode bits; strip dangerous bits (setuid, setgid, sticky, world-write).
+   - Perform keg relocation (see §14 below) to rewrite hardcoded prefix paths in binaries.
+   - Capture a per-file `.MANIFEST.json` snapshot of installed files and their SHA-256 hashes.
+4. **Source Build** (if no bottle or `--build-from-source`):
+   - Download the source archive.
+   - Extract to a temporary build directory with Seatbelt sandbox isolation.
+   - Run `./configure && make && make install DESTDIR=<keg>`.
+   - Execute any declared lifecycle hooks with restricted environment and I/O.
+5. **Linking**: Call `Linker.LinkWithOpts()` to create symlinks in the prefix, detecting and preventing version-family conflicts.
+6. **Post-Install**: Run post-install script (if declared) in a sandbox with the keg read-only.
+7. **Receipt Generation**: Write `INSTALL_RECEIPT.json` with metadata (provenance, dependencies, timestamps).
+8. **Caveats**: Render and display any post-install messages.
+
+### Cask Installation (`pkg/installer.CaskInstall`)
+
+1. **Artifact Extraction**: Extract `.dmg`, `.zip`, or `.tar.gz` to a temporary directory.
+2. **Artifact Movement**: Copy artifact files (e.g., `.app`) to target directories (typically `/Applications`).
+3. **Quarantine**: Apply `com.apple.quarantine` extended attributes to downloaded artifacts to trigger macOS Gatekeeper.
+4. **Receipt Recording**: Store installation metadata in the Caskroom for future reference.
+
+### Keg Relocation (`pkg/relocation`)
+
+When a bottle is extracted with a hardcoded prefix (e.g., `/usr/local/homegrew`), but the current prefix differs, `grew` rewrites binary paths:
+
+- **Mach-O binaries** (macOS): Use `install_name_tool` to rewrite `@rpath`, `@loader_path`, and absolute paths in dynamic library references.
+- **ELF binaries** (Linux, if supported): Use `patchelf` to rewrite `RPATH` and `RUNPATH` entries.
+- **Text files** (scripts, configs): Use simple string replacement to swap the old prefix for the new one.
+
+This is a defense-in-depth layer: while bottles should ideally use relative paths or `@rpath`, relocation ensures portability across prefix locations.
+
+### Cellar Management (`pkg/cellar`)
+
+The `Cellar` struct manages installed kegs:
+
+- **`List()`**: Returns all installed kegs, parsed from directory structure.
+- **`Installed(name, version)`**: Checks if a specific keg is installed.
+- **`Latest(name)`**: Returns the newest version of a formula (by semantic versioning).
+- **`Remove(name, version)`**: Atomically deletes a keg directory tree after unlinking.
+- **`Cleanup(name, keep=int)`**: Removes old versions, keeping the `keep` newest.
+
+**Manifest Verification**: Each keg carries a `.MANIFEST.json` capturing the exact files and their SHA-256 hashes at install time. The `grew verify` command re-computes hashes and reports mismatches, detecting tampering or corruption.
+
+## 15. Tap Management & Formula Discovery
+
+Taps are git repositories containing formula and cask definitions. The tap system enables community contributions and private package repositories.
+
+### Tap Structure
+
+A tap repository follows this layout:
+```
+user-repo/
+├── Formula/
+│   ├── jq.yaml
+│   ├── ripgrep.yaml
+│   └── ...
+├── Cask/
+│   ├── firefox.yaml
+│   └── ...
+├── .git/
+└── README.md
+```
+
+### Tap Operations (`pkg/tap`)
+
+- **`Clone(user, repo)`**: Clones a GitHub repository to `<prefix>/Taps/user/repo` using `git clone --depth=1` (shallow clone for speed).
+- **`Update(name)`**: Runs `git fetch && git reset --hard origin/main` to refresh definitions.
+- **Commit Verification** (if `HOMEGREW_TAP_VERIFY=strict` or `warn`): Validates GPG or SSH signatures on commits using `git verify-commit` or equivalent.
+
+### Tap Initialization
+
+On first use, `grew` automatically initializes a "core" tap (typically `homegrew/core`) containing the official formula and cask definitions. This initialization happens in `pkg/context.New()` and is skipped in tests via the `HOMEGREW_NO_INIT_TAP` environment variable.
+
+## 16. Download & Caching System
+
+The download system is designed for resilience, efficiency, and security.
+
+### Cache Structure (`pkg/cache`)
+
+```
+<prefix>/Cache/
+├── v1/                    ← version namespace
+│   ├── formula/
+│   │   ├── jq/1.7.1
+│   │   │   ├── jq-1.7.1.tar.gz
+│   │   │   └── jq-1.7.1.tar.gz.sha256
+│   │   └── ...
+│   ├── cask/
+│   │   ├── firefox
+│   │   │   ├── firefox-126.0.dmg
+│   │   │   └── ...
+│   │   └── ...
+│   └── grew/              ← self-update patches
+│       ├── v0.1.0_to_v0.1.1.patch
+│       └── ...
+└── tmp/                   ← ephemeral extraction staging
+```
+
+### Download Flow (`pkg/downloader`)
+
+1. **Hash Verification**: Before downloading, check if the file already exists in the cache and verify its SHA-256 (and SHA-512 if available).
+2. **Conditional Download**: Skip download if the cache entry is valid; otherwise, fetch from the URL.
+3. **HTTPS Enforcement**: URLs are parsed; `http://` URLs are rejected at parse time.
+4. **SSRF Protection**: The downloader maintains an allowlist of permitted hosts. User-provided downloads are checked against this list; untrusted input cannot direct the downloader to internal services or metadata endpoints.
+5. **Dual-Hash Computation**: After download, compute both SHA-256 and SHA-512 simultaneously to verify integrity and protect against single-algorithm collision attacks.
+6. **Redirect Safety**: The HTTP client is configured to reject redirects to non-HTTPS targets, preventing downgrade attacks.
+
+### Cache Cleanup (`pkg/cache.Cleanup`)
+
+The `grew cleanup` command manages cache lifecycle:
+
+- **`--prune=DAYS`**: Remove entries older than `DAYS` days (default: 120 days, configurable via `HOMEGREW_CLEANUP_MAX_AGE_DAYS`).
+- **`--scrub` / `-s`**: Remove all cache entries.
+- Cleanup also removes old keg versions from the Cellar (keeping the latest 2 by default).
+
+## 17. Logging & Audit Trail
+
+Grew implements structured logging and audit trails to support debugging, compliance, and post-mortem analysis.
+
+### Structured Logging (`pkg/logger`)
+
+All logging uses Go's standard `log/slog` package with a custom handler:
+
+```go
+slog.Info("installing formula",
+    "formula", "jq",
+    "version", "1.7.1",
+    "method", "bottle",
+    slog.Group("timing",
+        "started", start,
+        "duration", elapsed,
+    ),
+)
+```
+
+**Log Levels**:
+- **ERROR**: Installation failures, missing dependencies, permission denied.
+- **WARN**: Fallback to source build, deprecated usage, unsigned bottles.
+- **INFO**: Normal progress (install complete, dependency resolved).
+- **DEBUG**: Detailed execution steps (file copied, symlink created), source locations.
+
+**CLI Flags**:
+- `-v` / `--verbose`: Increase log level to INFO.
+- `-d` / `--debug`: Increase to DEBUG (includes source file and line numbers).
+- `-q` / `--quiet`: Suppress all output except errors.
+
+### Audit Log (`pkg/auditlog`)
+
+A persistent append-only log records every package manager action:
+
+```
+<prefix>/var/log/grew.audit.log
+
+[2024-06-14T15:32:41Z] install jq 1.7.1 bottle sha256=abc123... status=success
+[2024-06-14T15:33:12Z] install openssl@3 1.1.1 bottle sha256=def456... status=success
+[2024-06-14T15:35:08Z] upgrade jq 1.7.1 → 1.8 bottle sha256=ghi789... status=success
+[2024-06-14T15:35:41Z] tap add homegrew/core status=success
+```
+
+**Logged Actions**: install, uninstall, upgrade, tap (add/remove), self-update, update (refresh tap definitions).
+
+**Entry Format**: ISO 8601 timestamp, action, formula/cask name, version, bottle hash, final status.
+
+## 18. Error Handling & Resilience
+
+Grew is designed to fail gracefully and provide actionable error messages.
+
+### Error Categories
+
+- **Configuration Errors**: Invalid prefix, missing taps, permission denied. These fail fast at startup.
+- **Resolution Errors**: Missing dependencies, cycles in dependency graph, formula not found. Reported clearly with suggestions.
+- **Download Errors**: Network failures, checksum mismatch, 404. Retried with exponential backoff; eventually fail closed.
+- **Installation Errors**: Build failures, sandbox violations, post-install script errors. Recorded in audit log with full command output for debugging.
+- **Linking Errors**: Symlink conflicts, permission denied, existing incompatible link. Reported with guidance (e.g., `--force` to override).
+
+### Atomicity & Rollback
+
+Installation is designed to be atomic:
+
+1. All work happens in isolated staging directories outside the Cellar.
+2. The final move into the Cellar is a single atomic `rename()` or `mv` operation.
+3. If the process crashes or is interrupted mid-installation, the staging directory is left behind but doesn't corrupt the installed packages.
+4. On restart, `grew doctor` can detect and clean up partial installations.
+
+## 19. Testing Architecture
+
+Grew's test suite spans unit tests, integration tests, smoke tests, and end-to-end tests.
+
+### Unit Tests (`make test-unit`)
+
+- Location: `**/*_test.go` in `pkg/` and `cmd/` packages.
+- Execution: `go test -tags devmode -race -coverprofile=coverage.out ./pkg/...`
+- Scope: Tests individual packages in isolation (e.g., dependency graph validation, YAML parsing, path safety).
+- Speed: Runs in seconds; no system setup required.
+
+### Integration Tests (`make test-integration`)
+
+- Location: `tests/integration/`
+- Execution: Compiles a test proxy binary from `tests/testbin/` that exposes grew's internal routing, then execs it as a standalone process against a mock prefix.
+- Scope: Tests command-level behavior and inter-package interactions (e.g., installing a formula, verifying manifest, unlinking).
+- Speed: Runs in ~30–60 seconds; requires mock formulas and tap setup.
+
+### Smoke Tests (`make test-smoke`)
+
+- Location: `tests/smoke/`
+- Execution: Quick health checks (e.g., binary builds, version flag works, help text renders).
+- Speed: Runs in <5 seconds.
+
+### End-to-End Tests (`make test-e2e`)
+
+- Location: `tests/e2e/`
+- Execution: Tests against actual GitHub releases and real formulas from `homegrew/core`.
+- Scope: Full lifecycle (download, extract, install, link, verify, cleanup).
+- Speed: Several minutes; requires network access and real formulas.
+
+## 20. Codebase Organization & Design Principles
+
+### Package Conventions
+
+- **`pkg/` packages**: Core logic, no CLI routing. Each package is importable and testable in isolation.
+- **`cmd/` packages**: CLI commands. Each exports a `Command` variable and a `doc.go` with package documentation.
+- **`pkg/cli`**: Command registration and global flag initialization. No business logic.
+- **`pkg/context`**: Shared execution context; the single source of truth for system state.
+
+### Design Principles
+
+1. **Explicit Dependency Injection**: Commands and functions receive a `Context` or `InstallContext` rather than reading global state. This ensures testability and prevents environment drift.
+
+2. **Security-by-Default**: All external inputs (URLs, paths, formulae names) are validated at entry points before being used. Path operations route through `pkg/safepath`; downloads through `pkg/downloader`; commands through `exec.LookPath`.
+
+3. **Defense-in-Depth**: Security checks are layered. For example, symlink safety is enforced at the linker, cellar, and loader layers. A single layer's failure doesn't break the whole system.
+
+4. **Minimal Privileges**: The binary runs rootless except for the initial `setup` command. All subsequent operations (install, upgrade, link) operate as the current user within the confined prefix.
+
+5. **Atomic Operations**: Installation, updates, and linking are designed to be atomic—either fully complete or leave no trace.
+
+6. **Fail-Closed**: When in doubt, fail. Examples: OSV.dev vulnerability check aborts updates by default if OSV is unreachable; symlink conflicts raise an error unless explicitly overridden.
+
+7. **Observable**: All significant actions are logged (audit trail), and `grew doctor` provides introspection into system state.
 

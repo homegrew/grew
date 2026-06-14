@@ -304,7 +304,7 @@ grew/
 │   ├── hooks/        ← lifecycle hooks (build, test, post-install) with sandboxed execution
 │   ├── installer/    ← core installation logic (formula, cask, self-update)
 │   ├── linkage/      ← dynamic library linkage analysis
-│   ├── linker/       ← deterministic symlink management
+│   ├── linker/       ← deterministic symlink management (conflict detection, opt links, version-family guards)
 │   ├── lockfile/     ← reproducible environment pinning
 │   ├── osvdev/       ← OSV.dev API client for vulnerability scanning
 │   ├── quarantine/   ← macOS quarantine attribute and Trash management
