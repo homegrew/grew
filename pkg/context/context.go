@@ -232,7 +232,13 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err := safepath.SafeAbsolutePath(paths.Root); err != nil {
 		return nil, fmt.Errorf("invalid root directory %q: %w", paths.Root, err)
 	}
-	lockAbs, err := safepath.SafeJoin(paths.Root, ".grew.lock")
+	if err := safepath.SafeAbsolutePath(paths.Locks); err != nil {
+		return nil, fmt.Errorf("invalid locks directory %q: %w", paths.Locks, err)
+	}
+	if err := safepath.CheckSubpath(paths.Root, paths.Locks); err != nil {
+		return nil, fmt.Errorf("invalid locks directory %q: %w", paths.Locks, err)
+	}
+	lockAbs, err := safepath.SafeJoin(paths.Locks, ".grew.lock")
 	if err != nil {
 		return nil, fmt.Errorf("invalid lock file path: %w", err)
 	}
