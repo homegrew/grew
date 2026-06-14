@@ -121,6 +121,16 @@ func TestParseCaskArtifacts(t *testing.T) {
 			wantApp: []string{"Firefox.app"},
 		},
 		{
+			name:    "app with target rename",
+			raw:     `[{"app": ["Telegram.app", {"target": "Telegram Desktop.app"}]}]`,
+			wantApp: []string{"Telegram Desktop.app"},
+		},
+		{
+			name:    "multiple apps",
+			raw:     `[{"app": ["A.app", "B.app"]}]`,
+			wantApp: []string{"A.app", "B.app"},
+		},
+		{
 			name:    "pkg plain",
 			raw:     `[{"pkg": ["Foo.pkg"]}]`,
 			wantPkg: []string{"Foo.pkg"},

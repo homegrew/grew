@@ -35,21 +35,25 @@ var (
 var Command = &cobra.Command{
 	Use:     "list [flags]",
 	Aliases: []string{"ls"},
-	Short:   "List installed formulas or casks",
-	Long: `List all installed formulas with their versions.
-With --cask, list installed casks instead.
+	Short:   "List installed formulas and casks",
+	Long: `List all installed formulas and casks with their versions.
+By default both kinds are listed. Use --formula or --cask to restrict.
 
 Examples:
   grew list
   grew list --cask`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return runList(args)
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
+		return runList(ctx, args)
 	},
 }
 
 func init() {
 	Command.Flags().BoolVar(&listCask, "cask", false, "List installed casks.")
-	Command.Flags().BoolVar(&listFormulae, "formulae", false, "List installed formulas (default).")
+	Command.Flags().BoolVar(&listFormulae, "formula", false, "List installed formulas (default).")
 	Command.Flags().BoolVar(&listVersionsFlag, "versions", false, "Show all installed versions for each package.")
 	Command.Flags().BoolVar(&listMultiple, "multiple", false, "Only show packages with multiple versions installed.")
 	Command.Flags().BoolVarP(&listOnePerLine, "1", "1", false, "Print one entry per line, names only.")
@@ -64,7 +68,7 @@ func init() {
 	Command.Flags().BoolVar(&listPinned, "pinned", false, "Only show pinned formulas.")
 }
 
-func runList(args []string) error {
+func runList(ctx *context.Context, _ []string) error {
 	slog.Debug("starting list command execution")
 
 	if listOnRequest && listAsDep {
@@ -74,40 +78,68 @@ func runList(args []string) error {
 		return fmt.Errorf("--built-from-source and --poured-from-bottle are mutually exclusive")
 	}
 
-	if listCask && !listFormulae {
-		ctx, err := context.New()
+	// Decide which kinds to list. With neither flag, list both.
+	showCasks := listCask || (!listCask && !listFormulae)
+	showFormulae := listFormulae || (!listCask && !listFormulae)
+
+	// Formula-specific filters/formats have no meaning for casks. If any is
+	// set, treat it as an implicit formulae-only query so we never print casks
+	// that would silently ignore the user's filter.
+	formulaOnlyFlag := listVersionsFlag || listMultiple || listLong || listByTime ||
+		listReverse || listOnRequest || listAsDep || listFullName ||
+		listBuiltSrc || listPouredBottle || listPinned
+	if formulaOnlyFlag && !listCask {
+		showCasks = false
+	}
+
+	// handled tracks whether anything was written to stdout — a listed package
+	// or a filter-specific empty-state message. The generic "No packages
+	// installed." fallback fires only when both sections stayed silent.
+	handled := false
+	if showFormulae {
+		ok, err := listFormulaePackages(ctx)
 		if err != nil {
 			return err
 		}
+		handled = handled || ok
+	}
+
+	if showCasks {
 		casks, err := ctx.Caskroom.ListInstalled()
 		if err != nil {
 			return err
 		}
-		if len(casks) == 0 {
-			fmt.Println("No casks installed.")
-			return nil
-		}
 		for _, c := range casks {
-			fmt.Printf("%-20s %s\n", c.Name, c.Version)
+			if listOnePerLine {
+				fmt.Println(c.Name)
+			} else {
+				fmt.Printf("%-20s %s\n", c.Name, c.Version)
+			}
 		}
-		return nil
+		handled = handled || len(casks) > 0
 	}
 
-	ctx, err := context.New()
-	if err != nil {
-		return err
+	if !handled {
+		fmt.Println("No packages installed.")
 	}
+	return nil
+}
+
+// listFormulaePackages runs the full formula listing pipeline (filters, sorts,
+// and formats) and prints the result. It reports whether it produced any
+// output — either listed formulas or a filter-specific empty-state message
+// (e.g. "No pinned formulas.") — so the caller can decide whether to print the
+// generic "No packages installed." fallback.
+func listFormulaePackages(ctx *context.Context) (bool, error) {
 	paths := ctx.Paths
 	cel := ctx.Cellar
 
 	packages, err := cel.List()
 	if err != nil {
-		return err
+		return false, err
 	}
-
 	if len(packages) == 0 {
-		fmt.Println("No packages installed.")
-		return nil
+		return false, nil
 	}
 
 	// Filter by install reason or build method using snapshot metadata.
@@ -115,7 +147,7 @@ func runList(args []string) error {
 		packages = cel.FilterByManifest(packages, listOnRequest, listAsDep, listBuiltSrc, listPouredBottle)
 		if len(packages) == 0 {
 			fmt.Println("No matching formulas.")
-			return nil
+			return true, nil
 		}
 	}
 
@@ -129,7 +161,7 @@ func runList(args []string) error {
 		packages = pinnedPkgs
 		if len(packages) == 0 {
 			fmt.Println("No pinned formulas.")
-			return nil
+			return true, nil
 		}
 	}
 
@@ -145,12 +177,15 @@ func runList(args []string) error {
 		packages = filterMultiple(cel, packages)
 		if len(packages) == 0 {
 			fmt.Println("No formulas with multiple versions installed.")
-			return nil
+			return true, nil
 		}
 	}
 
 	if listVersionsFlag {
-		return listVersions(cel, packages, listLong, listOnePerLine, listFullName, paths.Cellar)
+		if err := listVersions(cel, packages, listLong, listOnePerLine, listFullName, paths.Cellar); err != nil {
+			return false, err
+		}
+		return len(packages) > 0, nil
 	}
 
 	for _, p := range packages {
@@ -167,7 +202,7 @@ func runList(args []string) error {
 			fmt.Printf("%-20s %s\n", name, p.Version)
 		}
 	}
-	return nil
+	return len(packages) > 0, nil
 }
 
 // eachUniquePackage iterates over unique packages and calls fn with the package and its versions.

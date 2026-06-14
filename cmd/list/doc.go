@@ -1,7 +1,7 @@
 // Package list implements the 'list' command.
 //
-// List installed formulas or casks
+// List installed formulas and casks
 //
-// List all installed formulas with their versions.
-// With --cask, list installed casks instead.
+// List all installed formulas and casks with their versions. By default both
+// kinds are listed; use --formulae or --cask to restrict to one kind.
 package list
