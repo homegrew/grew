@@ -148,6 +148,7 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 		{"Cache", paths.Cache},
 		{"tmp", paths.Tmp},
 		{"log", paths.Log},
+		{"locks", paths.Locks},
 		{"etc", paths.Etc},
 	} {
 		status := "create"
