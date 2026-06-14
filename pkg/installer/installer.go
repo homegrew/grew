@@ -118,8 +118,8 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 		return fmt.Errorf("no version output")
 	}
 
-	slog.Debug(fmt.Sprintf("binary version output: %s", outStr))
-	slog.Debug(fmt.Sprintf("expected version: %s", expectedVersion))
+	slog.Debug("binary version output", "output", outStr)
+	slog.Debug("expected version", "version", expectedVersion)
 	slog.Debug("checking if expected version is contained in output or if output contains 'dev'")
 	if expectedVersion != "" && !strings.Contains(outStr, expectedVersion) && !strings.Contains(outStr, "dev") {
 		return fmt.Errorf("version mismatch: expected %s, got %s", expectedVersion, outStr)
