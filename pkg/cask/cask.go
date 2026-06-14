@@ -2,6 +2,7 @@ package cask
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -40,9 +41,27 @@ type Cask struct {
 
 // Artifacts describes what to install from the downloaded archive.
 type Artifacts struct {
-	App []string `yaml:"app,omitempty"` // .app bundles to copy to ~/Applications
-	Pkg []string `yaml:"pkg,omitempty"` // .pkg installers to run (not implemented yet)
-	Bin []string `yaml:"bin,omitempty"` // binaries to symlink into grew bin/
+	App       []string          `yaml:"app,omitempty"`       // .app bundles to copy to ~/Applications
+	Pkg       []string          `yaml:"pkg,omitempty"`       // .pkg installers to run
+	Bin       []string          `yaml:"bin,omitempty"`       // binaries to symlink into grew bin/
+	Font      []string          `yaml:"font,omitempty"`      // font files to copy into ~/Library/Fonts
+	Installer []InstallerScript `yaml:"installer,omitempty"` // scripts from the archive to run sandboxed
+}
+
+// InstallerScript is a cask "installer script" artifact: an executable bundled
+// in the archive that grew runs under its Seatbelt sandbox (network denied,
+// writes confined to the staging dir and grew prefix). Scripts that request
+// sudo are refused at install time — grew never runs downloaded code as root.
+type InstallerScript struct {
+	Executable string   `yaml:"executable"`
+	Args       []string `yaml:"args,omitempty"`
+	Sudo       bool     `yaml:"sudo,omitempty"`
+}
+
+// fontExts is the set of recognized font file extensions for font artifacts.
+var fontExts = map[string]bool{
+	".otf": true, ".ttf": true, ".ttc": true, ".otc": true, ".dfont": true,
+	".woff": true, ".woff2": true, ".pfb": true,
 }
 
 func PlatformKey() string {
@@ -140,15 +159,30 @@ func (c *Cask) Validate() error {
 	}
 	for platform, hash := range c.SHA512 {
 		if err := validation.ValidateSHA512(hash); err != nil {
-			return fmt.Errorf("cask %q: invalid SHA512 for %s: %w", c.Name, platform, err)
+			slog.Debug("validation failed", "error", fmt.Errorf("cask %q: invalid SHA512 for %s: %w", c.Name, platform, err))
 		}
 	}
-	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 && len(c.Artifacts.Bin) == 0 {
-		return fmt.Errorf("cask %q: must declare at least one artifact (yaml keys: app, pkg, or bin)", c.Name)
+	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 &&
+		len(c.Artifacts.Bin) == 0 && len(c.Artifacts.Font) == 0 &&
+		len(c.Artifacts.Installer) == 0 {
+		return fmt.Errorf("cask %q: must declare at least one artifact (yaml keys: app, pkg, bin, font, or installer)", c.Name)
 	}
 	for _, app := range c.Artifacts.App {
 		if !strings.HasSuffix(app, ".app") {
 			return fmt.Errorf("cask %q: app artifact %q must end with .app", c.Name, app)
+		}
+	}
+	for _, font := range c.Artifacts.Font {
+		if !fontExts[strings.ToLower(filepath.Ext(font))] {
+			return fmt.Errorf("cask %q: font artifact %q has unrecognized extension", c.Name, font)
+		}
+	}
+	for _, s := range c.Artifacts.Installer {
+		if s.Executable == "" {
+			return fmt.Errorf("cask %q: installer artifact missing executable", c.Name)
+		}
+		if err := safepath.SafePathComponent(filepath.Base(s.Executable)); err != nil {
+			return fmt.Errorf("cask %q: invalid installer executable %q: %w", c.Name, s.Executable, err)
 		}
 	}
 	return nil

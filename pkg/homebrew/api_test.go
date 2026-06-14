@@ -1,8 +1,10 @@
 package homebrew
 
 import (
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"testing"
 )
 
@@ -100,5 +102,109 @@ func TestFetchCask(t *testing.T) {
 	}
 	if len(c.Artifacts.App) != 1 || c.Artifacts.App[0] != "Firefox.app" {
 		t.Errorf("expected 1 app artifact Firefox.app, got %v", c.Artifacts.App)
+	}
+}
+
+func TestParseCaskArtifacts(t *testing.T) {
+	t.Parallel()
+	tests := []struct {
+		name     string
+		raw      string
+		wantApp  []string
+		wantPkg  []string
+		wantBin  []string
+		wantFont []string
+	}{
+		{
+			name:    "app",
+			raw:     `[{"app": ["Firefox.app"]}]`,
+			wantApp: []string{"Firefox.app"},
+		},
+		{
+			name:    "pkg plain",
+			raw:     `[{"pkg": ["Foo.pkg"]}]`,
+			wantPkg: []string{"Foo.pkg"},
+		},
+		{
+			name:    "pkg with options",
+			raw:     `[{"pkg": ["VirtualBox.pkg", {"choices": [{"choiceIdentifier": "x"}]}]}]`,
+			wantPkg: []string{"VirtualBox.pkg"},
+		},
+		{
+			name:    "binary array with target",
+			raw:     `[{"binary": ["bin/foo", {"target": "foo"}]}]`,
+			wantBin: []string{"foo"},
+		},
+		{
+			name:     "font",
+			raw:      `[{"font": ["fonts/MyFont.otf"]}, {"font": ["fonts/Other.ttf"]}]`,
+			wantFont: []string{"fonts/MyFont.otf", "fonts/Other.ttf"},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			var raw []json.RawMessage
+			if err := json.Unmarshal([]byte(tt.raw), &raw); err != nil {
+				t.Fatalf("unmarshal test input: %v", err)
+			}
+			got := parseCaskArtifacts(raw)
+			if !reflect.DeepEqual(got.App, tt.wantApp) {
+				t.Errorf("App = %v, want %v", got.App, tt.wantApp)
+			}
+			if !reflect.DeepEqual(got.Pkg, tt.wantPkg) {
+				t.Errorf("Pkg = %v, want %v", got.Pkg, tt.wantPkg)
+			}
+			if !reflect.DeepEqual(got.Bin, tt.wantBin) {
+				t.Errorf("Bin = %v, want %v", got.Bin, tt.wantBin)
+			}
+			if !reflect.DeepEqual(got.Font, tt.wantFont) {
+				t.Errorf("Font = %v, want %v", got.Font, tt.wantFont)
+			}
+		})
+	}
+}
+
+func TestParseInstallerArtifact(t *testing.T) {
+	t.Parallel()
+
+	// Script form with sudo and a $HOMEBREW_PREFIX arg (as anaconda ships it).
+	raw := []byte(`[{"script": {"executable": "Install.sh", "args": ["-b", "-p", "$HOMEBREW_PREFIX/anaconda3"], "sudo": true}}]`)
+	got := parseInstallerArtifact(raw)
+	if len(got) != 1 {
+		t.Fatalf("expected 1 installer script, got %d", len(got))
+	}
+	if got[0].Executable != "Install.sh" || !got[0].Sudo {
+		t.Errorf("unexpected script: %+v", got[0])
+	}
+	wantArgs := []string{"-b", "-p", "$HOMEGREW_PREFIX/anaconda3"}
+	if !reflect.DeepEqual(got[0].Args, wantArgs) {
+		t.Errorf("args = %v, want %v (HOMEBREW_PREFIX should be rewritten)", got[0].Args, wantArgs)
+	}
+
+	// Single-object (non-array) form is also accepted.
+	single := []byte(`{"script": {"executable": "run.sh"}}`)
+	if g := parseInstallerArtifact(single); len(g) != 1 || g[0].Executable != "run.sh" {
+		t.Errorf("single-object form not parsed: %+v", g)
+	}
+
+	// Manual form has no executable and is ignored.
+	manual := []byte(`[{"manual": "Installer.app"}]`)
+	if g := parseInstallerArtifact(manual); len(g) != 0 {
+		t.Errorf("manual installer should be ignored, got %+v", g)
+	}
+}
+
+func TestRewriteHomebrewPrefix(t *testing.T) {
+	t.Parallel()
+	cases := map[string]string{
+		"$HOMEBREW_PREFIX/bin":   "$HOMEGREW_PREFIX/bin",
+		"${HOMEBREW_PREFIX}/lib": "${HOMEGREW_PREFIX}/lib",
+		"no placeholder here":    "no placeholder here",
+	}
+	for in, want := range cases {
+		if got := rewriteHomebrewPrefix(in); got != want {
+			t.Errorf("rewriteHomebrewPrefix(%q) = %q, want %q", in, got, want)
+		}
 	}
 }

@@ -69,6 +69,16 @@ func PrintInfoWithData(c *Cask, ver string) {
 	if len(c.Artifacts.Bin) > 0 {
 		fmt.Printf("Binaries: %s\n", strings.Join(c.Artifacts.Bin, ", "))
 	}
+	if len(c.Artifacts.Font) > 0 {
+		fmt.Printf("Fonts: %s\n", strings.Join(c.Artifacts.Font, ", "))
+	}
+	if len(c.Artifacts.Installer) > 0 {
+		names := make([]string, len(c.Artifacts.Installer))
+		for i, s := range c.Artifacts.Installer {
+			names[i] = s.Executable
+		}
+		fmt.Printf("Installer scripts: %s\n", strings.Join(names, ", "))
+	}
 
 	platforms := make([]string, 0, len(c.URL))
 	for k := range c.URL {

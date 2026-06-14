@@ -509,7 +509,7 @@ func convertCask(hc *hbCask) *cask.Cask {
 		Description: hc.Desc,
 		Homepage:    hc.Homepage,
 		License:     hc.License,
-		Caveats:     hc.Caveats,
+		Caveats:     rewriteHomebrewPrefix(hc.Caveats),
 		URL:         urlMap,
 		SHA256:      shaMap,
 		SHA512:      sha512Map,
@@ -533,10 +533,28 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 			}
 		}
 		if pkg, ok := obj["pkg"]; ok {
-			var pkgs []string
-			if err := json.Unmarshal(pkg, &pkgs); err == nil {
-				res.Pkg = append(res.Pkg, pkgs...)
+			// A pkg artifact is an array whose first element is the .pkg
+			// filename and whose remaining elements (if any) are option
+			// objects, e.g. ["VirtualBox.pkg", {"choices": [...]}]. Unmarshal
+			// element-by-element so the trailing objects don't abort parsing.
+			var pkgArr []json.RawMessage
+			if err := json.Unmarshal(pkg, &pkgArr); err == nil {
+				for _, el := range pkgArr {
+					var name string
+					if err := json.Unmarshal(el, &name); err == nil {
+						res.Pkg = append(res.Pkg, name)
+					}
+				}
 			}
+		}
+		if font, ok := obj["font"]; ok {
+			var fonts []string
+			if err := json.Unmarshal(font, &fonts); err == nil {
+				res.Font = append(res.Font, fonts...)
+			}
+		}
+		if installer, ok := obj["installer"]; ok {
+			res.Installer = append(res.Installer, parseInstallerArtifact(installer)...)
 		}
 		if bin, ok := obj["binary"]; ok {
 			var s string
@@ -563,4 +581,56 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 		}
 	}
 	return res
+}
+
+// parseInstallerArtifact parses a Homebrew "installer" artifact, extracting the
+// "script" form (executable + args + sudo). The "manual" form is ignored: it
+// has no executable for grew to run. $HOMEBREW_PREFIX references in the args are
+// rewritten to $HOMEGREW_PREFIX, which grew expands at install time.
+func parseInstallerArtifact(raw json.RawMessage) []cask.InstallerScript {
+	// The installer artifact may be a single object or an array of objects,
+	// each holding a "script" (or "manual") key.
+	var objs []map[string]json.RawMessage
+	if err := json.Unmarshal(raw, &objs); err != nil {
+		var single map[string]json.RawMessage
+		if err := json.Unmarshal(raw, &single); err != nil {
+			return nil
+		}
+		objs = []map[string]json.RawMessage{single}
+	}
+
+	var scripts []cask.InstallerScript
+	for _, obj := range objs {
+		scriptRaw, ok := obj["script"]
+		if !ok {
+			continue
+		}
+		var s struct {
+			Executable string   `json:"executable"`
+			Args       []string `json:"args"`
+			Sudo       bool     `json:"sudo"`
+		}
+		if err := json.Unmarshal(scriptRaw, &s); err != nil || s.Executable == "" {
+			continue
+		}
+		args := make([]string, len(s.Args))
+		for i, a := range s.Args {
+			args[i] = rewriteHomebrewPrefix(a)
+		}
+		scripts = append(scripts, cask.InstallerScript{
+			Executable: s.Executable,
+			Args:       args,
+			Sudo:       s.Sudo,
+		})
+	}
+	return scripts
+}
+
+// rewriteHomebrewPrefix replaces Homebrew's $HOMEBREW_PREFIX placeholder with
+// grew's $HOMEGREW_PREFIX in converted cask data.
+func rewriteHomebrewPrefix(s string) string {
+	return strings.NewReplacer(
+		"${HOMEBREW_PREFIX}", "${HOMEGREW_PREFIX}",
+		"$HOMEBREW_PREFIX", "$HOMEGREW_PREFIX",
+	).Replace(s)
 }
