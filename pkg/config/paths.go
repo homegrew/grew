@@ -48,7 +48,7 @@ type Paths struct {
 	FontDir string
 	// Cache is the directory for download and metadata cache.
 	Cache string
-
+	// Var is the shared variable-data directory (Root/var).
 	Var string
 	// Tmp is the temporary directory for builds and extractions (Root/tmp).
 	Tmp string
@@ -330,6 +330,7 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 	}
 
 	fontDir := resolveFontDir(appDir)
+	varDir := filepath.Join(root, "var")
 
 	return Paths{
 		Root:     root,
@@ -347,12 +348,44 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		AppDir:   appDir,
 		FontDir:  fontDir,
 		Cache:    cacheDir,
-		Var:      filepath.Join(root, "var"),
-		Tmp:      filepath.Join(root, "var", "homegrew", "tmp"),
-		Log:      filepath.Join(root, "var", "homegrew", "log"),
-		Locks:    filepath.Join(root, "var", "homegrew", "locks"),
+		Var:      varDir,
+		Tmp:      filepath.Join(varDir, "homegrew", "tmp"),
+		Log:      filepath.Join(varDir, "homegrew", "log"),
+		Locks:    filepath.Join(varDir, "homegrew", "locks"),
 		Etc:      filepath.Join(root, "etc"),
 		GitRepo:  filepath.Join(root, "Grew"),
+	}
+}
+
+// NamedDir pairs a human-readable label with an absolute directory path.
+type NamedDir struct {
+	Name string
+	Path string
+}
+
+// InitDirs returns the ordered set of directories that Init creates. It is the
+// single source of truth for both Init and dry-run output. p.Share and
+// p.GitRepo are intentionally excluded — they must not be created by grew.
+func (p Paths) InitDirs() []NamedDir {
+	return []NamedDir{
+		{"Root", p.Root},
+		{"Cellar", p.Cellar},
+		{"opt", p.Opt},
+		{"bin", p.Bin},
+		{"sbin", p.Sbin},
+		{"lib", p.Lib},
+		{"include", p.Include},
+		{"Taps", p.Taps},
+		{"CoreTap", p.CoreTap},
+		{"CaskTap", p.CaskTap},
+		{"Caskroom", p.Caskroom},
+		{"AppDir", p.AppDir},
+		{"Cache", p.Cache},
+		{"var", p.Var},
+		{"tmp", p.Tmp},
+		{"log", p.Log},
+		{"locks", p.Locks},
+		{"etc", p.Etc},
 	}
 }
 
@@ -364,12 +397,8 @@ func (p Paths) Init() error {
 		return fmt.Errorf("invalid root path %q: %w", p.Root, err)
 	}
 
-	dirs := []string{
-		p.Root, p.Cellar, p.Opt, p.Bin, p.Sbin, p.Lib,
-		p.Include, p.Taps, p.CoreTap, p.CaskTap,
-		p.Caskroom, p.AppDir, p.Cache, p.Var, p.Tmp, p.Log, p.Locks, p.Etc, // p.GitRepo must not be created, p.Share must not be created
-	}
-	for _, d := range dirs {
+	for _, nd := range p.InitDirs() {
+		d := nd.Path
 		if err := safepath.SafeAbsolutePath(d); err != nil {
 			return fmt.Errorf("invalid directory path %q: %w", d, err)
 		}
