@@ -5,7 +5,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/homebrew"
 	"github.com/homegrew/grew/pkg/safepath"
 )
@@ -39,15 +38,6 @@ func New(cacheDir string) *NamesCache {
 	}
 
 	return &NamesCache{dir: cacheDir}
-}
-
-func NewWithContent(ctx *context.Context) *NamesCache {
-	// dir := filepath.Join(ctx.Paths.Cache, "completion")
-	// 		if err := os.MkdirAll(dir, 0755); err != nil {
-	// 			return &NamesCache{}
-	// }
-
-	return New(ctx.Paths.Cache)
 }
 
 type namesCacheFile struct {
