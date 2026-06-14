@@ -543,11 +543,14 @@ func findStagedFile(stageDir, rel string) (string, error) {
 	components := strings.FieldsFunc(filepath.ToSlash(rel), func(r rune) bool { return r == '/' })
 	if len(components) > 0 {
 		if direct, err := safepath.SafeJoin(stageAbs, components...); err == nil {
-			// Use Lstat so we inspect the entry itself, not what a symlink
-			// points to — SafeJoin's containment check is lexical and does not
-			// resolve symlinks, so a symlink here could escape stageDir.
-			if info, err := os.Lstat(direct); err == nil && info.Mode().IsRegular() {
-				return direct, nil
+			// Resolve symlinks and re-check containment so a symlink inside the
+			// archive cannot redirect to a path outside stageDir.
+			if real, err := filepath.EvalSymlinks(direct); err == nil {
+				if err := safepath.CheckSubpath(stageAbs, real); err == nil {
+					if info, err := os.Lstat(real); err == nil && info.Mode().IsRegular() {
+						return real, nil
+					}
+				}
 			}
 		}
 	}
