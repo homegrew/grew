@@ -276,6 +276,10 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 // in the same directory, applies mode, then renames over dst. The temp file is
 // cleaned up if any step fails, so dst is never left partially written.
 func WriteFileAtomic(dst string, data []byte, mode os.FileMode) error {
+	if err := safepath.SafeAbsolutePath(dst); err != nil {
+		return fmt.Errorf("invalid destination path %q: %w", dst, err)
+	}
+
 	dir := filepath.Dir(dst)
 	tmp, err := os.CreateTemp(dir, ".grew-tmp-*")
 	if err != nil {
