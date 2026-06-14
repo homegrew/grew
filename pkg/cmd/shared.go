@@ -6,15 +6,15 @@ import (
 
 	"github.com/homegrew/grew/pkg/cache"
 	"github.com/homegrew/grew/pkg/cellar"
-	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/fsutil"
 	"github.com/homegrew/grew/pkg/ui"
 )
 
 type CleanupOpts = cellar.CleanupOpts
 
-func RunCleanup(args []string, opts CleanupOpts) error {
-	paths := config.Default()
+func RunCleanup(ctx *context.Context, args []string, opts CleanupOpts) error {
+	paths := ctx.Paths
 	cel := &cellar.Cellar{Path: paths.Cellar}
 
 	cleanupPaths := cellar.CleanupPaths{
