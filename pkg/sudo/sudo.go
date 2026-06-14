@@ -63,7 +63,7 @@ func RunSudoCmd(executable string, args ...string) error {
 	tmpDir := os.TempDir()
 	scriptPath := filepath.Join(tmpDir, "grew_askpass")
 
-	if err := os.WriteFile(scriptPath, []byte(askPassScript), 0700); err != nil {
+	if err := os.WriteFile(scriptPath, []byte(askPassScript), 0500); err != nil {
 		return fmt.Errorf("failed to write askpass script: %w", err)
 	}
 	defer func() {
