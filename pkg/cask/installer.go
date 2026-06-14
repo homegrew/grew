@@ -266,21 +266,11 @@ func (inst *Installer) UninstallFont(fontRel string) error {
 	if err := safepath.SafeAbsolutePath(inst.FontDir); err != nil {
 		return fmt.Errorf("invalid font directory %q: %w", inst.FontDir, err)
 	}
-	destFont, err := safepath.SafeJoin(inst.FontDir, fontName)
-	if err != nil {
+	if _, err := safepath.SafeJoin(inst.FontDir, fontName); err != nil {
 		return fmt.Errorf("invalid font destination: %w", err)
 	}
-	if info, err := os.Lstat(destFont); err != nil {
-		if os.IsNotExist(err) {
-			return nil // already gone
-		}
-		return err
-	} else if !info.Mode().IsRegular() {
-		return fmt.Errorf("refusing to remove non-regular file at %q", destFont)
-	}
-	// SafeJoin's containment check is lexical. Resolve symlinks in the font
-	// directory and re-verify containment before removing so a symlinked
-	// FontDir cannot redirect the removal outside the intended tree.
+	// Resolve symlinks and re-verify containment before stat and removal so
+	// a symlinked FontDir cannot redirect the operation outside the intended tree.
 	resolvedFontDir, err := filepath.EvalSymlinks(inst.FontDir)
 	if err != nil {
 		return fmt.Errorf("resolve font directory: %w", err)
@@ -290,7 +280,15 @@ func (inst *Installer) UninstallFont(fontRel string) error {
 	if err := safepath.CheckSubpath(resolvedFontDir, resolvedDest); err != nil {
 		return fmt.Errorf("refusing to remove file outside font directory: %w", err)
 	}
-	return os.Remove(destFont)
+	if info, err := os.Lstat(resolvedDest); err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	} else if !info.Mode().IsRegular() {
+		return fmt.Errorf("refusing to remove non-regular file at %q", resolvedDest)
+	}
+	return os.Remove(resolvedDest)
 }
 
 // UninstallApp removes a .app bundle from AppDir by moving it to the Trash.
@@ -547,7 +545,7 @@ func findStagedFile(stageDir, rel string) (string, error) {
 			// archive cannot redirect to a path outside stageDir.
 			if real, err := filepath.EvalSymlinks(direct); err == nil {
 				if err := safepath.CheckSubpath(stageAbs, real); err == nil {
-					if info, err := os.Lstat(real); err == nil && info.Mode().IsRegular() {
+					if info, err := os.Stat(real); err == nil && info.Mode().IsRegular() {
 						return real, nil
 					}
 				}
