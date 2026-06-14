@@ -40,6 +40,18 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 		if err := safepath.SafeAbsolutePath(downloadsRoot); err != nil {
 			slog.Warn(fmt.Sprintf("skipping cleanup for invalid downloads dir %q: %v", downloadsRoot, err))
 			downloadsRoot = ""
+		} else {
+			homeDir, homeErr := os.UserHomeDir()
+			if homeErr != nil {
+				slog.Warn(fmt.Sprintf("skipping cleanup for downloads dir %q: cannot resolve home directory: %v", downloadsRoot, homeErr))
+				downloadsRoot = ""
+			} else if absHome, err := filepath.Abs(homeDir); err != nil {
+				slog.Warn(fmt.Sprintf("skipping cleanup for downloads dir %q: cannot resolve absolute home directory: %v", downloadsRoot, err))
+				downloadsRoot = ""
+			} else if err := safepath.CheckSubpath(filepath.Clean(absHome), downloadsRoot); err != nil {
+				slog.Warn(fmt.Sprintf("skipping cleanup for downloads dir outside home: %q", downloadsRoot))
+				downloadsRoot = ""
+			}
 		}
 	}
 
