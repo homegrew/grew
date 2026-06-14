@@ -129,6 +129,9 @@ func CopyTree(src, dst string) error {
 
 		if d.IsDir() {
 			dirMode := SanitizeMode(info.Mode(), true)
+			if subErr := safepath.CheckSubpath(absDst, target); subErr != nil {
+				return fmt.Errorf("refusing to create directory outside destination root: %w", subErr)
+			}
 			if err := os.MkdirAll(target, dirMode); err != nil {
 				// If the path already exists, ensure it's a directory and update permissions.
 				if os.IsExist(err) {
