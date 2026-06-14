@@ -5,20 +5,33 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/homegrew/grew/pkg/cellar"
+	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/snapshot"
 )
+
+// makeCtx builds a minimal Context rooted at root with its Cellar wired up.
+func makeCtx(t *testing.T, root string) *context.Context {
+	t.Helper()
+	paths := config.FromRoot(root, t.TempDir(), t.TempDir())
+	return &context.Context{
+		Paths:  paths,
+		Cellar: &cellar.Cellar{Path: paths.Cellar},
+	}
+}
 
 // setupCellar creates a fake cellar with the given packages and optional manifests.
 func setupCellar(t *testing.T, packages map[string]struct {
 	version  string
 	manifest *snapshot.Manifest
-}) string {
+}) *context.Context {
 	t.Helper()
 	root := t.TempDir()
-	cellarPath := filepath.Join(root, "Cellar")
+	ctx := makeCtx(t, root)
 
 	for name, pkg := range packages {
-		kegPath := filepath.Join(cellarPath, name, pkg.version)
+		kegPath := filepath.Join(ctx.Paths.Cellar, name, pkg.version)
 		if err := os.MkdirAll(kegPath, 0755); err != nil {
 			t.Fatalf("create keg dir: %v", err)
 		}
@@ -29,11 +42,11 @@ func setupCellar(t *testing.T, packages map[string]struct {
 		}
 	}
 
-	return root
+	return ctx
 }
 
 func TestSaveAndLoad(t *testing.T) {
-	root := setupCellar(t, map[string]struct {
+	ctx := setupCellar(t, map[string]struct {
 		version  string
 		manifest *snapshot.Manifest
 	}{
@@ -50,10 +63,9 @@ func TestSaveAndLoad(t *testing.T) {
 			},
 		},
 	})
-	cellarPath := filepath.Join(root, "Cellar")
 
 	// Generate.
-	lf, err := Generate(root, cellarPath)
+	lf, err := Generate(ctx)
 	if err != nil {
 		t.Fatalf("Generate: %v", err)
 	}
@@ -74,18 +86,22 @@ func TestSaveAndLoad(t *testing.T) {
 		t.Errorf("unexpected keg_sha256: %s", entry.KegSHA256)
 	}
 
-	// Save.
-	if err := Save(lf, root); err != nil {
+	// Save — the locks dir must exist first (created by config.Paths.Init in production;
+	// created here to mirror that).
+	if err := os.MkdirAll(ctx.Paths.Locks, 0755); err != nil {
+		t.Fatalf("create locks dir: %v", err)
+	}
+	if err := Save(ctx, lf); err != nil {
 		t.Fatalf("Save: %v", err)
 	}
 
 	// Verify file exists.
-	if _, err := os.Stat(LockFilePath(root)); err != nil {
+	if _, err := os.Stat(LockFilePath(ctx)); err != nil {
 		t.Fatalf("lockfile not found: %v", err)
 	}
 
 	// Load.
-	loaded, err := Load(root)
+	loaded, err := Load(ctx)
 	if err != nil {
 		t.Fatalf("Load: %v", err)
 	}
@@ -105,7 +121,7 @@ func TestSaveAndLoad(t *testing.T) {
 }
 
 func TestCheck_Clean(t *testing.T) {
-	root := setupCellar(t, map[string]struct {
+	ctx := setupCellar(t, map[string]struct {
 		version  string
 		manifest *snapshot.Manifest
 	}{
@@ -121,14 +137,13 @@ func TestCheck_Clean(t *testing.T) {
 			},
 		},
 	})
-	cellarPath := filepath.Join(root, "Cellar")
 
-	lf, err := Generate(root, cellarPath)
+	lf, err := Generate(ctx)
 	if err != nil {
 		t.Fatalf("Generate: %v", err)
 	}
 
-	discs, err := Check(lf, cellarPath)
+	discs, err := Check(ctx, lf)
 	if err != nil {
 		t.Fatalf("Check: %v", err)
 	}
@@ -138,10 +153,9 @@ func TestCheck_Clean(t *testing.T) {
 }
 
 func TestCheck_Missing(t *testing.T) {
-	// Create an empty cellar but a lockfile with an entry.
 	root := t.TempDir()
-	cellarPath := filepath.Join(root, "Cellar")
-	if err := os.MkdirAll(cellarPath, 0755); err != nil {
+	ctx := makeCtx(t, root)
+	if err := os.MkdirAll(ctx.Paths.Cellar, 0755); err != nil {
 		t.Fatal(err)
 	}
 
@@ -155,7 +169,7 @@ func TestCheck_Missing(t *testing.T) {
 		},
 	}
 
-	discs, err := Check(lf, cellarPath)
+	discs, err := Check(ctx, lf)
 	if err != nil {
 		t.Fatalf("Check: %v", err)
 	}
@@ -171,21 +185,19 @@ func TestCheck_Missing(t *testing.T) {
 }
 
 func TestCheck_Extra(t *testing.T) {
-	root := setupCellar(t, map[string]struct {
+	ctx := setupCellar(t, map[string]struct {
 		version  string
 		manifest *snapshot.Manifest
 	}{
 		"extra-pkg": {version: "2.0.0", manifest: nil},
 	})
-	cellarPath := filepath.Join(root, "Cellar")
 
-	// Empty lockfile.
 	lf := &LockFile{
 		Version: 1,
 		Entries: make(map[string]Entry),
 	}
 
-	discs, err := Check(lf, cellarPath)
+	discs, err := Check(ctx, lf)
 	if err != nil {
 		t.Fatalf("Check: %v", err)
 	}
@@ -201,13 +213,12 @@ func TestCheck_Extra(t *testing.T) {
 }
 
 func TestCheck_VersionMismatch(t *testing.T) {
-	root := setupCellar(t, map[string]struct {
+	ctx := setupCellar(t, map[string]struct {
 		version  string
 		manifest *snapshot.Manifest
 	}{
 		"jq": {version: "1.7.1", manifest: nil},
 	})
-	cellarPath := filepath.Join(root, "Cellar")
 
 	lf := &LockFile{
 		Version: 1,
@@ -219,7 +230,7 @@ func TestCheck_VersionMismatch(t *testing.T) {
 		},
 	}
 
-	discs, err := Check(lf, cellarPath)
+	discs, err := Check(ctx, lf)
 	if err != nil {
 		t.Fatalf("Check: %v", err)
 	}
@@ -233,7 +244,9 @@ func TestCheck_VersionMismatch(t *testing.T) {
 
 func TestLoadNonexistent(t *testing.T) {
 	root := t.TempDir()
-	lf, err := Load(root)
+	ctx := makeCtx(t, root)
+
+	lf, err := Load(ctx)
 	if err != nil {
 		t.Fatalf("Load should not error for missing file: %v", err)
 	}

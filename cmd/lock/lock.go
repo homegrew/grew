@@ -25,7 +25,12 @@ Subcommands:
   show        Pretty-print the current lockfile`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
-			return lockGenerate()
+			c, err := context.New()
+			if err != nil {
+				return err
+			}
+
+			return lockGenerate(c)
 		}
 		return fmt.Errorf("unknown lock subcommand: %s\nUsage: grew lock [generate|check|show]", args[0])
 	},
@@ -35,7 +40,11 @@ var LockGenerateCmd = &cobra.Command{
 	Use:   "generate",
 	Short: "Generate a lockfile from the current installed state",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return lockGenerate()
+		c, err := context.New()
+		if err != nil {
+			return err
+		}
+		return lockGenerate(c)
 	},
 }
 
@@ -43,7 +52,11 @@ var LockCheckCmd = &cobra.Command{
 	Use:   "check",
 	Short: "Compare the lockfile against installed packages and report discrepancies",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return lockCheck()
+		c, err := context.New()
+		if err != nil {
+			return err
+		}
+		return lockCheck(c)
 	},
 }
 
@@ -51,7 +64,11 @@ var LockShowCmd = &cobra.Command{
 	Use:   "show",
 	Short: "Pretty-print the current lockfile",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return lockShow()
+		c, err := context.New()
+		if err != nil {
+			return err
+		}
+		return lockShow(c)
 	},
 }
 
@@ -59,35 +76,24 @@ func init() {
 	Command.AddCommand(LockGenerateCmd, LockCheckCmd, LockShowCmd)
 }
 
-func lockGenerate() error {
+func lockGenerate(ctx *context.Context) error {
 	slog.Debug("starting lock command execution")
-	ctx, err := context.New()
-	if err != nil {
-		return err
-	}
-	paths := ctx.Paths
 
-	lf, err := lockfile.Generate(paths.Root, paths.Cellar)
+	lf, err := lockfile.Generate(ctx)
 	if err != nil {
 		return fmt.Errorf("generate lockfile: %w", err)
 	}
 
-	if err := lockfile.Save(lf, paths.Root); err != nil {
+	if err := lockfile.Save(ctx, lf); err != nil {
 		return fmt.Errorf("save lockfile: %w", err)
 	}
 
-	fmt.Printf("Lockfile written to %s (%d entries)\n", lockfile.LockFilePath(paths.Root), len(lf.Entries))
+	fmt.Printf("Lockfile written to %s (%d entries)\n", lockfile.LockFilePath(ctx), len(lf.Entries))
 	return nil
 }
 
-func lockCheck() error {
-	ctx, err := context.New()
-	if err != nil {
-		return err
-	}
-	paths := ctx.Paths
-
-	lf, err := lockfile.Load(paths.Root)
+func lockCheck(ctx *context.Context) error {
+	lf, err := lockfile.Load(ctx)
 	if err != nil {
 		return fmt.Errorf("load lockfile: %w", err)
 	}
@@ -96,7 +102,7 @@ func lockCheck() error {
 		return fmt.Errorf("no lockfile found; run 'grew lock generate' first")
 	}
 
-	discs, err := lockfile.Check(lf, paths.Cellar)
+	discs, err := lockfile.Check(ctx, lf)
 	if err != nil {
 		return fmt.Errorf("check lockfile: %w", err)
 	}
@@ -112,14 +118,8 @@ func lockCheck() error {
 	return fmt.Errorf("%d discrepancies found", len(discs))
 }
 
-func lockShow() error {
-	ctx, err := context.New()
-	if err != nil {
-		return err
-	}
-	paths := ctx.Paths
-
-	lf, err := lockfile.Load(paths.Root)
+func lockShow(ctx *context.Context) error {
+	lf, err := lockfile.Load(ctx)
 	if err != nil {
 		return fmt.Errorf("load lockfile: %w", err)
 	}

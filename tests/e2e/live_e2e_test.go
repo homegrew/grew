@@ -163,7 +163,7 @@ func TestLiveEndToEnd(t *testing.T) {
 	// 11. Test Lockfile Generation
 	runCmd("lock", "generate")
 	runCmd("lock", "check")
-	if _, err := os.Stat(filepath.Join(prefix, "grew.lock")); err != nil {
+	if _, err := os.Stat(filepath.Join(prefix, "var", "homegrew", "locks", "grew.lock")); err != nil {
 		t.Fatalf("grew.lock not generated")
 	}
 
