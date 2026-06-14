@@ -296,11 +296,25 @@ func (l *Linker) hasBinLinks(other string) bool {
 	}
 	cellarPrefix := filepath.Join(l.Paths.Cellar, other) + string(filepath.Separator)
 
-	// Guard against path-injection: verify Bin is within Root before calling os.ReadDir.
-	if !strings.HasPrefix(l.Paths.Bin, l.Paths.Root+string(filepath.Separator)) && l.Paths.Bin != l.Paths.Root {
+	// Canonicalize and validate Root/Bin before filesystem access.
+	rootAbs, err := filepath.Abs(l.Paths.Root)
+	if err != nil {
 		return false
 	}
-	entries, err := os.ReadDir(l.Paths.Bin)
+	rootAbs = filepath.Clean(rootAbs)
+
+	binAbs, err := filepath.Abs(l.Paths.Bin)
+	if err != nil {
+		return false
+	}
+	binAbs = filepath.Clean(binAbs)
+
+	// Guard against path-injection: Bin must be Root or a descendant of Root.
+	if binAbs != rootAbs && !strings.HasPrefix(binAbs, rootAbs+string(filepath.Separator)) {
+		return false
+	}
+
+	entries, err := os.ReadDir(binAbs)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return false
@@ -317,19 +331,19 @@ func (l *Linker) hasBinLinks(other string) bool {
 		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		fullPath, err := safepath.SafeJoin(l.Paths.Bin, e.Name())
+		fullPath, err := safepath.SafeJoin(binAbs, e.Name())
 		if err != nil {
 			continue
 		}
 		// Guard against path-injection: verify fullPath is within Bin before calling os.Readlink.
-		if !strings.HasPrefix(fullPath, l.Paths.Bin+string(filepath.Separator)) && fullPath != l.Paths.Bin {
+		if !strings.HasPrefix(fullPath, binAbs+string(filepath.Separator)) && fullPath != binAbs {
 			continue
 		}
 		target, err := os.Readlink(fullPath)
 		if err != nil {
 			continue // not a symlink
 		}
-		if strings.HasPrefix(resolveLink(l.Paths.Bin, target), cellarPrefix) {
+		if strings.HasPrefix(resolveLink(binAbs, target), cellarPrefix) {
 			return true
 		}
 	}
