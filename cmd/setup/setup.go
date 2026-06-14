@@ -137,6 +137,7 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 		{"Cellar", paths.Cellar},
 		{"opt", paths.Opt},
 		{"bin", paths.Bin},
+		{"sbin", paths.Sbin},
 		{"lib", paths.Lib},
 		{"include", paths.Include},
 		{"Taps", paths.Taps},
@@ -146,6 +147,8 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 		{"AppDir", paths.AppDir},
 		{"Cache", paths.Cache},
 		{"tmp", paths.Tmp},
+		{"log", paths.Log},
+		{"etc", paths.Etc},
 	} {
 		status := "create"
 		if config.IsDir(dir.path) {

@@ -50,6 +50,8 @@ type Paths struct {
 	Tmp string
 	// Log is the directory for audit logs (Root/var/log).
 	Log string
+	// Etc is the directory for configuration files and trusted keys (Root/etc).
+	Etc string
 	// GitRepo is the internal directory for grew's own source (Root/Grew).
 	GitRepo string
 }
@@ -307,8 +309,9 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		Caskroom: filepath.Join(root, "Caskroom"),
 		AppDir:   appDir,
 		Cache:    cacheDir,
-		Tmp:      filepath.Join(root, "tmp"),
-		Log:      filepath.Join(root, "var", "log"),
+		Tmp:      filepath.Join(root, "var", "homegrew", "tmp"),
+		Log:      filepath.Join(root, "var", "homegrew", "log"),
+		Etc:      filepath.Join(root, "etc"),
 		GitRepo:  filepath.Join(root, "Grew"),
 	}
 }
@@ -323,8 +326,8 @@ func (p Paths) Init() error {
 
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Sbin, p.Lib,
-		p.Include, p.Taps,
-		p.Caskroom, p.AppDir, p.Cache, p.Tmp, p.Log, // p.GitRepo must not be created, p.Share must not be created
+		p.Include, p.Taps, p.CoreTap, p.CaskTap,
+		p.Caskroom, p.AppDir, p.Cache, p.Tmp, p.Log, p.Etc, // p.GitRepo must not be created, p.Share must not be created
 	}
 	for _, d := range dirs {
 		if err := safepath.SafeAbsolutePath(d); err != nil {
