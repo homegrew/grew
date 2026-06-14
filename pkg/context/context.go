@@ -238,6 +238,16 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err := safepath.CheckSubpath(paths.Root, paths.Locks); err != nil {
 		return nil, fmt.Errorf("invalid locks directory %q: %w", paths.Locks, err)
 	}
+	locksInfo, err := os.Lstat(paths.Locks)
+	if err != nil {
+		return nil, fmt.Errorf("stat locks directory %q: %w", paths.Locks, err)
+	}
+	if locksInfo.Mode()&os.ModeSymlink != 0 {
+		return nil, fmt.Errorf("invalid locks directory %q: must not be a symlink", paths.Locks)
+	}
+	if !locksInfo.IsDir() {
+		return nil, fmt.Errorf("invalid locks directory %q: not a directory", paths.Locks)
+	}
 	lockAbs, err := safepath.SafeJoin(paths.Locks, ".grew.lock")
 	if err != nil {
 		return nil, fmt.Errorf("invalid lock file path: %w", err)
