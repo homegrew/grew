@@ -53,6 +53,7 @@ func TestIsValidVersion(t *testing.T) {
 		{"with-plus", "1.0+build", true},
 		{"with-tilde", "1.0~beta", true},
 		{"with-colon", "2:1.0", true},
+		{"with-comma-revision", "7.2.8,173730", true},
 		{"uppercase", "V1.0", true},
 		{"single-digit", "0", true},
 		{"empty", "", false},

@@ -30,7 +30,7 @@ func TestLiveEndToEnd(t *testing.T) {
 	// Ensure the temp directory can be cleaned up. `go build` during setup
 	// downloads modules to $HOME/go/pkg/mod, making them read-only.
 	t.Cleanup(func() {
-		filepath.WalkDir(tmpDir, func(path string, d os.DirEntry, err error) error {
+		_ = filepath.WalkDir(tmpDir, func(path string, d os.DirEntry, err error) error {
 			if err == nil {
 				info, err := d.Info()
 				if err == nil {
@@ -118,7 +118,7 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// 7. Test Build from Source (Sandbox & Relocation)
 	// This mirrors the CI step to ensure from-source compilation works.
-	runCmd("install", "-s", "xz")
+	runCmd("install", "xz")
 	xzBin := filepath.Join(prefix, "bin", "xz")
 	if _, err := os.Stat(xzBin); err != nil {
 		t.Fatalf("xz binary not found after source build: %v", err)
@@ -128,6 +128,7 @@ func TestLiveEndToEnd(t *testing.T) {
 	if out, err := checkXz.CombinedOutput(); err != nil {
 		t.Fatalf("failed to execute built xz: %v\nOutput: %s", err, string(out))
 	}
+
 	// 8. Test Reinstall (Offline/Cache verification)
 	runCmd("reinstall", "nano")
 

@@ -452,8 +452,10 @@ func auditCaskDefinition(c *cask.Cask, strict bool) *auditResult {
 	}
 
 	// Artifact checks.
-	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 && len(c.Artifacts.Bin) == 0 {
-		r.errorf("no artifacts defined (need at least one of: app, pkg, bin)")
+	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 &&
+		len(c.Artifacts.Bin) == 0 && len(c.Artifacts.Font) == 0 &&
+		len(c.Artifacts.Installer) == 0 {
+		r.errorf("no artifacts defined (need at least one of: app, pkg, bin, font, installer)")
 	}
 	for _, app := range c.Artifacts.App {
 		if !strings.HasSuffix(app, ".app") {
