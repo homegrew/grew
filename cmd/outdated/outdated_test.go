@@ -323,6 +323,54 @@ func TestOutdated_Help(t *testing.T) {
 	}
 }
 
+// TestOutdated_MinimumVersion verifies that --minimum-version filters entries
+// based on the installed version, not the available version.
+//
+// Setup: two outdated formulas
+//   - "highpkg": installed 3.0.0 → available 4.0.0  (installed >= minimum 2.0.0 → included)
+//   - "lowpkg":  installed 1.0.0 → available 4.0.0  (installed <  minimum 2.0.0 → excluded)
+func TestOutdated_MinimumVersion(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+
+	for _, pkg := range []struct{ name, tapVer, installedVer string }{
+		{"highpkg", "4.0.0", "3.0.0"},
+		{"lowpkg", "4.0.0", "1.0.0"},
+	} {
+		testhelper.CreateFormula(t, prefix, pkg.name, `
+name: `+pkg.name+`
+version: `+pkg.tapVer+`
+url:
+  `+platformKey()+`: https://example.com/`+pkg.name+`.tar.gz
+install:
+  type: binary
+  binary_name: `+pkg.name+`
+`)
+		simulateInstall(t, prefix, pkg.name, pkg.installedVer, true)
+	}
+
+	env := buildEnv(prefix, tmpDir)
+
+	cmd := exec.Command(exePath, "outdated", "--minimum-version", "2.0.0")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("outdated --minimum-version failed: %v\nOutput: %s", err, string(out))
+	}
+	output := string(out)
+
+	// highpkg installed at 3.0.0 >= 2.0.0 → must appear
+	if !strings.Contains(output, "highpkg") {
+		t.Errorf("expected 'highpkg' (installed 3.0.0 >= minimum 2.0.0) in output, got: %s", output)
+	}
+	// lowpkg installed at 1.0.0 < 2.0.0 → must be filtered out
+	if strings.Contains(output, "lowpkg") {
+		t.Errorf("expected 'lowpkg' (installed 1.0.0 < minimum 2.0.0) to be filtered from output, got: %s", output)
+	}
+}
+
 // keysOf is a small helper that extracts the keys of a map for error messages.
 func keysOf[V any](m map[string]V) []string {
 	keys := make([]string, 0, len(m))

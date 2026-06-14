@@ -89,7 +89,7 @@ func runOutdated(ctx *context.Context, args []string) error {
 			if pkg.Version == f.Version {
 				continue
 			}
-			if minVersion != "" && pkgversion.Compare(f.Version, minVersion) < 0 {
+			if minVersion != "" && pkgversion.Compare(pkg.Version, minVersion) < 0 {
 				continue
 			}
 			results = append(results, outdatedEntry{
@@ -120,7 +120,7 @@ func runOutdated(ctx *context.Context, args []string) error {
 			if c.Version == def.Version {
 				continue
 			}
-			if minVersion != "" && pkgversion.Compare(def.Version, minVersion) < 0 {
+			if minVersion != "" && pkgversion.Compare(c.Version, minVersion) < 0 {
 				continue
 			}
 			results = append(results, outdatedEntry{
