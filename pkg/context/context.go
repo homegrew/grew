@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
-	"path/filepath"
 	"strings"
 
 	"github.com/homegrew/grew/pkg/auditlog"
@@ -59,60 +58,45 @@ func New() (*Context, error) {
 	}, nil
 }
 
-// LoadFormula attempts to load a formula by name from local taps, falling back
-// to the Homebrew API if not found.
-func (ctx *Context) LoadFormula(name string) (*formula.Formula, error) {
-	f, err := ctx.Loader.LoadByName(name)
+// loadWithAutotap loads a package by name using the provided local loader,
+// auto-tapping a fully qualified tap on demand and falling back to the remote
+// loader (Homebrew API) when the local load fails. On total failure it returns
+// the original local error.
+func loadWithAutotap[T any](ctx *Context, kind, name string, local, remote func(string) (T, error)) (T, error) {
+	v, err := local(name)
 	if err != nil && strings.Contains(name, "/") {
 		// Attempt to auto-tap if it's a fully qualified name
 		parts := strings.Split(name, "/")
 		tapName := parts[0] + "/" + parts[1]
-		ui.FprintArrow(os.Stderr, "Formula not found. Auto-tapping %s...", tapName)
+		ui.FprintArrow(os.Stderr, "%s not found. Auto-tapping %s...", kind, tapName)
 		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
 		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
-			f, err = ctx.Loader.LoadByName(name)
+			v, err = local(name)
 		}
 	}
 	if err == nil {
-		return f, nil
+		return v, nil
 	}
 
 	// Fallback to Homebrew API
-	slog.Debug("formula not found locally, trying Homebrew API", "name", name)
-	f, remoteErr := homebrew.FetchFormula(name)
-	if remoteErr == nil {
-		return f, nil
+	slog.Debug(strings.ToLower(kind)+" not found locally, trying Homebrew API", "name", name)
+	if remoteV, remoteErr := remote(name); remoteErr == nil {
+		return remoteV, nil
 	}
 
-	return nil, err // Return original error if remote also fails
+	return v, err // Return original error if remote also fails
+}
+
+// LoadFormula attempts to load a formula by name from local taps, falling back
+// to the Homebrew API if not found.
+func (ctx *Context) LoadFormula(name string) (*formula.Formula, error) {
+	return loadWithAutotap(ctx, "Formula", name, ctx.Loader.LoadByName, homebrew.FetchFormula)
 }
 
 // LoadCask attempts to load a cask by name from local taps, falling back
 // to the Homebrew API if not found.
 func (ctx *Context) LoadCask(name string) (*cask.Cask, error) {
-	c, err := ctx.CaskLoader.LoadByName(name)
-	if err != nil && strings.Contains(name, "/") {
-		// Attempt to auto-tap if it's a fully qualified name
-		parts := strings.Split(name, "/")
-		tapName := parts[0] + "/" + parts[1]
-		ui.FprintArrow(os.Stderr, "Cask not found. Auto-tapping %s...", tapName)
-		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
-		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
-			c, err = ctx.CaskLoader.LoadByName(name)
-		}
-	}
-	if err == nil {
-		return c, nil
-	}
-
-	// Fallback to Homebrew API
-	slog.Debug("cask not found locally, trying Homebrew API", "name", name)
-	c, remoteErr := homebrew.FetchCask(name)
-	if remoteErr == nil {
-		return c, nil
-	}
-
-	return nil, err // Return original error if remote also fails
+	return loadWithAutotap(ctx, "Cask", name, ctx.CaskLoader.LoadByName, homebrew.FetchCask)
 }
 
 // ResolveKind determines whether name should be treated as a cask or a
@@ -143,21 +127,23 @@ func (ctx *Context) ResolveKind(name string, forceCask, forceFormula bool) (isCa
 	}
 }
 
+// slogDebugLog adapts a printf-style debug logger to slog.Debug. Shared by the
+// formula and cask loader constructors.
+var slogDebugLog = func(format string, args ...any) {
+	slog.Debug(fmt.Sprintf(format, args...))
+}
+
 // NewLoader creates a formula.Loader with debug logging wired in.
 func NewLoader(tapDir string) *formula.Loader {
 	l := formula.NewLoader(tapDir)
-	l.DebugLog = func(format string, args ...any) {
-		slog.Debug(fmt.Sprintf(format, args...))
-	}
+	l.DebugLog = slogDebugLog
 	return l
 }
 
 // NewCaskLoader creates a cask.Loader with debug logging wired in.
 func NewCaskLoader(tapDir string) *cask.Loader {
 	l := &cask.Loader{TapDir: tapDir}
-	l.DebugLog = func(format string, args ...any) {
-		slog.Debug(fmt.Sprintf(format, args...))
-	}
+	l.DebugLog = slogDebugLog
 	return l
 }
 
@@ -246,25 +232,9 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err := safepath.SafeAbsolutePath(paths.Root); err != nil {
 		return nil, fmt.Errorf("invalid root directory %q: %w", paths.Root, err)
 	}
-	rootAbs, err := filepath.Abs(paths.Root)
+	lockAbs, err := safepath.SafeJoin(paths.Root, ".grew.lock")
 	if err != nil {
-		return nil, fmt.Errorf("resolve root directory: %w", err)
-	}
-	rootAbs = filepath.Clean(rootAbs)
-
-	lockPath := filepath.Join(rootAbs, ".grew.lock")
-	lockAbs, err := filepath.Abs(lockPath)
-	if err != nil {
-		return nil, fmt.Errorf("resolve lock file path: %w", err)
-	}
-	lockAbs = filepath.Clean(lockAbs)
-
-	rel, err := filepath.Rel(rootAbs, lockAbs)
-	if err != nil {
-		return nil, fmt.Errorf("validate lock file path: %w", err)
-	}
-	if rel == ".." || filepath.IsAbs(rel) || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
-		return nil, fmt.Errorf("invalid lock file path %q: escapes root %q", lockAbs, rootAbs)
+		return nil, fmt.Errorf("invalid lock file path: %w", err)
 	}
 
 	f, err := os.OpenFile(lockAbs, os.O_CREATE|os.O_RDWR, 0600)

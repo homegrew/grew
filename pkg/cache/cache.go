@@ -9,6 +9,9 @@ import (
 	"github.com/homegrew/grew/pkg/safepath"
 )
 
+// downloadsSubdir is the cache subdirectory holding downloaded artifacts.
+const downloadsSubdir = "downloads"
+
 // Cache manages the local file cache for grew.
 type Cache struct {
 	dir string
@@ -40,7 +43,7 @@ func (c *Cache) DownloadsDir() string {
 	if c.dir == "" {
 		return c.dir
 	}
-	return filepath.Join(c.dir, "downloads")
+	return filepath.Join(c.dir, downloadsSubdir)
 }
 
 // DownloadPath returns the safe, absolute path for a cached download.
@@ -51,7 +54,7 @@ func (c *Cache) DownloadPath(filename string) (string, error) {
 	if err := safepath.SafePathComponent(filename); err != nil {
 		return "", fmt.Errorf("invalid download filename: %w", err)
 	}
-	return safepath.SafeJoin(c.dir, "downloads", filename)
+	return safepath.SafeJoin(c.dir, downloadsSubdir, filename)
 }
 
 // Exists reports whether the given filename exists in the download cache.
@@ -63,7 +66,7 @@ func (c *Cache) Exists(filename string) bool {
 		return false
 	}
 	// os.DirFS requires relative paths without the root prefix.
-	relPath := filepath.Join("downloads", filename)
+	relPath := filepath.Join(downloadsSubdir, filename)
 	_, err := fs.Stat(c.fs, relPath)
 	return err == nil
 }

@@ -9,7 +9,6 @@ import (
 	"os"
 	"path/filepath"
 	goruntime "runtime"
-	"strings"
 
 	"github.com/homegrew/grew/pkg/safepath"
 )
@@ -74,45 +73,18 @@ func DefaultPrefix() string {
 
 	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
 		// Only accept absolute, well-formed prefixes from the environment.
-		// We resolve and clean the path first to allow valid-but-unclean values (e.g. trailing slashes).
-		if abs, err := filepath.Abs(env); err == nil {
-			clean := filepath.Clean(abs)
-			if err := safepath.SafeAbsolutePath(clean); err == nil {
-				prefix = clean
-			} else {
-				slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_PREFIX %q: %v", env, err))
-			}
+		// absCleanIfValid resolves and cleans first, so valid-but-unclean values
+		// (e.g. trailing slashes) are still accepted.
+		if clean, err := absCleanIfValid(env); err == nil {
+			prefix = clean
 		} else {
 			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_PREFIX %q: %v", env, err))
 		}
 	}
 
 	if prefix == "" {
-		// Infer from binary location: /opt/homegrew/bin/grew → /opt/homegrew
-		if exe, err := os.Executable(); err == nil {
-			exe, err = filepath.EvalSymlinks(exe)
-			if err == nil {
-				dir := filepath.Dir(exe) // <prefix>/bin
-				if filepath.Base(dir) == "bin" {
-					candidate := filepath.Dir(dir) // <prefix>
-					// Sanity check: the candidate should have a Cellar AND Taps dir.
-					// We use && instead of || to avoid incorrectly adopting a Homebrew prefix
-					// (which has a Cellar, but no top-level Taps directory).
-					if IsDir(filepath.Join(candidate, "Cellar")) && IsDir(filepath.Join(candidate, "Taps")) {
-						if abs, err := filepath.Abs(candidate); err == nil {
-							clean := filepath.Clean(abs)
-							if err := safepath.SafeAbsolutePath(clean); err == nil {
-								prefix = clean
-							}
-						} else {
-							clean := filepath.Clean(candidate)
-							if err := safepath.SafeAbsolutePath(clean); err == nil {
-								prefix = clean
-							}
-						}
-					}
-				}
-			}
+		if p, ok := inferPrefixFromExe(); ok {
+			prefix = p
 		}
 	}
 
@@ -140,13 +112,42 @@ func DefaultPrefix() string {
 	}
 	if err := safepath.SafeAbsolutePath(prefix); err != nil {
 		fallback := filepath.Clean(systemPrefix())
-		if err := safepath.SafeAbsolutePath(fallback); err == nil {
+		if ferr := safepath.SafeAbsolutePath(fallback); ferr == nil {
 			slog.Warn(fmt.Sprintf("config: invalid resolved prefix %q: %v; using %q", prefix, err, fallback))
 			return fallback
 		}
 		slog.Warn(fmt.Sprintf("config: invalid resolved prefix %q: %v", prefix, err))
 	}
 	return prefix
+}
+
+// inferPrefixFromExe infers the homegrew prefix from the running executable's
+// location: if the binary is at <prefix>/bin/grew and <prefix> has both a Cellar
+// and a Taps directory, it returns (<prefix>, true). Otherwise it returns ("", false).
+func inferPrefixFromExe() (string, bool) {
+	exe, err := os.Executable()
+	if err != nil {
+		return "", false
+	}
+	exe, err = filepath.EvalSymlinks(exe)
+	if err != nil {
+		return "", false
+	}
+	dir := filepath.Dir(exe) // <prefix>/bin
+	if filepath.Base(dir) != "bin" {
+		return "", false
+	}
+	candidate := filepath.Dir(dir) // <prefix>
+	// Sanity check: the candidate should have a Cellar AND Taps dir.
+	// We use && instead of || to avoid incorrectly adopting a Homebrew prefix
+	// (which has a Cellar, but no top-level Taps directory).
+	if !IsDir(filepath.Join(candidate, "Cellar")) || !IsDir(filepath.Join(candidate, "Taps")) {
+		return "", false
+	}
+	if clean, err := absCleanIfValid(candidate); err == nil {
+		return clean, true
+	}
+	return "", false
 }
 
 // systemPrefix returns the platform system prefix (same logic as runtime.SystemPrefix).
@@ -156,6 +157,40 @@ func systemPrefix() string {
 		return "/opt/homegrew"
 	}
 	return "/usr/local/homegrew"
+}
+
+// absClean resolves path to an absolute, cleaned form. If filepath.Abs fails
+// (effectively never for the inputs here) it cleans the original path instead.
+func absClean(path string) string {
+	if abs, err := filepath.Abs(path); err == nil {
+		return filepath.Clean(abs)
+	}
+	return filepath.Clean(path)
+}
+
+// absCleanIfValid returns absClean(path) when the result is a valid absolute
+// path, otherwise ("", err) describing why the path was rejected.
+func absCleanIfValid(path string) (string, error) {
+	clean := absClean(path)
+	if err := safepath.SafeAbsolutePath(clean); err != nil {
+		return "", err
+	}
+	return clean, nil
+}
+
+// normalizeDir resolves dir to an absolute, cleaned path. If the result is not a
+// valid absolute path, it returns absClean(fallback); when label is non-empty it
+// also logs a warning naming label, the offending value, and the fallback used.
+func normalizeDir(dir, fallback, label string) string {
+	clean := absClean(dir)
+	if err := safepath.SafeAbsolutePath(clean); err != nil {
+		fb := absClean(fallback)
+		if label != "" {
+			slog.Warn(fmt.Sprintf("config: invalid %s %q: %v; falling back to %q", label, clean, err, fb))
+		}
+		return fb
+	}
+	return clean
 }
 
 // Default returns the default Paths for the current environment.
@@ -172,24 +207,10 @@ func Default() Paths {
 	} else {
 		home = filepath.Clean(home)
 	}
+	// FromRoot owns all appDir normalization and fallback, so Default only needs
+	// to supply the default when the override is unset.
 	appDir := os.Getenv("HOMEGREW_APPDIR")
-	if appDir != "" {
-		// Both relative and absolute paths are accepted; relative paths are resolved
-		// to an absolute, cleaned path. If the value cannot be resolved, it is ignored.
-		if abs, err := filepath.Abs(appDir); err == nil {
-			appDir = filepath.Clean(abs)
-		} else {
-			// If the override cannot be resolved to an absolute path, warn and ignore it.
-			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_APPDIR %q: %v", appDir, err))
-			appDir = ""
-		}
-	}
 	if appDir == "" {
-		appDir = filepath.Join(home, "Applications")
-	}
-
-	if err := safepath.SafeAbsolutePath(appDir); err != nil {
-		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to default", appDir, err))
 		appDir = filepath.Join(home, "Applications")
 	}
 
@@ -212,34 +233,7 @@ func (p Paths) IsUnderRoot(path string) bool {
 	if p.Root == "" || path == "" {
 		return false
 	}
-
-	rootAbs, err := filepath.Abs(p.Root)
-	if err != nil {
-		return false
-	}
-	rootAbs = filepath.Clean(rootAbs)
-
-	targetAbs, err := filepath.Abs(path)
-	if err != nil {
-		return false
-	}
-	targetAbs = filepath.Clean(targetAbs)
-
-	rel, err := filepath.Rel(rootAbs, targetAbs)
-	if err != nil {
-		return false
-	}
-
-	if rel == "." {
-		return true
-	}
-	if rel == ".." {
-		return false
-	}
-	if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
-		return false
-	}
-	return true
+	return safepath.IsSubpath(p.Root, path)
 }
 
 // resolveFontDir determines where font cask artifacts are installed.
@@ -249,26 +243,19 @@ func (p Paths) IsUnderRoot(path string) bool {
 // keeps fonts out of the real ~/Library/Fonts.
 func resolveFontDir(appDir string) string {
 	if env := os.Getenv("HOMEGREW_FONTDIR"); env != "" {
-		if abs, err := filepath.Abs(env); err == nil {
-			cleaned := filepath.Clean(abs)
-			if err := safepath.SafeAbsolutePath(cleaned); err == nil {
-				return cleaned
-			}
-			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_FONTDIR %q: %v", env, err))
+		if cleaned, err := absCleanIfValid(env); err == nil {
+			return cleaned
 		} else {
 			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_FONTDIR %q: %v", env, err))
 		}
 	}
 
-	fontDir := filepath.Clean(filepath.Join(filepath.Dir(appDir), "Library", "Fonts"))
-	if err := safepath.SafeAbsolutePath(fontDir); err != nil {
-		home, herr := os.UserHomeDir()
-		if herr != nil {
-			home = "."
-		}
-		fontDir = filepath.Clean(filepath.Join(home, "Library", "Fonts"))
+	home, herr := os.UserHomeDir()
+	if herr != nil {
+		home = "."
 	}
-	return fontDir
+	fontDir := filepath.Join(filepath.Dir(appDir), "Library", "Fonts")
+	return normalizeDir(fontDir, filepath.Join(home, "Library", "Fonts"), "")
 }
 
 // FromRoot builds a Paths struct from an explicit root, appDir, and cacheDir.
@@ -290,44 +277,15 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		}
 	}
 
-	// Normalize appDir so that it is also absolute and cleaned, regardless
-	// of whether it came from the environment or a default.
-	if abs, err := filepath.Abs(appDir); err == nil {
-		appDir = abs
+	// Normalize appDir and cacheDir so they are absolute and cleaned, regardless
+	// of whether they came from the environment or a default; normalizeDir owns
+	// the fallback policy and warning.
+	home, homeErr := os.UserHomeDir()
+	if homeErr != nil {
+		home = "."
 	}
-	appDir = filepath.Clean(appDir)
-	if err := safepath.SafeAbsolutePath(appDir); err != nil {
-		invalidAppDir := appDir
-		home, homeErr := os.UserHomeDir()
-		if homeErr != nil {
-			home = "."
-		}
-		fallback := filepath.Join(home, "Applications")
-		if abs, err := filepath.Abs(fallback); err == nil {
-			fallback = abs
-		}
-		appDir = filepath.Clean(fallback)
-		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to %q", invalidAppDir, err, appDir))
-	}
-
-	// Normalize cacheDir so that it is also absolute and cleaned.
-	if abs, err := filepath.Abs(cacheDir); err == nil {
-		cacheDir = abs
-	}
-	cacheDir = filepath.Clean(cacheDir)
-	if err := safepath.SafeAbsolutePath(cacheDir); err != nil {
-		invalidCacheDir := cacheDir
-		home, homeErr := os.UserHomeDir()
-		if homeErr != nil {
-			home = "."
-		}
-		fallback := filepath.Join(home, ".cache", "homegrew")
-		if abs, err := filepath.Abs(fallback); err == nil {
-			fallback = abs
-		}
-		cacheDir = filepath.Clean(fallback)
-		slog.Warn(fmt.Sprintf("config: invalid cache dir %q: %v; falling back to %q", invalidCacheDir, err, cacheDir))
-	}
+	appDir = normalizeDir(appDir, filepath.Join(home, "Applications"), "app dir")
+	cacheDir = normalizeDir(cacheDir, filepath.Join(home, ".cache", "homegrew"), "cache dir")
 
 	fontDir := resolveFontDir(appDir)
 	varDir := filepath.Join(root, "var")
@@ -361,6 +319,9 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 type NamedDir struct {
 	Name string
 	Path string
+	// External marks a directory that legitimately lives outside Root (user-scoped),
+	// exempt from the under-Root check in Init.
+	External bool
 }
 
 // InitDirs returns the ordered set of directories that Init creates. It is the
@@ -368,24 +329,24 @@ type NamedDir struct {
 // p.GitRepo are intentionally excluded — they must not be created by grew.
 func (p Paths) InitDirs() []NamedDir {
 	return []NamedDir{
-		{"Root", p.Root},
-		{"Cellar", p.Cellar},
-		{"opt", p.Opt},
-		{"bin", p.Bin},
-		{"sbin", p.Sbin},
-		{"lib", p.Lib},
-		{"include", p.Include},
-		{"Taps", p.Taps},
-		{"CoreTap", p.CoreTap},
-		{"CaskTap", p.CaskTap},
-		{"Caskroom", p.Caskroom},
-		{"AppDir", p.AppDir},
-		{"Cache", p.Cache},
-		{"var", p.Var},
-		{"tmp", p.Tmp},
-		{"log", p.Log},
-		{"locks", p.Locks},
-		{"etc", p.Etc},
+		{Name: "Root", Path: p.Root},
+		{Name: "Cellar", Path: p.Cellar},
+		{Name: "opt", Path: p.Opt},
+		{Name: "bin", Path: p.Bin},
+		{Name: "sbin", Path: p.Sbin},
+		{Name: "lib", Path: p.Lib},
+		{Name: "include", Path: p.Include},
+		{Name: "Taps", Path: p.Taps},
+		{Name: "CoreTap", Path: p.CoreTap},
+		{Name: "CaskTap", Path: p.CaskTap},
+		{Name: "Caskroom", Path: p.Caskroom},
+		{Name: "AppDir", Path: p.AppDir, External: true},
+		{Name: "Cache", Path: p.Cache, External: true},
+		{Name: "var", Path: p.Var},
+		{Name: "tmp", Path: p.Tmp},
+		{Name: "log", Path: p.Log},
+		{Name: "locks", Path: p.Locks},
+		{Name: "etc", Path: p.Etc},
 	}
 }
 
@@ -402,7 +363,7 @@ func (p Paths) Init() error {
 		if err := safepath.SafeAbsolutePath(d); err != nil {
 			return fmt.Errorf("invalid directory path %q: %w", d, err)
 		}
-		if d != p.AppDir && d != p.Cache && !p.IsUnderRoot(d) {
+		if !nd.External && !p.IsUnderRoot(nd.Path) {
 			return fmt.Errorf("refusing to create directory outside root: %s (root: %s)", d, p.Root)
 		}
 		if err := os.MkdirAll(d, 0755); err != nil {
