@@ -277,8 +277,8 @@ func (inst *Installer) UninstallFont(fontRel string) error {
 	}
 	resolvedFontDir = filepath.Clean(resolvedFontDir)
 	resolvedDest := filepath.Clean(filepath.Join(resolvedFontDir, fontName))
-	if err := safepath.CheckSubpath(resolvedFontDir, resolvedDest); err != nil {
-		return fmt.Errorf("refusing to remove file outside font directory: %w", err)
+	if !strings.HasPrefix(resolvedDest, resolvedFontDir+string(filepath.Separator)) {
+		return fmt.Errorf("refusing to remove file outside font directory: %q", resolvedDest)
 	}
 	if info, err := os.Lstat(resolvedDest); err != nil {
 		if os.IsNotExist(err) {
@@ -544,7 +544,7 @@ func findStagedFile(stageDir, rel string) (string, error) {
 			// Resolve symlinks and re-check containment so a symlink inside the
 			// archive cannot redirect to a path outside stageDir.
 			if real, err := filepath.EvalSymlinks(direct); err == nil {
-				if err := safepath.CheckSubpath(stageAbs, real); err == nil {
+				if strings.HasPrefix(real, stageAbs+string(filepath.Separator)) {
 					if info, err := os.Stat(real); err == nil && info.Mode().IsRegular() {
 						return real, nil
 					}
