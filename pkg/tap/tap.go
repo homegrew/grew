@@ -139,6 +139,9 @@ func (m *Manager) Update() (int, int, error) {
 			tapsBase = evalClean
 		}
 	}
+	if err := safepath.CheckSubpath(expectedBase, tapsBase); err != nil {
+		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", tapsBase, err)
+	}
 
 	users, err := os.ReadDir(tapsBase)
 	if err != nil {
@@ -155,6 +158,9 @@ func (m *Manager) Update() (int, int, error) {
 		if err != nil {
 			continue
 		}
+		if err := safepath.CheckSubpath(tapsBase, userPath); err != nil {
+			continue
+		}
 		repos, err := os.ReadDir(userPath)
 		if err != nil {
 			continue
@@ -165,6 +171,9 @@ func (m *Manager) Update() (int, int, error) {
 			}
 			repoPath, err := safepath.SafeJoin(tapsBase, user.Name(), repo.Name())
 			if err != nil {
+				continue
+			}
+			if err := safepath.CheckSubpath(tapsBase, repoPath); err != nil {
 				continue
 			}
 			if err := safepath.CheckSubpath(tapsBase, repoPath); err != nil {
