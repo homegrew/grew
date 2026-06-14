@@ -240,6 +240,46 @@ func TestSmoke_Outdated_Help(t *testing.T) {
 	}
 }
 
+func TestSmoke_Install_Help(t *testing.T) {
+	t.Parallel()
+	_, exePath, env := setupBinary(t)
+
+	cmd := exec.Command(exePath, "install", "--help")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("install --help failed: %v\nOutput: %s", err, string(out))
+	}
+	for _, expected := range []string{"--formula", "--cask"} {
+		if !strings.Contains(string(out), expected) {
+			t.Errorf("expected --help to contain %q, got: %s", expected, string(out))
+		}
+	}
+}
+
+func TestSmoke_Install_ArgValidation(t *testing.T) {
+	t.Parallel()
+	_, exePath, env := setupBinary(t)
+
+	// No arguments: cobra's MinimumNArgs(1) must reject the invocation.
+	cmd := exec.Command(exePath, "install")
+	cmd.Env = env
+	if out, err := cmd.CombinedOutput(); err == nil {
+		t.Errorf("expected `install` with no args to fail, got success: %s", string(out))
+	}
+
+	// --cask and --formula are mutually exclusive.
+	cmd = exec.Command(exePath, "install", "--cask", "--formula", "jq")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err == nil {
+		t.Errorf("expected `install --cask --formula` to fail, got success: %s", string(out))
+	}
+	if !strings.Contains(string(out), "cask") || !strings.Contains(string(out), "formula") {
+		t.Errorf("expected mutual-exclusivity error to mention both flags, got: %s", string(out))
+	}
+}
+
 func TestSmoke_Casks(t *testing.T) {
 	t.Parallel()
 	prefix, exePath, env := setupBinary(t)

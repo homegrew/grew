@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"log/slog"
-	"os"
 
 	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/lockfile"
+	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"
 )
 
@@ -30,7 +30,7 @@ Subcommands:
 				return err
 			}
 
-			return lockGenerate(c)
+			return lockGenerate(c, cmd)
 		}
 		return fmt.Errorf("unknown lock subcommand: %s\nUsage: grew lock [generate|check|show]", args[0])
 	},
@@ -44,7 +44,7 @@ var LockGenerateCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		return lockGenerate(c)
+		return lockGenerate(c, cmd)
 	},
 }
 
@@ -56,7 +56,7 @@ var LockCheckCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		return lockCheck(c)
+		return lockCheck(c, cmd)
 	},
 }
 
@@ -68,7 +68,7 @@ var LockShowCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		return lockShow(c)
+		return lockShow(c, cmd)
 	},
 }
 
@@ -76,7 +76,7 @@ func init() {
 	Command.AddCommand(LockGenerateCmd, LockCheckCmd, LockShowCmd)
 }
 
-func lockGenerate(ctx *context.Context) error {
+func lockGenerate(ctx *context.Context, cmd *cobra.Command) error {
 	slog.Debug("starting lock command execution")
 
 	lf, err := lockfile.Generate(ctx)
@@ -88,11 +88,11 @@ func lockGenerate(ctx *context.Context) error {
 		return fmt.Errorf("save lockfile: %w", err)
 	}
 
-	fmt.Printf("Lockfile written to %s (%d entries)\n", lockfile.LockFilePath(ctx), len(lf.Entries))
+	ui.Green(fmt.Sprintf("Lockfile written to %s (%d entries)\n", lockfile.LockFilePath(ctx), len(lf.Entries)), cmd.ErrOrStderr())
 	return nil
 }
 
-func lockCheck(ctx *context.Context) error {
+func lockCheck(ctx *context.Context, cmd *cobra.Command) error {
 	lf, err := lockfile.Load(ctx)
 	if err != nil {
 		return fmt.Errorf("load lockfile: %w", err)
@@ -108,28 +108,28 @@ func lockCheck(ctx *context.Context) error {
 	}
 
 	if len(discs) == 0 {
-		fmt.Println("Lockfile is in sync with installed packages.")
+		ui.Green("Lockfile is in sync with installed packages.", cmd.ErrOrStderr())
 		return nil
 	}
 
 	for _, d := range discs {
-		fmt.Printf("  %-20s %-18s %s\n", d.Name, d.Kind, d.Detail)
+		ui.Bold(fmt.Sprintf(" %-20s %-18s %s\n", d.Name, d.Kind, d.Detail), cmd.ErrOrStderr())
 	}
 	return fmt.Errorf("%d discrepancies found", len(discs))
 }
 
-func lockShow(ctx *context.Context) error {
+func lockShow(ctx *context.Context, cmd *cobra.Command) error {
 	lf, err := lockfile.Load(ctx)
 	if err != nil {
 		return fmt.Errorf("load lockfile: %w", err)
 	}
 
 	if len(lf.Entries) == 0 {
-		fmt.Println("No lockfile found or lockfile is empty.")
+		ui.Yellow("No lockfile found or lockfile is empty.", cmd.ErrOrStderr())
 		return nil
 	}
 
-	enc := json.NewEncoder(os.Stdout)
+	enc := json.NewEncoder(cmd.OutOrStdout())
 	enc.SetIndent("", "  ")
 	return enc.Encode(lf)
 }

@@ -20,8 +20,8 @@
 | **`--force-bottle`** | Pour a bottle for the current or newest macOS even if it wouldn't normally be used; mutually exclusive with `-s` | Same semantics via `ResolveForceBottle` (current-version key, else newest available version), same mutual-exclusivity error | Identical |
 | **`--dry-run` / `-n`** | Supported | `simulateInstall()` | Identical |
 | **Pin support** | PINNED marker file | Same | Identical |
-| **Cask install** | Separate `--cask` path | Same routing via `installer.CaskInstall` | Same pattern |
-| **Multiple installs** | `brew install foo bar` | `grew install foo bar` | Identical |
+| **Cask install** | Auto-detected, or pinned with `--cask` | Auto-detected (formula-first), or pinned with mutually-exclusive `--cask`/`--formula`; routes to `installer.CaskInstall` | Identical |
+| **Multiple installs** | `brew install foo bar` | `grew install foo bar` — formulas and casks may be mixed, auto-detected per argument, installed in order | Identical |
 | **Pour bottle relocation** | Text/binary patching of prefix paths | `pkg/relocation` via `install_name_tool`/`patchelf` | Close |
 | **`autoremove`** | `brew autoremove` | `grew autoremove` | Identical |
 | **JSON output** | `brew info --json` | `grew info --json` | Identical |
