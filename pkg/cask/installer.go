@@ -278,6 +278,18 @@ func (inst *Installer) UninstallFont(fontRel string) error {
 	} else if !info.Mode().IsRegular() {
 		return fmt.Errorf("refusing to remove non-regular file at %q", destFont)
 	}
+	// SafeJoin's containment check is lexical. Resolve symlinks in the font
+	// directory and re-verify containment before removing so a symlinked
+	// FontDir cannot redirect the removal outside the intended tree.
+	resolvedFontDir, err := filepath.EvalSymlinks(inst.FontDir)
+	if err != nil {
+		return fmt.Errorf("resolve font directory: %w", err)
+	}
+	resolvedFontDir = filepath.Clean(resolvedFontDir)
+	resolvedDest := filepath.Clean(filepath.Join(resolvedFontDir, fontName))
+	if err := safepath.CheckSubpath(resolvedFontDir, resolvedDest); err != nil {
+		return fmt.Errorf("refusing to remove file outside font directory: %w", err)
+	}
 	return os.Remove(destFont)
 }
 
@@ -531,7 +543,10 @@ func findStagedFile(stageDir, rel string) (string, error) {
 	components := strings.FieldsFunc(filepath.ToSlash(rel), func(r rune) bool { return r == '/' })
 	if len(components) > 0 {
 		if direct, err := safepath.SafeJoin(stageAbs, components...); err == nil {
-			if info, err := os.Stat(direct); err == nil && info.Mode().IsRegular() {
+			// Use Lstat so we inspect the entry itself, not what a symlink
+			// points to — SafeJoin's containment check is lexical and does not
+			// resolve symlinks, so a symlink here could escape stageDir.
+			if info, err := os.Lstat(direct); err == nil && info.Mode().IsRegular() {
 				return direct, nil
 			}
 		}

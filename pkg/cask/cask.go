@@ -403,10 +403,6 @@ func (l *Loader) loadCasksRecursive(dir string, casks *[]*Cask) {
 	}
 }
 
-func (l *Loader) loadFromFile(filename string) (*Cask, error) {
-	return l.loadFromFileWithPath(filepath.Join(l.TapDir, "cask", filename))
-}
-
 func (l *Loader) loadFromFileWithPath(path string) (*Cask, error) {
 	absPath, err := filepath.Abs(path)
 	if err != nil {
