@@ -103,7 +103,6 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 		return fmt.Errorf("binary is not a regular file")
 	}
 
-	slog.Debug("verifying binary integrity", "path", binPath)
 	// binPath is validated as an absolute, traversal-free path above and is
 	// always either os.Executable(), a path within the grew prefix (checked by
 	// callers via ensurePathWithinBase), or a process-owned temp directory.
@@ -118,8 +117,8 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 		return fmt.Errorf("no version output")
 	}
 
-	slog.Debug(fmt.Sprintf("binary version output: %s", outStr))
-	slog.Debug(fmt.Sprintf("expected version: %s", expectedVersion))
+	slog.Debug("binary version output", "output", outStr)
+	slog.Debug("expected version", "version", expectedVersion)
 	slog.Debug("checking if expected version is contained in output or if output contains 'dev'")
 	if expectedVersion != "" && !strings.Contains(outStr, expectedVersion) && !strings.Contains(outStr, "dev") {
 		return fmt.Errorf("version mismatch: expected %s, got %s", expectedVersion, outStr)
@@ -138,7 +137,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 	// Apply OSV security gate before full download.
 	targetVer := rel.TagName
 	if res, err := CheckOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
-		slog.Warn(fmt.Sprintf("OSV query failed (proceeding): %v", err))
+		slog.Warn("OSV query failed (proceeding)", "error", err)
 	} else if res.Vulnerable {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
@@ -177,7 +176,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		if length == 128 {
 			algo = "SHA-512"
 		}
-		slog.Info(fmt.Sprintf("expected %s: %s", algo, hash))
+		slog.Info("expected hash", "algorithm", algo, "hash", hash)
 	}
 
 	ui.FprintArrow(os.Stderr, "Downloading %s", assetName)
@@ -220,7 +219,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 		// Ensure the file to be removed is strictly within the trusted system temp directory.
 		if err := safepath.CheckSubpath(expectedTmpDir, cleanedTmpFile); err != nil {
-			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside trusted temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
+			slog.Error("security: refusing to remove temporary file outside trusted temp directory", "file", cleanedTmpFile, "trusted_dir", expectedTmpDir, "error", err)
 			return fmt.Errorf("temporary file %q escaped trusted temporary directory: %w", cleanedTmpFile, err)
 		}
 		defer func() {
