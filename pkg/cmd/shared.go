@@ -18,6 +18,7 @@ func RunCleanup(ctx *context.Context, args []string, opts CleanupOpts) error {
 	cel := &cellar.Cellar{Path: paths.Cellar}
 
 	cleanupPaths := cellar.CleanupPaths{
+		CacheDir:     paths.Cache,
 		DownloadsDir: cache.New(paths.Cache).DownloadsDir(),
 		PruneDirs:    []string{paths.Bin, paths.Lib, paths.Include, paths.Share},
 	}

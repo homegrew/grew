@@ -20,6 +20,7 @@ type CleanupOpts struct {
 }
 
 type CleanupPaths struct {
+	CacheDir     string
 	DownloadsDir string
 	PruneDirs    []string
 }
@@ -30,24 +31,25 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 	var totalBytes int64
 
 	downloadsRoot := ""
-	if paths.DownloadsDir != "" {
-		if abs, err := filepath.Abs(paths.DownloadsDir); err == nil {
-			downloadsRoot = filepath.Clean(abs)
-		} else {
-			downloadsRoot = filepath.Clean(paths.DownloadsDir)
+	if paths.CacheDir != "" {
+		cacheRoot := filepath.Clean(paths.CacheDir)
+		if abs, err := filepath.Abs(cacheRoot); err == nil {
+			cacheRoot = filepath.Clean(abs)
 		}
-
-		if err := safepath.SafeAbsolutePath(downloadsRoot); err != nil {
-			slog.Warn(fmt.Sprintf("skipping cleanup for invalid downloads dir %q: %v", downloadsRoot, err))
-			downloadsRoot = ""
+		if err := safepath.SafeAbsolutePath(cacheRoot); err != nil {
+			slog.Warn(fmt.Sprintf("skipping cleanup for invalid cache dir %q: %v", cacheRoot, err))
+		} else if resolvedDownloads, err := safepath.SafeJoin(cacheRoot, "downloads"); err != nil {
+			slog.Warn(fmt.Sprintf("skipping cleanup for invalid downloads dir under cache root %q: %v", cacheRoot, err))
 		} else {
-			cacheRoot := filepath.Clean(filepath.Dir(downloadsRoot))
-			if err := safepath.SafeAbsolutePath(cacheRoot); err != nil {
-				slog.Warn(fmt.Sprintf("skipping cleanup for downloads dir %q: invalid cache root %q: %v", downloadsRoot, cacheRoot, err))
-				downloadsRoot = ""
-			} else if err := safepath.CheckSubpath(cacheRoot, downloadsRoot); err != nil {
-				slog.Warn(fmt.Sprintf("skipping cleanup for downloads dir outside cache root %q: %q", cacheRoot, downloadsRoot))
-				downloadsRoot = ""
+			downloadsRoot = resolvedDownloads
+			if paths.DownloadsDir != "" {
+				expected := filepath.Clean(paths.DownloadsDir)
+				if abs, err := filepath.Abs(expected); err == nil {
+					expected = filepath.Clean(abs)
+				}
+				if expected != downloadsRoot {
+					slog.Warn(fmt.Sprintf("cleanup downloads dir %q does not match cache-derived path %q; using cache-derived path", expected, downloadsRoot))
+				}
 			}
 		}
 	}
