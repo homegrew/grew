@@ -77,6 +77,10 @@ Integration and smoke tests can't use the Go test runner as the "current binary"
 
 `HOMEGREW_PREFIX` (root, inferred from binary location), `HOMEGREW_TAP_VERIFY` (`off`/`warn`/`strict` — git commit signature policy), `HOMEGREW_ALLOWED_HOSTS`, `HOMEGREW_CLEANUP_MAX_AGE_DAYS`, `HOMEGREW_NO_INIT_TAP` (skip core-tap init, used in tests).
 
+## Website
+
+The project website is in the `www` branch and is managed by GitHub Pages. Updates to documentation published on the site go through that branch.
+
 ## Repo maintenance tools (`tools/`)
 
 `genrepo` converts Homebrew JSON API formulas/casks into grew YAML. `patcher` generates/verifies binary delta patches between releases (`bsdiff`, dual-hash, `-U` to verify a patch sequence without generating). See [docs/tech.md](docs/tech.md) §3.
