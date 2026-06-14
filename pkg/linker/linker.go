@@ -226,6 +226,10 @@ func (l *Linker) IsLinked(name string) bool {
 func (l *Linker) checkFamilyConflict(name string, opts LinkOpts) error {
 	base := formula.BaseName(name)
 
+	// Guard against path-injection: verify Opt is within Root before calling os.ReadDir.
+	if !strings.HasPrefix(l.Paths.Opt, l.Paths.Root+string(filepath.Separator)) && l.Paths.Opt != l.Paths.Root {
+		return fmt.Errorf("invalid opt path")
+	}
 	entries, err := os.ReadDir(l.Paths.Opt)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -268,6 +272,10 @@ func (l *Linker) hasBinLinks(other string) bool {
 	}
 	cellarPrefix := filepath.Join(l.Paths.Cellar, other) + string(filepath.Separator)
 
+	// Guard against path-injection: verify Bin is within Root before calling os.ReadDir.
+	if !strings.HasPrefix(l.Paths.Bin, l.Paths.Root+string(filepath.Separator)) && l.Paths.Bin != l.Paths.Root {
+		return false
+	}
 	entries, err := os.ReadDir(l.Paths.Bin)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -287,6 +295,10 @@ func (l *Linker) hasBinLinks(other string) bool {
 		}
 		fullPath, err := safepath.SafeJoin(l.Paths.Bin, e.Name())
 		if err != nil {
+			continue
+		}
+		// Guard against path-injection: verify fullPath is within Bin before calling os.Readlink.
+		if !strings.HasPrefix(fullPath, l.Paths.Bin+string(filepath.Separator)) && fullPath != l.Paths.Bin {
 			continue
 		}
 		target, err := os.Readlink(fullPath)
