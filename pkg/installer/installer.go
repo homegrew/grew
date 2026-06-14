@@ -177,7 +177,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		if length == 128 {
 			algo = "SHA-512"
 		}
-		slog.Info(fmt.Sprintf("expected %s: %s", algo, hash))
+		slog.Info("expected hash", "algorithm", algo, "hash", hash)
 	}
 
 	ui.FprintArrow(os.Stderr, "Downloading %s", assetName)
