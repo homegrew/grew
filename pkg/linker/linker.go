@@ -324,6 +324,11 @@ func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, 
 		// of symlinking the directory, ensure a real directory exists at
 		// the destination and recurse to link individual files.
 		if e.IsDir() {
+			// Re-assert containment at sink site so destPath cannot be used for
+			// filesystem operations outside destRoot.
+			if err := safepath.CheckSubpath(destRoot, destPath); err != nil {
+				return fmt.Errorf("refusing directory operation outside root %s: %s: %w", destRoot, destPath, err)
+			}
 			if info, err := os.Lstat(destPath); err == nil {
 				if info.Mode()&os.ModeSymlink != 0 && destIsDir(filepath.Dir(cellarPath), destPath) {
 					// Destination is a symlink to a directory (from another
