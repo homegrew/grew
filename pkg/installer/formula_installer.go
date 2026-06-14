@@ -363,7 +363,7 @@ type finalizeOpts struct {
 
 func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts finalizeOpts) error {
 	if !opts.skipLink {
-		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
+		if err := ctx.Linker.Link(f.Name, f.Version, f.EffectiveKegOnly()); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)
 		}
 	} else {

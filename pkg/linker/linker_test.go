@@ -3,6 +3,7 @@ package linker
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/homegrew/grew/pkg/config"
@@ -111,6 +112,54 @@ func TestIsLinked(t *testing.T) {
 
 	if !lnk.IsLinked("mypkg") {
 		t.Fatal("should be linked")
+	}
+}
+
+func TestLink_VersionFamilyConflict(t *testing.T) {
+	lnk, paths := setupTestLinker(t)
+
+	// "node" is installed non-keg-only and owns bin/node.
+	createTestKeg(t, paths.Cellar, "node", "20.0.0")
+	if err := lnk.Link("node", "20.0.0", false); err != nil {
+		t.Fatalf("link node failed: %v", err)
+	}
+
+	// Linking node@24 (same family, different keg) must be refused.
+	createTestKeg(t, paths.Cellar, "node@24", "24.0.0")
+	err := lnk.LinkWithOpts("node@24", "24.0.0", LinkOpts{})
+	if err == nil {
+		t.Fatal("expected version-family conflict error linking node@24 over node")
+	}
+	if !strings.Contains(err.Error(), "same version family") {
+		t.Fatalf("error %q does not mention version family", err.Error())
+	}
+
+	// With Overwrite set, the link must succeed.
+	if err := lnk.LinkWithOpts("node@24", "24.0.0", LinkOpts{Overwrite: true}); err != nil {
+		t.Fatalf("overwrite link of node@24 should succeed: %v", err)
+	}
+}
+
+func TestLink_VersionFamilyNoConflictWhenOtherKegOnly(t *testing.T) {
+	lnk, paths := setupTestLinker(t)
+
+	// "node" is installed keg-only: it has opt/node but no bin links.
+	createTestKeg(t, paths.Cellar, "node", "20.0.0")
+	if err := lnk.LinkWithOpts("node", "20.0.0", LinkOpts{KegOnly: true}); err != nil {
+		t.Fatalf("keg-only link node failed: %v", err)
+	}
+	if _, err := os.Readlink(filepath.Join(paths.Opt, "node")); err != nil {
+		t.Fatal("opt/node should exist for keg-only node")
+	}
+
+	// node@24 is a different family member but node owns no bin links, so there
+	// is no real competition for bin/ — linking must succeed.
+	createTestKeg(t, paths.Cellar, "node@24", "24.0.0")
+	if err := lnk.LinkWithOpts("node@24", "24.0.0", LinkOpts{}); err != nil {
+		t.Fatalf("linking node@24 should not conflict with keg-only node: %v", err)
+	}
+	if _, err := os.Readlink(filepath.Join(paths.Bin, "node@24")); err != nil {
+		t.Fatalf("bin/node@24 should be linked: %v", err)
 	}
 }
 

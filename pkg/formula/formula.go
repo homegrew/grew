@@ -93,7 +93,7 @@ type Formula struct {
 	Install      InstallSpec       `yaml:"install,omitempty"`
 	PostInstall  string            `yaml:"post_install,omitempty"`
 	Dependencies []string          `yaml:"dependencies,omitempty"`
-	KegOnly           bool                  `yaml:"keg_only,omitempty"`
+	KegOnly      bool              `yaml:"keg_only,omitempty"`
 	// New schema fields
 	Bottle            map[string]BottleSpec `yaml:"bottle,omitempty"`
 	Source            *SourceSpec           `yaml:"source,omitempty"`
@@ -108,6 +108,32 @@ type Formula struct {
 
 	// Local fields (not in YAML)
 	Tap string `yaml:"-"`
+}
+
+// IsVersioned reports whether the formula name carries an @-version suffix
+// (e.g. "node@24", "python@3.12"). Homebrew treats every such formula as
+// keg-only so that only the unversioned formula owns the shared binaries.
+func (f *Formula) IsVersioned() bool {
+	return strings.Contains(f.Name, "@")
+}
+
+// EffectiveKegOnly is the authoritative keg-only decision: an explicit
+// keg_only: true OR a versioned name. Callers deciding whether to link a
+// formula into bin/lib/include/share should use this rather than the raw
+// KegOnly field, so a versioned formula is never linked even if its
+// definition forgets to set keg_only.
+func (f *Formula) EffectiveKegOnly() bool {
+	return f.KegOnly || f.IsVersioned()
+}
+
+// BaseName returns the formula name with any @-version suffix stripped
+// ("node@24" -> "node", "node" -> "node"). Members of a version family share
+// a base name and therefore compete for the same linked binaries.
+func BaseName(name string) string {
+	if i := strings.IndexByte(name, '@'); i >= 0 {
+		return name[:i]
+	}
+	return name
 }
 
 type ServiceSpec struct {

@@ -132,30 +132,12 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 
 	fmt.Println()
 	fmt.Println("[dry-run] Directories to create:")
-	for _, dir := range []struct{ name, path string }{
-		{"Root", paths.Root},
-		{"Cellar", paths.Cellar},
-		{"opt", paths.Opt},
-		{"bin", paths.Bin},
-		{"sbin", paths.Sbin},
-		{"lib", paths.Lib},
-		{"include", paths.Include},
-		{"Taps", paths.Taps},
-		{"CoreTap", paths.CoreTap},
-		{"CaskTap", paths.CaskTap},
-		{"Caskroom", paths.Caskroom},
-		{"AppDir", paths.AppDir},
-		{"Cache", paths.Cache},
-		{"tmp", paths.Tmp},
-		{"log", paths.Log},
-		{"locks", paths.Locks},
-		{"etc", paths.Etc},
-	} {
+	for _, dir := range paths.InitDirs() {
 		status := "create"
-		if config.IsDir(dir.path) {
+		if config.IsDir(dir.Path) {
 			status = "exists"
 		}
-		fmt.Printf("[dry-run]   %-10s %s (%s)\n", dir.name, dir.path, status)
+		fmt.Printf("[dry-run]   %-10s %s (%s)\n", dir.Name, dir.Path, status)
 	}
 
 	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))

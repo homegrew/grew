@@ -8,10 +8,14 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/formula"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
+// Linker creates and removes the prefix symlinks that expose an installed keg.
+// It is stateless apart from Paths, which locates the cellar and the shared
+// prefix directories (opt/, bin/, lib/, include/, share/) it operates on.
 type Linker struct {
 	Paths config.Paths
 }
@@ -24,10 +28,22 @@ type LinkOpts struct {
 	Force     bool
 }
 
+// Link is a convenience wrapper over [Linker.LinkWithOpts] that links the keg
+// at Cellar/<name>/<version>, passing only the keg-only flag and otherwise
+// using default options.
 func (l *Linker) Link(name, version string, kegOnly bool) error {
 	return l.LinkWithOpts(name, version, LinkOpts{KegOnly: kegOnly})
 }
 
+// LinkWithOpts links the keg at Cellar/<name>/<version> into the prefix. It
+// always (re)creates the opt/<name> symlink, then — unless the formula is
+// keg-only — populates bin/, lib/, include/, and share/ with symlinks into the
+// keg. Existing links owned by the same formula are replaced; links owned by a
+// different formula cause an error unless opts.Overwrite is set. A keg-only
+// formula receives only its opt link. As a backstop, the link is refused when
+// another member of the same version family already owns the shared links
+// (see [Linker.checkFamilyConflict]). The name, version, and resolved keg path
+// are all validated to stay within the cellar before any link is created.
 func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return fmt.Errorf("invalid formula name or version")
@@ -64,6 +80,19 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 		return nil
 	}
 
+	// Version-family conflict guard (defense-in-depth): refuse to link a
+	// formula whose base name is already linked into bin/lib/include/share by a
+	// DIFFERENT keg in the same version family (e.g. linking node@24 while node
+	// is linked). Part 1 makes versioned formulas keg-only, but a hand-written
+	// definition with keg_only:false would bypass that; this guard protects the
+	// shared link tree regardless. Overwrite/Force bypasses it and lets the
+	// per-file overwrite logic replace the symlinks.
+	if !opts.Overwrite && !opts.Force {
+		if err := l.checkFamilyConflict(name, opts); err != nil {
+			return err
+		}
+	}
+
 	subdirs := []struct {
 		src  string
 		dest string
@@ -88,10 +117,17 @@ type UnlinkOpts struct {
 	DryRun bool
 }
 
+// Unlink is a convenience wrapper over [Linker.UnlinkWithOpts] that removes a
+// formula's links using default options.
 func (l *Linker) Unlink(name string) error {
 	return l.UnlinkWithOpts(name, UnlinkOpts{})
 }
 
+// UnlinkWithOpts removes the opt/<name> symlink and every symlink in bin/, lib/,
+// include/, and share/ that resolves into Cellar/<name>/, leaving links owned by
+// other formulas untouched and pruning directories that become empty. Missing
+// directories are not an error, so unlinking is safe to call on a partially
+// linked or already-unlinked formula.
 func (l *Linker) UnlinkWithOpts(name string, opts UnlinkOpts) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid formula name: %q", name)
@@ -117,6 +153,9 @@ func (l *Linker) UnlinkWithOpts(name string, opts UnlinkOpts) error {
 	return nil
 }
 
+// unlinkDirWithOpts recursively removes, within dir, every symlink whose
+// resolved target begins with cellarPrefix (i.e. belongs to the formula being
+// unlinked), and deletes subdirectories left empty afterward.
 func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 	entries, err := os.ReadDir(dir)
 	if err != nil {
@@ -159,6 +198,9 @@ func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 	return nil
 }
 
+// IsLinked reports whether the formula currently owns its opt/<name> symlink,
+// which grew treats as the canonical signal that a formula is linked. It returns
+// false for an invalid name or a missing link.
 func (l *Linker) IsLinked(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
@@ -166,6 +208,156 @@ func (l *Linker) IsLinked(name string) bool {
 	optLink := filepath.Join(l.Paths.Opt, name)
 	_, err := os.Readlink(optLink)
 	return err == nil
+}
+
+// checkFamilyConflict scans opt/* for an already-linked formula in the same
+// version family as name (sharing a base name, e.g. "node" vs "node@24") and
+// returns an error if one is actively occupying the shared link tree.
+//
+// Design choice for the keg-only-vs-linked distinction: the presence of
+// opt/<other> alone is NOT sufficient, because a keg-only formula also has an
+// opt symlink yet owns no bin/lib/include/share links and therefore does not
+// compete. Rather than re-loading each formula definition to read its keg_only
+// flag (costly and would require the loader here), we use the conservative,
+// on-disk signal that actually matters: <other> is only a real conflict if at
+// least one symlink in bin/ resolves into Cellar/<other>/. That is exactly the
+// state we are protecting against, and a keg-only family member (opt link but
+// no bin links) produces no false conflict.
+func (l *Linker) checkFamilyConflict(name string, opts LinkOpts) error {
+	base := formula.BaseName(name)
+
+	// Guard against path-injection: canonicalize and verify Opt is within Root
+	// before calling os.ReadDir.
+	rootAbs, err := filepath.Abs(l.Paths.Root)
+	if err != nil {
+		return fmt.Errorf("invalid root path: %w", err)
+	}
+	rootAbs = filepath.Clean(rootAbs)
+	if err := safepath.SafeAbsolutePath(rootAbs); err != nil {
+		return fmt.Errorf("invalid root path")
+	}
+
+	optAbs, err := filepath.Abs(l.Paths.Opt)
+	if err != nil {
+		return fmt.Errorf("invalid opt path: %w", err)
+	}
+	optAbs = filepath.Clean(optAbs)
+	if err := safepath.SafeAbsolutePath(optAbs); err != nil {
+		return fmt.Errorf("invalid opt path")
+	}
+
+	rel, err := filepath.Rel(rootAbs, optAbs)
+	if err != nil {
+		return fmt.Errorf("invalid opt path: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return fmt.Errorf("invalid opt path")
+	}
+
+	entries, err := os.ReadDir(optAbs)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return fmt.Errorf("read opt dir: %w", err)
+	}
+
+	for _, e := range entries {
+		other := e.Name()
+		if other == name {
+			continue
+		}
+		if !validation.IsValidName(other) {
+			continue
+		}
+		if formula.BaseName(other) != base {
+			continue
+		}
+		// Same family, different formula. Only a conflict if it actually owns
+		// bin links (i.e. is not effectively keg-only).
+		if !l.hasBinLinks(other) {
+			continue
+		}
+		if opts.DryRun {
+			fmt.Printf("Would conflict: %s is already linked from the same version family (%s)\n", other, base)
+			continue
+		}
+		return fmt.Errorf("cannot link %s: %s is already linked from the same version family; unlink it first or use --overwrite", name, other)
+	}
+	return nil
+}
+
+// hasBinLinks reports whether any symlink directly under bin/ resolves into
+// Cellar/<other>/, i.e. the formula currently owns bin links. Validated name
+// and SafeJoin keep all path construction within the trusted root.
+func (l *Linker) hasBinLinks(other string) bool {
+	if !validation.IsValidName(other) {
+		return false
+	}
+	cellarPrefix := filepath.Join(l.Paths.Cellar, other) + string(filepath.Separator)
+
+	// Canonicalize and validate Root/Bin before filesystem access.
+	rootAbs, err := filepath.Abs(l.Paths.Root)
+	if err != nil {
+		return false
+	}
+	rootAbs = filepath.Clean(rootAbs)
+
+	binAbs, err := filepath.Abs(l.Paths.Bin)
+	if err != nil {
+		return false
+	}
+	binAbs = filepath.Clean(binAbs)
+
+	// Guard against path-injection: Bin must be Root or a descendant of Root.
+	if binAbs != rootAbs && !strings.HasPrefix(binAbs, rootAbs+string(filepath.Separator)) {
+		return false
+	}
+
+	entries, err := os.ReadDir(binAbs)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return false
+		}
+		// Fail closed: an unexpected read error must not let the conflict guard
+		// silently pass and permit a double-link. Conservatively report that the
+		// family member owns bin links so the caller refuses to link.
+		return true
+	}
+	for _, e := range entries {
+		if e.IsDir() {
+			continue
+		}
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
+			continue
+		}
+		fullPath, err := safepath.SafeJoin(binAbs, e.Name())
+		if err != nil {
+			continue
+		}
+		// Guard against path-injection: canonicalize and verify fullPath remains under binAbs
+		// before calling os.Readlink. Prefer symlink-evaluated paths when available.
+		canonBin := binAbs
+		if resolvedBin, err := filepath.EvalSymlinks(binAbs); err == nil {
+			canonBin = filepath.Clean(resolvedBin)
+		}
+		canonParent := filepath.Dir(fullPath)
+		if resolvedParent, err := filepath.EvalSymlinks(canonParent); err == nil {
+			canonParent = filepath.Clean(resolvedParent)
+		}
+		canonFull := filepath.Join(canonParent, filepath.Base(fullPath))
+		if !safepath.IsSubpath(canonBin, canonFull) {
+			continue
+		}
+		target, err := os.Readlink(fullPath)
+		if err != nil {
+			continue // not a symlink
+		}
+		if strings.HasPrefix(resolveLink(binAbs, target), cellarPrefix) {
+			return true
+		}
+	}
+	return false
 }
 
 // resolveLink makes a symlink target absolute and cleaned.
@@ -245,6 +437,10 @@ func destIsDir(root, destPath string) bool {
 	return err == nil && fi.IsDir()
 }
 
+// isWithinRoot reports whether candidate is root itself or lies beneath it,
+// rejecting any path that would require traversing upward out of root. It is the
+// inline containment barrier used throughout this package before a constructed
+// path reaches a filesystem call.
 func isWithinRoot(root, candidate string) bool {
 	rel, err := filepath.Rel(root, candidate)
 	if err != nil {
@@ -259,6 +455,14 @@ func isWithinRoot(root, candidate string) bool {
 	return rel != ".." && !strings.HasPrefix(rel, ".."+string(filepath.Separator))
 }
 
+// linkDirWithOpts recursively links the contents of srcDir (a keg's bin/, lib/,
+// include/, or share/) into destDir. Plain files are symlinked individually;
+// directories shared between formulas (e.g. lib/pkgconfig) are materialized as
+// real directories and recursed into so multiple formulas can coexist. Existing
+// destinations owned by the same formula are replaced silently, while those
+// owned by another formula error unless opts.Overwrite is set. destRoot anchors
+// every constructed path inside the trusted prefix; cellarPath and formulaName
+// identify the owning keg for conflict resolution.
 func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, opts LinkOpts) error {
 	entries, err := os.ReadDir(srcDir)
 	if err != nil {
