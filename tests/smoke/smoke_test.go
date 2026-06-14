@@ -240,6 +240,65 @@ func TestSmoke_Outdated_Help(t *testing.T) {
 	}
 }
 
+func TestSmoke_Casks(t *testing.T) {
+	t.Parallel()
+	prefix, exePath, env := setupBinary(t)
+
+	// Create a dummy cask to list
+	caskDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps", "Casks")
+	if err := os.MkdirAll(caskDir, 0755); err != nil {
+		t.Fatalf("failed to create cask dir: %v", err)
+	}
+	caskYAML := `name: smokecask
+version: 1.0.0
+description: A cask for smoke testing
+url:
+  darwin_arm64: https://example.com/smokecask.zip
+sha256:
+  darwin_arm64: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+artifacts:
+  app:
+    - Dummy.app
+`
+	if err := os.WriteFile(filepath.Join(caskDir, "smokecask.yaml"), []byte(caskYAML), 0644); err != nil {
+		t.Fatalf("failed to write cask yaml: %v", err)
+	}
+
+	cmd := exec.Command(exePath, "casks")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("casks command failed: %v\nOutput: %s", err, string(out))
+	}
+	if !strings.Contains(string(out), "smokecask") {
+		t.Errorf("expected casks output to contain 'smokecask', got: %s", string(out))
+	}
+}
+
+func TestSmoke_Formulae(t *testing.T) {
+	t.Parallel()
+	prefix, exePath, env := setupBinary(t)
+
+	testhelper.CreateFormula(t, prefix, "smokepkg2", `name: smokepkg2
+version: 1.0.0
+description: A formula for formulae smoke test
+url:
+  darwin_arm64: https://example.com/smokepkg2.tar.gz
+install:
+  type: archive
+`)
+
+	cmd := exec.Command(exePath, "formulae")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("formulae command failed: %v\nOutput: %s", err, string(out))
+	}
+	if !strings.Contains(string(out), "smokepkg2") {
+		t.Errorf("expected formulae output to contain 'smokepkg2', got: %s", string(out))
+	}
+}
+
 func setupBinary(t *testing.T) (string, string, []string) {
 	t.Helper()
 	tmpDir := t.TempDir()
