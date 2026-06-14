@@ -181,8 +181,10 @@ func (c *Cask) Validate() error {
 		if s.Executable == "" {
 			return fmt.Errorf("cask %q: installer artifact missing executable", c.Name)
 		}
-		if err := safepath.SafePathComponent(filepath.Base(s.Executable)); err != nil {
-			return fmt.Errorf("cask %q: invalid installer executable %q: %w", c.Name, s.Executable, err)
+		for _, part := range strings.FieldsFunc(filepath.ToSlash(s.Executable), func(r rune) bool { return r == '/' }) {
+			if err := safepath.SafePathComponent(part); err != nil {
+				return fmt.Errorf("cask %q: invalid installer executable %q: %w", c.Name, s.Executable, err)
+			}
 		}
 	}
 	return nil
