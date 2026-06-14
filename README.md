@@ -148,6 +148,11 @@ grew install --force-bottle jq  # pour a bottle (current or newest macOS), never
 grew install --cask firefox  # going big
 grew link jq                 # stitch it in
 grew deps --tree jq          # what hath jq wrought
+grew outdated                # list all outdated formulas and casks
+grew outdated --formula      # formula only
+grew outdated --cask         # cask only
+grew outdated --json         # machine-readable JSON output
+grew outdated -q             # names only, no version info
 grew up                      # stay fresh (alias 'up' for update)
 grew ug                      # upgrade all (alias 'ug')
 grew version                 # what are we running
@@ -188,7 +193,7 @@ grew missing --hide=openssl@3,readline    # hide multiple formulae (comma-separa
 | `unlink` | Cut the thread |
 | `update, up` | Refresh tap definitions |
 | `upgrade, ug` | Get the new hotness |
-| `outdated` | The hall of shame |
+| `outdated` | List installed formulas and casks that have an updated version available (`--formula`/`--cask` to filter, `--json` for machine output, `--minimum-version` to filter by version floor) |
 | `reinstall` | Uninstall + install from scratch (`--cask`, `-f` without checking for previously installed keg-only or non-migrated versions) |
 | `cleanup` | Remove old versions and prune download cache (`-s` to scrub all, `--prune=DAYS`) |
 | `desc` | Display a formula or cask's name and one-line description; search by name, description, or `/regex/` across both kinds |

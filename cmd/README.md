@@ -47,6 +47,7 @@ When adding a new subcommand:
 | [list](./list) | See what you've collected |
 | [lock](./lock) | Generate, check, or show a reproducible lockfile |
 | [missing](./missing) | Check kegs for missing dependencies |
+| [outdated](./outdated) | List installed formulas and casks that have an updated version available |
 | [pin](./pin) | Freeze formulas to prevent upgrades |
 | [reinstall](./reinstall) | Uninstall + install from scratch |
 | [resetupdate](./resetupdate) | Reset the update state |

@@ -27,6 +27,7 @@ import (
 	"github.com/homegrew/grew/cmd/list"
 	"github.com/homegrew/grew/cmd/lock"
 	"github.com/homegrew/grew/cmd/missing"
+	"github.com/homegrew/grew/cmd/outdated"
 	"github.com/homegrew/grew/cmd/pin"
 	"github.com/homegrew/grew/cmd/reinstall"
 	"github.com/homegrew/grew/cmd/resetupdate"
@@ -141,8 +142,8 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(unpin.Command)
 	rootCmd.AddCommand(untap.Command)
 	rootCmd.AddCommand(update.Command)
+	rootCmd.AddCommand(outdated.Command)
 	rootCmd.AddCommand(upgrade.Command)
-	rootCmd.AddCommand(upgrade.OutdatedCommand)
 	rootCmd.AddCommand(uses.Command)
 	rootCmd.AddCommand(verify.Command)
 	rootCmd.AddCommand(version.Command)
