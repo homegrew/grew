@@ -194,7 +194,7 @@ func runInfoJSON(ctx *context.Context, names []string, isCask bool) error {
 				Homepage:     f.Homepage,
 				Versions:     VersionsJSON{Stable: f.Version},
 				Dependencies: f.Dependencies,
-				KegOnly:      f.KegOnly,
+				KegOnly:      f.EffectiveKegOnly(),
 			}
 
 			if ctx.Cellar.IsInstalled(f.Name) {
