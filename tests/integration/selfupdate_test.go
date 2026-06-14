@@ -134,7 +134,7 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	if err := os.MkdirAll(binDir, 0755); err != nil {
 		t.Fatalf("failed to create bin dir: %v", err)
 	}
-	tmpHomegrewDir := filepath.Join(prefix, "tmp")
+	tmpHomegrewDir := filepath.Join(prefix, "var", "homegrew", "tmp")
 	if err := os.MkdirAll(tmpHomegrewDir, 0755); err != nil {
 		t.Fatalf("failed to create tmp dir: %v", err)
 	}
@@ -198,7 +198,7 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	if err := os.MkdirAll(binDir, 0755); err != nil {
 		t.Fatalf("failed to create bin dir: %v", err)
 	}
-	tmpHomegrewDir := filepath.Join(prefix, "tmp")
+	tmpHomegrewDir := filepath.Join(prefix, "var", "homegrew", "tmp")
 	if err := os.MkdirAll(tmpHomegrewDir, 0755); err != nil {
 		t.Fatalf("failed to create tmp dir: %v", err)
 	}
