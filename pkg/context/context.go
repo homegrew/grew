@@ -260,9 +260,9 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 		return nil, fmt.Errorf("invalid root directory %q: %w", rootCanon, err)
 	}
 
-	locksCanon, err := canonicalPath(paths.Locks)
+	locksCanon, err := safepath.SafeJoin(rootCanon, "var", "homegrew", "locks")
 	if err != nil {
-		return nil, fmt.Errorf("resolve locks directory %q: %w", paths.Locks, err)
+		return nil, fmt.Errorf("invalid locks directory under root %q: %w", rootCanon, err)
 	}
 	if err := safepath.SafeAbsolutePath(locksCanon); err != nil {
 		return nil, fmt.Errorf("invalid locks directory %q: %w", locksCanon, err)
