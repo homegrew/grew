@@ -146,6 +146,7 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 		{"Caskroom", paths.Caskroom},
 		{"AppDir", paths.AppDir},
 		{"Cache", paths.Cache},
+		{"var", paths.Var},
 		{"tmp", paths.Tmp},
 		{"log", paths.Log},
 		{"locks", paths.Locks},

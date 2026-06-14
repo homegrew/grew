@@ -48,6 +48,8 @@ type Paths struct {
 	FontDir string
 	// Cache is the directory for download and metadata cache.
 	Cache string
+
+	Var string
 	// Tmp is the temporary directory for builds and extractions (Root/tmp).
 	Tmp string
 	// Log is the directory for audit logs (Root/var/log).
@@ -345,6 +347,7 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		AppDir:   appDir,
 		FontDir:  fontDir,
 		Cache:    cacheDir,
+		Var:      filepath.Join(root, "var"),
 		Tmp:      filepath.Join(root, "var", "homegrew", "tmp"),
 		Log:      filepath.Join(root, "var", "homegrew", "log"),
 		Locks:    filepath.Join(root, "var", "homegrew", "locks"),
@@ -364,7 +367,7 @@ func (p Paths) Init() error {
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Sbin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
-		p.Caskroom, p.AppDir, p.Cache, p.Tmp, p.Log, p.Locks, p.Etc, // p.GitRepo must not be created, p.Share must not be created
+		p.Caskroom, p.AppDir, p.Cache, p.Var, p.Tmp, p.Log, p.Locks, p.Etc, // p.GitRepo must not be created, p.Share must not be created
 	}
 	for _, d := range dirs {
 		if err := safepath.SafeAbsolutePath(d); err != nil {
