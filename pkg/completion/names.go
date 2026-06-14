@@ -21,23 +21,24 @@ type NamesCache struct {
 // If the cache directory cannot be safely resolved, caching is disabled and
 // completion falls back to live fetches.
 func New(cacheDir string) *NamesCache {
-	_ = cacheDir // Keep signature compatibility; completion cache uses trusted OS cache location.
+	if cacheDir == "" {
+		base, err := os.UserCacheDir()
+		if err != nil {
+			return &NamesCache{}
+		}
 
-	base, err := os.UserCacheDir()
-	if err != nil {
-		return &NamesCache{}
+		cacheBase, err := safepath.SafeJoin(base, "Homegrew")
+		if err != nil || safepath.SafeAbsolutePath(cacheBase) != nil {
+			return &NamesCache{}
+		}
+
+		cacheDir, err = safepath.SafeJoin(cacheBase, "completion")
+		if err != nil {
+			return &NamesCache{}
+		}
 	}
 
-	cacheBase, err := safepath.SafeJoin(base, "Homegrew")
-	if err != nil || safepath.SafeAbsolutePath(cacheBase) != nil {
-		return &NamesCache{}
-	}
-
-	dir, err := safepath.SafeJoin(cacheBase, "completion")
-	if err != nil {
-		return &NamesCache{}
-	}
-	return &NamesCache{dir: dir}
+	return &NamesCache{dir: cacheDir}
 }
 
 func NewWithContent(ctx *context.Context) *NamesCache {
