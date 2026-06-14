@@ -252,6 +252,10 @@
                 <p><strong>Ed25519 bottle signing</strong> — cryptographic signatures on downloads, verified against a local trust store</p>
             </div>
             <div class="feature-card">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🔐</div>
+                <p><strong>Self-update health check</strong> — patched binaries are execution-tested in a sandbox before replacement, with multi-hop binary delta patching via <code>bspatch</code></p>
+            </div>
+            <div class="feature-card">
                 <div style="font-size: 2rem; margin-bottom: 10px;">🏷️</div>
                 <p><strong>Signed tap verification</strong> — refuse or warn on unsigned git commits in tap repos (<code>HOMEGREW_TAP_VERIFY</code>)</p>
             </div>
@@ -280,12 +284,28 @@
                 <p><strong>Deterministic linking</strong> with opt symlinks and dry-run support (look before you link)</p>
             </div>
             <div class="feature-card">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🛡️</div>
+                <p><strong>Symlink conflict detection</strong> — ownership tracking prevents accidental overwrites when multiple formulas claim the same binary; version-family defense blocks incompatible family members (e.g., <code>node@24</code> when <code>node</code> is already linked)</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
+                <p><strong>Comprehensive documentation</strong> — architecture guides, security deep-dives, and dependency resolver design in expanded <a href="https://github.com/homegrew/grew/blob/main/docs/tech.md" target="_blank">technical documentation</a>; <a href="https://github.com/homegrew/grew/blob/main/CLAUDE.md" target="_blank">contributor guides</a> for understanding the codebase</p>
+            </div>
+            <div class="feature-card">
                 <div style="font-size: 2rem; margin-bottom: 10px;">🔄</div>
                 <p><strong>Keg relocation</strong> — rewrites hardcoded library paths in bottles at install time via <code>install_name_tool</code>, so binaries just work without <code>DYLD_LIBRARY_PATH</code> hacks</p>
             </div>
             <div class="feature-card">
                 <div style="font-size: 2rem; margin-bottom: 10px;">🌳</div>
                 <p><strong>Dependency resolver</strong> with an optional tree view (for the visually inclined)</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🔗</div>
+                <p><strong>Missing dependency checker</strong> — validates runtime dependencies are available on the system; useful for catching broken kegs or library mismatches</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📝</div>
+                <p><strong>Description search</strong> — query by formula name, one-line description, or regex across both formulae and casks with flexible filtering</p>
             </div>
             <div class="feature-card">
                 <div style="font-size: 2rem; margin-bottom: 10px;">🩺</div>
@@ -532,9 +552,17 @@ eval "$(/opt/homegrew/bin/grew shellenv)"</code></pre>
     <section id="roadmap">
         <h3>🗺️ Roadmap</h3>
         <p>Got ideas? Bugs? Grievances? → <a href="https://github.com/homegrew/grew/issues" target="_blank">Open an issue</a></p>
-        <p>Hot takes on the list:</p>
+
+        <h4>✅ Recently Completed</h4>
         <ul>
-            <li>Build vs Runtime Dependency distinction</li>
+            <li><strong>Linker & Symlink Management:</strong> Ownership tracking prevents accidental overwrites; version-family conflict guard blocks incompatible family members from both claiming shared links</li>
+            <li><strong>Dependency Resolver:</strong> Structured <code>DepKind</code> enum (Runtime, Build, Test, Optional, Recommended), topological sort with Kahn's algorithm, cycle detection with path reporting</li>
+            <li><strong>Comprehensive Documentation:</strong> Expanded <a href="https://github.com/homegrew/grew/blob/main/docs/tech.md" target="_blank">technical documentation</a> with 8 new sections covering architecture, formula definitions, installation flow, tap management, download/caching, logging/audit trails, error handling, and testing</li>
+        </ul>
+
+        <h4>🚀 Coming Soon</h4>
+        <ul>
+            <li>Build vs Runtime Dependency distinction (runtime filtering)</li>
             <li>SLSA provenance attestations for bottles</li>
             <li>Content-addressable bottle storage</li>
             <li>Windows support (one day, probably, maybe)</li>
