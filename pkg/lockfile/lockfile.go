@@ -8,7 +8,9 @@ import (
 	"sort"
 
 	"github.com/homegrew/grew/pkg/cellar"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/formula"
+	"github.com/homegrew/grew/pkg/fsutil"
 	"github.com/homegrew/grew/pkg/snapshot"
 )
 
@@ -39,14 +41,14 @@ type Discrepancy struct {
 }
 
 // LockFilePath returns the path to the lockfile for the given grew root.
-func LockFilePath(grewRoot string) string {
-	return filepath.Join(grewRoot, LockFileName)
+func LockFilePath(ctx *context.Context) string {
+	return filepath.Join(ctx.Paths.Locks, LockFileName)
 }
 
 // Load reads and parses the lockfile. Returns an empty LockFile (not an error)
 // if the file does not exist.
-func Load(grewRoot string) (*LockFile, error) {
-	path := LockFilePath(grewRoot)
+func Load(ctx *context.Context) (*LockFile, error) {
+	path := LockFilePath(ctx)
 	data, err := os.ReadFile(path)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -66,36 +68,18 @@ func Load(grewRoot string) (*LockFile, error) {
 }
 
 // Save atomically writes the lockfile with sorted keys and indented JSON.
-func Save(lf *LockFile, grewRoot string) error {
+func Save(ctx *context.Context, lf *LockFile) error {
 	data, err := marshalSorted(lf)
 	if err != nil {
 		return fmt.Errorf("marshal lockfile: %w", err)
 	}
 
-	dest := LockFilePath(grewRoot)
-	dir := filepath.Dir(dest)
+	dest := LockFilePath(ctx)
+	if errWrite := fsutil.WriteFileAtomic(dest, data, 0644); errWrite != nil {
+		return fmt.Errorf("failed to write lock file %q: %w", dest, errWrite)
+	}
 
-	tmp, err := os.CreateTemp(dir, ".grew-lock-tmp-*")
-	if err != nil {
-		return fmt.Errorf("create temp lockfile: %w", err)
-	}
-	tmpPath := tmp.Name()
-
-	if _, err := tmp.Write(data); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return fmt.Errorf("write temp lockfile: %w", err)
-	}
-	if err := tmp.Chmod(0644); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := tmp.Close(); err != nil {
-		os.Remove(tmpPath)
-		return err
-	}
-	return os.Rename(tmpPath, dest)
+	return nil
 }
 
 // marshalSorted produces JSON with entries sorted by name for deterministic output.
@@ -144,9 +128,8 @@ func marshalSorted(lf *LockFile) ([]byte, error) {
 
 // Generate walks the cellar and builds a complete lockfile from the currently
 // installed state. Snapshot manifests are read where available.
-func Generate(grewRoot string, cellarPath string) (*LockFile, error) {
-	cel := &cellar.Cellar{Path: cellarPath}
-	pkgs, err := cel.List()
+func Generate(ctx *context.Context) (*LockFile, error) {
+	pkgs, err := ctx.Cellar.List()
 	if err != nil {
 		return nil, fmt.Errorf("list cellar: %w", err)
 	}
@@ -163,7 +146,7 @@ func Generate(grewRoot string, cellarPath string) (*LockFile, error) {
 			Platform: platform,
 		}
 
-		kegPath, err := cel.KegPath(pkg.Name, pkg.Version)
+		kegPath, err := ctx.Cellar.KegPath(pkg.Name, pkg.Version)
 		if err == nil && snapshot.Exists(kegPath) {
 			m, err := snapshot.Load(kegPath)
 			if err == nil {
@@ -183,8 +166,8 @@ func Generate(grewRoot string, cellarPath string) (*LockFile, error) {
 
 // Check compares the lockfile against the currently installed packages and
 // returns any discrepancies found.
-func Check(lf *LockFile, cellarPath string) ([]Discrepancy, error) {
-	cel := &cellar.Cellar{Path: cellarPath}
+func Check(ctx *context.Context, lf *LockFile) ([]Discrepancy, error) {
+	cel := ctx.Cellar
 	pkgs, err := cel.List()
 	if err != nil {
 		return nil, fmt.Errorf("list cellar: %w", err)

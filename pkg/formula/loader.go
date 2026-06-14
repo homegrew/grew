@@ -2,11 +2,11 @@ package formula
 
 import (
 	"fmt"
-	"github.com/homegrew/grew/pkg/safepath"
 	"os"
 	"path/filepath"
-
 	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 type Loader struct {
@@ -25,12 +25,6 @@ func NewLoader(tapDir string) *Loader {
 		tapDir = ""
 	}
 	return &Loader{TapDir: tapDir}
-}
-
-func (l *Loader) debugf(format string, args ...any) {
-	if l.DebugLog != nil {
-		l.DebugLog(format, args...)
-	}
 }
 
 // safeTapPath resolves and validates p, ensuring it remains within l.TapDir.
