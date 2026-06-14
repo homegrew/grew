@@ -527,9 +527,34 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 			continue
 		}
 		if app, ok := obj["app"]; ok {
-			var apps []string
-			if err := json.Unmarshal(app, &apps); err == nil {
-				res.App = append(res.App, apps...)
+			// An app artifact is an array whose elements are either the
+			// ".app" filename (string) or an option object such as
+			// {"target": "Renamed.app"}. The target, when present, renames
+			// the app in /Applications and is the name that actually lands
+			// on disk. Unmarshal element-by-element so a trailing options
+			// object doesn't abort parsing of the whole array.
+			var appArr []json.RawMessage
+			if err := json.Unmarshal(app, &appArr); err == nil {
+				name := ""
+				for _, el := range appArr {
+					var s string
+					if err := json.Unmarshal(el, &s); err == nil {
+						if name != "" {
+							res.App = append(res.App, name)
+						}
+						name = s
+						continue
+					}
+					var opts map[string]string
+					if err := json.Unmarshal(el, &opts); err == nil {
+						if t, ok := opts["target"]; ok {
+							name = t
+						}
+					}
+				}
+				if name != "" {
+					res.App = append(res.App, name)
+				}
 			}
 		}
 		if pkg, ok := obj["pkg"]; ok {
