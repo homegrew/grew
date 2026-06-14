@@ -53,7 +53,13 @@ func RunSudoCmd(executable string, args ...string) error {
 
 	cmdArgs := []string{"-A", "--", executable}
 	cmdArgs = append(cmdArgs, args...)
-	cmd := exec.Command("/usr/bin/sudo", cmdArgs...)
+
+	sudoPath, err := exec.LookPath("sudo")
+	if err != nil {
+		return fmt.Errorf("failed to locate sudo binary: %w", err)
+	}
+
+	cmd := exec.Command(sudoPath, cmdArgs...)
 
 	// Pass through stdout/stderr
 	cmd.Stdout = os.Stdout
