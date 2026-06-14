@@ -309,28 +309,6 @@ func (l *Linker) hasBinLinks(other string) bool {
 	}
 	binAbs = filepath.Clean(binAbs)
 
-	// Guard against path-injection: Root must be a trusted install location.
-	// Accept either the platform system prefix or a user-local prefix under $HOME.
-	trustedRoot := false
-	sysRoot := filepath.Clean(config.DefaultPrefix())
-	if sysRoot != "" && (rootAbs == sysRoot || strings.HasPrefix(rootAbs, sysRoot+string(filepath.Separator))) {
-		trustedRoot = true
-	}
-	if !trustedRoot {
-		if home, err := os.UserHomeDir(); err == nil && home != "" {
-			homeAbs, err := filepath.Abs(home)
-			if err == nil {
-				homeAbs = filepath.Clean(homeAbs)
-				if rootAbs == homeAbs || strings.HasPrefix(rootAbs, homeAbs+string(filepath.Separator)) {
-					trustedRoot = true
-				}
-			}
-		}
-	}
-	if !trustedRoot {
-		return false
-	}
-
 	// Guard against path-injection: Bin must be Root or a descendant of Root.
 	if binAbs != rootAbs && !strings.HasPrefix(binAbs, rootAbs+string(filepath.Separator)) {
 		return false
