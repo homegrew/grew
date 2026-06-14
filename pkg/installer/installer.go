@@ -138,7 +138,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 	// Apply OSV security gate before full download.
 	targetVer := rel.TagName
 	if res, err := CheckOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
-		slog.Warn(fmt.Sprintf("OSV query failed (proceeding): %v", err))
+		slog.Warn("OSV query failed (proceeding)", "error", err)
 	} else if res.Vulnerable {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
