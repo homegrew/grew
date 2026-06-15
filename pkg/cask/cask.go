@@ -9,7 +9,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 
