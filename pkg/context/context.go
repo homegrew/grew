@@ -36,7 +36,12 @@ type Context struct {
 	Caskroom *cask.Caskroom
 }
 
-// New initialises paths and the core tap, returning a shared context.
+// New initialises the default grew paths and, unless HOMEGREW_NO_INIT_TAP is
+// set, initialises the core tap, then returns a shared Context configured with
+// loaders, cellar, and caskroom paths.
+//
+// It returns an error if path initialisation fails, or if core tap
+// initialisation fails when tap initialisation is enabled.
 func New() (*Context, error) {
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
