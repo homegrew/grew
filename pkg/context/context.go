@@ -135,7 +135,7 @@ func (ctx *Context) ResolveKind(name string, forceCask, forceFormula bool) (isCa
 
 // slogDebugLog adapts a printf-style debug logger to slog.Debug. Shared by the
 // formula and cask loader constructors.
-var slogDebugLog = func(format string, args ...any) {
+func slogDebugLog(format string, args ...any) {
 	slog.Debug(fmt.Sprintf(format, args...))
 }
 
@@ -187,9 +187,26 @@ func (ctx *InstallContext) UninstallFormula(name string, force bool) error {
 		return nil
 	}
 
-	ver, _ := ctx.Cellar.InstalledVersion(name)
-	kegPath, _ := ctx.Cellar.KegPath(name, ver)
-	slog.Info("cellar path: " + kegPath)
+	ver, err := ctx.Cellar.InstalledVersion(name)
+	if err != nil {
+		if force {
+			slog.Warn(fmt.Sprintf("could not determine installed version for %s: %v", name, err))
+			ver = ""
+		} else {
+			return err
+		}
+	}
+
+	kegPath, err := ctx.Cellar.KegPath(name, ver)
+	if err != nil {
+		if force {
+			slog.Warn(fmt.Sprintf("could not determine keg path for %s: %v", name, err))
+		} else {
+			return err
+		}
+	} else {
+		slog.Info("cellar path: " + kegPath)
+	}
 
 	ui.FprintArrow(os.Stderr, "Unlinking %s...", name)
 	if err := ctx.Linker.Unlink(name); err != nil {
