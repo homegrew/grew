@@ -135,7 +135,7 @@ func (ctx *Context) ResolveKind(name string, forceCask, forceFormula bool) (isCa
 
 // slogDebugLog adapts a printf-style debug logger to slog.Debug. Shared by the
 // formula and cask loader constructors.
-var slogDebugLog = func(format string, args ...any) {
+func slogDebugLog(format string, args ...any) {
 	slog.Debug(fmt.Sprintf(format, args...))
 }
 
