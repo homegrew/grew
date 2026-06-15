@@ -69,7 +69,10 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 	if opts.DryRun {
 		fmt.Printf("Would link: %s -> %s\n", optLink, kegPath)
 	} else {
-		os.Remove(optLink)
+		if err := os.Remove(optLink); err != nil && !os.IsNotExist(err) {
+			slog.Error("failed to remove existing opt link", "link", optLink, "error", err)
+			return fmt.Errorf("remove existing opt link: %w", err)
+		}
 		if err := os.Symlink(kegPath, optLink); err != nil {
 			slog.Error("failed to create opt link", "link", optLink, "target", kegPath, "error", err)
 			return fmt.Errorf("create opt link: %w", err)
