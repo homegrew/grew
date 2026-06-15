@@ -191,7 +191,9 @@ func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 			if opts.DryRun {
 				fmt.Printf("Would unlink: %s -> %s\n", fullPath, resolved)
 			} else {
-				os.Remove(fullPath)
+				if err := os.Remove(fullPath); err != nil && !os.IsNotExist(err) {
+					return fmt.Errorf("remove %s: %w", fullPath, err)
+				}
 			}
 		}
 	}
