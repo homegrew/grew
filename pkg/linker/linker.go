@@ -139,7 +139,9 @@ func (l *Linker) UnlinkWithOpts(name string, opts UnlinkOpts) error {
 			fmt.Printf("Would unlink: %s -> %s\n", optLink, target)
 		}
 	} else {
-		os.Remove(optLink)
+		if err := os.Remove(optLink); err != nil && !os.IsNotExist(err) {
+			return fmt.Errorf("remove opt symlink %q: %w", optLink, err)
+		}
 	}
 
 	cellarPrefix := filepath.Join(l.Paths.Cellar, name) + string(filepath.Separator)
