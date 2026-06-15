@@ -9,6 +9,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 
@@ -234,6 +235,20 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
 		return nil, fmt.Errorf("invalid taps directory: %w", err)
 	}
+
+	trustedRoot, err := filepath.Abs(config.DefaultPrefix())
+	if err != nil {
+		return nil, fmt.Errorf("resolve trusted root: %w", err)
+	}
+	trustedRoot = filepath.Clean(trustedRoot)
+	if err := safepath.SafeAbsolutePath(trustedRoot); err != nil {
+		return nil, fmt.Errorf("invalid trusted root: %w", err)
+	}
+	relToRoot, relErr := filepath.Rel(trustedRoot, tapDir)
+	if relErr != nil || relToRoot == ".." || strings.HasPrefix(relToRoot, ".."+string(os.PathSeparator)) || filepath.IsAbs(relToRoot) {
+		return nil, fmt.Errorf("invalid taps directory outside trusted root: %q", tapDir)
+	}
+
 	name = strings.TrimSuffix(name, ".yaml")
 	subdir := getSubdir(name)
 
