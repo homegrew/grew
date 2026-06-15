@@ -11,7 +11,7 @@
 | **Keg-only formulas** | Install but don't link into prefix | Same via `f.KegOnly` | Identical |
 | **Dependency resolution** | Topological sort (deps first) | Kahn's algorithm in `depgraph/` | Identical concept |
 | **Bottle install** | Download prebuilt → verify → extract → link | Same flow exactly | Very close |
-| **Source build** | `./configure && make && make install` in sandbox | Same 3-step in `installFormulaFromSource` | Similar |
+| **Source build** | `./configure && make && make install` in sandbox | Same 3-step in `installFormulaFromSource`, with optional `build.working_dir` and `build.configure`/`build.install` overrides | Similar |
 | **SHA256 verification** | Verify after download | `VerifySHA256()` after download | Identical |
 | **Post-install scripts** | Run after linking | Same, sandboxed | Close |
 | **`--skip-link` / `--skip-post-install`** | Supported | Supported | Identical |
@@ -51,7 +51,7 @@
 
 | Feature | Notes |
 |---|---|
-| **Ruby DSL formulas** | Brew formulas are full Ruby classes with `def install` blocks — arbitrary build logic. Grew's source builds are hardcoded to `./configure && make && make install` |
+| **Ruby DSL formulas** | Brew formulas are full Ruby classes with `def install` blocks — arbitrary build logic. Grew's source builds default to `./configure && make && make install`, with a `build:` section to override the configure/install commands and select a working subdirectory, but no arbitrary build logic |
 | **Patches** | Brew supports inline/remote patches via `patch do ... end`. Grew has no patching system |
 | **Build environment** | Brew sets up `superenv`/`stdenv` with compiler wrappers, rpath fixups, `-isysroot` injection. Grew passes through a clean env but no compiler wrapping |
 | **Options/variants** | Brew had `--with-*` / `--without-*` options (deprecated but existed). Grew has none |
@@ -66,6 +66,6 @@
 
 The main gaps are:
 
-1. **Build flexibility** — the hardcoded `configure/make/make install` vs brew's arbitrary Ruby DSL is the biggest functional gap
+1. **Build flexibility** — the `configure/make/make install` model (with `build:` overrides for commands and working subdirectory) vs brew's arbitrary Ruby DSL is the biggest functional gap
 2. **Ecosystem scale** — brew has thousands of formulas; grew is growing its core tap
 3. **Advanced metadata** — brew's build options, compiler info, and variant tracking via options (deprecated)

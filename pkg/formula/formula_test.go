@@ -84,6 +84,46 @@ install:
 	}
 }
 
+func TestParse_BuildWorkingDir(t *testing.T) {
+	yml := `
+name: tcl-tk
+version: "9.0.3"
+source:
+  url: "https://example.com/tcl9.0.3-src.tar.gz"
+  sha256: "2537ba0c86112c8c953f7c09d33f134dd45c0fb3a71f2d7f7691fd301d2c33a6"
+build:
+  working_dir: unix
+  configure: ["./configure", "--prefix={prefix}"]
+`
+	f, err := Parse([]byte(yml))
+	if err != nil {
+		t.Fatalf("expected valid formula with build.working_dir, got: %v", err)
+	}
+	if f.Build.WorkingDir != "unix" {
+		t.Fatalf("expected build.working_dir %q, got %q", "unix", f.Build.WorkingDir)
+	}
+}
+
+func TestParse_BuildWorkingDirTraversal(t *testing.T) {
+	yml := `
+name: testpkg
+version: "1.0"
+source:
+  url: "https://example.com/src.tar.gz"
+  sha256: "2537ba0c86112c8c953f7c09d33f134dd45c0fb3a71f2d7f7691fd301d2c33a6"
+build:
+  working_dir: "../escape"
+  configure: ["./configure"]
+`
+	_, err := Parse([]byte(yml))
+	if err == nil {
+		t.Fatal("expected validation error for build working_dir traversal")
+	}
+	if !strings.Contains(err.Error(), "working_dir") {
+		t.Fatalf("expected working_dir traversal error, got: %v", err)
+	}
+}
+
 func TestParse_InvalidInstallType(t *testing.T) {
 	yml := `
 name: testpkg

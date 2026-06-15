@@ -124,6 +124,7 @@ A unified tool used to bootstrap and maintain the core formula and cask reposito
 - **Formula Import**: Fetches Homebrew formulas, maps platforms, picks appropriate bottles, and generates `grew`-compatible YAML files.
 - **Cask Import**: Fetches Homebrew casks, extracts macOS-specific app/binary artifacts, and converts them into `grew` YAML format.
 - **Consistency**: It utilizes the internal `grew` domain models to ensure the generated definitions are valid and follow current schema standards. The output leverages `omitempty` serialization to produce clean, concise YAML without empty fields.
+- **Build overrides**: Homebrew encodes build logic as arbitrary Ruby (`def install`), so details such as "the configure script lives under `unix/`" cannot be derived from the JSON API. `overrides.go` holds a per-formula `build:` override table (`formulaBuildOverrides`) that reinstates these for the formulas grew builds from source (e.g. `tcl-tk → working_dir: unix`). Overrides only fill fields the conversion left empty.
 
 ### `patcher`
 A developer tool used to generate and verify binary delta patches between releases.
@@ -407,7 +408,7 @@ The installation process follows a deterministic sequence designed to maximize s
 4. **Source Build** (if no bottle or `--build-from-source`):
    - Download the source archive.
    - Extract to a temporary build directory with Seatbelt sandbox isolation.
-   - Run `./configure && make && make install DESTDIR=<keg>`.
+   - Run `./configure && make && make install DESTDIR=<keg>` (the configure and install commands, plus the working subdirectory, are overridable via the formula's `build:` section).
    - Execute any declared lifecycle hooks with restricted environment and I/O.
 5. **Linking**: Call `Linker.LinkWithOpts()` to create symlinks in the prefix, detecting and preventing version-family conflicts.
 6. **Post-Install**: Run post-install script (if declared) in a sandbox with the keg read-only.
