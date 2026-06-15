@@ -211,6 +211,13 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		return err
 	}
 
+	if err := safepath.SafePathComponent(f.Name); err != nil {
+		return fmt.Errorf("invalid formula name %q: %w", f.Name, err)
+	}
+	if err := safepath.SafePathComponent(f.Version); err != nil {
+		return fmt.Errorf("invalid formula version %q: %w", f.Version, err)
+	}
+
 	ext := safepath.URLExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
 
@@ -250,8 +257,23 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 
 	var depPaths []string
 	for _, dep := range f.Dependencies {
-		depCellar, _ := safepath.SafeJoin(paths.Cellar, dep)
-		depOpt, _ := safepath.SafeJoin(paths.Opt, dep)
+		if err := safepath.SafePathComponent(dep); err != nil {
+			os.RemoveAll(buildDir)
+			os.Remove(localFile)
+			return fmt.Errorf("invalid dependency path component %q: %w", dep, err)
+		}
+		depCellar, err := safepath.SafeJoin(paths.Cellar, dep)
+		if err != nil {
+			os.RemoveAll(buildDir)
+			os.Remove(localFile)
+			return fmt.Errorf("invalid dependency cellar path %q: %w", dep, err)
+		}
+		depOpt, err := safepath.SafeJoin(paths.Opt, dep)
+		if err != nil {
+			os.RemoveAll(buildDir)
+			os.Remove(localFile)
+			return fmt.Errorf("invalid dependency opt path %q: %w", dep, err)
+		}
 		depPaths = append(depPaths, depCellar, depOpt)
 	}
 
