@@ -184,6 +184,34 @@ func InstallFormula(f *formula.Formula, ctx *grewctx.InstallContext, opts Instal
 	})
 }
 
+func canonicalSubpath(base, target string) (string, error) {
+	canonBase := filepath.Clean(base)
+	if eval, err := filepath.EvalSymlinks(canonBase); err == nil {
+		canonBase = filepath.Clean(eval)
+	}
+	if abs, err := filepath.Abs(canonBase); err == nil {
+		canonBase = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(canonBase); err != nil {
+		return "", fmt.Errorf("invalid base path %q: %w", canonBase, err)
+	}
+
+	canonTarget := filepath.Clean(target)
+	if eval, err := filepath.EvalSymlinks(canonTarget); err == nil {
+		canonTarget = filepath.Clean(eval)
+	}
+	if abs, err := filepath.Abs(canonTarget); err == nil {
+		canonTarget = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(canonTarget); err != nil {
+		return "", fmt.Errorf("invalid target path %q: %w", canonTarget, err)
+	}
+	if err := safepath.CheckSubpath(canonBase, canonTarget); err != nil {
+		return "", err
+	}
+	return canonTarget, nil
+}
+
 func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, opts InstallOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
@@ -226,11 +254,9 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		return fmt.Errorf("download source %s: %w", f.Name, err)
 	}
 
-	if err := safepath.SafeAbsolutePath(localFile); err != nil {
+	localFile, err = canonicalSubpath(paths.Tmp, localFile)
+	if err != nil {
 		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
-	}
-	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
-		return fmt.Errorf("downloaded file path escsapes temp directory: %w", err)
 	}
 
 	if err := VerifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
