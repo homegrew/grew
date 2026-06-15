@@ -66,15 +66,23 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 
 	// Always create opt symlink
 	optLink := filepath.Join(l.Paths.Opt, name)
+	absOptLink, err := filepath.Abs(optLink)
+	if err != nil {
+		return fmt.Errorf("resolve opt link path: %w", err)
+	}
+	absOptLink = filepath.Clean(absOptLink)
+	if !safepath.IsSubpath(l.Paths.Opt, absOptLink) || !safepath.IsSubpath(l.Paths.Root, absOptLink) {
+		return fmt.Errorf("refusing to operate outside managed prefix: %s", absOptLink)
+	}
 	if opts.DryRun {
-		fmt.Printf("Would link: %s -> %s\n", optLink, kegPath)
+		fmt.Printf("Would link: %s -> %s\n", absOptLink, kegPath)
 	} else {
-		if err := os.Remove(optLink); err != nil && !os.IsNotExist(err) {
-			slog.Error("failed to remove existing opt link", "link", optLink, "error", err)
+		if err := os.Remove(absOptLink); err != nil && !os.IsNotExist(err) {
+			slog.Error("failed to remove existing opt link", "link", absOptLink, "error", err)
 			return fmt.Errorf("remove existing opt link: %w", err)
 		}
-		if err := os.Symlink(kegPath, optLink); err != nil {
-			slog.Error("failed to create opt link", "link", optLink, "target", kegPath, "error", err)
+		if err := os.Symlink(kegPath, absOptLink); err != nil {
+			slog.Error("failed to create opt link", "link", absOptLink, "target", kegPath, "error", err)
 			return fmt.Errorf("create opt link: %w", err)
 		}
 	}
