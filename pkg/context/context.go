@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	goruntime "runtime"
 	"strings"
 
 	"github.com/homegrew/grew/pkg/auditlog"
@@ -241,9 +242,19 @@ func canonicalPath(p string) (string, error) {
 	return filepath.Clean(abs), nil
 }
 
+func trustedSystemRoot() string {
+	if goruntime.GOOS == "darwin" {
+		return "/opt/homegrew"
+	}
+	return "/home/linuxbrew/.linuxbrew"
+}
+
 func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err := safepath.SafeAbsolutePath(paths.Root); err != nil {
 		return nil, fmt.Errorf("invalid root directory %q: %w", paths.Root, err)
+	}
+	if filepath.Clean(paths.Root) != trustedSystemRoot() {
+		return nil, fmt.Errorf("invalid root directory %q: must be system prefix %q", paths.Root, trustedSystemRoot())
 	}
 	if err := safepath.SafeAbsolutePath(paths.Locks); err != nil {
 		return nil, fmt.Errorf("invalid locks directory %q: %w", paths.Locks, err)
