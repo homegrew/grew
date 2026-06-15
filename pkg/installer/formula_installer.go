@@ -258,6 +258,14 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 	if err != nil {
 		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
 	}
+	safeLocalName := filepath.Base(safeLocalFile)
+	if err := safepath.SafePathComponent(safeLocalName); err != nil {
+		return fmt.Errorf("invalid downloaded file name %q: %w", safeLocalName, err)
+	}
+	safeLocalFile, err = safepath.SafeJoin(paths.Tmp, safeLocalName)
+	if err != nil {
+		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
+	}
 
 	if err := VerifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
 		if subErr := safepath.CheckSubpath(paths.Tmp, safeLocalFile); subErr != nil {
