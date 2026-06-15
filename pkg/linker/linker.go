@@ -322,6 +322,7 @@ func (l *Linker) hasBinLinks(other string) bool {
 		// Fail closed: an unexpected read error must not let the conflict guard
 		// silently pass and permit a double-link. Conservatively report that the
 		// family member owns bin links so the caller refuses to link.
+		slog.Warn("linker: unable to inspect bin directory for existing links; refusing to link conservatively", "bin", binAbs, "error", err)
 		return true
 	}
 	for _, e := range entries {
