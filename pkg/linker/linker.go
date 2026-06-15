@@ -75,14 +75,14 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 		return fmt.Errorf("refusing to operate outside managed prefix: %s", absOptLink)
 	}
 	if opts.DryRun {
-		fmt.Printf("Would link: %s -> %s\n", absOptLink, kegPath)
+		fmt.Printf("Would link: %s -> %s\n", absOptLink, realKeg)
 	} else {
 		if err := os.Remove(absOptLink); err != nil && !os.IsNotExist(err) {
 			slog.Error("failed to remove existing opt link", "link", absOptLink, "error", err)
 			return fmt.Errorf("remove existing opt link: %w", err)
 		}
-		if err := os.Symlink(kegPath, absOptLink); err != nil {
-			slog.Error("failed to create opt link", "link", absOptLink, "target", kegPath, "error", err)
+		if err := os.Symlink(realKeg, absOptLink); err != nil {
+			slog.Error("failed to create opt link", "link", absOptLink, "target", realKeg, "error", err)
 			return fmt.Errorf("create opt link: %w", err)
 		}
 	}
