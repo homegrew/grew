@@ -187,8 +187,15 @@ func (ctx *InstallContext) UninstallFormula(name string, force bool) error {
 	slog.Info("cellar path: " + kegPath)
 
 	ui.FprintArrow(os.Stderr, "Unlinking %s...", name)
-	ctx.Linker.Unlink(name)
-	slog.Info("removed symlinks from bin/, lib/, include/, opt/")
+	if err := ctx.Linker.Unlink(name); err != nil {
+		if force {
+			slog.Warn(fmt.Sprintf("ignoring error while unlinking %s: %v", name, err))
+		} else {
+			return err
+		}
+	} else {
+		slog.Info("removed symlinks from bin/, lib/, include/, opt/")
+	}
 
 	ui.FprintArrow(os.Stderr, "Removing %s...", name)
 	if err := ctx.Cellar.Uninstall(name); err != nil {
