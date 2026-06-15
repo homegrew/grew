@@ -141,11 +141,12 @@ Restart your terminal, and `grew` is completely gone.
 For an in-depth look at how `grew` installs itself, its self-update mechanism, and the developer mode, check out the [Architecture & Technical Details](docs/tech.md).
 
 ```bash
-grew i jq nmap               # install multiple formulas (alias 'i')
+grew i jq nmap firefox       # install several packages, kind auto-detected (alias 'i')
 grew install --force jq      # force reinstall even if already installed
 grew install -s ldns         # build from source, like a purist
 grew install --force-bottle jq  # pour a bottle (current or newest macOS), never build
-grew install --cask firefox  # going big
+grew install --formula node  # pin: treat every argument as a formula
+grew install --cask firefox  # pin: treat every argument as a cask
 grew casks                   # list all available casks
 grew formulae                # list all available formulae
 grew link jq                 # stitch it in
@@ -184,7 +185,7 @@ grew missing --hide=openssl@3,readline    # hide multiple formulae (comma-separa
 
 | Command | What it does |
 |---|---|
-| `install, i` | Install formulas or casks (`-f` to force, `-s` to build from source, `--force-bottle` to force a bottle) |
+| `install, i` | Install one or more formulas or casks; each argument is auto-detected (`--formula`/`--cask` to pin every argument to one kind, `-f` to force, `-s` to build from source, `--force-bottle` to force a bottle) |
 | `uninstall, rm` | Send formulas or casks to the void (`-f` to ignore missing or errors, delete all versions) |
 | `autoremove` | Transitively uninstall formulae that were only installed as a dependency and are no longer needed — removes the full orphan chain in one run (`--dry-run` supported) |
 | `list, ls` | See what you've collected |
