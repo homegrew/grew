@@ -263,7 +263,7 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "cask", caskName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "cask", subdir, caskName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Casks", caskName+".yaml")...)...))
-		paths = append(paths, filepath.Join(append([]string{tapDir}, append(tapPath, "Casks", subdir, caskName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Casks", subdir, caskName+".yaml")...)...))
 
 		for _, path := range paths {
 			rel, relErr := filepath.Rel(tapDir, path)
