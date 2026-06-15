@@ -90,4 +90,4 @@ build-fat-binary:
 .PHONY: distclean
 distclean: clean
 	rm -rf .codeql-db/ .codeql-results/ .tmpcache/ \
-		grew grew_arm64 grew_amd64 grew_universal
+		grew_arm64 grew_amd64 grew_universal patcher genrepo
