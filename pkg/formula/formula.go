@@ -66,8 +66,20 @@ type HeadSpec struct {
 }
 
 type BuildSpec struct {
+	// WorkingDir is an optional subdirectory of the extracted source tree in
+	// which the configure/make/install steps run. Projects such as tcl-tk keep
+	// their configure script under a subdirectory (e.g. "unix"); set this to
+	// that path. Empty means the source-tree root. Must be a relative path
+	// without ".." traversal.
+	WorkingDir string `yaml:"working_dir,omitempty"`
+	// Configure overrides the default `./configure --prefix=<keg>` invocation.
+	// The first element is the program, the rest its arguments. Use the
+	// "{prefix}" placeholder to reference the keg install prefix.
 	Configure []string `yaml:"configure,omitempty"`
-	Install   []string `yaml:"install,omitempty"`
+	// Install overrides the default `make install` invocation. Same argv and
+	// "{prefix}" placeholder rules as Configure. The intermediate `make` build
+	// step always runs.
+	Install []string `yaml:"install,omitempty"`
 }
 
 type ArtifactsSpec struct {
@@ -532,6 +544,9 @@ func (f *Formula) Validate() error {
 		if err := safepath.SafePathComponent(f.Install.Format); err != nil {
 			return fmt.Errorf("formula %q has invalid install format: %w", f.Name, err)
 		}
+	}
+	if f.Build.WorkingDir != "" && strings.Contains(f.Build.WorkingDir, "..") {
+		return fmt.Errorf("formula %q has invalid build working_dir (contains traversals)", f.Name)
 	}
 	if f.Service != nil {
 		if f.Service.WorkingDir != "" && strings.Contains(f.Service.WorkingDir, "..") {
