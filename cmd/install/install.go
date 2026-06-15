@@ -1,6 +1,7 @@
 package install
 
 import (
+	"errors"
 	"fmt"
 	"log/slog"
 	"os"
@@ -82,19 +83,19 @@ func RunInstall(args []string) error {
 	slog.Debug("starting install command execution")
 
 	if installOnlyDependencies && installIgnoreDeps {
-		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
+		return errors.New("--only-dependencies and --ignore-dependencies are mutually exclusive")
 	}
 
 	if installBuildFromSource && installForceBottle {
-		return fmt.Errorf("--build-from-source and --force-bottle are mutually exclusive")
+		return errors.New("--build-from-source and --force-bottle are mutually exclusive")
 	}
 
 	if installCask && installFormula {
-		return fmt.Errorf("--cask and --formula are mutually exclusive")
+		return errors.New("--cask and --formula are mutually exclusive")
 	}
 
 	if len(args) == 0 {
-		return fmt.Errorf("usage: grew install [flags] <formula|cask>...")
+		return errors.New("usage: grew install [flags] <formula|cask>...")
 	}
 
 	// When every argument is pinned to a cask, reject formula-only flags up
@@ -160,13 +161,13 @@ func resolveInstallKind(ctx *context.InstallContext, name string) (bool, error) 
 func caskFlagConflicts() error {
 	switch {
 	case installBuildFromSource:
-		return fmt.Errorf("--build-from-source is not supported for casks")
+		return errors.New("--build-from-source is not supported for casks")
 	case installForceBottle:
-		return fmt.Errorf("--force-bottle is not supported for casks")
+		return errors.New("--force-bottle is not supported for casks")
 	case installOnlyDependencies:
-		return fmt.Errorf("--only-dependencies is not supported for casks")
+		return errors.New("--only-dependencies is not supported for casks")
 	case installIgnoreDeps:
-		return fmt.Errorf("--ignore-dependencies is not supported for casks")
+		return errors.New("--ignore-dependencies is not supported for casks")
 	}
 	return nil
 }
