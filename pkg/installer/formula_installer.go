@@ -254,13 +254,13 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		return fmt.Errorf("download source %s: %w", f.Name, err)
 	}
 
-	localFile, err = canonicalSubpath(paths.Tmp, localFile)
+	safeLocalFile, err := canonicalSubpath(paths.Tmp, localFile)
 	if err != nil {
 		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
 	}
 
 	if err := VerifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
-		os.Remove(localFile)
+		os.Remove(safeLocalFile)
 		return err
 	}
 
@@ -270,21 +270,21 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 	}
 	os.RemoveAll(buildDir)
 	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
-	if err := SandboxedExtract(localFile, buildDir, srcSpec); err != nil {
+	if err := SandboxedExtract(safeLocalFile, buildDir, srcSpec); err != nil {
 		os.RemoveAll(buildDir)
-		os.Remove(localFile)
+		os.Remove(safeLocalFile)
 		return fmt.Errorf("extract source %s: %w", f.Name, err)
 	}
 
 	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
 	if err != nil {
 		os.RemoveAll(buildDir)
-		os.Remove(localFile)
+		os.Remove(safeLocalFile)
 		return fmt.Errorf("keg path %s: %w", f.Name, err)
 	}
 	if err := os.MkdirAll(kegPath, 0755); err != nil {
 		os.RemoveAll(buildDir)
-		os.Remove(localFile)
+		os.Remove(safeLocalFile)
 		return fmt.Errorf("create keg dir: %w", err)
 	}
 
@@ -292,19 +292,19 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 	for _, dep := range f.Dependencies {
 		if err := safepath.SafePathComponent(dep); err != nil {
 			os.RemoveAll(buildDir)
-			os.Remove(localFile)
+			os.Remove(safeLocalFile)
 			return fmt.Errorf("invalid dependency path component %q: %w", dep, err)
 		}
 		depCellar, err := safepath.SafeJoin(paths.Cellar, dep)
 		if err != nil {
 			os.RemoveAll(buildDir)
-			os.Remove(localFile)
+			os.Remove(safeLocalFile)
 			return fmt.Errorf("invalid dependency cellar path %q: %w", dep, err)
 		}
 		depOpt, err := safepath.SafeJoin(paths.Opt, dep)
 		if err != nil {
 			os.RemoveAll(buildDir)
-			os.Remove(localFile)
+			os.Remove(safeLocalFile)
 			return fmt.Errorf("invalid dependency opt path %q: %w", dep, err)
 		}
 		depPaths = append(depPaths, depCellar, depOpt)
