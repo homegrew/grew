@@ -71,18 +71,33 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 		return fmt.Errorf("resolve opt link path: %w", err)
 	}
 	absOptLink = filepath.Clean(absOptLink)
-	if !safepath.IsSubpath(l.Paths.Opt, absOptLink) || !safepath.IsSubpath(l.Paths.Root, absOptLink) {
-		return fmt.Errorf("refusing to operate outside managed prefix: %s", absOptLink)
+
+	realRoot, err := filepath.EvalSymlinks(l.Paths.Root)
+	if err != nil {
+		return fmt.Errorf("resolve root path: %w", err)
+	}
+	realOptDir, err := filepath.EvalSymlinks(l.Paths.Opt)
+	if err != nil {
+		return fmt.Errorf("resolve opt dir path: %w", err)
+	}
+	realOptParent, err := filepath.EvalSymlinks(filepath.Dir(absOptLink))
+	if err != nil {
+		return fmt.Errorf("resolve opt link parent path: %w", err)
+	}
+	realAbsOptLink := filepath.Join(realOptParent, filepath.Base(absOptLink))
+
+	if !safepath.IsSubpath(realOptDir, realAbsOptLink) || !safepath.IsSubpath(realRoot, realAbsOptLink) {
+		return fmt.Errorf("refusing to operate outside managed prefix: %s", realAbsOptLink)
 	}
 	if opts.DryRun {
-		fmt.Printf("Would link: %s -> %s\n", absOptLink, realKeg)
+		fmt.Printf("Would link: %s -> %s\n", realAbsOptLink, realKeg)
 	} else {
-		if err := os.Remove(absOptLink); err != nil && !os.IsNotExist(err) {
-			slog.Error("failed to remove existing opt link", "link", absOptLink, "error", err)
+		if err := os.Remove(realAbsOptLink); err != nil && !os.IsNotExist(err) {
+			slog.Error("failed to remove existing opt link", "link", realAbsOptLink, "error", err)
 			return fmt.Errorf("remove existing opt link: %w", err)
 		}
-		if err := os.Symlink(realKeg, absOptLink); err != nil {
-			slog.Error("failed to create opt link", "link", absOptLink, "target", realKeg, "error", err)
+		if err := os.Symlink(realKeg, realAbsOptLink); err != nil {
+			slog.Error("failed to create opt link", "link", realAbsOptLink, "target", realKeg, "error", err)
 			return fmt.Errorf("create opt link: %w", err)
 		}
 	}
