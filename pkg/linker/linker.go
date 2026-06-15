@@ -310,7 +310,7 @@ func (l *Linker) hasBinLinks(other string) bool {
 	binAbs = filepath.Clean(binAbs)
 
 	// Guard against path-injection: Bin must be Root or a descendant of Root.
-	if binAbs != rootAbs && !strings.HasPrefix(binAbs, rootAbs+string(filepath.Separator)) {
+	if !safepath.IsSubpath(rootAbs, binAbs) {
 		return false
 	}
 
