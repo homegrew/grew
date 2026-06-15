@@ -84,10 +84,10 @@ build-binary:
 .PHONY: build-fat-binary
 build-fat-binary:
 	GOOS=darwin GOARCH=amd64 $(GO) build -o grew_amd64 -trimpath -ldflags "-s -w -X main.Version=$(VERSION)"
-		GOOS=darwin GOARCH=arm64 $(GO) build -o grew_arn64 -trimpath -ldflags "-s -w -X main.Version=$(VERSION)"
-	lipo -create -output grew_universal grew_amd64 grew_arn64
+	GOOS=darwin GOARCH=arm64 $(GO) build -o grew_arm64 -trimpath -ldflags "-s -w -X main.Version=$(VERSION)"
+	lipo -create -output grew_universal grew_amd64 grew_arm64
 
 .PHONY: distclean
 distclean: clean
 	rm -rf .codeql-db/ .codeql-results/ .tmpcache/ \
-		grew grew_arn64 grew_amd64 grew_universal
+		grew grew_arm64 grew_amd64 grew_universal
