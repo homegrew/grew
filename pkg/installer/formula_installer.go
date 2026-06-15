@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/homegrew/grew/pkg/auditlog"
@@ -264,8 +265,32 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		os.RemoveAll(buildDir)
 	}
 
-	configure := sandbox.Command(sbCfg, "./configure", "--prefix="+kegPath)
-	configure.Dir = buildDir
+	// Build commands run in workDir, which defaults to the extracted source
+	// root but can be a subdirectory (f.Build.WorkingDir) for projects like
+	// tcl-tk whose configure script lives under "unix/".
+	workDir := buildDir
+	if f.Build.WorkingDir != "" {
+		workDir, err = safepath.SafeJoin(buildDir, f.Build.WorkingDir)
+		if err != nil {
+			os.RemoveAll(kegPath)
+			cleanup()
+			return fmt.Errorf("invalid build working_dir %q for %s: %w", f.Build.WorkingDir, f.Name, err)
+		}
+		if info, statErr := os.Stat(workDir); statErr != nil || !info.IsDir() {
+			os.RemoveAll(kegPath)
+			cleanup()
+			return fmt.Errorf("build working_dir %q not found in source tree for %s", f.Build.WorkingDir, f.Name)
+		}
+	}
+
+	// configure step: honor f.Build.Configure when set (with {prefix}
+	// expansion), otherwise the conventional ./configure --prefix=<keg>.
+	configureArgs := []string{"./configure", "--prefix=" + kegPath}
+	if len(f.Build.Configure) > 0 {
+		configureArgs = expandBuildVars(f.Build.Configure, kegPath)
+	}
+	configure := sandbox.Command(sbCfg, configureArgs[0], configureArgs[1:]...)
+	configure.Dir = workDir
 	configure.Stdout = os.Stdout
 	configure.Stderr = os.Stderr
 	if err := configure.Run(); err != nil {
@@ -275,7 +300,7 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 	}
 
 	makeCmd := sandbox.Command(sbCfg, "make")
-	makeCmd.Dir = buildDir
+	makeCmd.Dir = workDir
 	makeCmd.Stdout = os.Stdout
 	makeCmd.Stderr = os.Stderr
 	if err := makeCmd.Run(); err != nil {
@@ -284,8 +309,13 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		return fmt.Errorf("make %s: %w", f.Name, err)
 	}
 
-	makeInstall := sandbox.Command(sbCfg, "make", "install")
-	makeInstall.Dir = buildDir
+	// install step: honor f.Build.Install when set, otherwise `make install`.
+	installArgs := []string{"make", "install"}
+	if len(f.Build.Install) > 0 {
+		installArgs = expandBuildVars(f.Build.Install, kegPath)
+	}
+	makeInstall := sandbox.Command(sbCfg, installArgs[0], installArgs[1:]...)
+	makeInstall.Dir = workDir
 	makeInstall.Stdout = os.Stdout
 	makeInstall.Stderr = os.Stderr
 	if err := makeInstall.Run(); err != nil {
@@ -328,6 +358,18 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		auditDetail:    "source",
 		cleanup:        cleanup,
 	})
+}
+
+// expandBuildVars substitutes build-time placeholders in custom build command
+// arguments. Currently only "{prefix}" (the keg install prefix) is supported,
+// letting static formula definitions reference the dynamic keg path in custom
+// configure/install commands.
+func expandBuildVars(args []string, prefix string) []string {
+	out := make([]string, len(args))
+	for i, a := range args {
+		out[i] = strings.ReplaceAll(a, "{prefix}", prefix)
+	}
+	return out
 }
 
 func VerifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
@@ -446,4 +488,3 @@ func RunPostInstall(f *formula.Formula, kegPath string, skip bool) error {
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
 }
-

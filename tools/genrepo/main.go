@@ -113,6 +113,8 @@ func runFormulaImport(args []string) {
 			continue
 		}
 
+		applyFormulaOverrides(f)
+
 		if err := f.Validate(); err != nil {
 			slog.Warn("Skipping invalid formula", "name", f.Name, "error", err)
 			skipped++
