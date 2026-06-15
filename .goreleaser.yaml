@@ -4,27 +4,38 @@ version: 2
 
 before:
   hooks:
-    # You may remove this if you don't use go modules.
     - go mod tidy
 
 builds:
   - id: darwin-amd64
-    env: [CGO_ENABLED=0]
-    goos: [darwin]
-    goarch: [amd64]
-    flags: [-trimpath]
-    ldflags: [-s -w -X main.Version={{ .Version }}]
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+    goarch:
+      - amd64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.Version={{ .Version }}
     mod_timestamp: '{{ .CommitTimestamp }}'
   - id: darwin-arm64
-    env: [CGO_ENABLED=0]
-    goos: [darwin]
-    goarch: [arm64]
-    flags: [-trimpath]
-    ldflags: [-s -w -X main.Version={{ .Version }}]
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+    goarch:
+      - arm64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.Version={{ .Version }}
     mod_timestamp: '{{ .CommitTimestamp }}'
 
 universal_binaries:
-  - ids: [darwin-amd64, darwin-arm64]
+  - ids:
+      - darwin-amd64
+      - darwin-arm64
     replace: true
 
 archives:
