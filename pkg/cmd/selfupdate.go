@@ -79,6 +79,10 @@ func runSelfUpdate(_ []string) error {
 	fmt.Fprintln(os.Stderr, "==> Falling back to latest release full download...")
 	err = installer.InstallLatestRelease(exePath, &rels[0])
 	if err != nil {
+		if strings.Contains(err.Error(), "not found") {
+			fmt.Fprintln(os.Stderr,
+				"==> Hint: the release format changed. Run `grew setup` to reinstall.")
+		}
 		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rels[0].TagName, "", fmt.Sprintf("failed: %v", err))
 	}
 	return err

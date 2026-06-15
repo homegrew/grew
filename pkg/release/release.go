@@ -15,7 +15,6 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 
 	"github.com/homegrew/grew/pkg/config"
@@ -193,17 +192,7 @@ func FetchLatest() (*Release, error) {
 }
 
 func normalizePlatform() (osName, archName string) {
-	osName = runtime.GOOS
-	archName = runtime.GOARCH
-	switch osName {
-	case "darwin":
-		osName = "Darwin"
-	}
-	switch archName {
-	case "amd64":
-		archName = "x86_64"
-	}
-	return
+	return "Darwin", "all"
 }
 
 // AssetName returns the expected tarball name for the current platform.
