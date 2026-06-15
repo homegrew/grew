@@ -285,6 +285,9 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid lock file path: %w", err)
 	}
+	if err := safepath.CheckSubpath(locksCanon, lockAbs); err != nil {
+		return nil, fmt.Errorf("invalid lock file path %q: %w", lockAbs, err)
+	}
 
 	f, err := os.OpenFile(lockAbs, os.O_CREATE|os.O_RDWR, 0600)
 	if err != nil {
