@@ -260,6 +260,9 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 	}
 
 	if err := VerifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
+		if subErr := safepath.CheckSubpath(paths.Tmp, safeLocalFile); subErr != nil {
+			return fmt.Errorf("refusing to remove file outside temp directory %q: %w", safeLocalFile, subErr)
+		}
 		os.Remove(safeLocalFile)
 		return err
 	}
