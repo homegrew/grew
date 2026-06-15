@@ -37,7 +37,12 @@ type Context struct {
 	Caskroom *cask.Caskroom
 }
 
-// New initialises paths and the core tap, returning a shared context.
+// New initialises the default grew paths and, unless HOMEGREW_NO_INIT_TAP is
+// set, initialises the core tap, then returns a shared Context configured with
+// loaders, cellar, and caskroom paths.
+//
+// It returns an error if path initialisation fails, or if core tap
+// initialisation fails when tap initialisation is enabled.
 func New() (*Context, error) {
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
@@ -188,8 +193,15 @@ func (ctx *InstallContext) UninstallFormula(name string, force bool) error {
 	slog.Info("cellar path: " + kegPath)
 
 	ui.FprintArrow(os.Stderr, "Unlinking %s...", name)
-	ctx.Linker.Unlink(name)
-	slog.Info("removed symlinks from bin/, lib/, include/, opt/")
+	if err := ctx.Linker.Unlink(name); err != nil {
+		if force {
+			slog.Warn(fmt.Sprintf("ignoring error while unlinking %s: %v", name, err))
+		} else {
+			return err
+		}
+	} else {
+		slog.Info("removed symlinks from bin/, lib/, include/, opt/")
+	}
 
 	ui.FprintArrow(os.Stderr, "Removing %s...", name)
 	if err := ctx.Cellar.Uninstall(name); err != nil {
