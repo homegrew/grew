@@ -226,6 +226,14 @@ func getSubdir(name string) string {
 
 func (l *Loader) LoadByName(name string) (*Cask, error) {
 	l.debugf("loading cask by name: %q (tapDir: %s)", name, l.TapDir)
+	tapDir, err := filepath.Abs(l.TapDir)
+	if err != nil {
+		return nil, fmt.Errorf("resolve taps directory: %w", err)
+	}
+	tapDir = filepath.Clean(tapDir)
+	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
+		return nil, fmt.Errorf("invalid taps directory: %w", err)
+	}
 	name = strings.TrimSuffix(name, ".yaml")
 	subdir := getSubdir(name)
 
@@ -263,9 +271,13 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "cask", caskName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "cask", subdir, caskName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Casks", caskName+".yaml")...)...))
-		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Casks", subdir, caskName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{tapDir}, append(tapPath, "Casks", subdir, caskName+".yaml")...)...))
 
 		for _, path := range paths {
+			rel, relErr := filepath.Rel(tapDir, path)
+			if relErr != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
+				continue
+			}
 			c, err := l.loadFromFileWithPath(path)
 			if err == nil {
 				return c, nil
@@ -278,7 +290,7 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 		return nil, fmt.Errorf("invalid cask name: %q", name)
 	}
 
-	users, err := os.ReadDir(l.TapDir)
+	users, err := os.ReadDir(tapDir)
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
@@ -292,7 +304,7 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 			continue
 		}
 
-		userDir := filepath.Join(l.TapDir, user.Name())
+		userDir := filepath.Join(tapDir, user.Name())
 		l.debugf("checking user directory: %s", userDir)
 		repos, err := os.ReadDir(userDir)
 		if err != nil {
@@ -320,6 +332,10 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 			}
 
 			for _, path := range paths {
+				rel, relErr := filepath.Rel(tapDir, path)
+				if relErr != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
+					continue
+				}
 				l.debugf("trying path: %s", path)
 				c, err := l.loadFromFileWithPath(path)
 				if err == nil {
