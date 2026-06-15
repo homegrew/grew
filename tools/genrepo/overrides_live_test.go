@@ -64,7 +64,7 @@ func excerptStanzas(yaml string, headers ...string) string {
 	var b strings.Builder
 	in := false
 	for _, line := range strings.Split(yaml, "\n") {
-		topLevel := line != "" && line[0] != ' ' && line[0] != '\t'
+		topLevel := len(line) > 0 && line[0] != ' ' && line[0] != '\t'
 		if topLevel {
 			in = false
 			for _, h := range headers {
