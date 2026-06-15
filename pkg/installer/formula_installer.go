@@ -184,6 +184,34 @@ func InstallFormula(f *formula.Formula, ctx *grewctx.InstallContext, opts Instal
 	})
 }
 
+func canonicalSubpath(base, target string) (string, error) {
+	canonBase := filepath.Clean(base)
+	if eval, err := filepath.EvalSymlinks(canonBase); err == nil {
+		canonBase = filepath.Clean(eval)
+	}
+	if abs, err := filepath.Abs(canonBase); err == nil {
+		canonBase = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(canonBase); err != nil {
+		return "", fmt.Errorf("invalid base path %q: %w", canonBase, err)
+	}
+
+	canonTarget := filepath.Clean(target)
+	if eval, err := filepath.EvalSymlinks(canonTarget); err == nil {
+		canonTarget = filepath.Clean(eval)
+	}
+	if abs, err := filepath.Abs(canonTarget); err == nil {
+		canonTarget = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(canonTarget); err != nil {
+		return "", fmt.Errorf("invalid target path %q: %w", canonTarget, err)
+	}
+	if err := safepath.CheckSubpath(canonBase, canonTarget); err != nil {
+		return "", err
+	}
+	return canonTarget, nil
+}
+
 func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, opts InstallOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
@@ -211,6 +239,13 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		return err
 	}
 
+	if err := safepath.SafePathComponent(f.Name); err != nil {
+		return fmt.Errorf("invalid formula name %q: %w", f.Name, err)
+	}
+	if err := safepath.SafePathComponent(f.Version); err != nil {
+		return fmt.Errorf("invalid formula version %q: %w", f.Version, err)
+	}
+
 	ext := safepath.URLExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
 
@@ -219,8 +254,24 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		return fmt.Errorf("download source %s: %w", f.Name, err)
 	}
 
+	safeLocalFile, err := canonicalSubpath(paths.Tmp, localFile)
+	if err != nil {
+		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
+	}
+	safeLocalName := filepath.Base(safeLocalFile)
+	if err := safepath.SafePathComponent(safeLocalName); err != nil {
+		return fmt.Errorf("invalid downloaded file name %q: %w", safeLocalName, err)
+	}
+	safeLocalFile, err = safepath.SafeJoin(paths.Tmp, safeLocalName)
+	if err != nil {
+		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
+	}
+
 	if err := VerifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
-		os.Remove(localFile)
+		if subErr := safepath.CheckSubpath(paths.Tmp, safeLocalFile); subErr != nil {
+			return fmt.Errorf("refusing to remove file outside temp directory %q: %w", safeLocalFile, subErr)
+		}
+		os.Remove(safeLocalFile)
 		return err
 	}
 
@@ -230,28 +281,43 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 	}
 	os.RemoveAll(buildDir)
 	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
-	if err := SandboxedExtract(localFile, buildDir, srcSpec); err != nil {
+	if err := SandboxedExtract(safeLocalFile, buildDir, srcSpec); err != nil {
 		os.RemoveAll(buildDir)
-		os.Remove(localFile)
+		os.Remove(safeLocalFile)
 		return fmt.Errorf("extract source %s: %w", f.Name, err)
 	}
 
 	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
 	if err != nil {
 		os.RemoveAll(buildDir)
-		os.Remove(localFile)
+		os.Remove(safeLocalFile)
 		return fmt.Errorf("keg path %s: %w", f.Name, err)
 	}
 	if err := os.MkdirAll(kegPath, 0755); err != nil {
 		os.RemoveAll(buildDir)
-		os.Remove(localFile)
+		os.Remove(safeLocalFile)
 		return fmt.Errorf("create keg dir: %w", err)
 	}
 
 	var depPaths []string
 	for _, dep := range f.Dependencies {
-		depCellar, _ := safepath.SafeJoin(paths.Cellar, dep)
-		depOpt, _ := safepath.SafeJoin(paths.Opt, dep)
+		if err := safepath.SafePathComponent(dep); err != nil {
+			os.RemoveAll(buildDir)
+			os.Remove(safeLocalFile)
+			return fmt.Errorf("invalid dependency path component %q: %w", dep, err)
+		}
+		depCellar, err := safepath.SafeJoin(paths.Cellar, dep)
+		if err != nil {
+			os.RemoveAll(buildDir)
+			os.Remove(safeLocalFile)
+			return fmt.Errorf("invalid dependency cellar path %q: %w", dep, err)
+		}
+		depOpt, err := safepath.SafeJoin(paths.Opt, dep)
+		if err != nil {
+			os.RemoveAll(buildDir)
+			os.Remove(safeLocalFile)
+			return fmt.Errorf("invalid dependency opt path %q: %w", dep, err)
+		}
 		depPaths = append(depPaths, depCellar, depOpt)
 	}
 
