@@ -144,7 +144,10 @@ func (l *Linker) UnlinkWithOpts(name string, opts UnlinkOpts) error {
 		return fmt.Errorf("invalid formula name: %q", name)
 	}
 
-	optLink := filepath.Join(l.Paths.Opt, name)
+	optLink := filepath.Clean(filepath.Join(l.Paths.Opt, name))
+	if !safepath.IsSubpath(l.Paths.Opt, optLink) {
+		return fmt.Errorf("refusing to unlink path outside opt directory: %q", optLink)
+	}
 	if opts.DryRun {
 		if target, err := os.Readlink(optLink); err == nil {
 			fmt.Printf("Would unlink: %s -> %s\n", optLink, target)
