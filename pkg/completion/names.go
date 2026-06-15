@@ -3,6 +3,7 @@ package completion
 import (
 	"encoding/json"
 	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/homegrew/grew/pkg/homebrew"
@@ -35,6 +36,15 @@ func New(cacheDir string) *NamesCache {
 		if err != nil {
 			return &NamesCache{}
 		}
+	}
+
+	if abs, err := filepath.Abs(cacheDir); err == nil {
+		cacheDir = filepath.Clean(abs)
+	} else {
+		return &NamesCache{}
+	}
+	if err := safepath.SafeAbsolutePath(cacheDir); err != nil {
+		return &NamesCache{}
 	}
 
 	return &NamesCache{dir: cacheDir}
