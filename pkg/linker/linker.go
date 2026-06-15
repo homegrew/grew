@@ -376,6 +376,50 @@ func isOwnedBy(cellarPath, formulaName, destDir, symlinkTarget string) bool {
 	return strings.HasPrefix(resolved, expected)
 }
 
+// configuredAllowedRoots returns allowed roots from environment or secure defaults.
+func configuredAllowedRoots() []string {
+	if raw := strings.TrimSpace(os.Getenv("HOMEGREW_ALLOWED_ROOTS")); raw != "" {
+		parts := strings.Split(raw, string(os.PathListSeparator))
+		roots := make([]string, 0, len(parts))
+		for _, p := range parts {
+			p = strings.TrimSpace(p)
+			if p != "" {
+				roots = append(roots, p)
+			}
+		}
+		if len(roots) > 0 {
+			return roots
+		}
+	}
+	return []string{"/usr/local/homegrew", "/opt/homegrew"}
+}
+
+func normalizeAndValidateAllowedRoots(roots []string) []string {
+	allowed := make([]string, 0, len(roots))
+	for _, r := range roots {
+		abs, err := filepath.Abs(r)
+		if err != nil {
+			continue
+		}
+		abs = filepath.Clean(abs)
+		if err := safepath.SafeAbsolutePath(abs); err != nil {
+			continue
+		}
+		allowed = append(allowed, abs)
+	}
+	return allowed
+}
+
+func isAllowedRoot(root string) bool {
+	allowed := normalizeAndValidateAllowedRoots(configuredAllowedRoots())
+	for _, r := range allowed {
+		if root == r {
+			return true
+		}
+	}
+	return false
+}
+
 // destIsDir returns true if destPath is a real directory or a symlink that
 // points to a directory inside the configured root.
 func destIsDir(root, destPath string) bool {
@@ -389,8 +433,7 @@ func destIsDir(root, destPath string) bool {
 		slog.Error("failed to validate root path", "root", absRoot, "error", err)
 		return false
 	}
-	allowedRoot := absRoot == filepath.Clean("/usr/local/homegrew") || absRoot == filepath.Clean("/opt/homegrew")
-	if !allowedRoot {
+	if !isAllowedRoot(absRoot) {
 		slog.Error("rejecting non-system root for directory check", "root", absRoot)
 		return false
 	}
