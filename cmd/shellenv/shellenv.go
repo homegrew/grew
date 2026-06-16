@@ -83,8 +83,7 @@ Setup:
 			fmt.Printf("export HOMEGREW_CELLAR=%s;\n", cellar)
 			fmt.Printf("export HOMEGREW_REPOSITORY=%s;\n", repo)
 			if shell == "zsh" {
-				path := fmt.Sprintf("%s/share/zsh/site-functions", root)
-				fmt.Printf("fpath[1,0]=%q;\n", path)
+				fmt.Printf("fpath[1,0]=\"%s/share/zsh/site-functions\";\n", paths.Root)
 				fmt.Printf("export FPATH;\n")
 			}
 			if pathHelperRoot != "" {
@@ -92,11 +91,7 @@ Setup:
 			} else {
 				fmt.Printf("export PATH=\"%s/bin:%s/sbin${PATH+:$PATH}\";\n", paths.Root, paths.Root)
 			}
-			if pathHelperRoot == "" {
-				fmt.Printf("export MANPATH=\"%s/share/man${MANPATH+:$MANPATH}:\";\n", paths.Root)
-			} else {
-				fmt.Printf("[ -z \"${MANPATH-}\" ] || export MANPATH=\":${MANPATH#:}\";\n")
-			}
+			fmt.Printf("[ -z \"${MANPATH-}\" ] || export MANPATH=\":${MANPATH#:}\";\n")
 			fmt.Printf("export INFOPATH=\"%s/share/info:${INFOPATH:-}\";\n", paths.Root)
 		}
 
