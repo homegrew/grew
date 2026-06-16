@@ -8,7 +8,6 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 	"testing"
 
@@ -320,16 +319,5 @@ func TestPatchUpgradeTest(t *testing.T) {
 }
 
 func normalizePlatformForTest() (osName, archName string) {
-	osName = runtime.GOOS
-	archName = runtime.GOARCH
-	switch osName {
-	case "darwin":
-		osName = "Darwin"
-	}
-	switch archName {
-	case "amd64":
-		archName = "x86_64"
-	}
-	// Do not override arm64
-	return
+	return "Darwin", "all"
 }

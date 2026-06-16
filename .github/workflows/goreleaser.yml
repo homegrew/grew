@@ -48,6 +48,15 @@ jobs:
             exit 0
           fi
 
+          # Require the previous release to already have the universal binary archive.
+          # Releases predating the universal-binary migration only have per-arch archives
+          # (grew_Darwin_arm64.tar.gz / grew_Darwin_x86_64.tar.gz); patching from those
+          # to the new format is a one-time gap we skip rather than fail.
+          if ! gh release view "$PREV_TAG" --json assets --jq '.assets[].name' | grep -q 'grew_Darwin_all.tar.gz'; then
+            echo "Previous release $PREV_TAG lacks grew_Darwin_all.tar.gz (pre-universal). Skipping patch generation."
+            exit 0
+          fi
+
           echo "Generating patches from $PREV_TAG to ${{ github.ref_name }}"
           mkdir -p dist-patches
 
