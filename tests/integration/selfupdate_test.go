@@ -11,7 +11,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"testing"
 
 	"github.com/homegrew/grew/pkg/testhelper"
@@ -53,17 +52,7 @@ func setupMockGitHub(t *testing.T, version string) *httptest.Server {
 	tarballHash256 := testhelper.ComputeSHA256(tarballBytes)
 	tarballHash512 := testhelper.ComputeSHA512(tarballBytes)
 
-	osName := runtime.GOOS
-	archName := runtime.GOARCH
-	switch osName {
-	case "darwin":
-		osName = "Darwin"
-	}
-	switch archName {
-	case "amd64":
-		archName = "x86_64"
-	}
-	assetName := fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
+	assetName := "grew_Darwin_all.tar.gz"
 
 	checksumsTxt := fmt.Sprintf("%s  %s\n%s  %s\n", tarballHash256, assetName, tarballHash512, assetName)
 
