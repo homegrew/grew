@@ -4,199 +4,162 @@
 
 This repository contains `grew`, a Go-based macOS package manager inspired by Homebrew, with a strong emphasis on deterministic installs, secure update flows, clean symlink management, reproducible environments, and polished CLI UX.
 
-## Product shape
+This document serves as the developer rules, context reference, and system design guide for Gemini when working in this codebase.
 
-`grew` is not a generic experiment. It is a full CLI product with:
+---
 
-- Formula and cask installation with SHA256 verification, kind auto-detection, and `--formula`/`--cask` pins.
-- Name and description lookup and search (`desc`), including substring and `/regex/` matching across both kinds.
-- Tap support and auto-install of missing taps.
-- Multi-hop binary delta self-update (`selfupdate`) via `bspatch`, dual-hash (SHA256+SHA512) verification, OSV.dev vulnerability gate, and sandboxed pre-replacement health check.
-- Ed25519 bottle signing verified against a local trust store; optional tap commit signature enforcement.
-- Deterministic linking with opt symlinks, version-family conflict detection, and dry-run support.
-- Keg relocation — rewrites hardcoded library paths in bottles at install time via `install_name_tool`.
-- Per-file `.MANIFEST.json` install snapshots and `grew verify` integrity checking.
-- `INSTALL_RECEIPT.json` provenance and dependency metadata per keg.
-- Dependency resolution with topological sort, cycle detection, and tree inspection.
-- Lockfile support for reproducible environments.
-- Doctor, audit, linkage, verify, cleanup, cache, and config tooling.
-- `grew missing` — checks installed kegs for absent runtime dependencies; exits non-zero.
-- `grew uses` — shows installed formulae that depend on a given package.
-- `grew desc` — name/description lookup with `/regex/` support across formulae and casks.
-- `grew outdated` — lists installed packages with available updates; `--formula`/`--cask`/`--json`/`--minimum-version`.
-- `grew autoremove` — transitively removes orphaned auto-installed dependencies in one pass.
-- `grew leaves` — lists installed formulae not depended on by any other.
-- `grew casks` / `grew formulae` — list all locally installable packages with names and descriptions.
-- `grew vuln-scan` — queries OSV.dev for known CVEs across installed packages.
-- Security-oriented install behavior: macOS Seatbelt sandboxing, quarantine attributes, Zip Slip protection, path-traversal hardening, HTTPS enforcement, and SSRF-protected downloads.
+## Product Shape & Commands
 
-When making changes, preserve the project as a serious package manager first and a convenience CLI second.
+`grew` is a production CLI product, not a generic experiment. It supports formula and cask installations with SHA256/SHA512 verification, seatbelt sandboxing, and tap automation.
+
+All user-facing subcommands are implemented under `cmd/` as standalone packages exporting a `Command *cobra.Command` and are registered in `pkg/cli/cli.go` inside the `AddCommands` function.
+
+### Core CLI Command Surface
+
+*   **Lifecycle & Management**:
+    *   `setup`: One-time system prefix setup (supports `--unsafe` in devmode).
+    *   `install`: Installs formulas (from bottles or source) and casks.
+    *   `uninstall`: Uninstalls formulas or casks.
+    *   `reinstall`: Uninstalls and installs a package from scratch.
+    *   `upgrade`: Upgrades packages to their latest version.
+    *   `update`: Refreshes local tap definitions and triggers the secure binary self-update (`runSelfUpdate`) check.
+    *   `cleanup`: Removes old package versions and prunes cache files older than a threshold.
+    *   `resetupdate`: Resets update and self-update state.
+*   **Queries & Inspection**:
+    *   `search`: Searches for formulas and casks.
+    *   `info`: Displays metadata, dependencies, and installation details for a package.
+    *   `list`: Lists all installed packages.
+    *   `desc`: Performs name and description lookups with substring and `/regex/` matching.
+    *   `deps`: Performs dependency tree inspection and topological sorting.
+    *   `uses`: Shows installed formulas that depend on a given package.
+    *   `leaves`: Lists installed formulas that are not depended on by any other package.
+    *   `outdated`: Lists installed packages with available updates.
+    *   `missing`: Checks installed kegs for absent runtime dependencies; exits non-zero if any are missing.
+*   **Security & Diagnostics**:
+    *   `vuln-scan`: Scans installed packages for security vulnerabilities, querying OSV.dev and verifying manifest integrity/permissions.
+    *   `verify`: Verifies integrity of installed kegs against their `.MANIFEST.json` snapshots.
+    *   `doctor`: Runs environment and layout diagnostic checks (Darwin checks verify App Sandbox, notarization, and extended quarantine attributes).
+    *   `linkage`: Analyzes Mach-O or ELF binary linkage.
+    *   `audit`: Audits formula and cask definitions for quality and security compliance.
+    *   `sign`: Signs formula hashes with Ed25519 keys for verification against the trusted store.
+*   **Environment & Utilities**:
+    *   `shellenv`: Generates shell exports for setting up PATH and environment variables.
+    *   `config`: Prints configuration values and paths grew is currently using.
+    *   `alias`: Manages user command shortcuts (e.g. `grew alias add i install`).
+    *   `lock`: Manages reproducible lockfiles.
+    *   `casks` / `formulae`: Lists all locally available casks or formulas.
+    *   `homepage`: Opens a package's homepage in the browser.
+    *   `services`: Manages background services for formulas.
+    *   `version`: Prints current version details.
+
+---
 
 ## Architecture
 
-The codebase is organized in a conventional Go CLI layout:
+The codebase follows a modular Go layout where CLI routing is cleanly separated from implementation logic:
 
-- `main.go` and `root.go` wire the application entrypoint and root command.
-- `cmd/` contains user-facing commands — each in its own package exporting a `Command` variable and a `doc.go`. These are registered via `pkg/cli.AddCommands()`.
-- `pkg/cmd/` contains legacy commands being phased out, added via `pkg/cmd.AddLegacyCommands()`.
-- `pkg/` contains the reusable internal implementation packages (`pkg/installer`, `pkg/cellar`, `pkg/formula`, `pkg/cask`, `pkg/linker`, `pkg/context`, etc.).
-- `docs/` holds architecture notes, comparison material, roadmap information, and technical documentation; in particular, `docs/tech.md` should be treated as a key reference for project internals and lifecycle behavior.
-- `tests/` contains broader test assets: `integration/`, `smoke/`, `e2e/`, `testbin/` (proxy binary source), `testhelper/`.
-- `tools/` contains `genrepo` (Homebrew JSON → grew YAML converter) and `patcher` (binary delta generator/verifier).
+*   **Entry Points**: `main.go` and `root.go` initialize the root command.
+*   **CLI Subcommands (`cmd/`)**: Each subcommand is in its own subdirectory (e.g., `cmd/install/`) as a separate package. It exports a package-scoped `Command *cobra.Command` and contains a `doc.go` documenting the command. Commands must be registered by adding a single line in `pkg/cli/cli.go` under `AddCommands()`.
+*   **Internal Library (`pkg/`)**: Contains the backing packages where the core business logic resides:
+    *   `pkg/context`: The single source of truth for execution context.
+    *   `pkg/installer`: Installs and configures bottles, casks, and updates.
+    *   `pkg/cellar` & `pkg/cask`: Manages directory structures under the prefix.
+    *   `pkg/linker`: Handles symlink creation and conflict resolution.
+    *   `pkg/safepath` & `pkg/fsutil`: Contain path verification and atomic filesystem utilities.
+*   **Developer & Maintenance Tools (`tools/`)**:
+    *   `genrepo`: Converts Homebrew JSON API definitions into `grew` YAML formulas and casks.
+    *   `patcher`: Generates and verifies binary delta patches (`bsdiff`) for binary releases.
 
-**Execution context (`pkg/context`)** is the single source of truth for system state. All commands receive a `Context` or `InstallContext` (the latter holds the global lock for destructive ops) rather than reading global state. It bundles `Paths`, `Loader`/`CaskLoader`, `Cellar`/`Caskroom`, and `Config`. `LoadFormula`/`LoadCask` encapsulate auto-tapping and Homebrew API fallback. `ResolveKind(name, forceCask, forceFormula)` returns `(isCask bool, err error)` for commands that accept either kind.
+### Execution Context (`pkg/context`)
 
-The command surface is broad. Before changing behavior, inspect both the corresponding `cmd/<name>/` package and the relevant implementation packages in `pkg/`.
+Never read global variables or environment settings directly in subcommands. All operations receive a `Context` or `InstallContext` (the latter manages global locks for destructive actions). The context encapsulates:
+*   `Paths`: System directories (`Cellar`, `Caskroom`, `Taps`, `Cache`, `Log`, `Etc`).
+*   `Loader` / `CaskLoader`: Loaders for resolving formula and cask definitions (handling auto-tapping and Homebrew API fallbacks).
+*   `Cellar` / `Caskroom`: Managers tracking what is physically installed.
+*   `Config`: User preferences and runtime flags.
 
-## Command conventions
+---
 
-The repository follows a consistent command model:
+## Engineering & Security Principles
 
-- Each command has a dedicated package under `cmd/<name>/` exporting a `Command *cobra.Command` and a `doc.go`.
-- To add a new command: create `cmd/<name>/`, export `Command`, add `doc.go`, and register it with a single line in `pkg/cli.AddCommands()`. See `cmd/README.md`.
-- User-visible behavior should stay aligned with `cmd/*/doc.go`, README, and `docs/tech.md`.
+When making changes, prioritize **security before convenience**, and **determinism before implicit behavior**.
 
-When adding or changing commands:
+### Security Model & Primitives
 
-- Update command help text and docs together.
-- Keep naming consistent with existing commands and aliases.
-- Preserve compatibility unless there is a strong reason to break behavior.
-- Prefer explicit flags and predictable output over magical shortcuts.
+1.  **Path Safety (`pkg/safepath`)**: All filesystem inputs (from zip files, taps, or external arguments) must be validated via `pkg/safepath`. Use `SafeJoin(base, components...)` to prevent Zip-Slip and path-traversal attacks.
+2.  **Atomic Writes (`pkg/fsutil`)**: Write all metadata (receipts, lockfiles, manifests) atomically via `fsutil.WriteFileAtomic` to avoid corrupted half-writes.
+3.  **Dual-Hash Verification (`pkg/downloader`)**: Downloads are verified against **both** SHA-256 and SHA-512 computed in a single pass using `io.MultiWriter`.
+4.  **SSRF Protection**: Downloads only connect to HTTPS URLs, and are validated against `HOMEGREW_ALLOWED_HOSTS` to prevent SSRF vulnerabilities targeting internal metadata or service endpoints.
+5.  **macOS Seatbelt Sandboxing (`pkg/sandbox`)**: Builds, extractions, and post-install scripts are sandboxed with Seatbelt profiles that restrict network egress and write locations.
+6.  **Quarantine Enforcement**: Casks and binaries are automatically tagged with macOS quarantine attributes (`com.apple.quarantine`) during extraction.
+7.  **Command Execution Hardening**: Resolve binaries via `exec.LookPath`, avoid shell interpreters, and always append the `--` end-of-options separator to prevent command injection.
 
-## Engineering priorities
+---
 
-The project consistently favors the following priorities:
+## Update and Install Flows
 
-1. Security before convenience.
-2. Determinism before implicit behavior.
-3. Clear CLI UX before implementation cleverness.
-4. Reproducibility and inspectability before opaque automation.
-5. Graceful fallback paths instead of brittle assumptions.
+*   **Formula Installation**: Resolves dependencies using topological sorting (`pkg/depgraph`), checks for cycles, downloads bottles, applies Mach-O path relocations (`install_name_tool`), links files, registers a `.MANIFEST.json` for integrity validation, and saves an `INSTALL_RECEIPT.json` to record explicit intent (`InstalledOnRequest`).
+*   **Symlink Linking (`pkg/linker`)**: Exposes Cellar executables/libraries. Linker enforces ownership tracking (only overwriting symlinks owned by the same formula) and prevents version-family conflicts (e.g. refusing to link `node@24` binaries if the unversioned `node` is already linked).
+*   **Self-Update Flow**: Triggered during `grew update`.
+    *   *Source-based*: Compiles local clone if `Grew` git repo exists under the prefix.
+    *   *Release-based*: Fetches releases, queries OSV.dev for CVE gates (fail-closed if unreachable), constructs a Breadth-First Search (BFS) patch chain to apply delta updates (`bspatch`), falls back to full binary download if necessary, executes a sandboxed pre-replacement health check, and swaps the binary atomically.
 
-This should guide trade-offs. If a change makes the tool feel more magical but less inspectable or less safe, it is probably the wrong trade.
+---
 
-## Security model
+## Code Style & Testing Expectations
 
-Security-sensitive behavior is central to this repository, not incidental. Preserve and respect features such as:
+### Code Style
 
-- SHA256 and SHA512 dual-hash verification for all downloaded assets (computed in one pass via `io.MultiWriter`).
-- Ed25519 bottle signing verified against `etc/trusted-keys`; optional tap commit signature enforcement.
-- OSV.dev vulnerability gate in self-update (fail-closed when OSV is unreachable).
-- Sandboxed builds and restricted post-install execution (macOS Seatbelt, `sandbox-exec`).
-- Sandboxed pre-replacement health check before atomic binary swap in `selfupdate`.
-- Zip Slip and path traversal protection during extraction (`pkg/safepath`).
-- HTTPS enforcement at URL parse time; SSRF-protected host allowlisting (`HOMEGREW_ALLOWED_HOSTS`).
-- Safer external command execution: `exec.LookPath`, `--` end-of-options separator, no shell string construction.
-- macOS quarantine attributes applied to all downloaded apps and binaries.
-- `pkg/fsutil.WriteFileAtomic` for all metadata writes (manifest, receipt, lockfile).
+*   Write idiomatic Go.
+*   Keep functions focused, explicit, and document their behavior.
+*   Prefer `log/slog` for structured logging.
+*   If code changes invalidate user docs or command help messages, update `cmd/*/doc.go`, `README.md`, and `docs/tech.md` in the same change.
 
-Do not remove or weaken safeguards just to simplify code paths. If a change affects trust, verification, or update logic, document the reasoning and review adjacent flows carefully.
+### Testing Architecture
 
-## Update and install flows
-
-Several core flows deserve extra caution because they are easy to break subtly:
-
-- `setup` bootstrapping and prefix initialization.
-- Formula install and dependency resolution.
-- Cask install behavior and artifact handling.
-- Link/unlink/relink flows and opt symlink maintenance.
-- Cleanup and autoremove semantics.
-- Lockfile generation and environment reproduction.
-- Self-update, delta patching, binary replacement, and rollback/fallback behavior.
-
-For these areas, prefer small changes, verify edge cases, and read surrounding docs in `docs/tech.md` before modifying behavior.
-
-## Code style
-
-Match the existing style of the repository:
-
-- Write idiomatic Go.
-- Keep functions focused and explicit.
-- Prefer small helpers and clear naming over deeply clever abstractions.
-- Avoid introducing unnecessary frameworks or large dependency expansions.
-- Keep error messages actionable and CLI-oriented.
-- Preserve structured logging patterns (`log/slog`) and user-friendly terminal output.
-
-When touching public behavior, also consider shell completions, help text, README references, and tests.
-
-## Documentation discipline
-
-This repository relies on multiple sources of truth that should stay in sync:
-
-- `README.md` for user-facing capabilities and onboarding.
-- `cmd/*/doc.go` for per-command intent.
-- `docs/tech.md` for technical architecture and lifecycle details.
-- `docs/ROADMAP.md` for planned and completed direction.
-- `cmd/README.md` for command registration conventions.
-
-If code changes invalidate docs, update the docs in the same change.
-
-## Testing expectations
-
-The repository has substantial package-level test coverage across many internal packages. Maintain that standard.
-
-Unit tests require the `devmode` build tag. Integration and smoke tests compile a proxy binary from `tests/testbin/` and exec it against a mock prefix — they cannot use the Go test runner as the current binary.
-
-When changing behavior:
-
-- Run targeted tests for affected packages first.
-- Add or update unit tests for bug fixes and new logic.
-- Prefer deterministic tests over timing-sensitive or environment-fragile ones.
-- Be cautious with macOS-specific behavior and ensure platform assumptions are explicit.
-
-## Practical workflow
-
-Before editing:
-
-1. Read the relevant command package in `cmd/`.
-2. Read the backing implementation in `pkg/`.
-3. Check README and architecture docs for user and system expectations.
-4. Identify tests that should protect the change.
-
-After editing:
-
-1. Format code with `gofmt` or `make fmt`.
-2. Run focused tests, then broader tests as needed.
-3. Update docs and help text if behavior changed.
-4. Double-check that security and determinism guarantees were not weakened.
-
-## Useful commands
+*   **Unit Tests**: Located inside package subdirectories (e.g., `pkg/linker/*_test.go`). Unit tests **require the `devmode` build tag** to compile.
+*   **Integration, Smoke, and E2E Tests**: Found in the `tests/` directory. Since features like sandboxing and self-update execute the binary on disk, tests compile a proxy binary from `tests/testbin/` to simulate real-world actions against mock prefixes.
 
 ```bash
-make build              # release build → ./grew
-make dev                # build with 'devmode' tag (required for rootless local install/testing)
-make test-unit          # unit tests (go test -tags devmode -race, excludes ./tests)
-make test-integration   # command-level integration tests (./tests/integration)
-make test-smoke         # quick health checks (./tests/smoke)
-make test-e2e           # full lifecycle, installs real formulas from GitHub — several minutes
-make check-all          # unit + integration + smoke + e2e
-make lint               # golangci-lint run
-make fmt                # go fmt ./...
+make build              # Release build → ./grew
+make dev                # Build with 'devmode' tag (required for local rootless development)
+make test-unit          # Run unit tests (go test -tags devmode -race)
+make test-integration   # Run command-level integration tests
+make test-smoke         # Run smoke tests
+make test-e2e            # Run full lifecycle end-to-end tests (downloads real formulas)
+make check-all          # Runs unit + integration + smoke + e2e tests
+make lint               # Runs golangci-lint
+make fmt                # Runs go fmt ./...
+make distclean          # Prune build artifacts after a build
 ```
 
-Run a single test: `go test -tags devmode -race -run TestName ./pkg/<package>`. The `devmode` build tag is required for all unit tests.
+To run a single unit test:
+```bash
+go test -tags devmode -race -run TestName ./pkg/<package>
+```
 
-### Local development setup (rootless)
+---
 
-Two gates must BOTH be met to install to `~/.homegrew` without root:
+## Local Development Setup (Rootless)
+
+Production installations require `sudo` to setup system prefixes. For local development and testing, you can use **Developer Mode** to set up a rootless installation under `~/.homegrew`:
 
 ```bash
-make dev                  # compiles in the devmode code path (build tag)
-./grew setup --unsafe     # activates it at runtime (--unsafe flag)
-./grew install jq         # now works without root
+make dev                  # Compiles in the devmode code path (build tag)
+./grew setup --unsafe     # Activates devmode prefix setup at runtime
+./grew install jq         # Works without root privileges
 ```
 
-Release binaries ignore `--unsafe` entirely.
+*Note: Release binaries compiled without the `devmode` build tag ignore the `--unsafe` flag completely.*
+
+---
 
 ## Notes for Gemini
 
-When working in this repository:
-
-- Read before editing.
-- Preserve the package-manager mental model.
-- Treat setup, install, linking, extraction, and self-update code as high-risk surfaces.
-- Keep changes minimal, reviewable, and well-tested.
-- Prefer correctness, safety, and maintainability over novelty.
-- New commands go in `cmd/<name>/` with a `Command` export and `doc.go`; register in `pkg/cli.AddCommands()`.
-- Never bypass `pkg/context` with global state or hardcoded paths — use `ctx.Paths.Cellar` etc.
-- All path operations must route through `pkg/safepath`; all downloads through `pkg/downloader`.
+When working in this repository, always observe the following constraints:
+*   **Read before editing**: Check existing files in `pkg/` and `cmd/` to match conventions.
+*   **Preserve the package-manager mental model**: `grew` is a production CLI tool; prioritize safety and determinism.
+*   **Execution context**: Never bypass `pkg/context` with global state or hardcoded paths. Always use `ctx.Paths` or config mappings.
+*   **Path & Download operations**: All paths must route through `pkg/safepath` and all downloads through `pkg/downloader`.
+*   **Adding commands**: Follow the convention in `cmd/README.md`. Create a new directory under `cmd/`, export the `Command` variable, add a `doc.go` file, and register it inside `pkg/cli/cli.go`.
+*   **Do not weaken safeguards**: Do not bypass sandboxing, dual-hash verification, or path traversal guards.

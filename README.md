@@ -14,6 +14,7 @@
 ## ✨ What it does
 
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
+- 🍎 **Universal binary** — single macOS binary works on both Apple Silicon and Intel (no more picking the right download)
 - 🚰 **Tap auto-install** — automatically clones missing taps when you request `user/repo/formula`
 - ⚡ **Multi-hop binary delta updates** — `selfupdate` uses `bspatch` to seamlessly apply sequences of intermediate patches to reach the latest version, saving bandwidth, with an automated CI `patcher` tool for releases and `-U` upgrade path verification
 - 🔐 **Dual-hash verification** — self-updates and release assets are verified against both SHA256 and SHA512 to prevent single-algorithm collision attacks
@@ -30,6 +31,7 @@
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
 - 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, shell-free namespace setup with positional parameters, XML-safe plist generation
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
+- 🛡️ **Deep path-traversal hardening** — canonical path validation with symlink resolution across the installer, cask loader, context, and linker layers
 - 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs via the `vuln-scan` command
 - 🛡️ **macOS Quarantine** — automatically applies `com.apple.quarantine` attributes to downloaded apps and binaries, ensuring Gatekeeper protection is active
 - 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d`/`-q` flags). Debug logs include source file and line number context.
@@ -42,10 +44,10 @@
 
 ### Get Grew
 
-Download the latest release for your platform from the [Releases](https://github.com/homegrew/grew/releases/latest) page, extract it, and run setup:
+Download the latest release from the [Releases](https://github.com/homegrew/grew/releases/latest) page. Grew ships as a single macOS universal binary that works on both Apple Silicon and Intel:
 
 ```bash
-tar -xzf grew_*.tar.gz
+tar -xzf grew_Darwin_all.tar.gz
 ./grew setup
 ```
 
@@ -265,12 +267,15 @@ Everything else flows from the prefix:
 [![Go Reference][pkg-badge]][pkg-url]
 
 ```bash
-make test-unit     # run unit tests
-make test-smoke    # run quick health checks
-make test-integration # run command-level integration tests
-make test-e2e      # run full lifecycle E2E tests (takes several minutes)
-make check-all     # run all of the above
-make dev           # build with 'devmode' tag enabled
+make build             # release build → ./grew
+make dev               # build with 'devmode' tag enabled
+make build-fat-binary  # build a macOS universal binary locally via lipo
+make test-unit         # run unit tests
+make test-smoke        # run quick health checks
+make test-integration  # run command-level integration tests
+make test-e2e          # run full lifecycle E2E tests (takes several minutes)
+make check-all         # run all of the above
+make distclean         # prune build artifacts (grew_arm64, grew_amd64, grew_universal, etc.)
 ```
 
 ### Developer mode
@@ -361,6 +366,7 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Dual-hash verification** | Self-updates and release assets use both SHA256 and SHA512 | None |
 | **Self-update health check** | Patched binaries are execution-tested in a sandbox before replacement | None |
 | **HTTPS enforcement** | At parse time — HTTP URLs rejected before download | At download time |
+| **Universal binary** | Single macOS universal binary works on ARM and Intel | Separate bottles per architecture |
 | **Path traversal protection** | Validated at cellar, linker, loader, and archive extraction layers | Partial |
 | **Shell injection prevention** | Namespace setup uses positional parameters to eliminate injection risks; systemd `ExecStart` and launchd plist values properly escaped | N/A |
 | **Zip Slip protection** | Symlink indirection attacks blocked during tar/zip extraction | Partial |
@@ -377,7 +383,6 @@ grew is designed to be more secure than Homebrew out of the box:
 Got ideas? Bugs? Grievances? → [Open an issue](https://github.com/homegrew/grew/issues)
 
 Hot takes on the list:
-- Build vs Runtime Dependency distinction
 - SLSA provenance attestations for bottles
 - Content-addressable bottle storage
 - Windows support (one day, probably, maybe)
