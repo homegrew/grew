@@ -641,3 +641,23 @@ Grew's test suite spans unit tests, integration tests, smoke tests, and end-to-e
 
 7. **Observable**: All significant actions are logged (audit trail), and `grew doctor` provides introspection into system state.
 
+## 21. Directory Structure (`pkg/config`)
+
+`grew` sets up a defined directory structure within its prefix (e.g. `/opt/homegrew`) during installation. Some of the key directories include:
+
+- `Cellar/`: Houses installed formulas, organized by `<name>/<version>`.
+- `Caskroom/`: Houses installed casks.
+- `Taps/`: Holds cloned git repositories containing formula/cask definitions.
+- `bin/`, `sbin/`, `lib/`, `include/`: Standard shared directories where active formulas are symlinked.
+- `opt/`: Used for symlinks to active formula versions.
+- `var/`: Contains variable state like `tmp/` (staging), `log/` (audit logs), and `locks/` (mutex files).
+- `etc/`: Configuration and trusted keys.
+- `docs/`: Hosts grew's documentation.
+- `manpages/`: Hosts manpages for grew and installed tooling.
+- `Frameworks/`: Stores macOS frameworks required by packages.
+- `completions/`: Hosts shell completion scripts.
+  - `completions/bash/`: Completion scripts for bash.
+  - `completions/fish/`: Completion scripts for fish.
+  - `completions/zsh/`: Completion scripts for zsh.
+- `share/`: Used for shared data and other assets.
+

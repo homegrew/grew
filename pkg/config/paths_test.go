@@ -54,7 +54,35 @@ func TestInit_CreatesDirectories(t *testing.T) {
 		t.Fatalf("init failed: %v", err)
 	}
 
-	for _, d := range []string{paths.Root, paths.Cellar, paths.Opt, paths.Bin, paths.Sbin, paths.Lib, paths.Include, paths.Taps, paths.CoreTap, paths.CaskTap, paths.Caskroom, paths.AppDir, paths.Cache, paths.Tmp, paths.Log, paths.Etc} {
+	for _, d := range []string{
+		paths.Root,
+		paths.Cellar,
+		paths.Opt,
+		paths.Bin,
+		paths.Sbin,
+		paths.Lib,
+		paths.Include,
+		paths.Share,
+		paths.ZshSiteFunctions,
+		paths.Docs,
+		paths.Manpages,
+		paths.Frameworks,
+		paths.Completions,
+		paths.BashCompletions,
+		paths.FishCompletions,
+		paths.ZshCompletions,
+		paths.Taps,
+		paths.CoreTap,
+		paths.CaskTap,
+		paths.Caskroom,
+		paths.AppDir,
+		paths.Cache,
+		paths.Var,
+		paths.Tmp,
+		paths.Log,
+		paths.Locks,
+		paths.Etc,
+	} {
 		if info, err := os.Stat(d); err != nil || !info.IsDir() {
 			t.Errorf("directory %q was not created", d)
 		}
@@ -119,7 +147,7 @@ func TestFromRoot_InvalidPaths(t *testing.T) {
 	// Relative path should be made absolute.
 	cwd, _ := os.Getwd()
 	p := FromRoot("myroot", "myapps", "mycache")
-	
+
 	if !filepath.IsAbs(p.Root) {
 		t.Errorf("Root should be absolute, got %q", p.Root)
 	}
@@ -148,10 +176,10 @@ func TestDefault_EnvOverrides(t *testing.T) {
 	tmpDir := t.TempDir()
 	appDir := filepath.Join(tmpDir, "Apps")
 	cacheDir := filepath.Join(tmpDir, "Cache")
-	
+
 	t.Setenv("HOMEGREW_APPDIR", appDir)
 	t.Setenv("HOMEGREW_CACHE", cacheDir)
-	
+
 	paths := Default()
 	if paths.AppDir != appDir {
 		t.Errorf("AppDir override failed: got %q, want %q", paths.AppDir, appDir)
@@ -166,13 +194,13 @@ func TestInit_OutsideRoot(t *testing.T) {
 	root := filepath.Join(tmpDir, "root")
 	// Attempt to set a path outside the root.
 	paths := FromRoot(root, "/tmp/illegal-apps", "/tmp/illegal-cache")
-	
+
 	// Paths.Init should allow AppDir and Cache outside root, but let's test a case that shouldn't be allowed
 	// Actually Init hardcodes which ones to check.
-	
+
 	// Manually corrupt a path to be outside root but not in the allowed list (AppDir/Cache)
-	paths.Bin = "/usr/bin" 
-	
+	paths.Bin = "/usr/bin"
+
 	err := paths.Init()
 	if err == nil {
 		t.Error("Expected error when initializing path outside root")
@@ -192,7 +220,7 @@ func TestFromRoot_Fallbacks(t *testing.T) {
 	// Test fallback for invalid AppDir and CacheDir
 	// "/" is rejected by SafeAbsolutePath
 	p := FromRoot("/opt/homegrew", "/", "/")
-	
+
 	if !strings.HasSuffix(p.AppDir, "Applications") {
 		t.Errorf("AppDir fallback failed: %q", p.AppDir)
 	}
@@ -244,4 +272,3 @@ func ExampleDefault() {
 	// Output:
 	// Paths initialized
 }
-

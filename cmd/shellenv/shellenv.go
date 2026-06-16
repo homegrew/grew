@@ -88,7 +88,7 @@ Setup:
 			fmt.Printf("export HOMEGREW_CELLAR=%q;\n", paths.Cellar)
 			fmt.Printf("export HOMEGREW_REPOSITORY=%q;\n", paths.GitRepo)
 			if shell == "zsh" {
-				fmt.Printf("fpath[1,0]=\"%s/share/zsh/site-functions\";\n", paths.Root)
+				fmt.Printf("fpath[1,0]=%q;\n", paths.ZshSiteFunctions)
 				fmt.Printf("export FPATH;\n")
 			}
 			if pathHelperRoot != "" {

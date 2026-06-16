@@ -33,6 +33,22 @@ type Paths struct {
 	Include string
 	// Share is the directory for shared data (Root/share).
 	Share string
+	// ZshSiteFunctions is the directory for zsh completions (Root/share/zsh/site-functions).
+	ZshSiteFunctions string
+	// Docs is the directory for grew's documentation (Root/docs).
+	Docs string
+	// Manpages is the directory for manpages (Root/manpages).
+	Manpages string
+	// Frameworks is the directory for macOS frameworks (Root/Frameworks).
+	Frameworks string
+	// Completions is the directory for shell completions (Root/completions).
+	Completions string
+	// BashCompletions is the directory for bash completions (Root/completions/bash).
+	BashCompletions string
+	// FishCompletions is the directory for fish completions (Root/completions/fish).
+	FishCompletions string
+	// ZshCompletions is the directory for zsh completions (Root/completions/zsh).
+	ZshCompletions string
 	// Taps is the directory for git repositories of formulas (Root/Taps).
 	Taps string
 	// CoreTap is the path to the official core formula tap.
@@ -289,29 +305,38 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 
 	fontDir := resolveFontDir(appDir)
 	varDir := filepath.Join(root, "var")
+	shareDir := filepath.Join(root, "share")
 
 	return Paths{
-		Root:     root,
-		Cellar:   filepath.Join(root, "Cellar"),
-		Opt:      filepath.Join(root, "opt"),
-		Bin:      filepath.Join(root, "bin"),
-		Sbin:     filepath.Join(root, "sbin"),
-		Lib:      filepath.Join(root, "lib"),
-		Include:  filepath.Join(root, "include"),
-		Share:    filepath.Join(root, "share"),
-		Taps:     filepath.Join(root, "Taps"),
-		CoreTap:  filepath.Join(root, "Taps", "homegrew", "homegrew-taps", "core"),
-		CaskTap:  filepath.Join(root, "Taps", "homegrew", "homegrew-taps", "cask"),
-		Caskroom: filepath.Join(root, "Caskroom"),
-		AppDir:   appDir,
-		FontDir:  fontDir,
-		Cache:    cacheDir,
-		Var:      varDir,
-		Tmp:      filepath.Join(varDir, "homegrew", "tmp"),
-		Log:      filepath.Join(varDir, "homegrew", "log"),
-		Locks:    filepath.Join(varDir, "homegrew", "locks"),
-		Etc:      filepath.Join(root, "etc"),
-		GitRepo:  filepath.Join(root, "Grew"),
+		Root:             root,
+		Cellar:           filepath.Join(root, "Cellar"),
+		Opt:              filepath.Join(root, "opt"),
+		Bin:              filepath.Join(root, "bin"),
+		Sbin:             filepath.Join(root, "sbin"),
+		Lib:              filepath.Join(root, "lib"),
+		Include:          filepath.Join(root, "include"),
+		Share:            shareDir,
+		Docs:             filepath.Join(root, "docs"),
+		Manpages:         filepath.Join(root, "manpages"),
+		Frameworks:       filepath.Join(root, "Frameworks"),
+		Completions:      filepath.Join(root, "completions"),
+		BashCompletions:  filepath.Join(root, "completions", "bash"),
+		FishCompletions:  filepath.Join(root, "completions", "fish"),
+		ZshCompletions:   filepath.Join(root, "completions", "zsh"),
+		ZshSiteFunctions: filepath.Join(shareDir, "zsh", "site-functions"),
+		Taps:             filepath.Join(root, "Taps"),
+		CoreTap:          filepath.Join(root, "Taps", "homegrew", "homegrew-taps", "core"),
+		CaskTap:          filepath.Join(root, "Taps", "homegrew", "homegrew-taps", "cask"),
+		Caskroom:         filepath.Join(root, "Caskroom"),
+		AppDir:           appDir,
+		FontDir:          fontDir,
+		Cache:            cacheDir,
+		Var:              varDir,
+		Tmp:              filepath.Join(varDir, "homegrew", "tmp"),
+		Log:              filepath.Join(varDir, "homegrew", "log"),
+		Locks:            filepath.Join(varDir, "homegrew", "locks"),
+		Etc:              filepath.Join(root, "etc"),
+		GitRepo:          filepath.Join(root, "Grew"),
 	}
 }
 
@@ -325,8 +350,8 @@ type NamedDir struct {
 }
 
 // InitDirs returns the ordered set of directories that Init creates. It is the
-// single source of truth for both Init and dry-run output. p.Share and
-// p.GitRepo are intentionally excluded — they must not be created by grew.
+// single source of truth for both Init and dry-run output. p.GitRepo
+// is intentionally excluded — it must not be created by grew.
 func (p Paths) InitDirs() []NamedDir {
 	return []NamedDir{
 		{Name: "Root", Path: p.Root},
@@ -336,6 +361,7 @@ func (p Paths) InitDirs() []NamedDir {
 		{Name: "sbin", Path: p.Sbin},
 		{Name: "lib", Path: p.Lib},
 		{Name: "include", Path: p.Include},
+		{Name: "share", Path: p.Share},
 		{Name: "Taps", Path: p.Taps},
 		{Name: "CoreTap", Path: p.CoreTap},
 		{Name: "CaskTap", Path: p.CaskTap},
@@ -347,6 +373,14 @@ func (p Paths) InitDirs() []NamedDir {
 		{Name: "log", Path: p.Log},
 		{Name: "locks", Path: p.Locks},
 		{Name: "etc", Path: p.Etc},
+		{Name: "docs", Path: p.Docs},
+		{Name: "manpages", Path: p.Manpages},
+		{Name: "Frameworks", Path: p.Frameworks},
+		{Name: "completions", Path: p.Completions},
+		{Name: "completions/bash", Path: p.BashCompletions},
+		{Name: "completions/fish", Path: p.FishCompletions},
+		{Name: "completions/zsh", Path: p.ZshCompletions},
+		{Name: "zsh/site-functions", Path: p.ZshSiteFunctions},
 	}
 }
 
