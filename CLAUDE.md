@@ -32,7 +32,7 @@ make dev                  # compiles in the devmode code path (build tag)
 ./grew install jq         # now works without root
 ```
 
-Release binaries ignore `--unsafe` entirely. See [docs/tech.md](docs/tech.md) §5 for the build-constraint mechanism (`pkg/runtime/devmode_on.go` vs `devmode_off.go`).
+Release binaries ignore `--unsafe` entirely. See [docs/tech.md](docs/tech.md) §6 for the build-constraint mechanism (`pkg/runtime/devmode_on.go` vs `devmode_off.go`).
 
 ## Architecture
 
@@ -83,4 +83,4 @@ The project website is in the `www` branch and is managed by GitHub Pages. Updat
 
 ## Repo maintenance tools (`tools/`)
 
-`genrepo` converts Homebrew JSON API formulas/casks into grew YAML. `patcher` generates/verifies binary delta patches between releases (`bsdiff`, dual-hash, `-U` to verify a patch sequence without generating). See [docs/tech.md](docs/tech.md) §3.
+`genrepo` converts Homebrew JSON API formulas/casks into grew YAML. `patcher` generates/verifies binary delta patches between releases (`bsdiff`, dual-hash, `-U` to verify a patch sequence without generating). See [docs/tech.md](docs/tech.md) §4.
