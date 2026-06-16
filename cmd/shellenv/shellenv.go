@@ -41,6 +41,14 @@ Setup:
 			return err
 		}
 		paths := ctx.Paths
+
+		// Idempotency guard: mirror Homebrew's early return
+		pathEnv := os.Getenv("PATH")
+		expectedPrefix := fmt.Sprintf("%s/bin:%s/sbin", paths.Root, paths.Root)
+		if strings.HasPrefix(pathEnv, expectedPrefix+":") || pathEnv == expectedPrefix {
+			return nil
+		}
+
 		shell := detectShell(args)
 
 		root := shellescape.Quote(paths.Root)
