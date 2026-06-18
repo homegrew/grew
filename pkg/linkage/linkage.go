@@ -134,21 +134,25 @@ func Check(name, version, kegPath, cellarPath string) (*Result, error) {
 		KegPath: kegPath,
 	}
 
-	err := filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
-		if err != nil {
+	kegRoot, err := os.OpenRoot(kegPath)
+	if err != nil {
+		return res, fmt.Errorf("open keg root: %w", err)
+	}
+	defer kegRoot.Close()
+
+	err = fs.WalkDir(kegRoot.FS(), ".", func(relPath string, d fs.DirEntry, walkErr error) error {
+		if walkErr != nil {
 			return nil
 		}
-		if d.IsDir() || !d.Type().IsRegular() {
+		if relPath == "." || d.IsDir() || !d.Type().IsRegular() {
 			return nil
 		}
-		if rel, relErr := filepath.Rel(kegPath, path); relErr != nil || strings.HasPrefix(rel, "..") {
-			return nil
-		}
-		if !isBinary(path) {
+		if !isBinaryRoot(kegRoot, relPath) {
 			return nil
 		}
 
-		deps, rpaths, inspectErr := inspectDeps(path)
+		absPath := filepath.Join(kegPath, relPath)
+		deps, rpaths, inspectErr := inspectDeps(absPath)
 		if inspectErr != nil {
 			return nil // skip uninspectable binaries
 		}
@@ -156,15 +160,53 @@ func Check(name, version, kegPath, cellarPath string) (*Result, error) {
 			return nil
 		}
 
-		br := BinaryResult{Path: path}
+		br := BinaryResult{Path: absPath}
 		for _, dep := range deps {
-			br.Deps = append(br.Deps, classifyDep(dep, path, rpaths, kegPath, cellarPath))
+			br.Deps = append(br.Deps, classifyDep(dep, absPath, rpaths, kegPath, cellarPath))
 		}
 		res.Binaries = append(res.Binaries, br)
 		return nil
 	})
 
 	return res, err
+}
+
+// isBinaryRoot checks magic bytes to detect Mach-O or ELF binaries using a
+// root-scoped open, preventing TOCTOU symlink escape between walk and open.
+func isBinaryRoot(root *os.Root, relPath string) bool {
+	f, err := root.Open(relPath)
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+
+	var magic [4]byte
+	if _, err := f.Read(magic[:]); err != nil {
+		return false
+	}
+
+	// Mach-O
+	switch {
+	case magic[0] == 0xCF && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
+		return true
+	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCF:
+		return true
+	case magic[0] == 0xCE && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
+		return true
+	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCE:
+		return true
+	case magic[0] == 0xCA && magic[1] == 0xFE && magic[2] == 0xBA && magic[3] == 0xBE:
+		return true
+	case magic[0] == 0xBE && magic[1] == 0xBA && magic[2] == 0xFE && magic[3] == 0xCA:
+		return true
+	}
+
+	// ELF
+	if magic[0] == 0x7F && magic[1] == 'E' && magic[2] == 'L' && magic[3] == 'F' {
+		return true
+	}
+
+	return false
 }
 
 // classifyDep determines the kind of a single dependency path.

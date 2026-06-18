@@ -391,3 +391,111 @@ func TestRelocateShebangScript(t *testing.T) {
 		t.Errorf("got %q, want %q", string(got), want)
 	}
 }
+
+// TestRelocateKeg_SymlinkFileBlocked verifies that RelocateKeg does not follow
+// a symlink inside the keg that points to a file outside the keg.
+func TestRelocateKeg_SymlinkFileBlocked(t *testing.T) {
+	t.Parallel()
+
+	dir := t.TempDir()
+	keg := filepath.Join(dir, "keg")
+	outsideFile := filepath.Join(dir, "outside.pc")
+
+	if err := os.MkdirAll(filepath.Join(keg, "lib"), 0755); err != nil {
+		t.Fatal(err)
+	}
+	// Write a .pc file containing a placeholder outside the keg.
+	if err := os.WriteFile(outsideFile, []byte(PlaceholderCellar+"/foo/1.0"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	// Symlink from inside the keg to the outside file.
+	if err := os.Symlink(outsideFile, filepath.Join(keg, "lib", "evil.pc")); err != nil {
+		t.Fatal(err)
+	}
+
+	prefix := filepath.Join(dir, "prefix")
+	if err := os.MkdirAll(prefix, 0755); err != nil {
+		t.Fatal(err)
+	}
+
+	// RelocateKeg should succeed and must not modify the file outside the keg.
+	before, _ := os.ReadFile(outsideFile)
+	_ = RelocateKeg(keg, prefix) // may return nil or an error; we only care about the outside file
+	after, _ := os.ReadFile(outsideFile)
+
+	if string(before) != string(after) {
+		t.Errorf("RelocateKeg followed symlink escape and modified outside file: before=%q after=%q", before, after)
+	}
+}
+
+// TestRelocateTextFiles_SymlinkBlocked verifies that relocateTextFiles does not
+// write through a symlink that escapes the keg root.
+func TestRelocateTextFiles_SymlinkBlocked(t *testing.T) {
+	t.Parallel()
+
+	dir := t.TempDir()
+	keg := filepath.Join(dir, "keg")
+	outsideFile := filepath.Join(dir, "outside.pc")
+
+	if err := os.MkdirAll(filepath.Join(keg, "lib"), 0755); err != nil {
+		t.Fatal(err)
+	}
+	// Real text file inside the keg.
+	realPC := filepath.Join(keg, "lib", "real.pc")
+	if err := os.WriteFile(realPC, []byte("prefix="+PlaceholderPrefix+"\n"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	// File outside the keg containing a placeholder.
+	if err := os.WriteFile(outsideFile, []byte("prefix="+PlaceholderPrefix+"\n"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	// Symlink from inside the keg to the outside file.
+	if err := os.Symlink(outsideFile, filepath.Join(keg, "lib", "evil.pc")); err != nil {
+		t.Fatal(err)
+	}
+
+	replacements := Replacements{PlaceholderPrefix: "/opt/homegrew"}
+	before, _ := os.ReadFile(outsideFile)
+	_ = relocateTextFiles(keg, replacements)
+	after, _ := os.ReadFile(outsideFile)
+
+	if string(before) != string(after) {
+		t.Errorf("relocateTextFiles followed symlink escape and modified outside file")
+	}
+	// The real file inside the keg should have been relocated.
+	got, _ := os.ReadFile(realPC)
+	if string(got) != "prefix=/opt/homegrew\n" {
+		t.Errorf("real .pc file not relocated: got %q", got)
+	}
+}
+
+// TestNeedsRelocation_SkipsExternalSymlink verifies that needsRelocation does
+// not open files outside the keg via a symlink.
+func TestNeedsRelocation_SkipsExternalSymlink(t *testing.T) {
+	t.Parallel()
+
+	dir := t.TempDir()
+	keg := filepath.Join(dir, "keg")
+	outsideFile := filepath.Join(dir, "outside.pc")
+
+	if err := os.MkdirAll(keg, 0755); err != nil {
+		t.Fatal(err)
+	}
+	// File outside keg that contains a placeholder — would trigger needsRelocation
+	// if followed.
+	if err := os.WriteFile(outsideFile, []byte(PlaceholderPrefix+"/bin"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	// Symlink from inside the keg pointing to the outside file.
+	if err := os.Symlink(outsideFile, filepath.Join(keg, "evil.pc")); err != nil {
+		t.Fatal(err)
+	}
+
+	replacements := Replacements{PlaceholderPrefix: "/opt/homegrew"}
+	// Because os.Root blocks the symlink, needsRelocation should return false —
+	// no real file inside the keg contains a placeholder.
+	result := needsRelocation(keg, replacements)
+	if result {
+		t.Error("needsRelocation followed symlink escape and detected placeholder in outside file")
+	}
+}

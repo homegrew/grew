@@ -168,3 +168,46 @@ func TestList_Empty(t *testing.T) {
 		t.Errorf("expected 0 packages, got %d", len(packages))
 	}
 }
+
+// TestList_SymlinkedEntrySkipped verifies that List() does not include a cellar
+// entry that is a symlink pointing outside the cellar directory.
+func TestList_SymlinkedEntrySkipped(t *testing.T) {
+	t.Parallel()
+
+	cel, cellarDir := setupTestCellar(t)
+
+	// Install one real formula so we can confirm List() still works.
+	stage := filepath.Join(t.TempDir(), "real-stage")
+	os.MkdirAll(filepath.Join(stage, "bin"), 0755)
+	os.WriteFile(filepath.Join(stage, "bin", "real"), []byte("test"), 0755)
+	if err := cel.Install("real", "1.0.0", stage); err != nil {
+		t.Fatalf("Install: %v", err)
+	}
+
+	// Add a symlink inside the cellar directory pointing to an outside directory.
+	outside := t.TempDir()
+	os.MkdirAll(filepath.Join(outside, "1.0.0"), 0755) // looks like a keg
+	if err := os.Symlink(outside, filepath.Join(cellarDir, "evillink")); err != nil {
+		t.Fatalf("Symlink: %v", err)
+	}
+
+	packages, err := cel.List()
+	if err != nil {
+		t.Fatalf("List: %v", err)
+	}
+	for _, p := range packages {
+		if p.Name == "evillink" {
+			t.Errorf("List() included symlinked entry %q that escapes the cellar", p.Name)
+		}
+	}
+	// The real formula must still appear.
+	found := false
+	for _, p := range packages {
+		if p.Name == "real" {
+			found = true
+		}
+	}
+	if !found {
+		t.Error("List() did not include legitimate installed formula")
+	}
+}

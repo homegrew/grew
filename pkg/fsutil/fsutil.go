@@ -2,13 +2,15 @@ package fsutil
 
 import (
 	"fmt"
-	"github.com/homegrew/grew/pkg/safepath"
 	"io"
+	"io/fs"
 	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
 	"syscall"
+
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // Default permission modes used when an extracted entry has no explicit mode.
@@ -36,6 +38,8 @@ func Unlock(f *os.File) error {
 
 // CopyTree recursively copies a directory tree from src to dst.
 // Symlinks are preserved but validated to not escape the destination.
+// Source traversal uses os.OpenRoot so that symlinks inside src cannot
+// redirect the walk outside the source tree.
 func CopyTree(src, dst string) error {
 	absDst, err := filepath.Abs(dst)
 	if err != nil {
@@ -55,16 +59,28 @@ func CopyTree(src, dst string) error {
 		return fmt.Errorf("invalid source root %q: %w", absSrc, err)
 	}
 
-	return filepath.WalkDir(absSrc, func(path string, d os.DirEntry, err error) error {
+	srcRoot, err := os.OpenRoot(absSrc)
+	if err != nil {
+		return fmt.Errorf("open source root: %w", err)
+	}
+	defer srcRoot.Close()
+
+	return fs.WalkDir(srcRoot.FS(), ".", func(relPath string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
+		}
+		if relPath == "." {
+			if d.IsDir() {
+				info, err := d.Info()
+				if err != nil {
+					return err
+				}
+				return os.MkdirAll(absDst, SanitizeMode(info.Mode(), true))
+			}
+			return nil
 		}
 
-		rel, err := filepath.Rel(absSrc, path)
-		if err != nil {
-			return err
-		}
-		rel = filepath.Clean(rel)
+		rel := filepath.Clean(relPath)
 		target, err := safepath.SafeJoin(absDst, rel)
 		if err != nil {
 			return fmt.Errorf("refusing to copy outside destination root: %w", err)
@@ -72,51 +88,40 @@ func CopyTree(src, dst string) error {
 		if err := safepath.SafeAbsolutePath(target); err != nil {
 			return fmt.Errorf("invalid copy target %q: %w", target, err)
 		}
-
-		// Ensure that the computed target path stays within the destination root.
 		if !safepath.IsSubpath(absDst, target) {
 			return fmt.Errorf("refusing to copy outside destination root: %s", target)
 		}
 
 		if d.Type()&os.ModeSymlink != 0 {
-			link, err := os.Readlink(path)
+			// srcRoot.Readlink is root-scoped but returns the raw link value,
+			// same as os.Readlink.
+			link, err := srcRoot.Readlink(relPath)
 			if err != nil {
 				return err
 			}
-			// Validate the symlink won't escape the destination tree.
 			resolvedSource := link
 			if !filepath.IsAbs(resolvedSource) {
-				// Relative symlinks are resolved relative to the symlink's own directory.
-				resolvedSource = filepath.Join(filepath.Dir(path), link)
+				resolvedSource = filepath.Join(filepath.Join(absSrc, filepath.Dir(relPath)), link)
 			}
 			resolvedSource = filepath.Clean(resolvedSource)
 
-			// Map the resolved source path into the destination tree (if possible)
 			var resolvedDest string
 			if safepath.IsSubpath(absSrc, resolvedSource) {
 				relFromSrc, relErr := filepath.Rel(absSrc, resolvedSource)
 				if relErr != nil {
 					return relErr
 				}
-				relFromSrc = filepath.Clean(relFromSrc)
-				resolvedDest = filepath.Join(absDst, relFromSrc)
+				resolvedDest = filepath.Join(absDst, filepath.Clean(relFromSrc))
 			} else if filepath.IsAbs(resolvedSource) {
-				// Absolute symlinks are validated as-is against the destination root.
 				resolvedDest = resolvedSource
 			} else {
-				// Cannot sensibly map a non-absolute path outside the source root; skip it.
-				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target %q, resolved to %q, escapes source tree %q)", path, link, resolvedSource, absSrc))
+				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target %q escapes source tree %q)", relPath, link, absSrc))
 				return nil
 			}
 			resolvedDest = filepath.Clean(resolvedDest)
 
 			if !safepath.IsSubpath(absDst, resolvedDest) {
-				// Skip symlinks that escape — don't fail, just log and skip.
-				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target would resolve to %q, outside destination tree %q)", path, resolvedDest, absDst))
-				return nil
-			}
-			if rel == "." {
-				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q at destination root %q", path, absDst))
+				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target would resolve to %q, outside destination tree %q)", relPath, resolvedDest, absDst))
 				return nil
 			}
 			return os.Symlink(link, target)
@@ -133,7 +138,6 @@ func CopyTree(src, dst string) error {
 				return fmt.Errorf("refusing to create directory outside destination root: %w", subErr)
 			}
 			if err := os.MkdirAll(target, dirMode); err != nil {
-				// If the path already exists, ensure it's a directory and update permissions.
 				if os.IsExist(err) {
 					if subErr := safepath.CheckSubpath(absDst, target); subErr != nil {
 						return fmt.Errorf("refusing to stat outside destination root: %w", subErr)
@@ -156,8 +160,52 @@ func CopyTree(src, dst string) error {
 			return nil
 		}
 
-		return CopyFileWithinRoot(path, target, absDst, SanitizeMode(info.Mode(), false))
+		return copyFileFromRoot(srcRoot, relPath, target, absDst, SanitizeMode(info.Mode(), false))
 	})
+}
+
+// copyFileFromRoot copies a single file from a root-scoped source to dst,
+// using srcRoot.Open to close the TOCTOU window between the walk and the open.
+// Destination containment is enforced the same way as CopyFileWithinRoot.
+func copyFileFromRoot(srcRoot *os.Root, relSrc, dst, dstRoot string, mode os.FileMode) error {
+	absDst, err := filepath.Abs(dst)
+	if err != nil {
+		return fmt.Errorf("resolve destination: %w", err)
+	}
+	absDst = filepath.Clean(absDst)
+
+	if !safepath.IsSubpath(dstRoot, absDst) {
+		return fmt.Errorf("refusing to copy file outside destination root: %s", absDst)
+	}
+
+	if info, statErr := os.Lstat(absDst); statErr == nil {
+		if !info.Mode().IsRegular() {
+			return fmt.Errorf("destination %q is not a regular file", absDst)
+		}
+	} else if !os.IsNotExist(statErr) {
+		return statErr
+	}
+
+	in, err := srcRoot.Open(relSrc)
+	if err != nil {
+		return err
+	}
+	defer in.Close()
+
+	out, err := os.OpenFile(absDst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
+	if err != nil {
+		return err
+	}
+	var cerr error
+	defer func() {
+		if closeErr := out.Close(); closeErr != nil && cerr == nil {
+			cerr = closeErr
+		}
+	}()
+	if _, err := io.Copy(out, in); err != nil {
+		cerr = err
+	}
+	return cerr
 }
 
 // CopyFileWithinRoot copies a single file from src to dst, ensuring

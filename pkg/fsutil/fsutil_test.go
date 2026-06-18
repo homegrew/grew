@@ -361,3 +361,46 @@ func TestEntrySize(t *testing.T) {
 		t.Errorf("expected size 2, got %d", size2)
 	}
 }
+
+// TestCopyTree_SourceSymlinkDirBlocked verifies that CopyTree does not descend
+// into a directory symlink inside src that points outside the source tree.
+func TestCopyTree_SourceSymlinkDirBlocked(t *testing.T) {
+	t.Parallel()
+
+	base := t.TempDir()
+	src := filepath.Join(base, "src")
+	dst := filepath.Join(base, "dst")
+	outsideDir := filepath.Join(base, "outsidedir")
+
+	if err := os.MkdirAll(src, 0755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(outsideDir, 0755); err != nil {
+		t.Fatal(err)
+	}
+	// A legitimate file inside src.
+	if err := os.WriteFile(filepath.Join(src, "legit.txt"), []byte("hello"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	// A file in the outside directory that must NOT be copied.
+	if err := os.WriteFile(filepath.Join(outsideDir, "secret.txt"), []byte("secret"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	// Symlink from src/subdir pointing to the outside directory.
+	if err := os.Symlink(outsideDir, filepath.Join(src, "subdir")); err != nil {
+		t.Fatal(err)
+	}
+
+	if err := CopyTree(src, dst); err != nil {
+		t.Fatalf("CopyTree: %v", err)
+	}
+
+	// The legitimate file must be copied.
+	if _, err := os.Stat(filepath.Join(dst, "legit.txt")); err != nil {
+		t.Errorf("legit.txt not copied: %v", err)
+	}
+	// Files from the outside directory must NOT appear under dst.
+	if _, err := os.Stat(filepath.Join(dst, "subdir", "secret.txt")); err == nil {
+		t.Error("CopyTree descended into escaped directory symlink: secret.txt found in dst")
+	}
+}

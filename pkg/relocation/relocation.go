@@ -11,6 +11,7 @@ package relocation
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"io/fs"
 	"log/slog"
 	"os"
@@ -115,28 +116,34 @@ func detectKegVersion(kegPath string) string {
 	name := filepath.Base(filepath.Dir(kegPath))
 	installedVer := filepath.Base(kegPath)
 
+	kegRoot, err := os.OpenRoot(kegPath)
+	if err != nil {
+		return ""
+	}
+	defer kegRoot.Close()
+
 	var embedded string
-	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
+	fs.WalkDir(kegRoot.FS(), ".", func(relPath string, d fs.DirEntry, err error) error {
 		if err != nil || embedded != "" {
 			if embedded != "" {
-				slog.Debug(fmt.Sprintf("relocation: detected embedded keg version %q in %s, skipping further checks", embedded, filepath.Base(path)))
-				return filepath.SkipAll
+				slog.Debug(fmt.Sprintf("relocation: detected embedded keg version %q, skipping further checks", embedded))
+				return fs.SkipAll
 			}
 			return nil
 		}
-		if d.IsDir() || !d.Type().IsRegular() || !isBinary(path) {
-			slog.Debug(fmt.Sprintf("relocation: skipping non-binary file %s", filepath.Base(path)))
+		if relPath == "." || d.IsDir() || !d.Type().IsRegular() || !isBinaryRoot(kegRoot, relPath) {
 			return nil
 		}
-		paths, inspectErr := inspectBinary(path)
+		absPath := filepath.Join(kegPath, relPath)
+		paths, inspectErr := inspectBinary(absPath)
 		if inspectErr != nil {
-			slog.Debug(fmt.Sprintf("relocation: failed to inspect binary %s", filepath.Base(path)))
+			slog.Debug(fmt.Sprintf("relocation: failed to inspect binary %s", relPath))
 			return nil
 		}
 		if ver := embeddedKegVersion(paths, name, installedVer); ver != "" {
-			slog.Debug(fmt.Sprintf("relocation: detected embedded keg version %q (installed as %q) in %s", ver, installedVer, filepath.Base(path)))
+			slog.Debug(fmt.Sprintf("relocation: detected embedded keg version %q (installed as %q) in %s", ver, installedVer, relPath))
 			embedded = ver
-			return filepath.SkipAll
+			return fs.SkipAll
 		}
 		return nil
 	})
@@ -191,23 +198,26 @@ func RelocateKeg(kegPath, prefix string) error {
 		slog.Debug(fmt.Sprintf("relocation:   %s -> %s", old, new_))
 	}
 
+	kegRoot, err := os.OpenRoot(kegPath)
+	if err != nil {
+		return fmt.Errorf("open keg root: %w", err)
+	}
+	defer kegRoot.Close()
+
 	var relocated, failed int
-	err := filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, walkErr error) error {
+	err = fs.WalkDir(kegRoot.FS(), ".", func(relPath string, d fs.DirEntry, walkErr error) error {
 		if walkErr != nil {
 			slog.Debug(fmt.Sprintf("relocation: skipping inaccessible entry: %v", walkErr))
 			return nil
 		}
-		if d.IsDir() || !d.Type().IsRegular() {
-			return nil
-		}
-		if rel, relErr := filepath.Rel(kegPath, path); relErr != nil || strings.HasPrefix(rel, "..") {
+		if relPath == "." || d.IsDir() || !d.Type().IsRegular() {
 			return nil
 		}
 
-		if isBinary(path) {
-			relPath, _ := filepath.Rel(kegPath, path)
+		if isBinaryRoot(kegRoot, relPath) {
 			slog.Debug(fmt.Sprintf("relocation: processing binary %s", relPath))
-			if relErr := relocateBinary(path, replacements); relErr != nil {
+			absPath := filepath.Join(kegPath, relPath)
+			if relErr := relocateBinary(absPath, replacements); relErr != nil {
 				slog.Warn(fmt.Sprintf("relocation: %s: %v", relPath, relErr))
 
 				msg := strings.ToLower(relErr.Error())
@@ -271,21 +281,23 @@ func hasShebang(path string) bool {
 
 // relocateTextFiles performs string replacement on all whitelisted text files in a directory.
 func relocateTextFiles(kegPath string, replacements Replacements) error {
+	kegRoot, err := os.OpenRoot(kegPath)
+	if err != nil {
+		return fmt.Errorf("open keg root: %w", err)
+	}
+	defer kegRoot.Close()
+
 	var failed int
-	err := filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, walkErr error) error {
+	err = fs.WalkDir(kegRoot.FS(), ".", func(relPath string, d fs.DirEntry, walkErr error) error {
 		if walkErr != nil {
 			slog.Debug(fmt.Sprintf("relocation: skipping inaccessible entry: %v", walkErr))
 			return nil
 		}
-		if d.IsDir() || !d.Type().IsRegular() {
+		if relPath == "." || d.IsDir() || !d.Type().IsRegular() {
 			return nil
 		}
-		if isTextFile(path) {
-			if err := relocateSingleTextFile(path, replacements); err != nil {
-				relPath, _ := filepath.Rel(kegPath, path)
-				if relPath == "" {
-					relPath = path
-				}
+		if isTextFileRoot(kegRoot, relPath) {
+			if err := relocateSingleTextFileRoot(kegRoot, relPath, replacements); err != nil {
 				slog.Warn(fmt.Sprintf("relocation: text file %s: %v", relPath, err))
 				failed++
 			}
@@ -340,40 +352,47 @@ func relocateSingleTextFile(path string, replacements Replacements) error {
 // needsRelocation checks if any binary or text file in the keg contains paths that
 // need rewriting.
 func needsRelocation(kegPath string, replacements Replacements) bool {
+	kegRoot, err := os.OpenRoot(kegPath)
+	if err != nil {
+		return false
+	}
+	defer kegRoot.Close()
+
 	found := false
-	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
+	fs.WalkDir(kegRoot.FS(), ".", func(relPath string, d fs.DirEntry, err error) error {
 		if err != nil || found {
 			if found {
-				return filepath.SkipAll
+				return fs.SkipAll
 			}
 			return nil
 		}
-		if d.IsDir() || !d.Type().IsRegular() {
+		if relPath == "." || d.IsDir() || !d.Type().IsRegular() {
 			return nil
 		}
 
-		if isBinary(path) {
-			paths, inspectErr := inspectBinary(path)
+		if isBinaryRoot(kegRoot, relPath) {
+			absPath := filepath.Join(kegPath, relPath)
+			paths, inspectErr := inspectBinary(absPath)
 			if inspectErr != nil {
 				return nil
 			}
 			for _, p := range paths {
 				for old := range replacements {
 					if strings.Contains(p, old) {
-						slog.Debug(fmt.Sprintf("relocation: found %q in %s", old, filepath.Base(path)))
+						slog.Debug(fmt.Sprintf("relocation: found %q in %s", old, relPath))
 						found = true
-						return filepath.SkipAll
+						return fs.SkipAll
 					}
 				}
 			}
-		} else if isTextFile(path) {
-			content, readErr := os.ReadFile(path)
+		} else if isTextFileRoot(kegRoot, relPath) {
+			content, readErr := readFileRoot(kegRoot, relPath)
 			if readErr == nil {
 				for old := range replacements {
 					if bytes.Contains(content, []byte(old)) {
-						slog.Debug(fmt.Sprintf("relocation: found %q in text file %s", old, filepath.Base(path)))
+						slog.Debug(fmt.Sprintf("relocation: found %q in text file %s", old, relPath))
 						found = true
-						return filepath.SkipAll
+						return fs.SkipAll
 					}
 				}
 			}
@@ -389,18 +408,25 @@ func needsRelocation(kegPath string, replacements Replacements) bool {
 func detectForeignPrefix(kegPath, localPrefix string) string {
 	slog.Debug(fmt.Sprintf("relocation: detecting foreign prefix in %s", kegPath))
 
+	kegRoot, err := os.OpenRoot(kegPath)
+	if err != nil {
+		return ""
+	}
+	defer kegRoot.Close()
+
 	var foreign string
-	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
+	fs.WalkDir(kegRoot.FS(), ".", func(relPath string, d fs.DirEntry, err error) error {
 		if err != nil || foreign != "" {
 			if foreign != "" {
-				return filepath.SkipAll
+				return fs.SkipAll
 			}
 			return nil
 		}
-		if d.IsDir() || !d.Type().IsRegular() || !isBinary(path) {
+		if relPath == "." || d.IsDir() || !d.Type().IsRegular() || !isBinaryRoot(kegRoot, relPath) {
 			return nil
 		}
-		paths, inspectErr := inspectBinary(path)
+		absPath := filepath.Join(kegPath, relPath)
+		paths, inspectErr := inspectBinary(absPath)
 		if inspectErr != nil {
 			return nil
 		}
@@ -409,8 +435,8 @@ func detectForeignPrefix(kegPath, localPrefix string) string {
 			foreign = "" // same prefix, not foreign
 		}
 		if foreign != "" {
-			slog.Debug(fmt.Sprintf("relocation: detected foreign prefix %s from %s", foreign, filepath.Base(path)))
-			return filepath.SkipAll
+			slog.Debug(fmt.Sprintf("relocation: detected foreign prefix %s from %s", foreign, relPath))
+			return fs.SkipAll
 		}
 		return nil
 	})
@@ -460,17 +486,22 @@ func (i Issue) String() string {
 func VerifyKeg(kegPath, prefix string) []Issue {
 	slog.Debug(fmt.Sprintf("relocation: verifying keg %s", kegPath))
 
-	var issues []Issue
-	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
-		if err != nil || d.IsDir() || !d.Type().IsRegular() {
-			return nil
-		}
-		if !isBinary(path) {
-			return nil
-		}
+	kegRoot, err := os.OpenRoot(kegPath)
+	if err != nil {
+		return nil
+	}
+	defer kegRoot.Close()
 
-		relPath, _ := filepath.Rel(kegPath, path)
-		binIssues := verifyBinary(path, prefix)
+	var issues []Issue
+	fs.WalkDir(kegRoot.FS(), ".", func(relPath string, d fs.DirEntry, err error) error {
+		if err != nil || relPath == "." || d.IsDir() || !d.Type().IsRegular() {
+			return nil
+		}
+		if !isBinaryRoot(kegRoot, relPath) {
+			return nil
+		}
+		absPath := filepath.Join(kegPath, relPath)
+		binIssues := verifyBinary(absPath, prefix)
 		for _, bi := range binIssues {
 			bi.Binary = relPath
 			issues = append(issues, bi)
@@ -484,6 +515,136 @@ func VerifyKeg(kegPath, prefix string) []Issue {
 		slog.Debug(fmt.Sprintf("relocation: verification found %d issue(s)", len(issues)))
 	}
 	return issues
+}
+
+// isBinaryRoot checks magic bytes via a root-scoped open, preventing TOCTOU
+// symlink escape between the walk and the open.
+func isBinaryRoot(root *os.Root, relPath string) bool {
+	f, err := root.Open(relPath)
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+	var magic [8]byte
+	n, err := f.Read(magic[:])
+	if err != nil || n < 4 {
+		return false
+	}
+	switch {
+	case magic[0] == 0xCF && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
+		return true
+	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCF:
+		return true
+	case magic[0] == 0xCE && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
+		return true
+	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCE:
+		return true
+	case magic[0] == 0xCA && magic[1] == 0xFE && magic[2] == 0xBA && magic[3] == 0xBE:
+		if n < 8 {
+			return false
+		}
+		narchs := uint32(magic[4])<<24 | uint32(magic[5])<<16 | uint32(magic[6])<<8 | uint32(magic[7])
+		return narchs > 0 && narchs < 20
+	case magic[0] == 0xBE && magic[1] == 0xBA && magic[2] == 0xFE && magic[3] == 0xCA:
+		return true
+	}
+	return magic[0] == 0x7F && magic[1] == 'E' && magic[2] == 'L' && magic[3] == 'F'
+}
+
+// hasShebangRoot checks for a shebang (#!) via a root-scoped open.
+func hasShebangRoot(root *os.Root, relPath string) bool {
+	f, err := root.Open(relPath)
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+	var buf [2]byte
+	n, err := f.Read(buf[:])
+	return n == 2 && err == nil && buf[0] == '#' && buf[1] == '!'
+}
+
+// isTextFileRoot reports whether the file should be treated as a text file,
+// using root-scoped I/O for the shebang check.
+func isTextFileRoot(root *os.Root, relPath string) bool {
+	ext := filepath.Ext(relPath)
+	switch ext {
+	case ".el", ".elc", ".pc", ".cmake", ".json", ".sh", ".xml", ".cfg", ".conf", ".desktop", ".service", ".plist",
+		".py", ".rb", ".pl", ".pm", ".lua", ".tcl", ".r", ".R":
+		return true
+	}
+	return hasShebangRoot(root, relPath)
+}
+
+// readFileRoot reads all bytes from a root-scoped file.
+func readFileRoot(root *os.Root, relPath string) ([]byte, error) {
+	f, err := root.Open(relPath)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	return io.ReadAll(f)
+}
+
+// relocateSingleTextFileRoot relocates a single text file using root-scoped I/O,
+// closing the TOCTOU window between the read and write.
+func relocateSingleTextFileRoot(root *os.Root, relPath string, replacements Replacements) error {
+	content, err := readFileRoot(root, relPath)
+	if err != nil {
+		return err
+	}
+
+	modified := false
+	newContent := content
+	for _, old := range replacements.OrderedKeys() {
+		oldBytes := []byte(old)
+		if bytes.Contains(newContent, oldBytes) {
+			newContent = bytes.ReplaceAll(newContent, oldBytes, []byte(replacements[old]))
+			modified = true
+		}
+	}
+	if !modified {
+		return nil
+	}
+
+	rf, err := root.Open(relPath)
+	if err != nil {
+		return err
+	}
+	info, err := rf.Stat()
+	rf.Close()
+	if err != nil {
+		return err
+	}
+	originalMode := info.Mode()
+
+	if originalMode&0200 == 0 {
+		cf, err := root.Open(relPath)
+		if err != nil {
+			return fmt.Errorf("make writable: %w", err)
+		}
+		if err := cf.Chmod(originalMode | 0200); err != nil {
+			cf.Close()
+			return fmt.Errorf("make writable: %w", err)
+		}
+		cf.Close()
+		defer func() {
+			if f2, e := root.Open(relPath); e == nil {
+				_ = f2.Chmod(originalMode)
+				f2.Close()
+			}
+		}()
+	}
+
+	wf, err := root.OpenFile(relPath, os.O_WRONLY|os.O_TRUNC, originalMode)
+	if err != nil {
+		return err
+	}
+	_, werr := wf.Write(newContent)
+	cerr := wf.Close()
+	if werr != nil {
+		return werr
+	}
+	return cerr
 }
 
 // isBinary checks the file magic bytes to determine if path is a

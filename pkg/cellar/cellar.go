@@ -2,13 +2,15 @@ package cellar
 
 import (
 	"fmt"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"sort"
+
 	"github.com/homegrew/grew/pkg/fsutil"
 	"github.com/homegrew/grew/pkg/receipt"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
-	"os"
-	"path/filepath"
-	"sort"
 )
 
 type InstalledPackage struct {
@@ -182,11 +184,16 @@ func (c *Cellar) List() ([]InstalledPackage, error) {
 	if err != nil {
 		return nil, fmt.Errorf("resolve cellar: %w", err)
 	}
-	entries, err := os.ReadDir(absCellar)
+	cellarRoot, err := os.OpenRoot(absCellar)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, nil
 		}
+		return nil, fmt.Errorf("read cellar: %w", err)
+	}
+	defer cellarRoot.Close()
+	entries, err := fs.ReadDir(cellarRoot.FS(), ".")
+	if err != nil {
 		return nil, fmt.Errorf("read cellar: %w", err)
 	}
 
