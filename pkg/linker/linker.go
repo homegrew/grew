@@ -2,6 +2,7 @@ package linker
 
 import (
 	"fmt"
+	"io/fs"
 	"log/slog"
 	"os"
 	"path/filepath"
@@ -464,11 +465,16 @@ func isWithinRoot(root, candidate string) bool {
 // every constructed path inside the trusted prefix; cellarPath and formulaName
 // identify the owning keg for conflict resolution.
 func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, opts LinkOpts) error {
-	entries, err := os.ReadDir(srcDir)
+	srcRoot, err := os.OpenRoot(srcDir)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil
 		}
+		return fmt.Errorf("read %s: %w", srcDir, err)
+	}
+	defer srcRoot.Close()
+	entries, err := fs.ReadDir(srcRoot.FS(), ".")
+	if err != nil {
 		return fmt.Errorf("read %s: %w", srcDir, err)
 	}
 
@@ -699,7 +705,12 @@ func unsymDir(symlinkPath, root string) error {
 		return fmt.Errorf("refusing to read target dir outside root %s: %s", absRoot, safeTarget)
 	}
 
-	entries, err := os.ReadDir(safeTarget)
+	unsymRoot, err := os.OpenRoot(absRoot)
+	if err != nil {
+		return fmt.Errorf("open root %s: %w", absRoot, err)
+	}
+	defer unsymRoot.Close()
+	entries, err := fs.ReadDir(unsymRoot.FS(), rel)
 	if err != nil {
 		return fmt.Errorf("read target dir %s: %w", safeTarget, err)
 	}
