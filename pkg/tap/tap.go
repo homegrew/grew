@@ -3,6 +3,7 @@ package tap
 import (
 	"errors"
 	"fmt"
+	"io/fs"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -143,7 +144,12 @@ func (m *Manager) Update() (int, int, error) {
 		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", tapsBase, err)
 	}
 
-	users, err := os.ReadDir(tapsBase)
+	tapsRoot, err := os.OpenRoot(tapsBase)
+	if err != nil {
+		return 0, 0, fmt.Errorf("read taps directory: %w", err)
+	}
+	defer tapsRoot.Close()
+	users, err := fs.ReadDir(tapsRoot.FS(), ".")
 	if err != nil {
 		return 0, 0, fmt.Errorf("read taps directory: %w", err)
 	}
@@ -161,7 +167,7 @@ func (m *Manager) Update() (int, int, error) {
 		if err := safepath.CheckSubpath(tapsBase, userPath); err != nil {
 			continue
 		}
-		repos, err := os.ReadDir(userPath)
+		repos, err := fs.ReadDir(tapsRoot.FS(), user.Name())
 		if err != nil {
 			continue
 		}
@@ -330,11 +336,20 @@ func (m *Manager) Remove(name string) error {
 
 // List returns all installed taps in "user/repo" format.
 func (m *Manager) List() ([]string, error) {
-	users, err := os.ReadDir(m.TapsDir)
+	absTapsDir, err := filepath.Abs(m.TapsDir)
+	if err != nil {
+		return nil, fmt.Errorf("resolve taps dir: %w", err)
+	}
+	tapsRoot, err := os.OpenRoot(absTapsDir)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, nil
 		}
+		return nil, err
+	}
+	defer tapsRoot.Close()
+	users, err := fs.ReadDir(tapsRoot.FS(), ".")
+	if err != nil {
 		return nil, err
 	}
 
@@ -343,7 +358,7 @@ func (m *Manager) List() ([]string, error) {
 		if !user.IsDir() {
 			continue
 		}
-		repos, err := os.ReadDir(filepath.Join(m.TapsDir, user.Name()))
+		repos, err := fs.ReadDir(tapsRoot.FS(), user.Name())
 		if err != nil {
 			continue
 		}
@@ -351,11 +366,11 @@ func (m *Manager) List() ([]string, error) {
 			if !repo.IsDir() {
 				continue
 			}
-			repoPath, err := safepath.SafeJoin(m.TapsDir, user.Name(), repo.Name())
+			repoPath, err := safepath.SafeJoin(absTapsDir, user.Name(), repo.Name())
 			if err != nil {
 				continue
 			}
-			if err := safepath.CheckSubpath(m.TapsDir, repoPath); err != nil {
+			if err := safepath.CheckSubpath(absTapsDir, repoPath); err != nil {
 				continue
 			}
 			if _, err := os.Stat(filepath.Join(repoPath, ".git")); err == nil {

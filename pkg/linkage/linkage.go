@@ -577,7 +577,7 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 	}
 	defer rootHandle.Close()
 
-	entries, err := os.ReadDir(cellarRoot)
+	entries, err := fs.ReadDir(rootHandle.FS(), ".")
 	if err != nil {
 		return result, err
 	}
@@ -608,7 +608,7 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 		// Construct the absolute path for further operations
 		formulaDir := filepath.Join(cellarRoot, formulaName)
 
-		versions, err := os.ReadDir(formulaDir)
+		versions, err := fs.ReadDir(rootHandle.FS(), formulaName)
 		if err != nil {
 			continue
 		}
