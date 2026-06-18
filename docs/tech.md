@@ -63,7 +63,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 
 Several sections above reference dual-hash verification, sandboxing, and atomic replacement. Those behaviors are not re-implemented per call site — they live in a small set of shared packages that the rest of the codebase is expected to route through. Consolidating them here is deliberate: a single hardened implementation is easier to audit than the same logic copy-pasted across the installer, linker, and extractor.
 
-### Path safety (`pkg/safepath`)
+### Path safety (`pkg/safepath` + `os.OpenRoot`)
 
 Every filesystem operation that touches an externally-influenced path (archive entries, tap contents, asset names, cellar paths) is validated through `pkg/safepath` before the path reaches `os.Open`, `os.Rename`, or `filepath.Join`. This is the single layer responsible for path-traversal and Zip-Slip protection.
 
@@ -72,6 +72,8 @@ Every filesystem operation that touches an externally-influenced path (archive e
 - **`CleanPath(path)`**: rejects `..` traversal markers and returns the cleaned path.
 - **`SafePathComponent(name)`**: validates a single filename component — no separators, null bytes, or `..`.
 - **`SafeAbsolutePath(path)`**: requires the path to be absolute, clean, and not the filesystem root.
+
+String-level path checks close the *lexical* traversal window but cannot eliminate the TOCTOU race between a directory walk's `lstat` and the subsequent `open` — an adversary can swap a regular file for a symlink in that window. Keg directory walks in `pkg/linkage`, `pkg/relocation`, `pkg/fsutil`, and `pkg/cellar` therefore use `os.OpenRoot(kegPath)` (Go 1.23+) to open a root directory file descriptor and then walk via `fs.WalkDir(root.FS(), ".")`. All subsequent path operations (`root.Open`, `root.OpenFile`, `root.Readlink`) are routed through `openat(2)` against that fd, so symlinks inside a keg that point to paths outside it cannot be followed regardless of the timing of the walk — the containment is enforced at the OS level, not in userspace.
 
 ### Atomic writes (`pkg/fsutil`)
 

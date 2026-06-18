@@ -41,7 +41,7 @@
 | **Sandboxed extraction** | Grew sandboxes the archive extraction step too, not just builds |
 | **Post-install sandbox** | Keg is **read-only** during post-install — brew doesn't enforce this |
 | **SSRF host allowlist** | Hardcoded + `HOMEGREW_ALLOWED_HOSTS` — brew doesn't restrict download hosts |
-| **Zip Slip + symlink escape protection** | Multi-layer: textual check + `EvalSymlinks` + `withinDir()` — brew relies on system tar |
+| **Zip Slip + symlink escape protection** | Multi-layer: textual check + `EvalSymlinks` + `withinDir()` during archive extraction; keg directory walks additionally use `os.OpenRoot`/`openat(2)` to close the TOCTOU window between lstat and open — brew relies on system tar |
 | **Symlink conflict detection** | Ownership tracking + version-family guard to prevent member conflicts (e.g., `node@24` blocking when `node` is linked) — brew requires `--force` without validation |
 | **File mode sanitization** | Strips setuid/setgid/sticky/world-write bits on extraction |
 | **Audit logging** | Records every install, upgrade, self-update, and tap update action (including failures and skips) with hashes and methods |

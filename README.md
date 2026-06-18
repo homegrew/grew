@@ -31,7 +31,7 @@
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
 - 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, shell-free namespace setup with positional parameters, XML-safe plist generation
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
-- 🛡️ **Deep path-traversal hardening** — canonical path validation with symlink resolution across the installer, cask loader, context, and linker layers
+- 🛡️ **Deep path-traversal hardening** — canonical path validation with symlink resolution across the installer, cask loader, context, and linker layers; keg directory walks use `os.OpenRoot` + `openat(2)` to close the TOCTOU window between `lstat` and `open`, so symlinks inside a keg cannot redirect reads or rewrites to paths outside it
 - 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs via the `vuln-scan` command
 - 🛡️ **macOS Quarantine** — automatically applies `com.apple.quarantine` attributes to downloaded apps and binaries, ensuring Gatekeeper protection is active
 - 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d`/`-q` flags). Debug logs include source file and line number context.
@@ -367,7 +367,7 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Self-update health check** | Patched binaries are execution-tested in a sandbox before replacement | None |
 | **HTTPS enforcement** | At parse time — HTTP URLs rejected before download | At download time |
 | **Universal binary** | Single macOS universal binary works on ARM and Intel | Separate bottles per architecture |
-| **Path traversal protection** | Validated at cellar, linker, loader, and archive extraction layers | Partial |
+| **Path traversal protection** | Validated at cellar, linker, loader, and archive extraction layers; keg walks use `os.OpenRoot`/`openat(2)` to close the TOCTOU window between walk and open | Partial |
 | **Shell injection prevention** | Namespace setup uses positional parameters to eliminate injection risks; systemd `ExecStart` and launchd plist values properly escaped | N/A |
 | **Zip Slip protection** | Symlink indirection attacks blocked during tar/zip extraction | Partial |
 | **Command argument hardening** | `--` end-of-options separator on all external commands (`git`, `systemctl`, `launchctl`, `hdiutil`, `tar`, etc.) | Not consistently applied |
