@@ -19,8 +19,9 @@ func setupTestLinker(t *testing.T) (*Linker, config.Paths) {
 		Bin:     filepath.Join(tmpDir, "bin"),
 		Lib:     filepath.Join(tmpDir, "lib"),
 		Include: filepath.Join(tmpDir, "include"),
+		Share:   filepath.Join(tmpDir, "share"),
 	}
-	for _, d := range []string{paths.Cellar, paths.Opt, paths.Bin, paths.Lib, paths.Include} {
+	for _, d := range []string{paths.Cellar, paths.Opt, paths.Bin, paths.Lib, paths.Include, paths.Share} {
 		os.MkdirAll(d, 0755)
 	}
 	return &Linker{Paths: paths}, paths
@@ -68,6 +69,11 @@ func TestLink_KegOnly(t *testing.T) {
 	lnk, paths := setupTestLinker(t)
 	createTestKeg(t, paths.Cellar, "mypkg", "1.0.0")
 
+	// Create a share/terminfo directory in the keg to trigger the exception
+	terminfoDir := filepath.Join(paths.Cellar, "mypkg", "1.0.0", "share", "terminfo", "x")
+	os.MkdirAll(terminfoDir, 0755)
+	os.WriteFile(filepath.Join(terminfoDir, "xterm-256color"), []byte("data"), 0644)
+
 	if err := lnk.Link("mypkg", "1.0.0", true); err != nil {
 		t.Fatalf("link failed: %v", err)
 	}
@@ -80,6 +86,12 @@ func TestLink_KegOnly(t *testing.T) {
 	// bin symlink should NOT exist
 	if _, err := os.Readlink(filepath.Join(paths.Bin, "mypkg")); err == nil {
 		t.Fatal("bin symlink should NOT exist for keg-only")
+	}
+
+	// share/terminfo/x/xterm-256color symlink SHOULD exist
+	terminfoLink := filepath.Join(paths.Share, "terminfo", "x", "xterm-256color")
+	if _, err := os.Readlink(terminfoLink); err != nil {
+		t.Fatalf("share/terminfo symlink should exist for keg-only formulas: %v", err)
 	}
 }
 

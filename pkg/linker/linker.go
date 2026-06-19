@@ -80,6 +80,19 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 	}
 
 	if opts.KegOnly && !opts.Force {
+		// Exception: keg_only formulas that ship terminfo databases (like ncurses)
+		// must have their terminfo explicitly linked into the global share prefix,
+		// otherwise dependent tools (like nano) fail to initialize the terminal.
+		// This replicates Homebrew's post_install behavior natively in the linker.
+		terminfoSrc := filepath.Join(kegPath, "share", "terminfo")
+		if info, err := os.Stat(terminfoSrc); err == nil && info.IsDir() {
+			terminfoDest := filepath.Join(l.Paths.Share, "terminfo")
+			os.MkdirAll(terminfoDest, 0755)
+			if err := linkDirWithOpts(terminfoSrc, terminfoDest, l.Paths.Root, l.Paths.Cellar, name, opts); err != nil {
+				slog.Error("failed to link terminfo for keg_only formula", "src", terminfoSrc, "error", err)
+				return fmt.Errorf("link %s: %w", terminfoSrc, err)
+			}
+		}
 		return nil
 	}
 
