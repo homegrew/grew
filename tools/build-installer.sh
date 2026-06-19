@@ -2,10 +2,11 @@
 # Build the Homegrew macOS installer package and disk image.
 #
 # Usage:
-#   ./tools/build-installer.sh [--version <ver>] [--output-dir <dir>]
+#   ./tools/build-installer.sh --binary <path> [--version <ver>] [--output-dir <dir>]
 #
 # Options:
-#   --version     Version string embedded in the binary (default: git describe --tags --always)
+#   --binary      Path to the universal grew binary to package (required)
+#   --version     Version string for the pkg (default: git describe --tags --always)
 #   --output-dir  Directory where artifacts are written (default: dist/)
 #
 # Outputs:
@@ -17,12 +18,17 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 # Defaults
+BINARY_PATH=""
 VERSION=""
 OUTPUT_DIR="${REPO_ROOT}/dist"
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case "$1" in
+        --binary)
+            BINARY_PATH="$2"
+            shift 2
+            ;;
         --version)
             VERSION="$2"
             shift 2
@@ -38,48 +44,33 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+if [ -z "${BINARY_PATH}" ]; then
+    echo "error: --binary <path> is required" >&2
+    exit 1
+fi
+
+if [ ! -f "${BINARY_PATH}" ]; then
+    echo "error: binary not found: ${BINARY_PATH}" >&2
+    exit 1
+fi
+
 # Derive version from git if not provided
 if [ -z "$VERSION" ]; then
     VERSION=$(git -C "${REPO_ROOT}" describe --tags --always 2>/dev/null || echo "dev")
 fi
 
 echo "==> Building Homegrew installer version ${VERSION}"
+echo "==> Binary: ${BINARY_PATH}"
 echo "==> Output directory: ${OUTPUT_DIR}"
 
 mkdir -p "${OUTPUT_DIR}"
-
-# Build binaries for both architectures
-echo "==> Building grew (arm64)..."
-GOOS=darwin GOARCH=arm64 go build \
-    -C "${REPO_ROOT}" \
-    -trimpath \
-    -ldflags "-s -w -X main.Version=${VERSION}" \
-    -o "${OUTPUT_DIR}/grew_arm64" \
-    .
-
-echo "==> Building grew (amd64)..."
-GOOS=darwin GOARCH=amd64 go build \
-    -C "${REPO_ROOT}" \
-    -trimpath \
-    -ldflags "-s -w -X main.Version=${VERSION}" \
-    -o "${OUTPUT_DIR}/grew_amd64" \
-    .
-
-# Combine into a universal binary
-echo "==> Creating universal binary..."
-lipo -create \
-    -output "${OUTPUT_DIR}/grew_universal" \
-    "${OUTPUT_DIR}/grew_arm64" \
-    "${OUTPUT_DIR}/grew_amd64"
-
-rm -f "${OUTPUT_DIR}/grew_arm64" "${OUTPUT_DIR}/grew_amd64"
 
 # Stage the pkg payload: binary lands at /private/tmp/homegrew-setup/grew
 PAYLOAD_ROOT="${OUTPUT_DIR}/installer-root"
 BINARY_STAGING="${PAYLOAD_ROOT}/private/tmp/homegrew-setup"
 rm -rf "${PAYLOAD_ROOT}"
 mkdir -p "${BINARY_STAGING}"
-cp "${OUTPUT_DIR}/grew_universal" "${BINARY_STAGING}/grew"
+cp "${BINARY_PATH}" "${BINARY_STAGING}/grew"
 chmod 755 "${BINARY_STAGING}/grew"
 
 # Stage the pkg scripts directory
@@ -100,8 +91,8 @@ pkgbuild \
     --install-location / \
     "${PKG_PATH}"
 
-# Clean up staging directories and the universal binary
-rm -rf "${PAYLOAD_ROOT}" "${SCRIPTS_DIR}" "${OUTPUT_DIR}/grew_universal"
+# Clean up staging directories
+rm -rf "${PAYLOAD_ROOT}" "${SCRIPTS_DIR}"
 
 # Create the disk image
 DMG_STAGING="${OUTPUT_DIR}/dmg-staging"

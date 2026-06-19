@@ -23,7 +23,7 @@ The release page ships a `Homegrew.dmg` containing a `Homegrew Installer.pkg`. T
 The `tools/build-installer.sh` script in the repository builds both artifacts from the current source tree:
 
 ```bash
-./tools/build-installer.sh [--version <ver>] [--output-dir <dir>]
+./tools/build-installer.sh --binary <path/to/grew> [--version <ver>] [--output-dir <dir>]
 # Produces: dist/Homegrew Installer.pkg  and  dist/Homegrew.dmg
 ```
 

@@ -33,6 +33,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build Installer Package and DMG
+        run: |
+          tar xzf dist/grew_Darwin_all.tar.gz grew
+          chmod 755 grew
+          ./tools/build-installer.sh \
+            --binary "$(pwd)/grew" \
+            --version "${{ github.ref_name }}" \
+            --output-dir dist
+          rm -f grew
+
+      - name: Upload DMG to Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: dist/Homegrew.dmg
+
       - name: Install bsdiff
         run: brew install bsdiff
       - name: Generate Binary Patches
@@ -71,21 +86,3 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           files: dist-patches/*
-
-#      - name: Generate DMG
-#        id: dmg
-#        run: |
-#          which hdiutil
-#          mkdir -p dist-dmg
-#          for arch in arm64 x86_64; do
-#            mkdir "dist_$(arch)"
-#            tar xvf dist/grew_Darwin_$(arch).tar.gz
-#            $(go env GOPATH)/bin/mkdmg -v "Homegrew_$(arch).dmg" "grew_Darwin_$(arch)"/
-#          done
-#          echo "images_generated=true" >> $GITHUB_OUTPUT
-
-#      - name: Upload DMGs to Release
-#        if: steps.dmg.outputs.images_generated == 'true'
-#        uses: softprops/action-gh-release@v3
-#        with:
-#          files: dist-dmg/*
