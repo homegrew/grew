@@ -17,6 +17,18 @@ var formulaBuildOverrides = map[string]formula.BuildSpec{
 	// `cd "unix"` before configuring. Applies to every Tcl-versioned variant.
 	"tcl-tk":   {WorkingDir: "unix"},
 	"tcl-tk@8": {WorkingDir: "unix"},
+	// ncurses requires specific configure flags to build shared libraries (.dylib)
+	// and pkg-config files, which aren't enabled by the default source-build flow.
+	"ncurses": {
+		Configure: []string{
+			"./configure",
+			"--prefix={prefix}",
+			"--enable-pc-files",
+			"--with-shared",
+			"--with-cxx-shared",
+			"--enable-widec",
+		},
+	},
 }
 
 // applyFormulaOverrides merges any known build override into f. Fields already
