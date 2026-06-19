@@ -100,19 +100,21 @@ var platforms = []struct {
 	key   string
 	prefs []string
 }{
+	{"darwin_arm64_16", []string{"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "all"}},
 	{"darwin_arm64_15", []string{"arm64_sequoia", "arm64_sonoma", "arm64_ventura", "all"}},
 	{"darwin_arm64_14", []string{"arm64_sonoma", "arm64_ventura", "arm64_monterey", "all"}},
 	{"darwin_arm64_13", []string{"arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
 	{"darwin_arm64_12", []string{"arm64_monterey", "arm64_big_sur", "all"}},
 	{"darwin_arm64_11", []string{"arm64_big_sur", "all"}},
-	{"darwin_arm64", []string{"arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
+	{"darwin_arm64", []string{"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
+	{"darwin_amd64_16", []string{"tahoe", "sequoia", "sonoma", "ventura", "all"}},
 	{"darwin_amd64_15", []string{"sequoia", "sonoma", "ventura", "all"}},
 	{"darwin_amd64_14", []string{"sonoma", "ventura", "monterey", "all"}},
 	{"darwin_amd64_13", []string{"ventura", "monterey", "big_sur", "all"}},
 	{"darwin_amd64_12", []string{"monterey", "big_sur", "all"}},
 	{"darwin_amd64_11", []string{"big_sur", "all"}},
 	{"darwin_amd64_10", []string{"catalina", "mojave", "high_sierra", "sierra", "all"}},
-	{"darwin_amd64", []string{"sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all"}},
+	{"darwin_amd64", []string{"tahoe", "sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all"}},
 	{"linux_amd64", []string{"x86_64_linux", "all"}},
 	{"linux_arm64", []string{"arm64_linux", "all"}},
 }

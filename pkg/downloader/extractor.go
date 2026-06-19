@@ -224,13 +224,10 @@ func sanitizeSymlinkTarget(target string) string {
 	if clean == "" || clean == "." {
 		return ""
 	}
-	// Disallow any attempt to traverse upwards outside the extraction tree.
-	// This covers patterns like "..", "../foo", "foo/../bar", "foo/..", etc.
-	if clean == ".." ||
-		strings.HasPrefix(clean, dotDotWithSep) ||
-		strings.Contains(clean, sepWithDotDot) {
-		return ""
-	}
+	// We no longer blindly reject `..` traversals here because valid intra-keg
+	// symlinks (e.g. terminfo -> ../share/terminfo) often contain them.
+	// extractSymlink validates that the fully resolved symlink target remains
+	// inside the extraction root before any filesystem operations occur.
 	return clean
 }
 
@@ -328,7 +325,7 @@ func extractSymlink(realDest, target, linkname string) error {
 		return nil
 	}
 	cleanLink := filepath.Clean(linkname)
-	if filepath.IsAbs(cleanLink) || hasPathTraversal(cleanLink) {
+	if filepath.IsAbs(cleanLink) {
 		return nil
 	}
 
