@@ -344,12 +344,9 @@ func extractSymlink(realDest, target, linkname string) error {
 
 	// We use the parent directory of the symlink as the base for resolving its target.
 	// We don't EvalSymlinks(parentDir) here because parentDir itself might be a
-	// symlink that hasn't been fully resolved yet during extraction. Instead, we
-	// trust safeJoinArchivePath to handle the safety checks.
-	candidateTarget, ok := safeJoinArchivePath(parentDir, cleanLink)
-	if !ok {
-		return fmt.Errorf("couldn't resolve target symlink %s", target)
-	}
+	// symlink that hasn't been fully resolved yet during extraction. The subsequent
+	// CheckSubpath operations rigorously verify the target doesn't escape the root.
+	candidateTarget := filepath.Clean(filepath.Join(parentDir, cleanLink))
 
 	// Double-check safety of the candidate target.
 	if !safepath.IsSubpath(canonicalRealDest, candidateTarget) {
