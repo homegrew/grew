@@ -1,0 +1,58 @@
+#!/bin/bash
+set -euo pipefail
+
+ARCH=$(uname -m)
+if [ "$ARCH" = "arm64" ]; then
+    PREFIX="/opt/homegrew"
+else
+    PREFIX="/usr/local/homegrew"
+fi
+
+# The installer runs as root; determine the real logged-in user for ownership transfer.
+REAL_USER=$(stat -f '%Su' /dev/console 2>/dev/null || echo "${SUDO_USER:-$USER}")
+
+# Create the directory structure, mirroring pkg/config/paths.go InitDirs()
+# (External dirs — AppDir, Cache, FontDir — are omitted; they are user-scoped).
+mkdir -p \
+    "${PREFIX}/Cellar" \
+    "${PREFIX}/opt" \
+    "${PREFIX}/bin" \
+    "${PREFIX}/sbin" \
+    "${PREFIX}/lib" \
+    "${PREFIX}/include" \
+    "${PREFIX}/share" \
+    "${PREFIX}/Taps/homegrew/homegrew-taps/core" \
+    "${PREFIX}/Taps/homegrew/homegrew-taps/cask" \
+    "${PREFIX}/Caskroom" \
+    "${PREFIX}/var/homegrew/tmp" \
+    "${PREFIX}/var/homegrew/log" \
+    "${PREFIX}/var/homegrew/locks" \
+    "${PREFIX}/etc" \
+    "${PREFIX}/docs" \
+    "${PREFIX}/manpages" \
+    "${PREFIX}/Frameworks" \
+    "${PREFIX}/completions/bash" \
+    "${PREFIX}/completions/fish" \
+    "${PREFIX}/completions/zsh" \
+    "${PREFIX}/share/zsh/site-functions"
+
+# Remove unsupported share sub-dirs that Homebrew creates but grew does not use.
+rm -rf "${PREFIX}/share/man" "${PREFIX}/share/info"
+
+# Register the bin directory with macOS path_helper.
+echo "${PREFIX}/bin" > /etc/paths.d/homegrew
+
+# Move the binary from the temporary payload drop to its final location.
+install -m 0755 /private/tmp/homegrew-setup/grew "${PREFIX}/bin/grew"
+
+# Transfer ownership of the entire prefix to the real user (admin group).
+chown -R "${REAL_USER}:admin" "${PREFIX}"
+
+# Remove the temporary payload directory.
+rm -rf /private/tmp/homegrew-setup
+
+echo "grew installed to ${PREFIX}/bin/grew"
+echo "Add this to your shell profile:"
+echo "  eval \"\$(${PREFIX}/bin/grew shellenv)\""
+
+exit 0
