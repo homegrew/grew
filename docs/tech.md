@@ -4,13 +4,34 @@ This document explains some of the internal mechanics of `grew`, specifically fo
 
 ## 1. How `grew` installs itself
 
-Because `grew` manages dependencies and system environments, its initial installation needs to be deterministic and safe.
+Because `grew` manages dependencies and system environments, its initial installation needs to be deterministic and safe. There are two supported first-time installation paths.
 
-**The Installation Flow:**
+### Path A — Native macOS installer (`.pkg` / `.dmg`)
+
+The release page ships a `Homegrew.dmg` containing a `Homegrew Installer.pkg`. This is the recommended installation method for end users.
+
+1. **Payload delivery:** The package drops a universal `grew` binary at `/private/tmp/homegrew-setup/grew` via the standard Installer payload mechanism. The binary is built with `lipo` from separate `arm64` and `amd64` builds so a single artifact works on any Mac.
+2. **`postinstall` script:** After the payload lands, macOS Installer runs `tools/installer/postinstall` as root:
+   - Detects the host architecture via `uname -m` and selects the correct prefix (`/opt/homegrew` on Apple Silicon, `/usr/local/homegrew` on Intel).
+   - Creates the full prefix directory structure (same set as `pkg/config/paths.go InitDirs()`, minus user-scoped external dirs like `~/Applications` and `~/Library/Caches/Homegrew`).
+   - Moves the binary from the temporary payload drop to `<prefix>/bin/grew`.
+   - Writes `/etc/paths.d/homegrew` containing `<prefix>/bin`, so macOS `path_helper` adds grew to `PATH` for new login shells — no manual shell profile edit required for basic use.
+   - Transfers ownership of the entire prefix to the real logged-in user (obtained from `/dev/console`) with group `admin`, matching the behaviour of `setupSystem()` in `cmd/setup/setup.go`.
+   - Removes the temporary payload directory.
+3. **No `grew setup` needed:** The installer performs all the steps that `grew setup` would, so users can proceed directly to adding `eval "$(grew shellenv)"` to their profile for full env var export (`HOMEGREW_PREFIX`, `MANPATH`, etc.).
+
+The `tools/build-installer.sh` script in the repository builds both artifacts from the current source tree:
+
+```bash
+./tools/build-installer.sh [--version <ver>] [--output-dir <dir>]
+# Produces: dist/Homegrew Installer.pkg  and  dist/Homegrew.dmg
+```
+
+### Path B — Universal binary + `grew setup`
 
 1. **Download the Binary:** The user downloads the appropriate pre-compiled binary for their platform (e.g., `grew_Darwin_arm64.tar.gz`) from the [GitHub Releases](https://github.com/homegrew/grew/releases/latest) page and extracts it.
-2. **System Setup:** The user runs the extracted binary using `./grew setup`. The `setup` command initializes the system prefix (`/opt/homegrew` on Apple Silicon, `/usr/local/homegrew` on Intel), prompting for elevated privileges if needed to create the directory and transfer ownership to the current user.
-3. **Binary Installation:** By default, `setup` downloads the latest official `grew` binary release and installs it into `<prefix>/bin/grew`. This ensures that all standard installations benefit from pre-built, signed, and verified binaries. Users can opt-in to a source-based installation (using `git clone` and `go build`) by passing the `--unsafe` flag.
+2. **System Setup:** The user runs the extracted binary using `./grew setup`. The `setup` command initializes the system prefix, prompting for elevated privileges if needed to create the directory and transfer ownership to the current user.
+3. **Binary Installation:** By default, `setup` downloads the latest official `grew` binary release and installs it into `<prefix>/bin/grew`. Users can opt-in to a source-based installation (using `git clone` and `go build`) by passing the `--unsafe` flag.
 4. **Permissions:** After creating the prefix and moving the binary, `setup` transfers ownership of the directory structure to the current user (if started via `sudo`, it uses the `SUDO_USER` environment variable). All subsequent `grew` commands run without root privileges.
 
 ## 2. How the update process works

@@ -44,7 +44,11 @@
 
 ### Get Grew
 
-Download the latest release from the [Releases](https://github.com/homegrew/grew/releases/latest) page. Grew ships as a single macOS universal binary that works on both Apple Silicon and Intel:
+Download the latest release from the [Releases](https://github.com/homegrew/grew/releases/latest) page.
+
+**Option A — macOS Installer (recommended):** Download `Homegrew.dmg`, open it, and double-click `Homegrew Installer.pkg`. The package detects your architecture, creates the correct prefix (`/opt/homegrew` on Apple Silicon, `/usr/local/homegrew` on Intel), installs the `grew` binary, and writes `/etc/paths.d/homegrew` so the prefix is on your PATH after the next login shell. No `grew setup` or manual configuration needed — skip straight to [Wire up your shell](#wire-up-your-shell).
+
+**Option B — Universal binary:** Grew also ships as a single macOS universal binary that works on both Apple Silicon and Intel:
 
 ```bash
 tar -xzf grew_Darwin_all.tar.gz
@@ -63,6 +67,8 @@ make build          # or: go generate ./pkg/... && go build -o grew
 
 ### Set up the prefix
 
+> If you installed via the `.pkg` / `.dmg`, this step is already done — the installer handles it.
+
 grew needs a home — a directory tree for the Cellar, symlinks, taps, and config. The `setup` command creates it and copies the binary into place:
 
 ```bash
@@ -73,7 +79,7 @@ The system prefix isolates sandboxed builds from `$HOME`, preventing them from r
 
 ### Wire up your shell
 
-Add this to your shell profile so grew-installed binaries and libraries are available:
+The `.pkg` installer writes `/etc/paths.d/homegrew`, so `grew` is already on your `PATH` in new login shells. To also export `HOMEGREW_PREFIX`, `MANPATH`, and other env vars, add the shellenv hook to your profile:
 
 ```bash
 # bash (~/.bashrc) or zsh (~/.zshrc)
@@ -125,7 +131,13 @@ for c in $(grew list --cask | awk '{print $1}'); do grew uninstall --cask $c; do
     rm -rf ~/.homegrew
     ```
 
-**3. Clean up your shell profile:**
+**3. Remove the PATH helper entry (if installed via `.pkg`):**
+
+```bash
+sudo rm -f /etc/paths.d/homegrew
+```
+
+**4. Clean up your shell profile:**
 
 Open your shell configuration file (e.g., `~/.zshrc`, `~/.bashrc`, or `~/.config/fish/config.fish`) and remove the line that initializes `grew`:
 
@@ -344,7 +356,7 @@ grew/
 │   └── testhelper/   ← shared test utilities
 ├── root.go           ← Root CLI command definition (Grew)
 ├── main.go           ← CLI entry point
-└── tools/            ← genrepo (converter), patcher (delta patch generator)
+└── tools/            ← genrepo (converter), patcher (delta patch generator), build-installer.sh (pkg/DMG builder)
 ```
 
 ---
