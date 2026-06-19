@@ -184,33 +184,6 @@ func InstallFormula(f *formula.Formula, ctx *grewctx.InstallContext, opts Instal
 	})
 }
 
-func canonicalSubpath(base, target string) (string, error) {
-	canonBase := filepath.Clean(base)
-	if eval, err := filepath.EvalSymlinks(canonBase); err == nil {
-		canonBase = filepath.Clean(eval)
-	}
-	if abs, err := filepath.Abs(canonBase); err == nil {
-		canonBase = filepath.Clean(abs)
-	}
-	if err := safepath.SafeAbsolutePath(canonBase); err != nil {
-		return "", fmt.Errorf("invalid base path %q: %w", canonBase, err)
-	}
-
-	canonTarget := filepath.Clean(target)
-	if eval, err := filepath.EvalSymlinks(canonTarget); err == nil {
-		canonTarget = filepath.Clean(eval)
-	}
-	if abs, err := filepath.Abs(canonTarget); err == nil {
-		canonTarget = filepath.Clean(abs)
-	}
-	if err := safepath.SafeAbsolutePath(canonTarget); err != nil {
-		return "", fmt.Errorf("invalid target path %q: %w", canonTarget, err)
-	}
-	if err := safepath.CheckSubpath(canonBase, canonTarget); err != nil {
-		return "", err
-	}
-	return canonTarget, nil
-}
 
 func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, opts InstallOpts) (err error) {
 	paths := ctx.Paths
@@ -254,24 +227,19 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, o
 		return fmt.Errorf("download source %s: %w", f.Name, err)
 	}
 
-	safeLocalFile, err := canonicalSubpath(paths.Tmp, localFile)
-	if err != nil {
-		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
+	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
+		if err2 := safepath.CheckSubpath(paths.Cache, localFile); err2 != nil {
+			return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
+		}
 	}
+	safeLocalFile := localFile
 	safeLocalName := filepath.Base(safeLocalFile)
 	if err := safepath.SafePathComponent(safeLocalName); err != nil {
 		return fmt.Errorf("invalid downloaded file name %q: %w", safeLocalName, err)
 	}
-	safeLocalFile, err = safepath.SafeJoin(paths.Tmp, safeLocalName)
-	if err != nil {
-		return fmt.Errorf("invalid downloaded file path %q: %w", localFile, err)
-	}
 
 	if err := VerifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
-		if subErr := safepath.CheckSubpath(paths.Tmp, safeLocalFile); subErr != nil {
-			return fmt.Errorf("refusing to remove file outside temp directory %q: %w", safeLocalFile, subErr)
-		}
-		os.Remove(safeLocalFile)
+		_ = fsutil.RemoveIfWithinAllowed(paths.Tmp, paths.Cache, safeLocalFile)
 		return err
 	}
 
