@@ -9,7 +9,6 @@ import (
 
 	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/pkg/runtime"
 	"github.com/homegrew/grew/pkg/tap"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"
@@ -47,10 +46,7 @@ func isWithinBase(base, target string) bool {
 	if rel == "." {
 		return true
 	}
-	if rel == ".." {
-		return false
-	}
-	return rel != "" && rel != ".." && !strings.HasPrefix(rel, ".."+string(os.PathSeparator))
+	return !strings.HasPrefix(rel, ".."+string(os.PathSeparator))
 }
 
 func isExactCanonicalChild(rootCanonical, targetCanonical string, elems ...string) bool {
@@ -104,40 +100,6 @@ Examples:
 
 		if err := paths.Init(); err != nil {
 			return err
-		}
-
-		// Remove unsupported share directories if they exist from a prior run.
-		// Use only the system prefix as trusted base to avoid user-controlled path influence.
-		if trustedSystemRoot, trustedSystemErr := canonicalPath(runtime.SystemPrefix()); trustedSystemErr == nil {
-			if rootCanonical, err := canonicalPath(paths.Root); err == nil && rootCanonical == trustedSystemRoot {
-				sharePath := filepath.Join(trustedSystemRoot, "share")
-				manPath := filepath.Join(sharePath, "man")
-				infoPath := filepath.Join(sharePath, "info")
-
-				shareCanonical, shareErr := canonicalPath(sharePath)
-				manCanonical, manErr := canonicalPath(manPath)
-				infoCanonical, infoErr := canonicalPath(infoPath)
-
-				if shareErr == nil &&
-					manErr == nil && infoErr == nil &&
-					shareCanonical != trustedSystemRoot &&
-					isWithinBase(trustedSystemRoot, shareCanonical) &&
-					isWithinBase(trustedSystemRoot, manCanonical) &&
-					isWithinBase(trustedSystemRoot, infoCanonical) {
-					trustedShareCanonical, trustedShareErr := canonicalPath(filepath.Join(trustedSystemRoot, "share"))
-					trustedManCanonical, trustedManErr := canonicalPath(filepath.Join(trustedSystemRoot, "share", "man"))
-					trustedInfoCanonical, trustedInfoErr := canonicalPath(filepath.Join(trustedSystemRoot, "share", "info"))
-					if trustedShareErr == nil && trustedManErr == nil && trustedInfoErr == nil &&
-						trustedShareCanonical != trustedSystemRoot &&
-						isExactCanonicalChild(trustedSystemRoot, trustedShareCanonical, "share") &&
-						isExactCanonicalChild(trustedSystemRoot, trustedManCanonical, "share", "man") &&
-						isExactCanonicalChild(trustedSystemRoot, trustedInfoCanonical, "share", "info") {
-						_ = os.RemoveAll(trustedManCanonical)
-						_ = os.RemoveAll(trustedInfoCanonical)
-						_ = os.Remove(trustedShareCanonical) // only removes if empty
-					}
-				}
-			}
 		}
 
 		tapMgr := &tap.Manager{TapsDir: paths.Taps}

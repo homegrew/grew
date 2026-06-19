@@ -671,7 +671,7 @@ Grew's test suite spans unit tests, integration tests, smoke tests, and end-to-e
 - `Cellar/`: Houses installed formulas, organized by `<name>/<version>`.
 - `Caskroom/`: Houses installed casks.
 - `Taps/`: Holds cloned git repositories containing formula/cask definitions.
-- `bin/`, `sbin/`, `lib/`, `include/`: Standard shared directories where active formulas are symlinked.
+- `bin/`, `sbin/`, `lib/`, `include/`, `share/`: Standard shared directories where active formulas are symlinked.
 - `opt/`: Used for symlinks to active formula versions.
 - `var/`: Contains variable state like `tmp/` (staging), `log/` (audit logs), and `locks/` (mutex files).
 - `etc/`: Configuration and trusted keys.
@@ -682,5 +682,5 @@ Grew's test suite spans unit tests, integration tests, smoke tests, and end-to-e
   - `completions/bash/`: Completion scripts for bash.
   - `completions/fish/`: Completion scripts for fish.
   - `completions/zsh/`: Completion scripts for zsh.
-- `share/`: Used for shared data and other assets.
+- `share/`: Shared data linked from installed kegs — `share/man/` (manual pages, organized by section under `man1/`, `man5/`, etc.), `share/info/` (GNU info documents), shell completion scripts, and other per-formula assets. Subdirectories are materialized as real directories so multiple formulas can contribute entries side by side.
 

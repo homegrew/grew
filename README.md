@@ -265,6 +265,7 @@ Everything else flows from the prefix:
 ├── bin/           ← symlinked binaries
 ├── lib/           ← symlinked libraries
 ├── include/       ← symlinked headers
+├── share/         ← symlinked share content (man pages, info docs, completions, …)
 ├── opt/           ← per-formula keg symlinks
 ├── etc/           ← trusted-keys (Ed25519 public keys, one per line)
 ├── tmp/           ← ephemeral stuff

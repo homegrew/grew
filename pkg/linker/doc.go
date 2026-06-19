@@ -5,10 +5,12 @@
 // and libraries usable, [Linker] populates the shared prefix directories —
 // bin/, lib/, include/, and share/ — with symlinks pointing back into the keg,
 // plus a per-formula opt/<name> link that pins a stable path to the active
-// version. [Linker.Link] performs this for a keg, and [Linker.Unlink] removes
-// exactly the links that resolve into a given formula's cellar subtree, leaving
-// other formulas' links untouched. [Linker.IsLinked] reports whether a formula
-// currently owns its opt link.
+// version. Within share/, all subdirectories are linked including share/man/
+// (manual pages, per section) and share/info/ (GNU info documents). [Linker.Link]
+// performs this for a keg, and [Linker.Unlink] removes exactly the links that
+// resolve into a given formula's cellar subtree, leaving other formulas' links
+// untouched. [Linker.IsLinked] reports whether a formula currently owns its opt
+// link.
 //
 // # Conflicts and ownership
 //

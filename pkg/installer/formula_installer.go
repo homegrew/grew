@@ -485,10 +485,6 @@ func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts final
 		}
 	}
 
-	_ = os.RemoveAll(filepath.Join(opts.kegPath, "share", "info"))
-	_ = os.RemoveAll(filepath.Join(opts.kegPath, "share", "man"))
-	_ = os.Remove(filepath.Join(opts.kegPath, "share"))
-
 	manifest, _ := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
 	_ = snapshot.Save(manifest, opts.kegPath)
 

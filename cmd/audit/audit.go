@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log/slog"
 	"net/url"
-	"os"
 	"strings"
 
 	"github.com/homegrew/grew/pkg/cask"
@@ -317,18 +316,6 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 	if !snapshot.Exists(kegPath) {
 		slog.Debug(fmt.Sprintf("keg path does not exist for %s: %s", f.Name, kegPath))
 		return
-	}
-
-	// check for officially unsupported share/man and share/info
-	for _, sub := range []string{"man", "info"} {
-		p, err := safepath.SafeJoin(kegPath, "share", sub)
-		if err != nil {
-			slog.Debug(fmt.Sprintf("failed to join path for %s: %v", f.Name, err))
-			continue
-		}
-		if info, err := os.Stat(p); err == nil && info.IsDir() {
-			r.warnf("keg contains unsupported share/%s directory (it will be pruned in newer grew versions)", sub)
-		}
 	}
 
 	result, err := snapshot.Verify(kegPath)

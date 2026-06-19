@@ -108,11 +108,11 @@ install:
 	if _, err := os.Stat(filepath.Join(prefix, "share", "pkgconfig", "foo.pc")); os.IsNotExist(err) {
 		t.Errorf("expected share/pkgconfig/foo.pc to be linked")
 	}
-	if _, err := os.Stat(filepath.Join(prefix, "share", "man", "man1", "foo.1")); err == nil {
-		t.Errorf("expected share/man/man1/foo.1 NOT to be linked (should ignore man)")
+	if _, err := os.Stat(filepath.Join(prefix, "share", "man", "man1", "foo.1")); os.IsNotExist(err) {
+		t.Errorf("expected share/man/man1/foo.1 to be linked")
 	}
-	if _, err := os.Stat(filepath.Join(prefix, "share", "info", "foo.info")); err == nil {
-		t.Errorf("expected share/info/foo.info NOT to be linked (should ignore info)")
+	if _, err := os.Stat(filepath.Join(prefix, "share", "info", "foo.info")); os.IsNotExist(err) {
+		t.Errorf("expected share/info/foo.info to be linked")
 	}
 
 	// Uninstall
@@ -131,6 +131,12 @@ install:
 	}
 	if _, err := os.Stat(filepath.Join(prefix, "share", "pkgconfig")); err == nil {
 		t.Errorf("expected empty dir share/pkgconfig to be removed")
+	}
+	if _, err := os.Stat(filepath.Join(prefix, "share", "man", "man1", "foo.1")); err == nil {
+		t.Errorf("expected share/man/man1/foo.1 to be removed after uninstall")
+	}
+	if _, err := os.Stat(filepath.Join(prefix, "share", "info", "foo.info")); err == nil {
+		t.Errorf("expected share/info/foo.info to be removed after uninstall")
 	}
 }
 

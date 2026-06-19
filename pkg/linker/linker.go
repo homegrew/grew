@@ -50,6 +50,7 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 		return fmt.Errorf("invalid formula name or version")
 	}
 
+	slog.Debug("linking keg", "name", name, "version", version, "keg_only", opts.KegOnly)
 	kegPath := filepath.Join(l.Paths.Cellar, name, version)
 
 	// Verify keg exists and resolves within the cellar.
@@ -75,6 +76,7 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 			slog.Error("failed to create opt link", "link", optLink, "target", kegPath, "error", err)
 			return fmt.Errorf("create opt link: %w", err)
 		}
+		slog.Debug("created opt link", "link", optLink, "target", kegPath)
 	}
 
 	if opts.KegOnly && !opts.Force {
@@ -134,6 +136,7 @@ func (l *Linker) UnlinkWithOpts(name string, opts UnlinkOpts) error {
 		return fmt.Errorf("invalid formula name: %q", name)
 	}
 
+	slog.Debug("unlinking keg", "name", name)
 	optLink := filepath.Join(l.Paths.Opt, name)
 	if opts.DryRun {
 		if target, err := os.Readlink(optLink); err == nil {
@@ -141,6 +144,7 @@ func (l *Linker) UnlinkWithOpts(name string, opts UnlinkOpts) error {
 		}
 	} else {
 		os.Remove(optLink)
+		slog.Debug("removed opt link", "link", optLink)
 	}
 
 	cellarPrefix := filepath.Join(l.Paths.Cellar, name) + string(filepath.Separator)
@@ -193,6 +197,7 @@ func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 				fmt.Printf("Would unlink: %s -> %s\n", fullPath, resolved)
 			} else {
 				os.Remove(fullPath)
+				slog.Debug("removed link", "path", fullPath)
 			}
 		}
 	}
@@ -522,13 +527,6 @@ func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, 
 			return fmt.Errorf("refusing to operate outside root %s: %s", destRoot, destPath)
 		}
 
-		// grew does not install info files or manpages
-		if strings.HasSuffix(srcDir, "/share") || strings.HasSuffix(srcDir, "/share/") {
-			if e.Name() == "info" || e.Name() == "man" {
-				continue
-			}
-		}
-
 		// Source is a directory (e.g. lib/pkgconfig). These are shared
 		// directories where multiple formulas contribute files. Instead
 		// of symlinking the directory, ensure a real directory exists at
@@ -544,6 +542,7 @@ func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, 
 					// Destination is a symlink to a directory (from another
 					// formula). Replace it with a real directory and migrate
 					// the contents so both formulas' files coexist.
+					slog.Debug("expanding shared dir symlink", "path", destPath)
 					if !opts.DryRun {
 						if err := unsymDir(destPath, filepath.Dir(cellarPath)); err != nil {
 							return fmt.Errorf("expand shared dir %s: %w", destPath, err)
@@ -564,6 +563,7 @@ func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, 
 				if err := os.MkdirAll(destPath, 0755); err != nil {
 					return fmt.Errorf("create shared dir %s: %w", destPath, err)
 				}
+				slog.Debug("materialized shared dir", "path", destPath)
 			}
 			if err := linkDirWithOpts(srcPath, destPath, destRoot, cellarPath, formulaName, opts); err != nil {
 				return err
@@ -607,6 +607,7 @@ func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, 
 			if err := os.Symlink(srcPath, destPath); err != nil {
 				return fmt.Errorf("symlink %s -> %s: %w", destPath, srcPath, err)
 			}
+			slog.Debug("linked", "dest", destPath, "src", srcPath)
 		}
 	}
 	return nil
