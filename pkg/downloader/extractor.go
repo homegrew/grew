@@ -363,10 +363,6 @@ func extractSymlink(realDest, target, linkname string) error {
 	}
 
 	// If the target exists, ensure it doesn't resolve outside the root.
-	// Re-check containment at sink to ensure the filesystem access path remains bounded.
-	if err := safepath.CheckSubpath(canonicalRealDest, resolvedCandidateTarget); err != nil {
-		return nil
-	}
 	if fi, err := os.Lstat(resolvedCandidateTarget); err == nil && fi != nil {
 		if resolvedCandidate, err := filepath.EvalSymlinks(resolvedCandidateTarget); err == nil {
 			if !safepath.IsSubpath(canonicalRealDest, resolvedCandidate) {
