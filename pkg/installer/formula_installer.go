@@ -466,7 +466,9 @@ func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts final
 		RuntimeDependencies: f.Dependencies,
 		InstalledOnRequest:  opts.meta.InstalledOnRequest,
 	}
-	_ = receipt.Save(r, opts.kegPath)
+	if err := receipt.Save(r, opts.kegPath); err != nil {
+		return fmt.Errorf("save receipt for %s: %w", f.Name, err)
+	}
 
 	if opts.cleanup != nil {
 		opts.cleanup()
