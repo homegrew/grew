@@ -449,7 +449,7 @@ func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts final
 
 	if !opts.meta.BuiltFromSource {
 		if issues := relocation.VerifyKeg(opts.kegPath, ctx.Paths.Root); len(issues) > 0 {
-			return fmt.Errorf("linkage verification failed for %s", f.Name)
+			return fmt.Errorf("linkage verification failed for %s: %v", f.Name, issues)
 		}
 	}
 
