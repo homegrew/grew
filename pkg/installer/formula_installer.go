@@ -449,12 +449,16 @@ func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts final
 
 	if !opts.meta.BuiltFromSource {
 		if issues := relocation.VerifyKeg(opts.kegPath, ctx.Paths.Root); len(issues) > 0 {
-			return fmt.Errorf("linkage verification failed for %s", f.Name)
+			return fmt.Errorf("linkage verification failed for %s: %v", f.Name, issues)
 		}
 	}
 
-	manifest, _ := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
-	_ = snapshot.Save(manifest, opts.kegPath)
+	manifest, err := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
+	if err != nil {
+		slog.Warn("snapshot capture failed", "formula", f.Name, "version", f.Version, "error", err)
+	} else if err := snapshot.Save(manifest, opts.kegPath); err != nil {
+		slog.Warn("snapshot save failed", "formula", f.Name, "version", f.Version, "error", err)
+	}
 
 	r := &receipt.Receipt{
 		Name:                f.Name,
@@ -466,7 +470,9 @@ func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts final
 		RuntimeDependencies: f.Dependencies,
 		InstalledOnRequest:  opts.meta.InstalledOnRequest,
 	}
-	_ = receipt.Save(r, opts.kegPath)
+	if err := receipt.Save(r, opts.kegPath); err != nil {
+		return fmt.Errorf("save receipt for %s: %w", f.Name, err)
+	}
 
 	if opts.cleanup != nil {
 		opts.cleanup()
