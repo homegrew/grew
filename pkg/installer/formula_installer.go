@@ -453,8 +453,12 @@ func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts final
 		}
 	}
 
-	manifest, _ := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
-	_ = snapshot.Save(manifest, opts.kegPath)
+	manifest, err := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
+	if err != nil {
+		slog.Warn("snapshot capture failed", "formula", f.Name, "version", f.Version, "error", err)
+	} else if err := snapshot.Save(manifest, opts.kegPath); err != nil {
+		slog.Warn("snapshot save failed", "formula", f.Name, "version", f.Version, "error", err)
+	}
 
 	r := &receipt.Receipt{
 		Name:                f.Name,
