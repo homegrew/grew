@@ -432,7 +432,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Best-README-Template](https://github.com/othneildrew/Best-README-Template) — the scaffold beneath the scaffold
 - Everyone who ever squinted at a wall of package manager output and thought *"there has to be a better way"*
 
-[go-badge]: https://img.shields.io/badge/go-1.26-00ADD8?style=for-the-badge&logo=go&logoColor=white
+[go-badge]: https://img.shields.io/badge/go-1.27-00ADD8?style=for-the-badge&logo=go&logoColor=white
 [go-url]: https://go.dev
 [pkg-badge]: https://pkg.go.dev/badge/github.com/homegrew/grew.svg
 [pkg-url]: https://pkg.go.dev/github.com/homegrew/grew
