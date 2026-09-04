@@ -4,11 +4,9 @@ go 1.27
 
 toolchain go1.27.0
 
-require gopkg.in/yaml.v3 v3.0.1
-
 require (
-	al.essio.dev/pkg/shellescape v1.6.0
 	github.com/spf13/cobra v1.10.2
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
